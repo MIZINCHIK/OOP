@@ -1,4 +1,4 @@
-package ru.nsu.mizinchik;
+package io.github.mizinchik;
 
 import java.util.Scanner;
 
