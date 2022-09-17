@@ -63,25 +63,4 @@ public class HeapSort {
             siftDown(arr, 0, end);
         }
     }
-
-    public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
-        String sequenceIn = scanner.next();
-        String sequenceNew = sequenceIn.substring(1, sequenceIn.length() - 1);
-        //get strings with sought ints in tokens
-        String[] tokens = sequenceNew.split(",");
-        int arrayLength = tokens.length;
-        int[] arrayIn = new int[arrayLength];
-        //creating an 'int' array from tokens
-        for (int i = 0; i < arrayLength; i++){
-            arrayIn[i] = Integer.parseInt(tokens[i]);
-        }
-        heapSort(arrayIn);
-        //printing in a valid format
-        System.out.print("{" + arrayIn[0]);
-        for (int i = 1; i < arrayLength; i++){
-            System.out.print("," + arrayIn[i]);
-        }
-        System.out.print("}");
-    }
 }
