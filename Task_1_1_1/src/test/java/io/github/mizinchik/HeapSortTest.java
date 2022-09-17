@@ -10,6 +10,7 @@ import org.junit.jupiter.api.Test;
 /**
  * The ultimate heapsort-testing class.
  * Provides all the tests needed to submit the lab.
+ *
  * @author MIZINCHIK
  */
 public class HeapSortTest {
