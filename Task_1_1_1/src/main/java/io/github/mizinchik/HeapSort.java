@@ -21,13 +21,13 @@ public class HeapSort {
      * Swaps elements in an array.
      *
      * @param arr array in whic the swap performs
-     * @param first_elem first element's index
-     * @param second_elem second element's index
+     * @param firstElem first element's index
+     * @param secondElem second element's index
      */
     //swaps elements in an 'int' array
     private static void swap(int[] arr, int firstElem, int secondElem) {
         int temp = arr[secondElem];
-        arr[secondElem] = arr[firstEelem];
+        arr[secondElem] = arr[firstElem];
         arr[firstElem] = temp;
     }
 
