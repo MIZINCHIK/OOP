@@ -131,6 +131,18 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <hr>
 <pre>public class <span class="typeNameLabel">HeapSort</span>
 extends java.lang.Object</pre>
+<div class="block">The ultimate heapsort class.
+ <p>
+  This class holds a heapsort, comparison-based sorting algorithm.
+ </p>
+ <p>
+  Heapsort sorts an array of integers using methods heapify and siftDown.
+  heapify turns an array into a binary heap, while siftDown repairs the tree
+  from a specific position in a heap-array.
+ </p>
+ <p>
+  The swap method plays a very minor role of swapping elements of an integer array.
+ </p></div>
 </li>
 </ul>
 </div>
@@ -175,7 +187,11 @@ extends java.lang.Object</pre>
 <tr id="i0" class="altColor">
 <td class="colFirst"><code>static void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#heapSort(int%5B%5D)">heapSort</a></span>&#8203;(int[]&nbsp;arr)</code></th>
-<td class="colLast">&nbsp;</td>
+<td class="colLast">
+<div class="block">Sorts an array by swapping the last element with the root, then
+ sifting the heap down, then decreasing range while having root in it
+ and repeating the process until the root is the last man standing.</div>
+</td>
 </tr>
 </table>
 <ul class="blockList">
@@ -227,6 +243,13 @@ extends java.lang.Object</pre>
 <li class="blockList">
 <h4>heapSort</h4>
 <pre class="methodSignature">public static&nbsp;void&nbsp;heapSort&#8203;(int[]&nbsp;arr)</pre>
+<div class="block">Sorts an array by swapping the last element with the root, then
+ sifting the heap down, then decreasing range while having root in it
+ and repeating the process until the root is the last man standing.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>arr</code> - an array to sort</dd>
+</dl>
 </li>
 </ul>
 </li>
