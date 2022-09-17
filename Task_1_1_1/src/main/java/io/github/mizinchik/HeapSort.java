@@ -1,9 +1,29 @@
 package io.github.mizinchik;
 
-import java.util.Scanner;
-
+/**
+ * The ultimate heapsort class.
+ * <p>
+ *  This class holds a heapsort, comparison-based sorting algorithm.
+ * </p>
+ * <p>
+ *  Heapsort sorts an array of integers using methods heapify and siftDown.
+ *  heapify turns an array into a binary heap, while siftDown repairs the tree
+ *  from a specific position in a heap-array.
+ * </p>
+ * <p>
+ *  The swap method plays a very minor role of swapping elements of an integer array.
+ * </p>
+ * @author MIZINCHIK
+ */
 public class HeapSort {
 
+    /**
+     * Swaps elements in an array.
+     *
+     * @param arr array in whic the swap performs
+     * @param first_elem first element's index
+     * @param second_elem second element's index
+     */
     //swaps elements in an 'int' array
     private static void swap(int[] arr, int first_elem, int second_elem){
         int temp = arr[second_elem];
@@ -11,8 +31,14 @@ public class HeapSort {
         arr[first_elem] = temp;
     }
 
-    //repair tree from start position
-    //assuming all the subtrees are ok
+    /**
+     * Repairs a tree from a starting point to the last element of a heap.
+     * We assume that every subtree of the tree lower than the start are valid.
+     *
+     * @param arr array to fix
+     * @param start starting position of sifting
+     * @param end last element in an array
+     */
     private static void siftDown(int[] arr, int start, int end){
         int leftChildInd = start * 2;
         int rightChildInd = leftChildInd + 1;
@@ -41,6 +67,11 @@ public class HeapSort {
         }
     }
 
+    /**
+     * Transforms an array into a proper binary heap via siftDown's.
+     *
+     * @param arr an array to heapify
+     */
     //creates a correct heap order in an 'int' array
     private static void heapify(int[] arr){
         int end = arr.length - 1;
@@ -52,6 +83,13 @@ public class HeapSort {
         }
     }
 
+    /**
+     * Sorts an array by swapping the last element with the root, then
+     * sifting the heap down, then decreasing range while having root in it
+     * and repeating the process until the root is the last man standing.
+     *
+     * @param arr an array to sort
+     */
     //sorts an 'int' array
     public static void heapSort(int[] arr){
         heapify(arr);
