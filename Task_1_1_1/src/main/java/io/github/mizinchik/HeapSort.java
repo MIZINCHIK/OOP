@@ -13,6 +13,7 @@ package io.github.mizinchik;
  * <p>
  *  The swap method plays a very minor role of swapping elements of an integer array.
  * </p>
+ *
  * @author MIZINCHIK
  */
 public class HeapSort {
@@ -54,8 +55,7 @@ public class HeapSort {
             //alright here and overall assuming subtrees are ok
             if (swap == start) {
                 return;
-            }
-            else {
+            } else {
                 //if the largest isn't in the root we swap so that it would be,
                 //and then we continue with the swapped index to bring peace
                 //to its subtree
