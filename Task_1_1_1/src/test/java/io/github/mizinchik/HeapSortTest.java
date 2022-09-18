@@ -25,7 +25,7 @@ public class HeapSortTest {
         int [] array = new int [] {};
         HeapSort.heapSort(array);
         assertArrayEquals(referenceArray, array,
-            "Sorting an empty array went wrong");
+                "Sorting an empty array went wrong");
     }
 
     /**
@@ -38,7 +38,7 @@ public class HeapSortTest {
         int [] array = new int [] {5, 3, 2, 4, 1};
         HeapSort.heapSort(array);
         assertArrayEquals(referenceArray, array,
-            "Sorting a small random array went wrong");
+                "Sorting a small random array went wrong");
     }
 
     /**
@@ -51,7 +51,7 @@ public class HeapSortTest {
         int [] array = new int [] {1, 2, 3, 4, 5};
         HeapSort.heapSort(array);
         assertArrayEquals(referenceArray, array,
-            "Sorting a sorted array went wrong");
+                "Sorting a sorted array went wrong");
     }
 
     /**
@@ -64,7 +64,7 @@ public class HeapSortTest {
         int [] array = new int [] {5, 4, 3, 2, 1};
         HeapSort.heapSort(array);
         assertArrayEquals(referenceArray, array,
-            "Sorting a reversed array went wrong");
+                "Sorting a reversed array went wrong");
     }
 
     /**
