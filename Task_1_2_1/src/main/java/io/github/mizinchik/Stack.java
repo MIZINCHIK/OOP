@@ -2,12 +2,24 @@ package io.github.mizinchik;
 
 import java.lang.reflect.Array;
 
+/**
+ * @param <T> Stack general class implements all the basic methods
+ *           needed for working with the stack data structure and more.
+ *           Not only you can push and pop the Objects of any java classes,
+ *           but you can pass and get an appropriate Stack itself.
+ * @author MIZINCHIK
+ */
 public class Stack<T> implements StackInterface<T> {
     private Class<T> clazz;
     private int lastElementIndex;
     private int stackSize;
     private T[] stackContainer;
 
+    /**
+     * @param clazz
+     * Constructs a Stack object from the name of a class
+     * it uses.
+     */
     @SuppressWarnings("unchecked")
     public Stack(Class<T> clazz) {
         this.clazz = clazz;
@@ -16,20 +28,20 @@ public class Stack<T> implements StackInterface<T> {
         this.stackContainer = (T[]) Array.newInstance(this.clazz, this.stackSize);
     }
 
-    private void enoughSpaceToPop(int toPop) throws IllegalStateException{
-        if (this.lastElementIndex + 1 - toPop < 0){
+    private void enoughSpaceToPop(int toPop) throws IllegalStateException {
+        if (this.lastElementIndex + 1 - toPop < 0) {
             throw new IllegalStateException("Not enough elements in stack\n");
         }
     }
 
-    private void pushNotNullSingle(T elementToPush) throws NullPointerException{
-        if (elementToPush == null){
+    private void pushNotNullSingle(T elementToPush) throws NullPointerException {
+        if (elementToPush == null) {
             throw new NullPointerException("Pushing null\n");
         }
     }
 
-    private void pushNotNullStack(Stack<T> stackToPush) throws NullPointerException{
-        if (stackToPush == null){
+    private void pushNotNullStack(Stack<T> stackToPush) throws NullPointerException {
+        if (stackToPush == null) {
             throw new NullPointerException("Pushing null\n");
         }
     }
@@ -45,7 +57,7 @@ public class Stack<T> implements StackInterface<T> {
     @Override
     public void push(T elementToPush) {
         pushNotNullSingle(elementToPush);
-        if (this.stackSize == this.lastElementIndex + 1){
+        if (this.stackSize == this.lastElementIndex + 1) {
             extendContainer(this.stackSize * 3 / 2);
         }
         this.stackContainer[++this.lastElementIndex] = elementToPush;
@@ -65,7 +77,7 @@ public class Stack<T> implements StackInterface<T> {
     }
 
     @Override
-    public T pop(){
+    public T pop() {
         enoughSpaceToPop(1);
         return this.stackContainer[this.lastElementIndex--];
     }
@@ -87,7 +99,7 @@ public class Stack<T> implements StackInterface<T> {
     }
 
     @Override
-    public int count(){
+    public int count() {
         return this.lastElementIndex + 1;
     }
 
