@@ -1,13 +1,12 @@
 package io.github.mizinchik;
 
 /**
- *
  * StackInterface describes a bunch of basic methods
  * for a work with the stack data structure.
  * The Stack class implementing these methods works with
  * general classes.
  *
- * @param <T>
+ * @param <T> is a general Class Stack works with
  * @author MIZINCHIK
  */
 public interface StackInterface<T> {
@@ -19,7 +18,7 @@ public interface StackInterface<T> {
      * when needed.
      * Checks whether the passed element is null.
      *
-     * @param elementToPush
+     * @param elementToPush is an element to put in the Stack
      */
     public void push(T elementToPush);
 
@@ -30,7 +29,7 @@ public interface StackInterface<T> {
      * when needed.
      * Checks whether the passed array is null.
      *
-     * @param stackToPush
+     * @param stackToPush is a Stack to put into the Stack
      */
     public void pushStack(Stack<T> stackToPush);
 
@@ -38,7 +37,7 @@ public interface StackInterface<T> {
      * Returns the last added to the stack element.
      * Checks if there are no elements left.
      *
-     * @return
+     * @return return an Object of the appropriate class
      */
     public T pop();
 
@@ -49,8 +48,8 @@ public interface StackInterface<T> {
      * Checks if there are not enough
      * elements in the calling one.
      *
-     * @param soughtSize
-     * @return
+     * @param soughtSize is a size of a Stack to extract
+     * @return returns a Stack of Objects of the appropriate class
      */
     public Stack<T> popStack(int soughtSize);
 
@@ -58,7 +57,8 @@ public interface StackInterface<T> {
      * Returns the number of elements
      * currently placed in the Stack.
      *
-     * @return
+     * @return return an int number representing
+     * the number of elements in the Stack
      */
     public int count();
 }
