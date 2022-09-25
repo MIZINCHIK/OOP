@@ -9,7 +9,7 @@ public class Stack<T> implements StackInterface<T> {
     private T[] stackContainer;
 
     @SuppressWarnings("unchecked")
-    public Stack(Class<T> clazz){
+    public Stack(Class<T> clazz) {
         this.clazz = clazz;
         this.stackSize = 10;
         this.lastElementIndex = -1;
@@ -35,7 +35,7 @@ public class Stack<T> implements StackInterface<T> {
     }
 
     @SuppressWarnings("unchecked")
-    private void extendContainer(int goalSpace){
+    private void extendContainer(int goalSpace) {
         T[] newContainer = (T[]) Array.newInstance(this.clazz, goalSpace);
         System.arraycopy(this.stackContainer, 0, newContainer, 0, this.stackSize);
         this.stackContainer = newContainer;
@@ -43,7 +43,7 @@ public class Stack<T> implements StackInterface<T> {
     }
 
     @Override
-    public void push(T elementToPush){
+    public void push(T elementToPush) {
         pushNotNullSingle(elementToPush);
         if (this.stackSize == this.lastElementIndex + 1){
             extendContainer(this.stackSize * 3 / 2);
@@ -52,7 +52,7 @@ public class Stack<T> implements StackInterface<T> {
     }
 
     @Override
-    public void pushStack(Stack<T> stackToPush){
+    public void pushStack(Stack<T> stackToPush) {
         pushNotNullStack(stackToPush);
         int freeStackSpace = this.stackSize - this.lastElementIndex - 1;
         int stackToPushSize = stackToPush.lastElementIndex + 1;
@@ -60,7 +60,7 @@ public class Stack<T> implements StackInterface<T> {
             extendContainer((this.stackSize - freeStackSpace + stackToPushSize) * 3 / 2);
         }
         System.arraycopy(stackToPush.stackContainer, 0, this.stackContainer,
-                this.lastElementIndex + 1,stackToPushSize);
+                this.lastElementIndex + 1, stackToPushSize);
         this.lastElementIndex += stackToPushSize;
     }
 
@@ -72,7 +72,7 @@ public class Stack<T> implements StackInterface<T> {
 
     @Override
     @SuppressWarnings("unchecked")
-    public Stack<T> popStack(int soughtSize){
+    public Stack<T> popStack(int soughtSize) {
         enoughSpaceToPop(soughtSize);
         Stack<T> newStack = new Stack<T>(this.clazz);
         T[] newContainer = (T[]) Array.newInstance(this.clazz, soughtSize * 3 / 2);
