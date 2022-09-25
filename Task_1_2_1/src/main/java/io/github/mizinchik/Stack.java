@@ -16,19 +16,19 @@ public class Stack<T> implements StackInterface<T> {
         this.stackContainer = (T[]) Array.newInstance(this.clazz, this.stackSize);
     }
 
-    private void enoughSpaceToPop(int toPop) throws Exception{
+    private void enoughSpaceToPop(int toPop) throws IllegalStateException{
         if (this.lastElementIndex + 1 - toPop < 0){
             throw new IllegalStateException("Not enough elements in stack\n");
         }
     }
 
-    private void pushNotNullSingle(T elementToPush) throws Exception{
+    private void pushNotNullSingle(T elementToPush) throws NullPointerException{
         if (elementToPush == null){
             throw new NullPointerException("Pushing null\n");
         }
     }
 
-    private void pushNotNullStack(Stack<T> stackToPush) throws Exception{
+    private void pushNotNullStack(Stack<T> stackToPush) throws NullPointerException{
         if (stackToPush == null){
             throw new NullPointerException("Pushing null\n");
         }
@@ -44,12 +44,7 @@ public class Stack<T> implements StackInterface<T> {
 
     @Override
     public void push(T elementToPush){
-        try{
-            pushNotNullSingle(elementToPush);
-        }
-        catch(Throwable exception){
-            exception.printStackTrace();
-        }
+        pushNotNullSingle(elementToPush);
         if (this.stackSize == this.lastElementIndex + 1){
             extendContainer(this.stackSize * 3 / 2);
         }
@@ -58,12 +53,7 @@ public class Stack<T> implements StackInterface<T> {
 
     @Override
     public void pushStack(Stack<T> stackToPush){
-        try{
-            pushNotNullStack(stackToPush);
-        }
-        catch(Throwable exception){
-            exception.printStackTrace();
-        }
+        pushNotNullStack(stackToPush);
         int freeStackSpace = this.stackSize - this.lastElementIndex - 1;
         int stackToPushSize = stackToPush.lastElementIndex + 1;
         if (freeStackSpace < stackToPushSize){
@@ -76,24 +66,14 @@ public class Stack<T> implements StackInterface<T> {
 
     @Override
     public T pop(){
-        try{
-            enoughSpaceToPop(1);
-        }
-        catch(Throwable exception){
-            exception.printStackTrace();
-        }
+        enoughSpaceToPop(1);
         return this.stackContainer[this.lastElementIndex--];
     }
 
     @Override
     @SuppressWarnings("unchecked")
     public Stack<T> popStack(int soughtSize){
-        try{
-            enoughSpaceToPop(soughtSize);
-        }
-        catch(Throwable exception){
-            exception.printStackTrace();
-        }
+        enoughSpaceToPop(soughtSize);
         Stack<T> newStack = new Stack<T>(this.clazz);
         T[] newContainer = (T[]) Array.newInstance(this.clazz, soughtSize * 3 / 2);
         System.arraycopy(this.stackContainer, this.lastElementIndex - soughtSize + 1,
