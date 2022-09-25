@@ -121,6 +121,13 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <ul class="blockList">
 <li class="blockList">
 <dl>
+<dt><span class="paramLabel">Type Parameters:</span></dt>
+<dd><code>T</code> - StackInterface describes a bunch of basic methods
+           for a work with the stack data structure.
+           The Stack class implementing these methods works with
+           general classes.</dd>
+</dl>
+<dl>
 <dt>All Known Implementing Classes:</dt>
 <dd><code><a href="Stack.html" title="class in io.github.mizinchik">Stack</a></code></dd>
 </dl>
@@ -197,6 +204,14 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <li class="blockList">
 <h4>push</h4>
 <pre class="methodSignature">void&nbsp;push&#8203;(<a href="StackInterface.html" title="type parameter in StackInterface">T</a>&nbsp;elementToPush)</pre>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>elementToPush</code> - Pushes a parameter of the general type
+ to the stack.
+ Automatically reallocates the memory
+ when needed.
+ Checks whether the passed element is null.</dd>
+</dl>
 </li>
 </ul>
 <a id="pushStack(io.github.mizinchik.Stack)">
@@ -206,6 +221,14 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <li class="blockList">
 <h4>pushStack</h4>
 <pre class="methodSignature">void&nbsp;pushStack&#8203;(<a href="Stack.html" title="class in io.github.mizinchik">Stack</a>&lt;<a href="StackInterface.html" title="type parameter in StackInterface">T</a>&gt;&nbsp;stackToPush)</pre>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>stackToPush</code> - Pushes a parameter of the general array type
+ to the stack.
+ Automatically reallocates the memory
+ when needed.
+ Checks whether the passed array is null.</dd>
+</dl>
 </li>
 </ul>
 <a id="pop()">
@@ -214,11 +237,11 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <ul class="blockList">
 <li class="blockList">
 <h4>pop</h4>
-<pre class="methodSignature"><a href="StackInterface.html" title="type parameter in StackInterface">T</a>&nbsp;pop()
-throws java.lang.Exception</pre>
+<pre class="methodSignature"><a href="StackInterface.html" title="type parameter in StackInterface">T</a>&nbsp;pop()</pre>
 <dl>
-<dt><span class="throwsLabel">Throws:</span></dt>
-<dd><code>java.lang.Exception</code></dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>Returns the last added to the stack element.
+ Checks if there are no elements left.</dd>
 </dl>
 </li>
 </ul>
@@ -229,6 +252,16 @@ throws java.lang.Exception</pre>
 <li class="blockList">
 <h4>popStack</h4>
 <pre class="methodSignature"><a href="Stack.html" title="class in io.github.mizinchik">Stack</a>&lt;<a href="StackInterface.html" title="type parameter in StackInterface">T</a>&gt;&nbsp;popStack&#8203;(int&nbsp;soughtSize)</pre>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>soughtSize</code> - </dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>Returns the Stack size of
+ soughtSize from the top of
+ the calling Stack.
+ Checks if there are not enough
+ elements in the calling one.</dd>
+</dl>
 </li>
 </ul>
 <a id="count()">
@@ -238,6 +271,11 @@ throws java.lang.Exception</pre>
 <li class="blockList">
 <h4>count</h4>
 <pre class="methodSignature">int&nbsp;count()</pre>
+<dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>Returns the number of elements
+ currently placed in the Stack.</dd>
+</dl>
 </li>
 </ul>
 </li>
