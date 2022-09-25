@@ -3,10 +3,12 @@ package io.github.mizinchik;
 import java.lang.reflect.Array;
 
 /**
- * @param <T> Stack general class implements all the basic methods
- *           needed for working with the stack data structure and more.
- *           Not only you can push and pop the Objects of any java classes,
- *           but you can pass and get an appropriate Stack itself.
+ *  Stack general class implements all the basic methods
+ *  needed for working with the stack data structure and more.
+ *  Not only you can push and pop the Objects of any java classes,
+ *  but you can pass and get an appropriate Stack itself.
+ *
+ * @param <T> is a general Class Stack works with
  * @author MIZINCHIK
  */
 public class Stack<T> implements StackInterface<T> {
@@ -16,9 +18,10 @@ public class Stack<T> implements StackInterface<T> {
     private T[] stackContainer;
 
     /**
-     * @param clazz
      * Constructs a Stack object from the name of a class
      * it uses.
+     *
+     * @param clazz is the name of a Class Stack works with
      */
     @SuppressWarnings("unchecked")
     public Stack(Class<T> clazz) {
@@ -68,7 +71,7 @@ public class Stack<T> implements StackInterface<T> {
         pushNotNullStack(stackToPush);
         int freeStackSpace = this.stackSize - this.lastElementIndex - 1;
         int stackToPushSize = stackToPush.lastElementIndex + 1;
-        if (freeStackSpace < stackToPushSize){
+        if (freeStackSpace < stackToPushSize) {
             extendContainer((this.stackSize - freeStackSpace + stackToPushSize) * 3 / 2);
         }
         System.arraycopy(stackToPush.stackContainer, 0, this.stackContainer,
