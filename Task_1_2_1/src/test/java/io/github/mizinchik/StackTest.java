@@ -30,7 +30,7 @@ public class StackTest {
         assertEquals(1, intStack.count());
         intStack.push(7);
         assertEquals(2, intStack.count());
-        Stack<Integer> intStackSecondary = new Stack(intObj);
+        Stack<Integer> intStackSecondary = new Stack<Integer>(intObj);
         intStackSecondary.push(4);
         assertEquals(1, intStackSecondary.count());
         intStackSecondary.push(8);
