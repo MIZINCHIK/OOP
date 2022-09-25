@@ -37,7 +37,7 @@ public interface StackInterface<T> {
      * Returns the last added to the stack element.
      * Checks if there are no elements left.
      *
-     * @return return an Object of the appropriate class
+     * @return an Object of the appropriate class
      */
     public T pop();
 
@@ -49,7 +49,7 @@ public interface StackInterface<T> {
      * elements in the calling one.
      *
      * @param soughtSize is a size of a Stack to extract
-     * @return returns a Stack of Objects of the appropriate class
+     * @return a Stack of Objects of the appropriate class
      */
     public Stack<T> popStack(int soughtSize);
 
@@ -57,8 +57,7 @@ public interface StackInterface<T> {
      * Returns the number of elements
      * currently placed in the Stack.
      *
-     * @return return an int number representing
-     * the number of elements in the Stack
+     * @return the int number of elements in the Stack
      */
     public int count();
 }
