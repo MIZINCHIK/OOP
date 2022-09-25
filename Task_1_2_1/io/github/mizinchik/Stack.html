@@ -290,6 +290,8 @@ implements <a href="StackInterface.html" title="interface in io.github.mizinchik
 <dl>
 <dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
 <dd><code><a href="StackInterface.html#push(T)">push</a></code>&nbsp;in interface&nbsp;<code><a href="StackInterface.html" title="interface in io.github.mizinchik">StackInterface</a>&lt;<a href="Stack.html" title="type parameter in Stack">T</a>&gt;</code></dd>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>elementToPush</code> - is an element to put in the Stack</dd>
 </dl>
 </li>
 </ul>
@@ -309,6 +311,8 @@ implements <a href="StackInterface.html" title="interface in io.github.mizinchik
 <dl>
 <dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
 <dd><code><a href="StackInterface.html#pushStack(io.github.mizinchik.Stack)">pushStack</a></code>&nbsp;in interface&nbsp;<code><a href="StackInterface.html" title="interface in io.github.mizinchik">StackInterface</a>&lt;<a href="Stack.html" title="type parameter in Stack">T</a>&gt;</code></dd>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>stackToPush</code> - is a Stack to put into the Stack</dd>
 </dl>
 </li>
 </ul>
@@ -326,6 +330,7 @@ implements <a href="StackInterface.html" title="interface in io.github.mizinchik
 <dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
 <dd><code><a href="StackInterface.html#pop()">pop</a></code>&nbsp;in interface&nbsp;<code><a href="StackInterface.html" title="interface in io.github.mizinchik">StackInterface</a>&lt;<a href="Stack.html" title="type parameter in Stack">T</a>&gt;</code></dd>
 <dt><span class="returnLabel">Returns:</span></dt>
+<dd>return an Object of the appropriate class</dd>
 </dl>
 </li>
 </ul>
@@ -345,7 +350,10 @@ implements <a href="StackInterface.html" title="interface in io.github.mizinchik
 <dl>
 <dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
 <dd><code><a href="StackInterface.html#popStack(int)">popStack</a></code>&nbsp;in interface&nbsp;<code><a href="StackInterface.html" title="interface in io.github.mizinchik">StackInterface</a>&lt;<a href="Stack.html" title="type parameter in Stack">T</a>&gt;</code></dd>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>soughtSize</code> - is a size of a Stack to extract</dd>
 <dt><span class="returnLabel">Returns:</span></dt>
+<dd>returns a Stack of Objects of the appropriate class</dd>
 </dl>
 </li>
 </ul>
@@ -363,6 +371,8 @@ implements <a href="StackInterface.html" title="interface in io.github.mizinchik
 <dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
 <dd><code><a href="StackInterface.html#count()">count</a></code>&nbsp;in interface&nbsp;<code><a href="StackInterface.html" title="interface in io.github.mizinchik">StackInterface</a>&lt;<a href="Stack.html" title="type parameter in Stack">T</a>&gt;</code></dd>
 <dt><span class="returnLabel">Returns:</span></dt>
+<dd>return an int number representing
+ the number of elements in the Stack</dd>
 </dl>
 </li>
 </ul>
