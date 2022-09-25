@@ -130,10 +130,7 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <li class="blockList">
 <dl>
 <dt><span class="paramLabel">Type Parameters:</span></dt>
-<dd><code>T</code> - Stack general class implements all the basic methods
-           needed for working with the stack data structure and more.
-           Not only you can push and pop the Objects of any java classes,
-           but you can pass and get an appropriate Stack itself.</dd>
+<dd><code>T</code> - is a general Class Stack works with</dd>
 </dl>
 <dl>
 <dt>All Implemented Interfaces:</dt>
@@ -143,6 +140,10 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <pre>public class <span class="typeNameLabel">Stack&lt;T&gt;</span>
 extends java.lang.Object
 implements <a href="StackInterface.html" title="interface in io.github.mizinchik">StackInterface</a>&lt;T&gt;</pre>
+<div class="block">Stack general class implements all the basic methods
+  needed for working with the stack data structure and more.
+  Not only you can push and pop the Objects of any java classes,
+  but you can pass and get an appropriate Stack itself.</div>
 </li>
 </ul>
 </div>
@@ -164,7 +165,10 @@ implements <a href="StackInterface.html" title="interface in io.github.mizinchik
 </tr>
 <tr class="altColor">
 <th class="colConstructorName" scope="row"><code><span class="memberNameLink"><a href="#%3Cinit%3E(java.lang.Class)">Stack</a></span>&#8203;(java.lang.Class&lt;<a href="Stack.html" title="type parameter in Stack">T</a>&gt;&nbsp;clazz)</code></th>
-<td class="colLast">&nbsp;</td>
+<td class="colLast">
+<div class="block">Constructs a Stack object from the name of a class
+ it uses.</div>
+</td>
 </tr>
 </table>
 </li>
@@ -255,10 +259,11 @@ implements <a href="StackInterface.html" title="interface in io.github.mizinchik
 <li class="blockList">
 <h4>Stack</h4>
 <pre>public&nbsp;Stack&#8203;(java.lang.Class&lt;<a href="Stack.html" title="type parameter in Stack">T</a>&gt;&nbsp;clazz)</pre>
+<div class="block">Constructs a Stack object from the name of a class
+ it uses.</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
-<dd><code>clazz</code> - Constructs a Stack object from the name of a class
- it uses.</dd>
+<dd><code>clazz</code> - is the name of a Class Stack works with</dd>
 </dl>
 </li>
 </ul>
@@ -330,7 +335,7 @@ implements <a href="StackInterface.html" title="interface in io.github.mizinchik
 <dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
 <dd><code><a href="StackInterface.html#pop()">pop</a></code>&nbsp;in interface&nbsp;<code><a href="StackInterface.html" title="interface in io.github.mizinchik">StackInterface</a>&lt;<a href="Stack.html" title="type parameter in Stack">T</a>&gt;</code></dd>
 <dt><span class="returnLabel">Returns:</span></dt>
-<dd>return an Object of the appropriate class</dd>
+<dd>an Object of the appropriate class</dd>
 </dl>
 </li>
 </ul>
@@ -353,7 +358,7 @@ implements <a href="StackInterface.html" title="interface in io.github.mizinchik
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>soughtSize</code> - is a size of a Stack to extract</dd>
 <dt><span class="returnLabel">Returns:</span></dt>
-<dd>returns a Stack of Objects of the appropriate class</dd>
+<dd>a Stack of Objects of the appropriate class</dd>
 </dl>
 </li>
 </ul>
@@ -371,8 +376,7 @@ implements <a href="StackInterface.html" title="interface in io.github.mizinchik
 <dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
 <dd><code><a href="StackInterface.html#count()">count</a></code>&nbsp;in interface&nbsp;<code><a href="StackInterface.html" title="interface in io.github.mizinchik">StackInterface</a>&lt;<a href="Stack.html" title="type parameter in Stack">T</a>&gt;</code></dd>
 <dt><span class="returnLabel">Returns:</span></dt>
-<dd>return an int number representing
- the number of elements in the Stack</dd>
+<dd>the int number of elements in the Stack</dd>
 </dl>
 </li>
 </ul>
