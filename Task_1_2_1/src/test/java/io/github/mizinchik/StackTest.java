@@ -33,7 +33,7 @@ public class StackTest {
         assertEquals(2, intStack.pop());
     }
 
-    /*@Test
+    @Test
     @DisplayName("Test exceptions")
     void testNullExceptions(){
         assertEquals(0, intStack.count());
@@ -48,5 +48,5 @@ public class StackTest {
         String actualMessageSecond = exceptionSecond.getMessage();
         assertTrue(actualMessageFirst.contains(expectedMessage));
         assertTrue(actualMessageSecond.contains(expectedMessage));
-    }*/
+    }
 }
