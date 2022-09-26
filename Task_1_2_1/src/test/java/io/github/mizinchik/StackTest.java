@@ -4,6 +4,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
+import java.util.EmptyStackException;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
@@ -71,7 +72,7 @@ public class StackTest {
 
     /**
      * Checks whether the class throws
-     * IllegalStateException correctly
+     * EmptyStackException correctly
      * in the push methods.
      * This must happen when a user
      * tries to pop more than there is
@@ -81,17 +82,12 @@ public class StackTest {
     @DisplayName("Test space exceptions")
     void testSpaceExceptions() {
         assertEquals(0, intStack.count());
-        Exception exceptionFirst = assertThrows(IllegalStateException.class, () -> {
+        Exception exceptionFirst = assertThrows(EmptyStackException.class, () -> {
             intStack.pop();
         });
-        Exception exceptionSecond = assertThrows(IllegalStateException.class, () -> {
+        Exception exceptionSecond = assertThrows(EmptyStackException.class, () -> {
             intStack.popStack(1);
         });
-        String expectedMessage = "Not enough elements in stack";
-        String actualMessageFirst = exceptionFirst.getMessage();
-        String actualMessageSecond = exceptionSecond.getMessage();
-        assertTrue(actualMessageFirst.contains(expectedMessage));
-        assertTrue(actualMessageSecond.contains(expectedMessage));
     }
 
     /**

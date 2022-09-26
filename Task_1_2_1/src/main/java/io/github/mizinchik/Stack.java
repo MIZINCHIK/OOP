@@ -1,6 +1,7 @@
 package io.github.mizinchik;
 
 import java.lang.reflect.Array;
+import java.util.EmptyStackException;
 
 /**
  *  Stack general class implements all the basic methods
@@ -31,9 +32,9 @@ public class Stack<T> implements StackInterface<T> {
         this.stackContainer = (T[]) Array.newInstance(this.clazz, this.stackSize);
     }
 
-    private void enoughSpaceToPop(int toPop) throws IllegalStateException {
+    private void enoughSpaceToPop(int toPop) throws EmptyStackException {
         if (this.lastElementIndex + 1 - toPop < 0) {
-            throw new IllegalStateException("Not enough elements in stack\n");
+            throw new EmptyStackException();
         }
     }
 
@@ -80,14 +81,14 @@ public class Stack<T> implements StackInterface<T> {
     }
 
     @Override
-    public T pop() throws IllegalStateException {
+    public T pop() throws EmptyStackException {
         enoughSpaceToPop(1);
         return this.stackContainer[this.lastElementIndex--];
     }
 
     @Override
     @SuppressWarnings("unchecked")
-    public Stack<T> popStack(int soughtSize) throws IllegalStateException {
+    public Stack<T> popStack(int soughtSize) throws EmptyStackException {
         enoughSpaceToPop(soughtSize);
         Stack<T> newStack = new Stack<T>(this.clazz);
         T[] newContainer = (T[]) Array.newInstance(this.clazz, soughtSize * 3 / 2);
