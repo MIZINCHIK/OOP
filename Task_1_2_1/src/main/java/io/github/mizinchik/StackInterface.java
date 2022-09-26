@@ -1,5 +1,7 @@
 package io.github.mizinchik;
 
+import java.util.EmptyStackException;
+
 /**
  * StackInterface describes a bunch of basic methods
  * for a work with the stack data structure.
@@ -39,7 +41,7 @@ public interface StackInterface<T> {
      *
      * @return an Object of the appropriate class
      */
-    public T pop() throws IllegalStateException;
+    public T pop() throws EmptyStackException;
 
     /**
      * Returns the Stack size of
@@ -51,7 +53,7 @@ public interface StackInterface<T> {
      * @param soughtSize is a size of a Stack to extract
      * @return a Stack of Objects of the appropriate class
      */
-    public Stack<T> popStack(int soughtSize) throws IllegalStateException;
+    public Stack<T> popStack(int soughtSize) throws EmptyStackException;
 
     /**
      * Returns the number of elements
