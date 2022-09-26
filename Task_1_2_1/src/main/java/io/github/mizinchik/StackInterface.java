@@ -38,6 +38,9 @@ public interface StackInterface<T> {
     /**
      * Returns the last added to the stack element.
      * Checks if there are no elements left.
+     * If there are enough of them but
+     * the capacity of the Stack is too large,
+     * it reallocates the memory.
      *
      * @return an Object of the appropriate class
      */
@@ -49,6 +52,9 @@ public interface StackInterface<T> {
      * the calling Stack.
      * Checks if there are not enough
      * elements in the calling one.
+     * If there are enough of them but
+     * the capacity of the Stack is too large,
+     * it reallocates the memory.
      *
      * @param soughtSize is a size of a Stack to extract
      * @return a Stack of Objects of the appropriate class
