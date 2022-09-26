@@ -2,6 +2,7 @@ package io.github.mizinchik;
 
 import java.lang.reflect.Array;
 import java.util.EmptyStackException;
+import java.util.Objects;
 
 /**
  *  Stack general class implements all the basic methods
@@ -23,63 +24,54 @@ public class Stack<T> implements StackInterface<T> {
      */
     @SuppressWarnings("unchecked")
     public Stack() {
-        this.stackSize = 10;
-        this.lastElementIndex = -1;
-        this.stackContainer = (T[]) new Object[this.stackSize];
+        stackSize = 10;
+        lastElementIndex = -1;
+        stackContainer = (T[]) new Object[stackSize];
     }
 
     private void enoughSpaceToPop(int toPop) throws EmptyStackException {
-        if (this.lastElementIndex + 1 - toPop < 0) {
+        if (lastElementIndex + 1 - toPop < 0) {
             throw new EmptyStackException();
         }
     }
 
-    private void pushNotNullSingle(T elementToPush) throws NullPointerException {
-        if (elementToPush == null) {
-            throw new NullPointerException("Pushing null\n");
-        }
-    }
-
-    private void pushNotNullStack(Stack<T> stackToPush) throws NullPointerException {
-        if (stackToPush == null) {
-            throw new NullPointerException("Pushing null\n");
-        }
-    }
-
     @SuppressWarnings("unchecked")
-    private void extendContainer(int goalSpace) {
+    private void changeContainerCapacity(int goalSpace) {
         T[] newContainer = (T[]) new Object[goalSpace];
-        System.arraycopy(this.stackContainer, 0, newContainer, 0, this.stackSize);
-        this.stackContainer = newContainer;
-        this.stackSize = goalSpace;
+        System.arraycopy(stackContainer, 0, newContainer, 0, stackSize);
+        stackContainer = newContainer;
+        stackSize = goalSpace;
     }
 
     @Override
     public void push(T elementToPush) throws NullPointerException {
-        pushNotNullSingle(elementToPush);
-        if (this.stackSize == this.lastElementIndex + 1) {
-            extendContainer(this.stackSize * 3 / 2);
+        Objects.requireNonNull(elementToPush);
+        if (stackSize == lastElementIndex + 1) {
+            changeContainerCapacity(stackSize * 3 / 2);
         }
-        this.stackContainer[++this.lastElementIndex] = elementToPush;
+        stackContainer[++lastElementIndex] = elementToPush;
     }
 
     @Override
     public void pushStack(Stack<T> stackToPush) throws NullPointerException {
-        pushNotNullStack(stackToPush);
-        int freeStackSpace = this.stackSize - this.lastElementIndex - 1;
+        Objects.requireNonNull(stackToPush);
+        int freeStackSpace = stackSize - lastElementIndex - 1;
         int stackToPushSize = stackToPush.lastElementIndex + 1;
         if (freeStackSpace < stackToPushSize) {
-            extendContainer((this.stackSize - freeStackSpace + stackToPushSize) * 3 / 2);
+            changeContainerCapacity((stackSize - freeStackSpace + stackToPushSize) * 3 / 2);
         }
-        System.arraycopy(stackToPush.stackContainer, 0, this.stackContainer,
-                this.lastElementIndex + 1, stackToPushSize);
-        this.lastElementIndex += stackToPushSize;
+        System.arraycopy(stackToPush.stackContainer, 0, stackContainer,
+                lastElementIndex + 1, stackToPushSize);
+        lastElementIndex += stackToPushSize;
     }
 
     @Override
     public T pop() throws EmptyStackException {
         enoughSpaceToPop(1);
-        return this.stackContainer[this.lastElementIndex--];
+        if (stackSize / (lastElementIndex + 1) > 2){
+            changeContainerCapacity(stackSize * 3 / 2);
+        }
+        return stackContainer[lastElementIndex--];
     }
 
     @Override
@@ -88,18 +80,21 @@ public class Stack<T> implements StackInterface<T> {
         enoughSpaceToPop(soughtSize);
         Stack<T> newStack = new Stack<T>();
         T[] newContainer = (T[]) new Object[soughtSize * 3 / 2];
-        System.arraycopy(this.stackContainer, this.lastElementIndex - soughtSize + 1,
+        System.arraycopy(stackContainer, lastElementIndex - soughtSize + 1,
                 newContainer, 0, soughtSize);
         newStack.lastElementIndex = soughtSize - 1;
         newStack.stackSize = soughtSize * 3 / 2;
         newStack.stackContainer = newContainer;
-        this.lastElementIndex -= soughtSize;
+        lastElementIndex -= soughtSize;
+        if (stackSize / (lastElementIndex + 1) > 2){
+            changeContainerCapacity(stackSize * 3 / 2);
+        }
         return newStack;
     }
 
     @Override
     public int count() {
-        return this.lastElementIndex + 1;
+        return lastElementIndex + 1;
     }
 
 }
