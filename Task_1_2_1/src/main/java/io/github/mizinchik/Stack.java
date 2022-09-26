@@ -13,7 +13,6 @@ import java.util.EmptyStackException;
  * @author MIZINCHIK
  */
 public class Stack<T> implements StackInterface<T> {
-    private Class<T> clazz;
     private int lastElementIndex;
     private int stackSize;
     private T[] stackContainer;
@@ -21,15 +20,12 @@ public class Stack<T> implements StackInterface<T> {
     /**
      * Constructs a Stack object from the name of a class
      * it uses.
-     *
-     * @param clazz is the name of a Class Stack works with
      */
     @SuppressWarnings("unchecked")
-    public Stack(Class<T> clazz) {
-        this.clazz = clazz;
+    public Stack() {
         this.stackSize = 10;
         this.lastElementIndex = -1;
-        this.stackContainer = (T[]) Array.newInstance(this.clazz, this.stackSize);
+        this.stackContainer = (T[]) new Object[this.stackSize];
     }
 
     private void enoughSpaceToPop(int toPop) throws EmptyStackException {
@@ -52,7 +48,7 @@ public class Stack<T> implements StackInterface<T> {
 
     @SuppressWarnings("unchecked")
     private void extendContainer(int goalSpace) {
-        T[] newContainer = (T[]) Array.newInstance(this.clazz, goalSpace);
+        T[] newContainer = (T[]) new Object[goalSpace];
         System.arraycopy(this.stackContainer, 0, newContainer, 0, this.stackSize);
         this.stackContainer = newContainer;
         this.stackSize = goalSpace;
@@ -90,11 +86,10 @@ public class Stack<T> implements StackInterface<T> {
     @SuppressWarnings("unchecked")
     public Stack<T> popStack(int soughtSize) throws EmptyStackException {
         enoughSpaceToPop(soughtSize);
-        Stack<T> newStack = new Stack<T>(this.clazz);
-        T[] newContainer = (T[]) Array.newInstance(this.clazz, soughtSize * 3 / 2);
+        Stack<T> newStack = new Stack<T>();
+        T[] newContainer = (T[]) new Object[soughtSize * 3 / 2];
         System.arraycopy(this.stackContainer, this.lastElementIndex - soughtSize + 1,
                 newContainer, 0, soughtSize);
-        newStack.clazz = this.clazz;
         newStack.lastElementIndex = soughtSize - 1;
         newStack.stackSize = soughtSize * 3 / 2;
         newStack.stackContainer = newContainer;

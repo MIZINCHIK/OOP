@@ -15,10 +15,8 @@ import org.junit.jupiter.api.Test;
  * throw relevant exceptions.
  */
 public class StackTest {
-    Class<Integer> intObj = Integer.class;
-    Class<String> stringObj = String.class;
-    Stack<Integer> intStack = new Stack<Integer>(intObj);
-    Stack<String> stringStack = new Stack<String>(stringObj);
+    Stack<Integer> intStack = new Stack<Integer>();
+    Stack<String> stringStack = new Stack<String>();
 
     /**
      * Checks the reference test
@@ -31,7 +29,7 @@ public class StackTest {
         assertEquals(1, intStack.count());
         intStack.push(7);
         assertEquals(2, intStack.count());
-        Stack<Integer> intStackSecondary = new Stack<Integer>(intObj);
+        Stack<Integer> intStackSecondary = new Stack<Integer>();
         intStackSecondary.push(4);
         assertEquals(1, intStackSecondary.count());
         intStackSecondary.push(8);
@@ -103,7 +101,7 @@ public class StackTest {
         assertEquals(1, stringStack.count());
         stringStack.push("se7en");
         assertEquals(2, stringStack.count());
-        Stack<String> stringStackSecondary = new Stack(stringObj);
+        Stack<String> stringStackSecondary = new Stack<String>();
         stringStackSecondary.push("fore!");
         assertEquals(1, stringStackSecondary.count());
         stringStackSecondary.push("ate");
