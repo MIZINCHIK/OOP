@@ -334,7 +334,7 @@ implements <a href="StackInterface.html" title="interface in io.github.mizinchik
 <li class="blockList">
 <h4>pop</h4>
 <pre class="methodSignature">public&nbsp;<a href="Stack.html" title="type parameter in Stack">T</a>&nbsp;pop()
-      throws java.lang.IllegalStateException</pre>
+      throws java.util.EmptyStackException</pre>
 <div class="block"><span class="descfrmTypeLabel">Description copied from interface:&nbsp;<code><a href="StackInterface.html#pop()">StackInterface</a></code></span></div>
 <div class="block">Returns the last added to the stack element.
  Checks if there are no elements left.</div>
@@ -344,7 +344,7 @@ implements <a href="StackInterface.html" title="interface in io.github.mizinchik
 <dt><span class="returnLabel">Returns:</span></dt>
 <dd>an Object of the appropriate class</dd>
 <dt><span class="throwsLabel">Throws:</span></dt>
-<dd><code>java.lang.IllegalStateException</code></dd>
+<dd><code>java.util.EmptyStackException</code></dd>
 </dl>
 </li>
 </ul>
@@ -355,7 +355,7 @@ implements <a href="StackInterface.html" title="interface in io.github.mizinchik
 <li class="blockList">
 <h4>popStack</h4>
 <pre class="methodSignature">public&nbsp;<a href="Stack.html" title="class in io.github.mizinchik">Stack</a>&lt;<a href="Stack.html" title="type parameter in Stack">T</a>&gt;&nbsp;popStack&#8203;(int&nbsp;soughtSize)
-                  throws java.lang.IllegalStateException</pre>
+                  throws java.util.EmptyStackException</pre>
 <div class="block"><span class="descfrmTypeLabel">Description copied from interface:&nbsp;<code><a href="StackInterface.html#popStack(int)">StackInterface</a></code></span></div>
 <div class="block">Returns the Stack size of
  soughtSize from the top of
@@ -370,7 +370,7 @@ implements <a href="StackInterface.html" title="interface in io.github.mizinchik
 <dt><span class="returnLabel">Returns:</span></dt>
 <dd>a Stack of Objects of the appropriate class</dd>
 <dt><span class="throwsLabel">Throws:</span></dt>
-<dd><code>java.lang.IllegalStateException</code></dd>
+<dd><code>java.util.EmptyStackException</code></dd>
 </dl>
 </li>
 </ul>
