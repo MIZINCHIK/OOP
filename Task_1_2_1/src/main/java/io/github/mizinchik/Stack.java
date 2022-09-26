@@ -68,7 +68,7 @@ public class Stack<T> implements StackInterface<T> {
     @Override
     public T pop() throws EmptyStackException {
         enoughSpaceToPop(1);
-        if (stackSize / (lastElementIndex + 1) > 2){
+        if (stackSize / (lastElementIndex + 1) > 2) {
             changeContainerCapacity(stackSize * 3 / 2);
         }
         return stackContainer[lastElementIndex--];
@@ -86,7 +86,7 @@ public class Stack<T> implements StackInterface<T> {
         newStack.stackSize = soughtSize * 3 / 2;
         newStack.stackContainer = newContainer;
         lastElementIndex -= soughtSize;
-        if (stackSize / (lastElementIndex + 1) > 2){
+        if (stackSize / (lastElementIndex + 1) > 2) {
             changeContainerCapacity(stackSize * 3 / 2);
         }
         return newStack;
