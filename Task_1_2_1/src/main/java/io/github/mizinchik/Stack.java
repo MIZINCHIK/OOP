@@ -58,7 +58,7 @@ public class Stack<T> implements StackInterface<T> {
     }
 
     @Override
-    public void push(T elementToPush) {
+    public void push(T elementToPush) throws NullPointerException {
         pushNotNullSingle(elementToPush);
         if (this.stackSize == this.lastElementIndex + 1) {
             extendContainer(this.stackSize * 3 / 2);
@@ -67,7 +67,7 @@ public class Stack<T> implements StackInterface<T> {
     }
 
     @Override
-    public void pushStack(Stack<T> stackToPush) {
+    public void pushStack(Stack<T> stackToPush) throws NullPointerException {
         pushNotNullStack(stackToPush);
         int freeStackSpace = this.stackSize - this.lastElementIndex - 1;
         int stackToPushSize = stackToPush.lastElementIndex + 1;
@@ -80,14 +80,14 @@ public class Stack<T> implements StackInterface<T> {
     }
 
     @Override
-    public T pop() {
+    public T pop() throws IllegalStateException {
         enoughSpaceToPop(1);
         return this.stackContainer[this.lastElementIndex--];
     }
 
     @Override
     @SuppressWarnings("unchecked")
-    public Stack<T> popStack(int soughtSize) {
+    public Stack<T> popStack(int soughtSize) throws IllegalStateException {
         enoughSpaceToPop(soughtSize);
         Stack<T> newStack = new Stack<T>(this.clazz);
         T[] newContainer = (T[]) Array.newInstance(this.clazz, soughtSize * 3 / 2);
