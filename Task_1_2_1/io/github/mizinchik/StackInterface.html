@@ -264,7 +264,10 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <pre class="methodSignature"><a href="StackInterface.html" title="type parameter in StackInterface">T</a>&nbsp;pop()
 throws java.util.EmptyStackException</pre>
 <div class="block">Returns the last added to the stack element.
- Checks if there are no elements left.</div>
+ Checks if there are no elements left.
+ If there are enough of them but
+ the capacity of the Stack is too large,
+ it reallocates the memory.</div>
 <dl>
 <dt><span class="returnLabel">Returns:</span></dt>
 <dd>an Object of the appropriate class</dd>
@@ -285,7 +288,10 @@ throws java.util.EmptyStackException</pre>
  soughtSize from the top of
  the calling Stack.
  Checks if there are not enough
- elements in the calling one.</div>
+ elements in the calling one.
+ If there are enough of them but
+ the capacity of the Stack is too large,
+ it reallocates the memory.</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>soughtSize</code> - is a size of a Stack to extract</dd>
