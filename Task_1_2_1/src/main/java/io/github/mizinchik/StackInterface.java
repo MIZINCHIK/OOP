@@ -20,7 +20,7 @@ public interface StackInterface<T> {
      *
      * @param elementToPush is an element to put in the Stack
      */
-    public void push(T elementToPush);
+    public void push(T elementToPush) throws NullPointerException;
 
     /**
      * Pushes a parameter of the general array type
@@ -31,7 +31,7 @@ public interface StackInterface<T> {
      *
      * @param stackToPush is a Stack to put into the Stack
      */
-    public void pushStack(Stack<T> stackToPush);
+    public void pushStack(Stack<T> stackToPush) throws NullPointerException;
 
     /**
      * Returns the last added to the stack element.
@@ -39,7 +39,7 @@ public interface StackInterface<T> {
      *
      * @return an Object of the appropriate class
      */
-    public T pop();
+    public T pop() throws IllegalStateException;
 
     /**
      * Returns the Stack size of
@@ -51,7 +51,7 @@ public interface StackInterface<T> {
      * @param soughtSize is a size of a Stack to extract
      * @return a Stack of Objects of the appropriate class
      */
-    public Stack<T> popStack(int soughtSize);
+    public Stack<T> popStack(int soughtSize) throws IllegalStateException;
 
     /**
      * Returns the number of elements
