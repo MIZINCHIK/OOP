@@ -61,11 +61,8 @@ public class StackTest {
         Exception exceptionSecond = assertThrows(NullPointerException.class, () -> {
             intStack.pushStack(null);
         });
-        String expectedMessage = "Pushing null";
         String actualMessageFirst = exceptionFirst.getMessage();
         String actualMessageSecond = exceptionSecond.getMessage();
-        assertTrue(actualMessageFirst.contains(expectedMessage));
-        assertTrue(actualMessageSecond.contains(expectedMessage));
     }
 
     /**
@@ -114,5 +111,52 @@ public class StackTest {
         assertEquals("se7en", stringStackSecondary.pop());
         assertEquals(1, stringStack.count());
         assertEquals("two", stringStack.pop());
+    }
+
+    /**
+     * A kinda large test to check whether
+     * reallocating memory works fine or not.
+     */
+    @Test
+    @DisplayName("Kinda large test")
+    void testKindaLarge() {
+        assertEquals(0, intStack.count());
+        intStack.push(2);
+        assertEquals(1, intStack.count());
+        intStack.push(2);
+        assertEquals(2, intStack.count());
+        intStack.push(2);
+        assertEquals(3, intStack.count());
+        intStack.push(2);
+        assertEquals(4, intStack.count());
+        intStack.push(2);
+        assertEquals(5, intStack.count());
+        intStack.push(2);
+        assertEquals(6, intStack.count());
+        intStack.push(2);
+        assertEquals(7, intStack.count());
+        intStack.push(2);
+        assertEquals(8, intStack.count());
+        intStack.push(2);
+        assertEquals(9, intStack.count());
+        intStack.push(2);
+        assertEquals(10, intStack.count());
+        intStack.push(2);
+        assertEquals(11, intStack.count());
+        intStack.push(2);
+        assertEquals(12, intStack.count());
+        intStack.push(2);
+        assertEquals(13, intStack.count());
+        intStack.push(2);
+        assertEquals(14, intStack.count());
+        intStack.push(2);
+        assertEquals(15, intStack.count());
+        intStack.push(2);
+        assertEquals(16, intStack.count());
+        Stack<Integer> intStackSecondary = intStack.popStack(15);
+        assertEquals(15, intStackSecondary.count());
+        assertEquals(1, intStack.count());
+        assertEquals(2, intStack.pop());
+        assertEquals(0, intStack.count());
     }
 }
