@@ -5,14 +5,14 @@ import java.util.ArrayList;
 import java.util.Iterator;
 
 /**
- * Iterator class, implements BFS algorithm for
+ * Iterator class, implements Bfs algorithm for
  * iterating nodes of a tree.
  *
  * @param <T> implements the Tree interface
  * @param <E> class of the value stored in the nodes
  * @author MIZINCHIK
  */
-public class BFS<T extends Tree<T, E>, E> implements Iterator<T> {
+public class Bfs<T extends Tree<T, E>, E> implements Iterator<T> {
     private final ArrayDeque<T> queue;
 
     /**
@@ -20,7 +20,7 @@ public class BFS<T extends Tree<T, E>, E> implements Iterator<T> {
      *
      * @param root of a tree to iterate
      */
-    public BFS (T root) {
+    public Bfs(T root) {
         this.queue = new ArrayDeque<>();
         queue.add(root);
     }

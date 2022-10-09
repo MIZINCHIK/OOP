@@ -72,10 +72,10 @@ public class TreeTest {
     }
 
     /**
-     * Tests DFS and BFS iterations.
+     * Tests Dfs and Bfs iterations.
      */
     @Test
-    @DisplayName("Tests DFS/BFS")
+    @DisplayName("Tests Dfs/Bfs")
     void testIterator() {
         stringTree = new TreeImpl<>();
         stringTree.add("A");
