@@ -1,12 +1,18 @@
 package io.github.mizinchik;
 
+import static io.github.mizinchik.TreeImpl.isBfsOverDfs;
+import static io.github.mizinchik.TreeImpl.setBfs;
+import static io.github.mizinchik.TreeImpl.setDfs;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertNull;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
-
-import static io.github.mizinchik.TreeImpl.*;
-import static org.junit.jupiter.api.Assertions.*;
 
 /**
  * Testing class for the TreeImpl class
@@ -58,7 +64,7 @@ public class TreeTest {
         setBfs();
         assertTrue(isBfsOverDfs());
         for (TreeImpl<String> node : stringTree) {
-            if (node.getValue().contains("B") && node.getOffspring().isEmpty()){
+            if (node.getValue().contains("B") && node.getOffspring().isEmpty()) {
                 realList.add(node.getValue());
             }
         }
@@ -74,11 +80,11 @@ public class TreeTest {
         stringTree = new TreeImpl<>();
         stringTree.add("A");
         TreeImpl<String> firstKnot = stringTree.add("B");
+        firstKnot.add("BA");
         stringTree.add("C");
         stringTree.add("D");
         TreeImpl<String> thirdKnot = stringTree.add("E");
         assertNotNull(thirdKnot);
-        firstKnot.add("BA");
         firstKnot.add("BB");
         firstKnot.add("BC");
         TreeImpl<String> secondKnot = firstKnot.add("BD");
@@ -90,24 +96,24 @@ public class TreeTest {
         thirdKnot.add("EB");
         thirdKnot.add("EC");
         thirdKnot.add("ED");
-        ArrayList<String> referenceBFSArrayList = new ArrayList<>(Arrays.asList("A", "B",
+        ArrayList<String> referenceBfsArrayList = new ArrayList<>(Arrays.asList("A", "B",
                 "C", "D", "E", "BA", "BB", "BC", "BD", "EA", "EB", "EC", "ED",
-                "BDA","BDB", "BDC", "BDD"));
-        ArrayList<String> referenceDFSArrayList = new ArrayList<>(Arrays.asList("A", "E",
-                "ED", "EC", "EB", "EA", "D", "C", "B", "BD", "BDD", "BDC", "BDB", "BDA",
-                "BC", "BB", "BA"));
-        ArrayList<String> realListBFS = new ArrayList<>();
-        ArrayList<String> realListDFS = new ArrayList<>();
+                "BDA", "BDB", "BDC", "BDD"));
+        ArrayList<String> realListBfs = new ArrayList<>();
         setBfs();
         for (TreeImpl<String> node : stringTree) {
-            realListBFS.add(node.getValue());
+            realListBfs.add(node.getValue());
         }
+        assertEquals(realListBfs, referenceBfsArrayList);
+        ArrayList<String> referenceDfsArrayList = new ArrayList<>(Arrays.asList("A", "E",
+                "ED", "EC", "EB", "EA", "D", "C", "B", "BD", "BDD", "BDC", "BDB", "BDA",
+                "BC", "BB", "BA"));
+        ArrayList<String> realListDfs = new ArrayList<>();
         setDfs();
         for (TreeImpl<String> node : stringTree) {
-            realListDFS.add(node.getValue());
+            realListDfs.add(node.getValue());
         }
-        assertEquals(realListBFS, referenceBFSArrayList);
-        assertEquals(realListDFS, referenceDFSArrayList);
+        assertEquals(realListDfs, referenceDfsArrayList);
     }
 
     /**
@@ -139,10 +145,10 @@ public class TreeTest {
         assertEquals(integerTree, testNode);
         assertEquals(firstKnot, firstKnot.getRoot());
         assertEquals(integerTree, integerTree.getRoot());
-        for(TreeImpl <Integer> node : firstKnot){
+        for (TreeImpl<Integer> node : firstKnot) {
             assertEquals(firstKnot, node.getRoot());
         }
-        for(TreeImpl<Integer> node : integerTree){
+        for (TreeImpl<Integer> node : integerTree) {
             assertEquals(integerTree, node.getRoot());
         }
         testNode = integerTree.deleteNode();
