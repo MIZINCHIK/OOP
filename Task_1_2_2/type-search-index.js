@@ -1,1 +1,1 @@
-typeSearchIndex = [{"l":"All Classes","url":"allclasses-index.html"},{"p":"io.github.mizinchik","l":"BFS"},{"p":"io.github.mizinchik","l":"DFS"},{"p":"io.github.mizinchik","l":"Tree"},{"p":"io.github.mizinchik","l":"TreeImpl"}]
+typeSearchIndex = [{"l":"All Classes","url":"allclasses-index.html"},{"p":"io.github.mizinchik","l":"Bfs"},{"p":"io.github.mizinchik","l":"Dfs"},{"p":"io.github.mizinchik","l":"Tree"},{"p":"io.github.mizinchik","l":"TreeImpl"}]
