@@ -21,7 +21,7 @@ public class TreeImpl<T> implements Tree<TreeImpl<T>, T> {
     /**
      * Constructor of the class.
      */
-    public TreeImpl(){
+    public TreeImpl() {
         nodes = new ArrayList<>();
         bfsOverDfs = false;
     }
@@ -40,8 +40,7 @@ public class TreeImpl<T> implements Tree<TreeImpl<T>, T> {
             root = this;
             insideVal = element;
             return this;
-        }
-        else {
+        }else {
             TreeImpl<T> newNode = new TreeImpl<>();
             newNode.insideVal = element;
             newNode.parent = this;
@@ -64,8 +63,7 @@ public class TreeImpl<T> implements Tree<TreeImpl<T>, T> {
     public TreeImpl<T> add(TreeImpl<T> tree, T element) throws NoSuchElementException {
         if (tree == null) {
             throw new NoSuchElementException();
-        }
-        else{
+        }else {
             return tree.add(element);
         }
     }
@@ -82,9 +80,8 @@ public class TreeImpl<T> implements Tree<TreeImpl<T>, T> {
     public TreeImpl<T> deleteNode() {
         if (root == this) {
             return null;
-        }
-        else {
-            for(TreeImpl<T> child : nodes) {
+        }else {
+            for (TreeImpl<T> child : nodes) {
                 child.parent = parent;
             }
             ArrayList<TreeImpl<T>> offspring = getOffspring();
@@ -107,16 +104,14 @@ public class TreeImpl<T> implements Tree<TreeImpl<T>, T> {
     public TreeImpl<T> deleteSplit() {
         if ((root == null) || (root == this)) {
             return this;
-        }
-        else {
-            TreeImpl<T> prevRoot = root;
+        }else {
             parent.nodes.remove(this);
             parent = null;
             root = this;
             for (TreeImpl<T> node : this) {
                 node.root = this;
             }
-            return prevRoot;
+            return root;
         }
     }
 
@@ -165,31 +160,30 @@ public class TreeImpl<T> implements Tree<TreeImpl<T>, T> {
     @Override
     public Iterator<TreeImpl<T>> iterator() {
         if (bfsOverDfs) {
-            return new BFS<>(root);
-        }
-        else {
-            return new DFS<>(root);
+            return new Bfs<>(root);
+        }else {
+            return new Dfs<>(root);
         }
     }
 
     /**
-     * Checks whether default iterator is BFS.
+     * Checks whether default iterator is Bfs.
      *
-     * @return true if BFS is prior to DFS and vice versa
+     * @return true if Bfs is prior to Dfs and vice versa
      */
     public static boolean isBfsOverDfs() {
         return bfsOverDfs;
     }
 
     /**
-     * Sets default iterator to BFS.
+     * Sets default iterator to Bfs.
      */
     public static void setBfs() {
         bfsOverDfs = true;
     }
 
     /**
-     * Sets default iterator to DFS.
+     * Sets default iterator to Dfs.
      */
     public static  void setDfs() {
         bfsOverDfs = false;
