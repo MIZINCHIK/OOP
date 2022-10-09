@@ -40,7 +40,7 @@ public class TreeImpl<T> implements Tree<TreeImpl<T>, T> {
             root = this;
             insideVal = element;
             return this;
-        }else {
+        } else {
             TreeImpl<T> newNode = new TreeImpl<>();
             newNode.insideVal = element;
             newNode.parent = this;
@@ -63,7 +63,7 @@ public class TreeImpl<T> implements Tree<TreeImpl<T>, T> {
     public TreeImpl<T> add(TreeImpl<T> tree, T element) throws NoSuchElementException {
         if (tree == null) {
             throw new NoSuchElementException();
-        }else {
+        } else {
             return tree.add(element);
         }
     }
@@ -80,7 +80,7 @@ public class TreeImpl<T> implements Tree<TreeImpl<T>, T> {
     public TreeImpl<T> deleteNode() {
         if (root == this) {
             return null;
-        }else {
+        } else {
             for (TreeImpl<T> child : nodes) {
                 child.parent = parent;
             }
@@ -104,7 +104,7 @@ public class TreeImpl<T> implements Tree<TreeImpl<T>, T> {
     public TreeImpl<T> deleteSplit() {
         if ((root == null) || (root == this)) {
             return this;
-        }else {
+        } else {
             parent.nodes.remove(this);
             parent = null;
             TreeImpl<T> prevRoot = root;
@@ -162,7 +162,7 @@ public class TreeImpl<T> implements Tree<TreeImpl<T>, T> {
     public Iterator<TreeImpl<T>> iterator() {
         if (bfsOverDfs) {
             return new Bfs<>(root);
-        }else {
+        } else {
             return new Dfs<>(root);
         }
     }
