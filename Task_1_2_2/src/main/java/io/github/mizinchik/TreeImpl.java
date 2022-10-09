@@ -107,11 +107,12 @@ public class TreeImpl<T> implements Tree<TreeImpl<T>, T> {
         }else {
             parent.nodes.remove(this);
             parent = null;
+            TreeImpl<T> prevRoot = root;
             root = this;
             for (TreeImpl<T> node : this) {
                 node.root = this;
             }
-            return root;
+            return prevRoot;
         }
     }
 
