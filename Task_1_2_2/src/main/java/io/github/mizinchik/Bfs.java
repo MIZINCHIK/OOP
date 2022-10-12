@@ -2,6 +2,7 @@ package io.github.mizinchik;
 
 import java.util.ArrayDeque;
 import java.util.ArrayList;
+import java.util.ConcurrentModificationException;
 import java.util.Iterator;
 
 /**
@@ -14,15 +15,19 @@ import java.util.Iterator;
  */
 public class Bfs<T extends Tree<T, E>, E> implements Iterator<T> {
     private final ArrayDeque<T> queue;
+    private final int modCount;
+    private final T root;
 
     /**
      * Constructor of the class.
      *
      * @param root of a tree to iterate
      */
-    public Bfs(T root) {
-        this.queue = new ArrayDeque<>();
+    public Bfs(T subTreeRoot) {
+        this.root = subTreeRoot;
+        queue = new ArrayDeque<>();
         queue.add(root);
+        modCount = root.getModCount();
     }
 
     @Override
@@ -31,10 +36,16 @@ public class Bfs<T extends Tree<T, E>, E> implements Iterator<T> {
     }
 
     @Override
-    public T next() {
-        T nextNode = queue.remove();
-        ArrayList<T> offspring = nextNode.getOffspring();
-        queue.addAll(offspring);
-        return nextNode;
+    public T next() throws ConcurrentModificationException {
+        int curModCount = root.getModCount();
+        if (curModCount != modCount){
+            throw new ConcurrentModificationException();
+        }
+        else{
+            T nextNode = queue.remove();
+            ArrayList<T> offspring = nextNode.getOffspring();
+            queue.addAll(offspring);
+            return nextNode;
+        }
     }
 }

@@ -3,14 +3,13 @@ package io.github.mizinchik;
 import static io.github.mizinchik.TreeImpl.isBfsOverDfs;
 import static io.github.mizinchik.TreeImpl.setBfs;
 import static io.github.mizinchik.TreeImpl.setDfs;
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertFalse;
-import static org.junit.jupiter.api.Assertions.assertNotNull;
-import static org.junit.jupiter.api.Assertions.assertNull;
-import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.*;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.ConcurrentModificationException;
+import java.util.Iterator;
+
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
@@ -155,5 +154,36 @@ public class TreeTest {
         assertNull(testNode);
         testNode = integerTree.deleteSplit();
         assertEquals(integerTree, testNode);
+    }
+
+    /**
+     * Tests iterator throwing exception.
+     */
+    @Test
+    @DisplayName("ConcurrentModificationException")
+    void testExceptions(){
+        TreeImpl<Integer> root = new TreeImpl<>();
+        root.add(1);
+        root.add(1);
+        root.add(1);
+        root.add(1);
+        root.add(1);
+        root.add(1);
+        root.add(1);
+        root.add(1);
+        root.add(1);
+        root.add(1);
+        root.add(1);
+        root.add(1);
+        setDfs();
+        Iterator<TreeImpl<Integer>> iterator = root.iterator();
+        root.add(1);
+        assertTrue(iterator.hasNext());
+        assertThrows(ConcurrentModificationException.class, iterator::next);
+        setBfs();
+        iterator = root.iterator();
+        root.add(1);
+        assertTrue(iterator.hasNext());
+        assertThrows(ConcurrentModificationException.class, iterator::next);
     }
 }

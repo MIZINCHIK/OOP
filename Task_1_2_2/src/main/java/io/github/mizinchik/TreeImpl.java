@@ -12,6 +12,7 @@ import java.util.NoSuchElementException;
  * @author MIZINCHIK
  */
 public class TreeImpl<T> implements Tree<TreeImpl<T>, T> {
+    private int modCount;
     private TreeImpl<T> root;
     private TreeImpl<T> parent;
     private T insideVal;
@@ -24,6 +25,7 @@ public class TreeImpl<T> implements Tree<TreeImpl<T>, T> {
     public TreeImpl() {
         nodes = new ArrayList<>();
         bfsOverDfs = false;
+        modCount = 0;
     }
 
     /**
@@ -39,6 +41,7 @@ public class TreeImpl<T> implements Tree<TreeImpl<T>, T> {
         if (root == null) {
             root = this;
             insideVal = element;
+            modCount++;
             return this;
         } else {
             TreeImpl<T> newNode = new TreeImpl<>();
@@ -46,6 +49,7 @@ public class TreeImpl<T> implements Tree<TreeImpl<T>, T> {
             newNode.parent = this;
             newNode.root = root;
             nodes.add(newNode);
+            root.modCount++;
             return newNode;
         }
     }
@@ -87,6 +91,7 @@ public class TreeImpl<T> implements Tree<TreeImpl<T>, T> {
             ArrayList<TreeImpl<T>> offspring = getOffspring();
             parent.nodes.remove(this);
             parent.nodes.addAll(offspring);
+            root.modCount++;
             return parent;
         }
     }
@@ -107,6 +112,8 @@ public class TreeImpl<T> implements Tree<TreeImpl<T>, T> {
         } else {
             parent.nodes.remove(this);
             parent = null;
+            root.modCount++;
+            modCount = root.modCount;
             TreeImpl<T> prevRoot = root;
             root = this;
             for (TreeImpl<T> node : this) {
@@ -156,6 +163,17 @@ public class TreeImpl<T> implements Tree<TreeImpl<T>, T> {
     @Override
     public T getValue() {
         return insideVal;
+    }
+
+    /**
+     * Returns modCount value representing the
+     * quantity of structural chages applied
+     * to the tree.
+     *
+     * @return modCount value for the current tree
+     */
+    public int getModCount() {
+        return modCount;
     }
 
     @Override
