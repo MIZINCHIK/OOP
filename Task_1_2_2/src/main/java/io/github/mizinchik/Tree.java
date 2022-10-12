@@ -86,6 +86,15 @@ public interface Tree<T extends Tree<T, E>, E> extends Iterable<T> {
      */
     E getValue();
 
+    /**
+     * Returns modCount value representing the
+     * quantity of structural chages applied
+     * to the tree.
+     *
+     * @return modCount value for the current tree
+     */
+    int getModCount();
+
     @Override
     Iterator<T> iterator();
 }
