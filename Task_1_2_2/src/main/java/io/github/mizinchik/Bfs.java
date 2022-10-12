@@ -21,7 +21,7 @@ public class Bfs<T extends Tree<T, E>, E> implements Iterator<T> {
     /**
      * Constructor of the class.
      *
-     * @param root of a tree to iterate
+     * @param subTreeRoot of a subtree to iterate
      */
     public Bfs(T subTreeRoot) {
         this.root = subTreeRoot;
@@ -38,10 +38,9 @@ public class Bfs<T extends Tree<T, E>, E> implements Iterator<T> {
     @Override
     public T next() throws ConcurrentModificationException {
         int curModCount = root.getModCount();
-        if (curModCount != modCount){
+        if (curModCount != modCount) {
             throw new ConcurrentModificationException();
-        }
-        else{
+        } else {
             T nextNode = queue.remove();
             ArrayList<T> offspring = nextNode.getOffspring();
             queue.addAll(offspring);
