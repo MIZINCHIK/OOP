@@ -179,9 +179,9 @@ public class TreeImpl<T> implements Tree<TreeImpl<T>, T> {
     @Override
     public Iterator<TreeImpl<T>> iterator() {
         if (bfsOverDfs) {
-            return new Bfs<>(root);
+            return new Bfs<>(this);
         } else {
-            return new Dfs<>(root);
+            return new Dfs<>(this);
         }
     }
 
