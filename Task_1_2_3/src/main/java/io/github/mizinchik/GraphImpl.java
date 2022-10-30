@@ -1,5 +1,7 @@
 package io.github.mizinchik;
 
+import static java.lang.Double.NaN;
+
 import java.io.File;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -8,8 +10,6 @@ import java.util.Map;
 import java.util.NoSuchElementException;
 import java.util.Objects;
 import java.util.Scanner;
-
-import static java.lang.Double.NaN;
 
 /**
  * General oriented simple graph class.
@@ -38,7 +38,8 @@ public class GraphImpl<I> implements Graph<EdgeImpl<I>, VertexImpl<I>, I, Double
      * @param edges list of edges
      * @throws IllegalArgumentException in case vertices' list contains duplicates by names
      */
-    public GraphImpl(ArrayList<VertexImpl<I>> vertices, ArrayList<EdgeImpl<I>> edges) throws IllegalArgumentException {
+    public GraphImpl(ArrayList<VertexImpl<I>> vertices, ArrayList<EdgeImpl<I>> edges)
+            throws IllegalArgumentException {
         this.edges = edges;
         this.vertices = new ArrayList<>();
         builder(vertices);
@@ -72,8 +73,7 @@ public class GraphImpl<I> implements Graph<EdgeImpl<I>, VertexImpl<I>, I, Double
                     double curLength;
                     try {
                         curLength = Double.parseDouble(distancesStr[j]);
-                    }
-                    catch (NumberFormatException exception) {
+                    } catch (NumberFormatException exception) {
                         curLength = NaN;
                     }
                     if (!Double.isNaN(curLength)) {
@@ -83,11 +83,10 @@ public class GraphImpl<I> implements Graph<EdgeImpl<I>, VertexImpl<I>, I, Double
                     }
                 }
             }
-        }
-        else if (mode == 'I') {
+        } else if (mode == 'I') {
             line = scanner.nextLine();
             int edgesQuantity = Integer.parseInt(line);
-            for (int i = 0; i < edgesQuantity; i++){
+            for (int i = 0; i < edgesQuantity; i++) {
                 line = scanner.nextLine();
                 String[] distancesStr = line.split(" ");
                 double curLength = Double.POSITIVE_INFINITY;
@@ -96,23 +95,19 @@ public class GraphImpl<I> implements Graph<EdgeImpl<I>, VertexImpl<I>, I, Double
                 for (int j = 0; j < distancesStr.length; j++) {
                     try {
                         curLength = Double.parseDouble(distancesStr[j]);
-                    }
-                    catch (NumberFormatException exception) {
+                    } catch (NumberFormatException exception) {
                         curLength = NaN;
                     }
                     if (!Double.isNaN(curLength)) {
                         if (curLength > 0) {
                             indexFrom = j;
-                        }
-                        else if (curLength == 0) {
+                        } else if (curLength == 0) {
                             if (indexFrom == -1) {
                                 indexFrom = j;
-                            }
-                            else {
+                            } else {
                                 indexTo = j;
                             }
-                        }
-                        else {
+                        } else {
                             curLength = -curLength;
                             indexTo = j;
                         }
@@ -126,13 +121,11 @@ public class GraphImpl<I> implements Graph<EdgeImpl<I>, VertexImpl<I>, I, Double
                     newEdge = new EdgeImpl<>(curLength, null,
                             extractedVertices.get(indexFrom), extractedVertices.get(indexTo));
                     extractedEdges.add(newEdge);
-                }
-                else {
+                } else {
                     throw new UnsupportedOperationException("Incorrect incidence table.");
                 }
             }
-        }
-        else if (mode == 'L') {
+        } else if (mode == 'L') {
             for (int i = 0; i < verticesQuantity; i++) {
                 line = scanner.nextLine();
                 String[] lineSplit = line.split(" ");
@@ -145,8 +138,7 @@ public class GraphImpl<I> implements Graph<EdgeImpl<I>, VertexImpl<I>, I, Double
                     extractedEdges.add(newEdge);
                 }
             }
-        }
-        else {
+        } else {
             throw new UnsupportedOperationException("No support for this mode");
         }
         this.edges = extractedEdges;
@@ -184,8 +176,7 @@ public class GraphImpl<I> implements Graph<EdgeImpl<I>, VertexImpl<I>, I, Double
         for (VertexImpl<I> vertex : vertices) {
             if (this.vertices.contains(vertex.getName())) {
                 throw new IllegalArgumentException("Duplicate names.");
-            }
-            else {
+            } else {
                 this.vertices.add(vertex.getName());
             }
         }
@@ -216,7 +207,7 @@ public class GraphImpl<I> implements Graph<EdgeImpl<I>, VertexImpl<I>, I, Double
      *
      * @param vertices list of graph's vertices
      */
-    private void buildHashMap(ArrayList<VertexImpl<I>> vertices){
+    private void buildHashMap(ArrayList<VertexImpl<I>> vertices) {
         namesToVertices = new HashMap<>();
         for (VertexImpl<I> vertex : vertices) {
             namesToVertices.put(vertex.getName(), vertex);
@@ -231,7 +222,7 @@ public class GraphImpl<I> implements Graph<EdgeImpl<I>, VertexImpl<I>, I, Double
      *
      * @param vertices list of graph's vertices
      */
-    private void buildAdjacencyMatrix(ArrayList<VertexImpl<I>> vertices){
+    private void buildAdjacencyMatrix(ArrayList<VertexImpl<I>> vertices) {
         adjacencyMatrix = new HashMap<>();
         for (VertexImpl<I> vertex : vertices) {
             var curMap = new HashMap<String, EdgeImpl<I>>();
@@ -339,7 +330,8 @@ public class GraphImpl<I> implements Graph<EdgeImpl<I>, VertexImpl<I>, I, Double
         edgeOutLists.remove(vertex.getName());
         adjacencyMatrix.remove(vertex.getName());
         for (String iteratedVertex : vertices) {
-            edgeOutLists.get(iteratedVertex).removeIf(edge -> edge.getStart() == vertex || edge.getEnd() == vertex);
+            edgeOutLists.get(iteratedVertex).removeIf(edge -> edge.getStart() == vertex
+                    || edge.getEnd() == vertex);
             adjacencyMatrix.get(iteratedVertex).remove(vertex.getName());
         }
     }
@@ -354,7 +346,8 @@ public class GraphImpl<I> implements Graph<EdgeImpl<I>, VertexImpl<I>, I, Double
      * @return edge added
      */
     @Override
-    public EdgeImpl<I> addEdge(String name, VertexImpl<I> start, VertexImpl<I> end, Double edgeLength) {
+    public EdgeImpl<I> addEdge(String name, VertexImpl<I> start,
+                               VertexImpl<I> end, Double edgeLength) {
         var newEdge = new EdgeImpl<>(edgeLength, name, start, end);
         edges.add(newEdge);
         edgeOutLists.get(start.getName()).add(newEdge);
@@ -391,8 +384,7 @@ public class GraphImpl<I> implements Graph<EdgeImpl<I>, VertexImpl<I>, I, Double
                 EdgeImpl<I> curEdge = adjacencyMatrix.get(vertexI).get(vertexJ);
                 if (curEdge != null) {
                     adjacencyDoubles[i][j] = curEdge.getLength();
-                }
-                else {
+                } else {
                     adjacencyDoubles[i][j] = Double.POSITIVE_INFINITY;
                 }
             }
@@ -443,8 +435,7 @@ public class GraphImpl<I> implements Graph<EdgeImpl<I>, VertexImpl<I>, I, Double
         Double[][] adjacencyDoubles = floydWarshall();
         if (negativeCycles(adjacencyDoubles)) {
             return null;
-        }
-        else {
+        } else {
             var resultMap = new HashMap<String, Double>();
             int startingIndex = vertices.indexOf(startingPoint.getName());
             for (int i = 0; i < vertices.size(); i++) {

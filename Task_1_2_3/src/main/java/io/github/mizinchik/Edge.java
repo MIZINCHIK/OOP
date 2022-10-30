@@ -17,7 +17,7 @@ public interface Edge<V extends Vertex<I>, I, L> {
     L getLength();
 
     /**
-     * Sets length of the edge
+     * Sets length of the edge.
      *
      * @param newLength edge length to set
      */
