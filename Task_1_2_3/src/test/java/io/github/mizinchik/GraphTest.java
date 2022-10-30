@@ -114,8 +114,8 @@ public class GraphTest {
         for (Map.Entry<String, Double> entry : list) {
             System.out.print(entry.getKey() + "(" + entry.getValue() + ") ");
         }
-        assertEquals("C(0.0) D(2.0) E(4.0) F(5.0) G(9.0) B(10.0) A(14.0) " +
-                "C(0.0) D(2.0) E(4.0) F(5.0) G(9.0) B(10.0) A(14.0) New(Infinity) ",
+        assertEquals("C(0.0) D(2.0) E(4.0) F(5.0) G(9.0) B(10.0) A(14.0) "
+                + "C(0.0) D(2.0) E(4.0) F(5.0) G(9.0) B(10.0) A(14.0) New(Infinity) ",
                 out.toString());
         var edge1 = newGraph.addEdge(null, newGraph.getVertex("C"), newVertex, -1.0);
         var edge2 = newGraph.addEdge(null, newVertex, newGraph.getVertex("C"), -1.0);
