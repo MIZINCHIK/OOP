@@ -129,6 +129,10 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <ul class="blockList">
 <li class="blockList">
 <dl>
+<dt><span class="paramLabel">Type Parameters:</span></dt>
+<dd><code>I</code> - values stored in vertices</dd>
+</dl>
+<dl>
 <dt>All Implemented Interfaces:</dt>
 <dd><code><a href="Graph.html" title="interface in io.github.mizinchik">Graph</a>&lt;<a href="EdgeImpl.html" title="class in io.github.mizinchik">EdgeImpl</a>&lt;I&gt;,&#8203;<a href="VertexImpl.html" title="class in io.github.mizinchik">VertexImpl</a>&lt;I&gt;,&#8203;I,&#8203;java.lang.Double&gt;</code></dd>
 </dl>
@@ -136,6 +140,15 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <pre>public class <span class="typeNameLabel">GraphImpl&lt;I&gt;</span>
 extends java.lang.Object
 implements <a href="Graph.html" title="interface in io.github.mizinchik">Graph</a>&lt;<a href="EdgeImpl.html" title="class in io.github.mizinchik">EdgeImpl</a>&lt;I&gt;,&#8203;<a href="VertexImpl.html" title="class in io.github.mizinchik">VertexImpl</a>&lt;I&gt;,&#8203;I,&#8203;java.lang.Double&gt;</pre>
+<div class="block">General oriented simple graph class.
+ Uses EdgeImpl as its edges
+ and VertexImpl as its vertices.
+ Provides methods for parsing
+ a graph from a file in 3 modes:
+ A for adjacency matrix
+ I for incidence matrix
+ L for adjacency lists;
+ and for topological sort.</div>
 </li>
 </ul>
 </div>
@@ -158,12 +171,16 @@ implements <a href="Graph.html" title="interface in io.github.mizinchik">Graph</
 <tr class="altColor">
 <th class="colConstructorName" scope="row"><code><span class="memberNameLink"><a href="#%3Cinit%3E(java.lang.String,char)">GraphImpl</a></span>&#8203;(java.lang.String&nbsp;fileName,
          char&nbsp;mode)</code></th>
-<td class="colLast">&nbsp;</td>
+<td class="colLast">
+<div class="block">Constructor from a file.</div>
+</td>
 </tr>
 <tr class="rowColor">
 <th class="colConstructorName" scope="row"><code><span class="memberNameLink"><a href="#%3Cinit%3E(java.util.ArrayList,java.util.ArrayList)">GraphImpl</a></span>&#8203;(java.util.ArrayList&lt;<a href="VertexImpl.html" title="class in io.github.mizinchik">VertexImpl</a>&lt;<a href="GraphImpl.html" title="type parameter in GraphImpl">I</a>&gt;&gt;&nbsp;vertices,
          java.util.ArrayList&lt;<a href="EdgeImpl.html" title="class in io.github.mizinchik">EdgeImpl</a>&lt;<a href="GraphImpl.html" title="type parameter in GraphImpl">I</a>&gt;&gt;&nbsp;edges)</code></th>
-<td class="colLast">&nbsp;</td>
+<td class="colLast">
+<div class="block">Constructor.</div>
+</td>
 </tr>
 </table>
 </li>
@@ -189,68 +206,98 @@ implements <a href="Graph.html" title="interface in io.github.mizinchik">Graph</
        <a href="VertexImpl.html" title="class in io.github.mizinchik">VertexImpl</a>&lt;<a href="GraphImpl.html" title="type parameter in GraphImpl">I</a>&gt;&nbsp;start,
        <a href="VertexImpl.html" title="class in io.github.mizinchik">VertexImpl</a>&lt;<a href="GraphImpl.html" title="type parameter in GraphImpl">I</a>&gt;&nbsp;end,
        java.lang.Double&nbsp;edgeLength)</code></th>
-<td class="colLast">&nbsp;</td>
+<td class="colLast">
+<div class="block">Add an edge to the graph.</div>
+</td>
 </tr>
 <tr id="i1" class="rowColor">
 <td class="colFirst"><code><a href="VertexImpl.html" title="class in io.github.mizinchik">VertexImpl</a>&lt;<a href="GraphImpl.html" title="type parameter in GraphImpl">I</a>&gt;</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#addVertex(java.lang.String,I)">addVertex</a></span>&#8203;(java.lang.String&nbsp;name,
          <a href="GraphImpl.html" title="type parameter in GraphImpl">I</a>&nbsp;insideVal)</code></th>
-<td class="colLast">&nbsp;</td>
+<td class="colLast">
+<div class="block">Adds a vertex to the graph.</div>
+</td>
 </tr>
 <tr id="i2" class="altColor">
 <td class="colFirst"><code>void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#deleteEdge(io.github.mizinchik.EdgeImpl)">deleteEdge</a></span>&#8203;(<a href="EdgeImpl.html" title="class in io.github.mizinchik">EdgeImpl</a>&lt;<a href="GraphImpl.html" title="type parameter in GraphImpl">I</a>&gt;&nbsp;edge)</code></th>
-<td class="colLast">&nbsp;</td>
+<td class="colLast">
+<div class="block">Deletes an edge from the graph.</div>
+</td>
 </tr>
 <tr id="i3" class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#deleteVertex(io.github.mizinchik.VertexImpl)">deleteVertex</a></span>&#8203;(<a href="VertexImpl.html" title="class in io.github.mizinchik">VertexImpl</a>&lt;<a href="GraphImpl.html" title="type parameter in GraphImpl">I</a>&gt;&nbsp;vertex)</code></th>
-<td class="colLast">&nbsp;</td>
+<td class="colLast">
+<div class="block">Deletes a vertex from the graph.</div>
+</td>
 </tr>
 <tr id="i4" class="altColor">
 <td class="colFirst"><code>java.lang.Double[][]</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#floydWarshall()">floydWarshall</a></span>()</code></th>
-<td class="colLast">&nbsp;</td>
+<td class="colLast">
+<div class="block">Computes the shortest ways from each vertex to each
+ in case the vertices are of positive length.</div>
+</td>
 </tr>
 <tr id="i5" class="rowColor">
 <td class="colFirst"><code>java.util.ArrayList&lt;<a href="EdgeImpl.html" title="class in io.github.mizinchik">EdgeImpl</a>&lt;<a href="GraphImpl.html" title="type parameter in GraphImpl">I</a>&gt;&gt;</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getEdgesList()">getEdgesList</a></span>()</code></th>
-<td class="colLast">&nbsp;</td>
+<td class="colLast">
+<div class="block">Accesses an edge list of the graph.</div>
+</td>
 </tr>
 <tr id="i6" class="altColor">
 <td class="colFirst"><code>int</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getEdgesQuantity()">getEdgesQuantity</a></span>()</code></th>
-<td class="colLast">&nbsp;</td>
+<td class="colLast">
+<div class="block">Counts edges in the graph.</div>
+</td>
 </tr>
 <tr id="i7" class="rowColor">
 <td class="colFirst"><code><a href="VertexImpl.html" title="class in io.github.mizinchik">VertexImpl</a>&lt;<a href="GraphImpl.html" title="type parameter in GraphImpl">I</a>&gt;</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getVertex(java.lang.String)">getVertex</a></span>&#8203;(java.lang.String&nbsp;name)</code></th>
-<td class="colLast">&nbsp;</td>
+<td class="colLast">
+<div class="block">Accesses a vertex by its name.</div>
+</td>
 </tr>
 <tr id="i8" class="altColor">
 <td class="colFirst"><code>java.util.HashMap&lt;java.lang.String,&#8203;<a href="VertexImpl.html" title="class in io.github.mizinchik">VertexImpl</a>&lt;<a href="GraphImpl.html" title="type parameter in GraphImpl">I</a>&gt;&gt;</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getVertices()">getVertices</a></span>()</code></th>
-<td class="colLast">&nbsp;</td>
+<td class="colLast">
+<div class="block">Accesses a mapping from names to vertices.</div>
+</td>
 </tr>
 <tr id="i9" class="rowColor">
 <td class="colFirst"><code>java.util.ArrayList&lt;<a href="VertexImpl.html" title="class in io.github.mizinchik">VertexImpl</a>&lt;<a href="GraphImpl.html" title="type parameter in GraphImpl">I</a>&gt;&gt;</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getVerticesList()">getVerticesList</a></span>()</code></th>
-<td class="colLast">&nbsp;</td>
+<td class="colLast">
+<div class="block">Accesses a vertex list of the graph.</div>
+</td>
 </tr>
 <tr id="i10" class="altColor">
 <td class="colFirst"><code>int</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getVerticesQuantity()">getVerticesQuantity</a></span>()</code></th>
-<td class="colLast">&nbsp;</td>
+<td class="colLast">
+<div class="block">Counts vertices in the graph.</div>
+</td>
 </tr>
 <tr id="i11" class="rowColor">
 <td class="colFirst"><code>boolean</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#negativeCycles(java.lang.Double%5B%5D%5B%5D)">negativeCycles</a></span>&#8203;(java.lang.Double[][]&nbsp;adjacencyDoubles)</code></th>
-<td class="colLast">&nbsp;</td>
+<td class="colLast">
+<div class="block">Checks whether the graph represented by the
+ distance matrix contains cycles of negative lengths.</div>
+</td>
 </tr>
 <tr id="i12" class="altColor">
 <td class="colFirst"><code>java.util.List&lt;java.util.Map.Entry&lt;java.lang.String,&#8203;java.lang.Double&gt;&gt;</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#topSort(io.github.mizinchik.VertexImpl)">topSort</a></span>&#8203;(<a href="VertexImpl.html" title="class in io.github.mizinchik">VertexImpl</a>&lt;<a href="GraphImpl.html" title="type parameter in GraphImpl">I</a>&gt;&nbsp;startingPoint)</code></th>
-<td class="colLast">&nbsp;</td>
+<td class="colLast">
+<div class="block">Performs a topological sort on a graph starting
+ from the startingPoint and ordering others by their
+ distance from it.</div>
+</td>
 </tr>
 </table>
 <ul class="blockList">
@@ -285,9 +332,13 @@ implements <a href="Graph.html" title="interface in io.github.mizinchik">Graph</
 <pre>public&nbsp;GraphImpl&#8203;(java.util.ArrayList&lt;<a href="VertexImpl.html" title="class in io.github.mizinchik">VertexImpl</a>&lt;<a href="GraphImpl.html" title="type parameter in GraphImpl">I</a>&gt;&gt;&nbsp;vertices,
                  java.util.ArrayList&lt;<a href="EdgeImpl.html" title="class in io.github.mizinchik">EdgeImpl</a>&lt;<a href="GraphImpl.html" title="type parameter in GraphImpl">I</a>&gt;&gt;&nbsp;edges)
           throws java.lang.IllegalArgumentException</pre>
+<div class="block">Constructor.</div>
 <dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>vertices</code> - list of vertices</dd>
+<dd><code>edges</code> - list of edges</dd>
 <dt><span class="throwsLabel">Throws:</span></dt>
-<dd><code>java.lang.IllegalArgumentException</code></dd>
+<dd><code>java.lang.IllegalArgumentException</code> - in case vertices' list contains duplicates by names</dd>
 </dl>
 </li>
 </ul>
@@ -300,9 +351,13 @@ implements <a href="Graph.html" title="interface in io.github.mizinchik">Graph</
 <pre>public&nbsp;GraphImpl&#8203;(java.lang.String&nbsp;fileName,
                  char&nbsp;mode)
           throws java.lang.Exception</pre>
+<div class="block">Constructor from a file.</div>
 <dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>fileName</code> - from which to read a graph</dd>
+<dd><code>mode</code> - A, L, or I as in the heading</dd>
 <dt><span class="throwsLabel">Throws:</span></dt>
-<dd><code>java.lang.Exception</code></dd>
+<dd><code>java.lang.Exception</code> - scanner does</dd>
 </dl>
 </li>
 </ul>
@@ -323,9 +378,12 @@ implements <a href="Graph.html" title="interface in io.github.mizinchik">Graph</
 <li class="blockList">
 <h4>getEdgesQuantity</h4>
 <pre class="methodSignature">public&nbsp;int&nbsp;getEdgesQuantity()</pre>
+<div class="block">Counts edges in the graph.</div>
 <dl>
 <dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
 <dd><code><a href="Graph.html#getEdgesQuantity()">getEdgesQuantity</a></code>&nbsp;in interface&nbsp;<code><a href="Graph.html" title="interface in io.github.mizinchik">Graph</a>&lt;<a href="EdgeImpl.html" title="class in io.github.mizinchik">EdgeImpl</a>&lt;<a href="GraphImpl.html" title="type parameter in GraphImpl">I</a>&gt;,&#8203;<a href="VertexImpl.html" title="class in io.github.mizinchik">VertexImpl</a>&lt;<a href="GraphImpl.html" title="type parameter in GraphImpl">I</a>&gt;,&#8203;<a href="GraphImpl.html" title="type parameter in GraphImpl">I</a>,&#8203;java.lang.Double&gt;</code></dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>quantity of edges in a graph</dd>
 </dl>
 </li>
 </ul>
@@ -336,9 +394,12 @@ implements <a href="Graph.html" title="interface in io.github.mizinchik">Graph</
 <li class="blockList">
 <h4>getVerticesQuantity</h4>
 <pre class="methodSignature">public&nbsp;int&nbsp;getVerticesQuantity()</pre>
+<div class="block">Counts vertices in the graph.</div>
 <dl>
 <dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
 <dd><code><a href="Graph.html#getVerticesQuantity()">getVerticesQuantity</a></code>&nbsp;in interface&nbsp;<code><a href="Graph.html" title="interface in io.github.mizinchik">Graph</a>&lt;<a href="EdgeImpl.html" title="class in io.github.mizinchik">EdgeImpl</a>&lt;<a href="GraphImpl.html" title="type parameter in GraphImpl">I</a>&gt;,&#8203;<a href="VertexImpl.html" title="class in io.github.mizinchik">VertexImpl</a>&lt;<a href="GraphImpl.html" title="type parameter in GraphImpl">I</a>&gt;,&#8203;<a href="GraphImpl.html" title="type parameter in GraphImpl">I</a>,&#8203;java.lang.Double&gt;</code></dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>quantity of vertices in a graph</dd>
 </dl>
 </li>
 </ul>
@@ -349,9 +410,12 @@ implements <a href="Graph.html" title="interface in io.github.mizinchik">Graph</
 <li class="blockList">
 <h4>getEdgesList</h4>
 <pre class="methodSignature">public&nbsp;java.util.ArrayList&lt;<a href="EdgeImpl.html" title="class in io.github.mizinchik">EdgeImpl</a>&lt;<a href="GraphImpl.html" title="type parameter in GraphImpl">I</a>&gt;&gt;&nbsp;getEdgesList()</pre>
+<div class="block">Accesses an edge list of the graph.</div>
 <dl>
 <dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
 <dd><code><a href="Graph.html#getEdgesList()">getEdgesList</a></code>&nbsp;in interface&nbsp;<code><a href="Graph.html" title="interface in io.github.mizinchik">Graph</a>&lt;<a href="EdgeImpl.html" title="class in io.github.mizinchik">EdgeImpl</a>&lt;<a href="GraphImpl.html" title="type parameter in GraphImpl">I</a>&gt;,&#8203;<a href="VertexImpl.html" title="class in io.github.mizinchik">VertexImpl</a>&lt;<a href="GraphImpl.html" title="type parameter in GraphImpl">I</a>&gt;,&#8203;<a href="GraphImpl.html" title="type parameter in GraphImpl">I</a>,&#8203;java.lang.Double&gt;</code></dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>list of edges in a graph.</dd>
 </dl>
 </li>
 </ul>
@@ -362,9 +426,12 @@ implements <a href="Graph.html" title="interface in io.github.mizinchik">Graph</
 <li class="blockList">
 <h4>getVerticesList</h4>
 <pre class="methodSignature">public&nbsp;java.util.ArrayList&lt;<a href="VertexImpl.html" title="class in io.github.mizinchik">VertexImpl</a>&lt;<a href="GraphImpl.html" title="type parameter in GraphImpl">I</a>&gt;&gt;&nbsp;getVerticesList()</pre>
+<div class="block">Accesses a vertex list of the graph.</div>
 <dl>
 <dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
 <dd><code><a href="Graph.html#getVerticesList()">getVerticesList</a></code>&nbsp;in interface&nbsp;<code><a href="Graph.html" title="interface in io.github.mizinchik">Graph</a>&lt;<a href="EdgeImpl.html" title="class in io.github.mizinchik">EdgeImpl</a>&lt;<a href="GraphImpl.html" title="type parameter in GraphImpl">I</a>&gt;,&#8203;<a href="VertexImpl.html" title="class in io.github.mizinchik">VertexImpl</a>&lt;<a href="GraphImpl.html" title="type parameter in GraphImpl">I</a>&gt;,&#8203;<a href="GraphImpl.html" title="type parameter in GraphImpl">I</a>,&#8203;java.lang.Double&gt;</code></dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>list of vertices in a graph</dd>
 </dl>
 </li>
 </ul>
@@ -375,9 +442,12 @@ implements <a href="Graph.html" title="interface in io.github.mizinchik">Graph</
 <li class="blockList">
 <h4>getVertices</h4>
 <pre class="methodSignature">public&nbsp;java.util.HashMap&lt;java.lang.String,&#8203;<a href="VertexImpl.html" title="class in io.github.mizinchik">VertexImpl</a>&lt;<a href="GraphImpl.html" title="type parameter in GraphImpl">I</a>&gt;&gt;&nbsp;getVertices()</pre>
+<div class="block">Accesses a mapping from names to vertices.</div>
 <dl>
 <dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
 <dd><code><a href="Graph.html#getVertices()">getVertices</a></code>&nbsp;in interface&nbsp;<code><a href="Graph.html" title="interface in io.github.mizinchik">Graph</a>&lt;<a href="EdgeImpl.html" title="class in io.github.mizinchik">EdgeImpl</a>&lt;<a href="GraphImpl.html" title="type parameter in GraphImpl">I</a>&gt;,&#8203;<a href="VertexImpl.html" title="class in io.github.mizinchik">VertexImpl</a>&lt;<a href="GraphImpl.html" title="type parameter in GraphImpl">I</a>&gt;,&#8203;<a href="GraphImpl.html" title="type parameter in GraphImpl">I</a>,&#8203;java.lang.Double&gt;</code></dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>mapping from vertices' names to vertices themselves</dd>
 </dl>
 </li>
 </ul>
@@ -392,9 +462,15 @@ implements <a href="Graph.html" title="interface in io.github.mizinchik">Graph</
 <pre class="methodSignature">public&nbsp;<a href="VertexImpl.html" title="class in io.github.mizinchik">VertexImpl</a>&lt;<a href="GraphImpl.html" title="type parameter in GraphImpl">I</a>&gt;&nbsp;addVertex&#8203;(java.lang.String&nbsp;name,
                                <a href="GraphImpl.html" title="type parameter in GraphImpl">I</a>&nbsp;insideVal)
                         throws java.lang.IllegalArgumentException</pre>
+<div class="block">Adds a vertex to the graph.</div>
 <dl>
 <dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
 <dd><code><a href="Graph.html#addVertex(java.lang.String,I)">addVertex</a></code>&nbsp;in interface&nbsp;<code><a href="Graph.html" title="interface in io.github.mizinchik">Graph</a>&lt;<a href="EdgeImpl.html" title="class in io.github.mizinchik">EdgeImpl</a>&lt;<a href="GraphImpl.html" title="type parameter in GraphImpl">I</a>&gt;,&#8203;<a href="VertexImpl.html" title="class in io.github.mizinchik">VertexImpl</a>&lt;<a href="GraphImpl.html" title="type parameter in GraphImpl">I</a>&gt;,&#8203;<a href="GraphImpl.html" title="type parameter in GraphImpl">I</a>,&#8203;java.lang.Double&gt;</code></dd>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>name</code> - of a vertex</dd>
+<dd><code>insideVal</code> - in vertices</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>vertex added</dd>
 <dt><span class="throwsLabel">Throws:</span></dt>
 <dd><code>java.lang.IllegalArgumentException</code></dd>
 </dl>
@@ -407,9 +483,14 @@ implements <a href="Graph.html" title="interface in io.github.mizinchik">Graph</
 <li class="blockList">
 <h4>getVertex</h4>
 <pre class="methodSignature">public&nbsp;<a href="VertexImpl.html" title="class in io.github.mizinchik">VertexImpl</a>&lt;<a href="GraphImpl.html" title="type parameter in GraphImpl">I</a>&gt;&nbsp;getVertex&#8203;(java.lang.String&nbsp;name)</pre>
+<div class="block">Accesses a vertex by its name.</div>
 <dl>
 <dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
 <dd><code><a href="Graph.html#getVertex(java.lang.String)">getVertex</a></code>&nbsp;in interface&nbsp;<code><a href="Graph.html" title="interface in io.github.mizinchik">Graph</a>&lt;<a href="EdgeImpl.html" title="class in io.github.mizinchik">EdgeImpl</a>&lt;<a href="GraphImpl.html" title="type parameter in GraphImpl">I</a>&gt;,&#8203;<a href="VertexImpl.html" title="class in io.github.mizinchik">VertexImpl</a>&lt;<a href="GraphImpl.html" title="type parameter in GraphImpl">I</a>&gt;,&#8203;<a href="GraphImpl.html" title="type parameter in GraphImpl">I</a>,&#8203;java.lang.Double&gt;</code></dd>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>name</code> - of a vertex</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>vertex itself</dd>
 </dl>
 </li>
 </ul>
@@ -421,9 +502,12 @@ implements <a href="Graph.html" title="interface in io.github.mizinchik">Graph</
 <h4>deleteVertex</h4>
 <pre class="methodSignature">public&nbsp;void&nbsp;deleteVertex&#8203;(<a href="VertexImpl.html" title="class in io.github.mizinchik">VertexImpl</a>&lt;<a href="GraphImpl.html" title="type parameter in GraphImpl">I</a>&gt;&nbsp;vertex)
                   throws java.util.NoSuchElementException</pre>
+<div class="block">Deletes a vertex from the graph.</div>
 <dl>
 <dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
 <dd><code><a href="Graph.html#deleteVertex(V)">deleteVertex</a></code>&nbsp;in interface&nbsp;<code><a href="Graph.html" title="interface in io.github.mizinchik">Graph</a>&lt;<a href="EdgeImpl.html" title="class in io.github.mizinchik">EdgeImpl</a>&lt;<a href="GraphImpl.html" title="type parameter in GraphImpl">I</a>&gt;,&#8203;<a href="VertexImpl.html" title="class in io.github.mizinchik">VertexImpl</a>&lt;<a href="GraphImpl.html" title="type parameter in GraphImpl">I</a>&gt;,&#8203;<a href="GraphImpl.html" title="type parameter in GraphImpl">I</a>,&#8203;java.lang.Double&gt;</code></dd>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>vertex</code> - to delete</dd>
 <dt><span class="throwsLabel">Throws:</span></dt>
 <dd><code>java.util.NoSuchElementException</code></dd>
 </dl>
@@ -439,9 +523,17 @@ implements <a href="Graph.html" title="interface in io.github.mizinchik">Graph</
                            <a href="VertexImpl.html" title="class in io.github.mizinchik">VertexImpl</a>&lt;<a href="GraphImpl.html" title="type parameter in GraphImpl">I</a>&gt;&nbsp;start,
                            <a href="VertexImpl.html" title="class in io.github.mizinchik">VertexImpl</a>&lt;<a href="GraphImpl.html" title="type parameter in GraphImpl">I</a>&gt;&nbsp;end,
                            java.lang.Double&nbsp;edgeLength)</pre>
+<div class="block">Add an edge to the graph.</div>
 <dl>
 <dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
 <dd><code><a href="Graph.html#addEdge(java.lang.String,V,V,L)">addEdge</a></code>&nbsp;in interface&nbsp;<code><a href="Graph.html" title="interface in io.github.mizinchik">Graph</a>&lt;<a href="EdgeImpl.html" title="class in io.github.mizinchik">EdgeImpl</a>&lt;<a href="GraphImpl.html" title="type parameter in GraphImpl">I</a>&gt;,&#8203;<a href="VertexImpl.html" title="class in io.github.mizinchik">VertexImpl</a>&lt;<a href="GraphImpl.html" title="type parameter in GraphImpl">I</a>&gt;,&#8203;<a href="GraphImpl.html" title="type parameter in GraphImpl">I</a>,&#8203;java.lang.Double&gt;</code></dd>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>name</code> - of an edge</dd>
+<dd><code>start</code> - vertex from which the edge starts</dd>
+<dd><code>end</code> - vertex in which the edge ends</dd>
+<dd><code>edgeLength</code> - length of an edge</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>edge added</dd>
 </dl>
 </li>
 </ul>
@@ -452,9 +544,12 @@ implements <a href="Graph.html" title="interface in io.github.mizinchik">Graph</
 <li class="blockList">
 <h4>deleteEdge</h4>
 <pre class="methodSignature">public&nbsp;void&nbsp;deleteEdge&#8203;(<a href="EdgeImpl.html" title="class in io.github.mizinchik">EdgeImpl</a>&lt;<a href="GraphImpl.html" title="type parameter in GraphImpl">I</a>&gt;&nbsp;edge)</pre>
+<div class="block">Deletes an edge from the graph.</div>
 <dl>
 <dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
 <dd><code><a href="Graph.html#deleteEdge(E)">deleteEdge</a></code>&nbsp;in interface&nbsp;<code><a href="Graph.html" title="interface in io.github.mizinchik">Graph</a>&lt;<a href="EdgeImpl.html" title="class in io.github.mizinchik">EdgeImpl</a>&lt;<a href="GraphImpl.html" title="type parameter in GraphImpl">I</a>&gt;,&#8203;<a href="VertexImpl.html" title="class in io.github.mizinchik">VertexImpl</a>&lt;<a href="GraphImpl.html" title="type parameter in GraphImpl">I</a>&gt;,&#8203;<a href="GraphImpl.html" title="type parameter in GraphImpl">I</a>,&#8203;java.lang.Double&gt;</code></dd>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>edge</code> - to delete</dd>
 </dl>
 </li>
 </ul>
@@ -465,6 +560,12 @@ implements <a href="Graph.html" title="interface in io.github.mizinchik">Graph</
 <li class="blockList">
 <h4>floydWarshall</h4>
 <pre class="methodSignature">public&nbsp;java.lang.Double[][]&nbsp;floydWarshall()</pre>
+<div class="block">Computes the shortest ways from each vertex to each
+ in case the vertices are of positive length.</div>
+<dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>matrix of distances</dd>
+</dl>
 </li>
 </ul>
 <a id="negativeCycles(java.lang.Double[][])">
@@ -474,6 +575,14 @@ implements <a href="Graph.html" title="interface in io.github.mizinchik">Graph</
 <li class="blockList">
 <h4>negativeCycles</h4>
 <pre class="methodSignature">public&nbsp;boolean&nbsp;negativeCycles&#8203;(java.lang.Double[][]&nbsp;adjacencyDoubles)</pre>
+<div class="block">Checks whether the graph represented by the
+ distance matrix contains cycles of negative lengths.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>adjacencyDoubles</code> - matrix of distances</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>true if there are cycles of negative length</dd>
+</dl>
 </li>
 </ul>
 <a id="topSort(io.github.mizinchik.VertexImpl)">
@@ -483,9 +592,16 @@ implements <a href="Graph.html" title="interface in io.github.mizinchik">Graph</
 <li class="blockList">
 <h4>topSort</h4>
 <pre class="methodSignature">public&nbsp;java.util.List&lt;java.util.Map.Entry&lt;java.lang.String,&#8203;java.lang.Double&gt;&gt;&nbsp;topSort&#8203;(<a href="VertexImpl.html" title="class in io.github.mizinchik">VertexImpl</a>&lt;<a href="GraphImpl.html" title="type parameter in GraphImpl">I</a>&gt;&nbsp;startingPoint)</pre>
+<div class="block">Performs a topological sort on a graph starting
+ from the startingPoint and ordering others by their
+ distance from it.</div>
 <dl>
 <dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
 <dd><code><a href="Graph.html#topSort(V)">topSort</a></code>&nbsp;in interface&nbsp;<code><a href="Graph.html" title="interface in io.github.mizinchik">Graph</a>&lt;<a href="EdgeImpl.html" title="class in io.github.mizinchik">EdgeImpl</a>&lt;<a href="GraphImpl.html" title="type parameter in GraphImpl">I</a>&gt;,&#8203;<a href="VertexImpl.html" title="class in io.github.mizinchik">VertexImpl</a>&lt;<a href="GraphImpl.html" title="type parameter in GraphImpl">I</a>&gt;,&#8203;<a href="GraphImpl.html" title="type parameter in GraphImpl">I</a>,&#8203;java.lang.Double&gt;</code></dd>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>startingPoint</code> - from which to sort</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>list of pairs Name-Length-from-the-starting-point</dd>
 </dl>
 </li>
 </ul>

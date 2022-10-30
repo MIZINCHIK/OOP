@@ -121,11 +121,17 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <ul class="blockList">
 <li class="blockList">
 <dl>
+<dt><span class="paramLabel">Type Parameters:</span></dt>
+<dd><code>I</code> - object inside vertices</dd>
+</dl>
+<dl>
 <dt>All Known Implementing Classes:</dt>
 <dd><code><a href="VertexImpl.html" title="class in io.github.mizinchik">VertexImpl</a></code></dd>
 </dl>
 <hr>
 <pre>public interface <span class="typeNameLabel">Vertex&lt;I&gt;</span></pre>
+<div class="block">General interface describing a simple
+ graph vertex.</div>
 </li>
 </ul>
 </div>
@@ -149,17 +155,23 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <tr id="i0" class="altColor">
 <td class="colFirst"><code>void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#changeValue(I)">changeValue</a></span>&#8203;(<a href="Vertex.html" title="type parameter in Vertex">I</a>&nbsp;newValue)</code></th>
-<td class="colLast">&nbsp;</td>
+<td class="colLast">
+<div class="block">Assigns a new value to the vertex.</div>
+</td>
 </tr>
 <tr id="i1" class="rowColor">
 <td class="colFirst"><code>java.lang.String</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getName()">getName</a></span>()</code></th>
-<td class="colLast">&nbsp;</td>
+<td class="colLast">
+<div class="block">Accesses to the vertex's name.</div>
+</td>
 </tr>
 <tr id="i2" class="altColor">
 <td class="colFirst"><code><a href="Vertex.html" title="type parameter in Vertex">I</a></code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getValue()">getValue</a></span>()</code></th>
-<td class="colLast">&nbsp;</td>
+<td class="colLast">
+<div class="block">Accesses an object stored in the vertex.</div>
+</td>
 </tr>
 </table>
 </li>
@@ -185,6 +197,11 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <li class="blockList">
 <h4>getValue</h4>
 <pre class="methodSignature"><a href="Vertex.html" title="type parameter in Vertex">I</a>&nbsp;getValue()</pre>
+<div class="block">Accesses an object stored in the vertex.</div>
+<dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>object stored in a vertex</dd>
+</dl>
 </li>
 </ul>
 <a id="changeValue(java.lang.Object)">
@@ -196,6 +213,11 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <li class="blockList">
 <h4>changeValue</h4>
 <pre class="methodSignature">void&nbsp;changeValue&#8203;(<a href="Vertex.html" title="type parameter in Vertex">I</a>&nbsp;newValue)</pre>
+<div class="block">Assigns a new value to the vertex.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>newValue</code> - to assign to the vertex</dd>
+</dl>
 </li>
 </ul>
 <a id="getName()">
@@ -205,6 +227,11 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <li class="blockList">
 <h4>getName</h4>
 <pre class="methodSignature">java.lang.String&nbsp;getName()</pre>
+<div class="block">Accesses to the vertex's name.</div>
+<dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>name of a vertex</dd>
+</dl>
 </li>
 </ul>
 </li>

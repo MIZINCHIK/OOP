@@ -121,11 +121,19 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <ul class="blockList">
 <li class="blockList">
 <dl>
+<dt><span class="paramLabel">Type Parameters:</span></dt>
+<dd><code>V</code> - vertices at the ends of an edge</dd>
+<dd><code>I</code> - objects inside vertices</dd>
+<dd><code>L</code> - length of an edge</dd>
+</dl>
+<dl>
 <dt>All Known Implementing Classes:</dt>
 <dd><code><a href="EdgeImpl.html" title="class in io.github.mizinchik">EdgeImpl</a></code></dd>
 </dl>
 <hr>
 <pre>public interface <span class="typeNameLabel">Edge&lt;V extends <a href="Vertex.html" title="interface in io.github.mizinchik">Vertex</a>&lt;I&gt;,&#8203;I,&#8203;L&gt;</span></pre>
+<div class="block">General interface describing an oriented
+ edge of a graph.</div>
 </li>
 </ul>
 </div>
@@ -149,27 +157,37 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <tr id="i0" class="altColor">
 <td class="colFirst"><code>void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#changeLength(L)">changeLength</a></span>&#8203;(<a href="Edge.html" title="type parameter in Edge">L</a>&nbsp;newLength)</code></th>
-<td class="colLast">&nbsp;</td>
+<td class="colLast">
+<div class="block">Sets length of the edge</div>
+</td>
 </tr>
 <tr id="i1" class="rowColor">
 <td class="colFirst"><code><a href="Edge.html" title="type parameter in Edge">V</a></code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getEnd()">getEnd</a></span>()</code></th>
-<td class="colLast">&nbsp;</td>
+<td class="colLast">
+<div class="block">Accesses vertex to which the edge goes.</div>
+</td>
 </tr>
 <tr id="i2" class="altColor">
 <td class="colFirst"><code><a href="Edge.html" title="type parameter in Edge">L</a></code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getLength()">getLength</a></span>()</code></th>
-<td class="colLast">&nbsp;</td>
+<td class="colLast">
+<div class="block">Accesses length of the edge.</div>
+</td>
 </tr>
 <tr id="i3" class="rowColor">
 <td class="colFirst"><code>java.lang.String</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getName()">getName</a></span>()</code></th>
-<td class="colLast">&nbsp;</td>
+<td class="colLast">
+<div class="block">Accesses the name of the edge.</div>
+</td>
 </tr>
 <tr id="i4" class="altColor">
 <td class="colFirst"><code><a href="Edge.html" title="type parameter in Edge">V</a></code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getStart()">getStart</a></span>()</code></th>
-<td class="colLast">&nbsp;</td>
+<td class="colLast">
+<div class="block">Accesses vertex from which the edge starts.</div>
+</td>
 </tr>
 </table>
 </li>
@@ -195,6 +213,11 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <li class="blockList">
 <h4>getLength</h4>
 <pre class="methodSignature"><a href="Edge.html" title="type parameter in Edge">L</a>&nbsp;getLength()</pre>
+<div class="block">Accesses length of the edge.</div>
+<dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>length of the edge</dd>
+</dl>
 </li>
 </ul>
 <a id="changeLength(java.lang.Object)">
@@ -206,6 +229,11 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <li class="blockList">
 <h4>changeLength</h4>
 <pre class="methodSignature">void&nbsp;changeLength&#8203;(<a href="Edge.html" title="type parameter in Edge">L</a>&nbsp;newLength)</pre>
+<div class="block">Sets length of the edge</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>newLength</code> - edge length to set</dd>
+</dl>
 </li>
 </ul>
 <a id="getName()">
@@ -215,6 +243,11 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <li class="blockList">
 <h4>getName</h4>
 <pre class="methodSignature">java.lang.String&nbsp;getName()</pre>
+<div class="block">Accesses the name of the edge.</div>
+<dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>name of the edge</dd>
+</dl>
 </li>
 </ul>
 <a id="getStart()">
@@ -224,6 +257,11 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <li class="blockList">
 <h4>getStart</h4>
 <pre class="methodSignature"><a href="Edge.html" title="type parameter in Edge">V</a>&nbsp;getStart()</pre>
+<div class="block">Accesses vertex from which the edge starts.</div>
+<dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>starting endpoint of the edge</dd>
+</dl>
 </li>
 </ul>
 <a id="getEnd()">
@@ -233,6 +271,11 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <li class="blockList">
 <h4>getEnd</h4>
 <pre class="methodSignature"><a href="Edge.html" title="type parameter in Edge">V</a>&nbsp;getEnd()</pre>
+<div class="block">Accesses vertex to which the edge goes.</div>
+<dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>ending endpoint of the edge</dd>
+</dl>
 </li>
 </ul>
 </li>
