@@ -1,10 +1,29 @@
 package io.github.mizinchik;
 
 import java.io.File;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.NoSuchElementException;
+import java.util.Objects;
+import java.util.Scanner;
 
 import static java.lang.Double.NaN;
 
+/**
+ * General oriented simple graph class.
+ * Uses EdgeImpl as its edges
+ * and VertexImpl as its vertices.
+ * Provides methods for parsing
+ * a graph from a file in 3 modes:
+ * A for adjacency matrix
+ * I for incidence matrix
+ * L for adjacency lists;
+ * and for topological sort.
+ *
+ * @param <I> values stored in vertices
+ */
 public class GraphImpl<I> implements Graph<EdgeImpl<I>, VertexImpl<I>, I, Double> {
     private HashMap<String, VertexImpl<I>> namesToVertices;
     private HashMap<String, ArrayList<EdgeImpl<I>>> edgeOutLists;
@@ -12,12 +31,26 @@ public class GraphImpl<I> implements Graph<EdgeImpl<I>, VertexImpl<I>, I, Double
     private final ArrayList<EdgeImpl<I>> edges;
     private final ArrayList<String> vertices;
 
+    /**
+     * Constructor.
+     *
+     * @param vertices list of vertices
+     * @param edges list of edges
+     * @throws IllegalArgumentException in case vertices' list contains duplicates by names
+     */
     public GraphImpl(ArrayList<VertexImpl<I>> vertices, ArrayList<EdgeImpl<I>> edges) throws IllegalArgumentException {
         this.edges = edges;
         this.vertices = new ArrayList<>();
         builder(vertices);
     }
 
+    /**
+     * Constructor from a file.
+     *
+     * @param fileName from which to read a graph
+     * @param mode A, L, or I as in the heading
+     * @throws Exception scanner does
+     */
     public GraphImpl(String fileName, char mode) throws Exception {
         File source = new File(fileName);
         Scanner scanner = new Scanner(source);
@@ -128,6 +161,13 @@ public class GraphImpl<I> implements Graph<EdgeImpl<I>, VertexImpl<I>, I, Double
         }
     }
 
+    /**
+     * Builds all the essential data structures
+     * for the graph representation and
+     * maintenance.
+     *
+     * @param vertices list of vertices
+     */
     private void builder(ArrayList<VertexImpl<I>> vertices) {
         buildVertices(vertices);
         buildEdgeOutList(vertices);
@@ -135,6 +175,11 @@ public class GraphImpl<I> implements Graph<EdgeImpl<I>, VertexImpl<I>, I, Double
         buildAdjacencyMatrix(vertices);
     }
 
+    /**
+     * Builds a list of vertices' names.
+     *
+     * @param vertices list of graph's vertices
+     */
     private void buildVertices(ArrayList<VertexImpl<I>> vertices) {
         for (VertexImpl<I> vertex : vertices) {
             if (this.vertices.contains(vertex.getName())) {
@@ -146,6 +191,12 @@ public class GraphImpl<I> implements Graph<EdgeImpl<I>, VertexImpl<I>, I, Double
         }
     }
 
+    /**
+     * Builds a map from vertices' names
+     * to the lists of edges starting in them.
+     *
+     * @param vertices list of graph's vertices
+     */
     private void buildEdgeOutList(ArrayList<VertexImpl<I>> vertices) {
         edgeOutLists = new HashMap<>();
         for (VertexImpl<I> vertex : vertices) {
@@ -159,6 +210,12 @@ public class GraphImpl<I> implements Graph<EdgeImpl<I>, VertexImpl<I>, I, Double
         }
     }
 
+    /**
+     * Builds a map from vertices' names
+     * to themselves.
+     *
+     * @param vertices list of graph's vertices
+     */
     private void buildHashMap(ArrayList<VertexImpl<I>> vertices){
         namesToVertices = new HashMap<>();
         for (VertexImpl<I> vertex : vertices) {
@@ -166,6 +223,14 @@ public class GraphImpl<I> implements Graph<EdgeImpl<I>, VertexImpl<I>, I, Double
         }
     }
 
+    /**
+     * Builds a map from vertices' names of
+     * starting points to maps from names of
+     *  ending points to the edges from starting
+     *  points to ending points.
+     *
+     * @param vertices list of graph's vertices
+     */
     private void buildAdjacencyMatrix(ArrayList<VertexImpl<I>> vertices){
         adjacencyMatrix = new HashMap<>();
         for (VertexImpl<I> vertex : vertices) {
@@ -177,21 +242,41 @@ public class GraphImpl<I> implements Graph<EdgeImpl<I>, VertexImpl<I>, I, Double
         }
     }
 
+    /**
+     * Counts edges in the graph.
+     *
+     * @return quantity of edges in a graph
+     */
     @Override
     public int getEdgesQuantity() {
         return edges.size();
     }
 
+    /**
+     * Counts vertices in the graph.
+     *
+     * @return quantity of vertices in a graph
+     */
     @Override
     public int getVerticesQuantity() {
         return vertices.size();
     }
 
+    /**
+     * Accesses an edge list of the graph.
+     *
+     * @return list of edges in a graph.
+     */
     @Override
     public ArrayList<EdgeImpl<I>> getEdgesList() {
         return edges;
     }
 
+    /**
+     * Accesses a vertex list of the graph.
+     *
+     * @return list of vertices in a graph
+     */
     @Override
     public ArrayList<VertexImpl<I>> getVerticesList() {
         var result = new ArrayList<VertexImpl<I>>();
@@ -201,11 +286,23 @@ public class GraphImpl<I> implements Graph<EdgeImpl<I>, VertexImpl<I>, I, Double
         return result;
     }
 
+    /**
+     * Accesses a mapping from names to vertices.
+     *
+     * @return mapping from vertices' names to vertices themselves
+     */
     @Override
     public HashMap<String, VertexImpl<I>> getVertices() {
         return namesToVertices;
     }
 
+    /**
+     * Adds a vertex to the graph.
+     *
+     * @param name of a vertex
+     * @param insideVal in vertices
+     * @return vertex added
+     */
     @Override
     public VertexImpl<I> addVertex(String name, I insideVal) throws IllegalArgumentException {
         VertexImpl<I> newVertex = new VertexImpl<>(insideVal, name);
@@ -218,11 +315,22 @@ public class GraphImpl<I> implements Graph<EdgeImpl<I>, VertexImpl<I>, I, Double
         return newVertex;
     }
 
+    /**
+     * Accesses a vertex by its name.
+     *
+     * @param name of a vertex
+     * @return vertex itself
+     */
     @Override
     public VertexImpl<I> getVertex(String name) {
         return namesToVertices.get(name);
     }
 
+    /**
+     * Deletes a vertex from the graph.
+     *
+     * @param vertex to delete
+     */
     @Override
     public void deleteVertex(VertexImpl<I> vertex) throws NoSuchElementException {
         vertices.remove(vertex.getName());
@@ -236,6 +344,15 @@ public class GraphImpl<I> implements Graph<EdgeImpl<I>, VertexImpl<I>, I, Double
         }
     }
 
+    /**
+     * Add an edge to the graph.
+     *
+     * @param name of an edge
+     * @param start vertex from which the edge starts
+     * @param end vertex in which the edge ends
+     * @param edgeLength length of an edge
+     * @return edge added
+     */
     @Override
     public EdgeImpl<I> addEdge(String name, VertexImpl<I> start, VertexImpl<I> end, Double edgeLength) {
         var newEdge = new EdgeImpl<>(edgeLength, name, start, end);
@@ -245,6 +362,11 @@ public class GraphImpl<I> implements Graph<EdgeImpl<I>, VertexImpl<I>, I, Double
         return newEdge;
     }
 
+    /**
+     * Deletes an edge from the graph.
+     *
+     * @param edge to delete
+     */
     @Override
     public void deleteEdge(EdgeImpl<I> edge) {
         edges.remove(edge);
@@ -254,6 +376,12 @@ public class GraphImpl<I> implements Graph<EdgeImpl<I>, VertexImpl<I>, I, Double
         adjacencyMatrix.get(edge.getStart().getName()).remove(edge.getEnd().getName());
     }
 
+    /**
+     * Computes the shortest ways from each vertex to each
+     * in case the vertices are of positive length.
+     *
+     * @return matrix of distances
+     */
     public Double[][] floydWarshall() {
         Double[][] adjacencyDoubles = new Double[vertices.size()][vertices.size()];
         for (int i = 0; i < vertices.size(); i++) {
@@ -284,6 +412,13 @@ public class GraphImpl<I> implements Graph<EdgeImpl<I>, VertexImpl<I>, I, Double
         return adjacencyDoubles;
     }
 
+    /**
+     * Checks whether the graph represented by the
+     * distance matrix contains cycles of negative lengths.
+     *
+     * @param adjacencyDoubles matrix of distances
+     * @return true if there are cycles of negative length
+     */
     public boolean negativeCycles(Double[][] adjacencyDoubles) {
         for (int i = 0; i < vertices.size(); i++) {
             for (int j = 0; j < vertices.size(); j++) {
@@ -295,6 +430,14 @@ public class GraphImpl<I> implements Graph<EdgeImpl<I>, VertexImpl<I>, I, Double
         return false;
     }
 
+    /**
+     * Performs a topological sort on a graph starting
+     * from the startingPoint and ordering others by their
+     * distance from it.
+     *
+     * @param startingPoint from which to sort
+     * @return list of pairs Name-Length-from-the-starting-point
+     */
     @Override
     public List<Map.Entry<String, Double>> topSort(VertexImpl<I> startingPoint) {
         Double[][] adjacencyDoubles = floydWarshall();
