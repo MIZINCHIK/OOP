@@ -6,7 +6,7 @@ package io.github.mizinchik;
  *
  * @param <I> object inside vertices
  */
-public interface Vertex <I> {
+public interface Vertex<I> {
     /**
      * Accesses an object stored in the vertex.
      *
