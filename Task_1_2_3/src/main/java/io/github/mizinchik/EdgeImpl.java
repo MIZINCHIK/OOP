@@ -38,7 +38,7 @@ public class EdgeImpl<I> implements Edge<VertexImpl<I>, I, Double> {
     }
 
     /**
-     * Sets length of the edge
+     * Sets length of the edge.
      *
      * @param newLength edge length to set
      */
