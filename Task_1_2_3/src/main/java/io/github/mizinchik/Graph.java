@@ -13,7 +13,7 @@ import java.util.Map;
  * @param <I> values inside vertices
  * @param <L> length of edges
  */
-public interface Graph <E extends Edge<V, I, L>, V extends Vertex<I>, I, L> {
+public interface Graph<E extends Edge<V, I, L>, V extends Vertex<I>, I, L> {
     /**
      * Counts edges in the graph.
      *
@@ -99,5 +99,5 @@ public interface Graph <E extends Edge<V, I, L>, V extends Vertex<I>, I, L> {
      * @param startingPoint from which to sort
      * @return list of pairs Name-Length-from-the-starting-point
      */
-    List<Map.Entry<String, L>> topSort (V startingPoint);
+    List<Map.Entry<String, L>> topSort(V startingPoint);
 }
