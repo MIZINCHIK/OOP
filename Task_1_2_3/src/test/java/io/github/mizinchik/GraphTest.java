@@ -19,19 +19,35 @@ import static org.junit.jupiter.api.Assertions.assertNull;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
+/**
+ * Test class for GraphImpl, EdgeImpl
+ * & VertexImpl classes.
+ */
 public class GraphTest {
     private final ByteArrayOutputStream out = new ByteArrayOutputStream();
     private final PrintStream originalOut = System.out;
+
+    /**
+     * Changes standard output stream before each method.
+     */
     @BeforeEach
     public void setUpOut() {
         System.setOut(new PrintStream(out));
     }
 
+    /**
+     * Restores standard output system after each method.
+     */
     @AfterEach
     public void restoreOut() {
         System.setOut(originalOut);
     }
 
+    /**
+     * Performs a reference test for our task.
+     *
+     * @throws Exception scanner does it
+     */
     @Test
     @DisplayName("Tests the reference example")
     void testReference() throws Exception {
@@ -51,6 +67,9 @@ public class GraphTest {
                 new GraphImpl<>("./src/main/resources/AdjacencyList.txt", 'l'));
     }
 
+    /**
+     * Tests VertexImpl class.
+     */
     @Test
     @DisplayName("VertexImpl class test")
     void testVertex() {
@@ -61,6 +80,9 @@ public class GraphTest {
         assertEquals(6, newVertex.getValue());
     }
 
+    /**
+     * Tests EdgeImpl class.
+     */
     @Test
     @DisplayName("EdgeImpl class test")
     void testEdge() {
@@ -77,6 +99,11 @@ public class GraphTest {
         assertEquals(end, newEdge.getEnd());
     }
 
+    /**
+     * Tests standard methods of Graph interface.
+     *
+     * @throws Exception scanner does it
+     */
     @Test
     @DisplayName("GraphImpl class test")
     void testGraph() throws Exception {
