@@ -26,7 +26,7 @@
     catch(err) {
     }
 //-->
-var data = {"i0":6,"i1":6,"i2":6,"i3":6,"i4":6,"i5":6,"i6":6,"i7":6};
+var data = {"i0":6,"i1":6,"i2":6};
 var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],4:["t3","Abstract Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -114,7 +114,7 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <main role="main">
 <div class="header">
 <div class="subTitle"><span class="packageLabelInType">Package</span>&nbsp;<a href="package-summary.html">io.github.mizinchik</a></div>
-<h2 title="Interface Vertex" class="title">Interface Vertex&lt;G extends <a href="Graph.html" title="interface in io.github.mizinchik">Graph</a>&lt;G,&#8203;E,&#8203;V,&#8203;I,&#8203;L&gt;,&#8203;E extends <a href="Edge.html" title="interface in io.github.mizinchik">Edge</a>&lt;G,&#8203;E,&#8203;V,&#8203;I,&#8203;L&gt;,&#8203;V extends Vertex&lt;G,&#8203;E,&#8203;V,&#8203;I,&#8203;L&gt;,&#8203;I,&#8203;L&gt;</h2>
+<h2 title="Interface Vertex" class="title">Interface Vertex&lt;I&gt;</h2>
 </div>
 <div class="contentContainer">
 <div class="description">
@@ -125,7 +125,7 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <dd><code><a href="VertexImpl.html" title="class in io.github.mizinchik">VertexImpl</a></code></dd>
 </dl>
 <hr>
-<pre>public interface <span class="typeNameLabel">Vertex&lt;G extends <a href="Graph.html" title="interface in io.github.mizinchik">Graph</a>&lt;G,&#8203;E,&#8203;V,&#8203;I,&#8203;L&gt;,&#8203;E extends <a href="Edge.html" title="interface in io.github.mizinchik">Edge</a>&lt;G,&#8203;E,&#8203;V,&#8203;I,&#8203;L&gt;,&#8203;V extends Vertex&lt;G,&#8203;E,&#8203;V,&#8203;I,&#8203;L&gt;,&#8203;I,&#8203;L&gt;</span></pre>
+<pre>public interface <span class="typeNameLabel">Vertex&lt;I&gt;</span></pre>
 </li>
 </ul>
 </div>
@@ -152,36 +152,11 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <td class="colLast">&nbsp;</td>
 </tr>
 <tr id="i1" class="rowColor">
-<td class="colFirst"><code>java.util.ArrayList&lt;<a href="Vertex.html" title="type parameter in Vertex">V</a>&gt;</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getAdjacentAfter()">getAdjacentAfter</a></span>()</code></th>
-<td class="colLast">&nbsp;</td>
-</tr>
-<tr id="i2" class="altColor">
-<td class="colFirst"><code>java.util.ArrayList&lt;<a href="Vertex.html" title="type parameter in Vertex">V</a>&gt;</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getAdjacentBefore()">getAdjacentBefore</a></span>()</code></th>
-<td class="colLast">&nbsp;</td>
-</tr>
-<tr id="i3" class="rowColor">
-<td class="colFirst"><code><a href="Vertex.html" title="type parameter in Vertex">G</a></code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getGraph()">getGraph</a></span>()</code></th>
-<td class="colLast">&nbsp;</td>
-</tr>
-<tr id="i4" class="altColor">
-<td class="colFirst"><code>java.util.ArrayList&lt;<a href="Vertex.html" title="type parameter in Vertex">E</a>&gt;</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getIncidentalEdgesEnding()">getIncidentalEdgesEnding</a></span>()</code></th>
-<td class="colLast">&nbsp;</td>
-</tr>
-<tr id="i5" class="rowColor">
-<td class="colFirst"><code>java.util.ArrayList&lt;<a href="Vertex.html" title="type parameter in Vertex">E</a>&gt;</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getIncidentalEdgesStarting()">getIncidentalEdgesStarting</a></span>()</code></th>
-<td class="colLast">&nbsp;</td>
-</tr>
-<tr id="i6" class="altColor">
 <td class="colFirst"><code>java.lang.String</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getName()">getName</a></span>()</code></th>
 <td class="colLast">&nbsp;</td>
 </tr>
-<tr id="i7" class="rowColor">
+<tr id="i2" class="altColor">
 <td class="colFirst"><code><a href="Vertex.html" title="type parameter in Vertex">I</a></code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getValue()">getValue</a></span>()</code></th>
 <td class="colLast">&nbsp;</td>
@@ -226,55 +201,10 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <a id="getName()">
 <!--   -->
 </a>
-<ul class="blockList">
+<ul class="blockListLast">
 <li class="blockList">
 <h4>getName</h4>
 <pre class="methodSignature">java.lang.String&nbsp;getName()</pre>
-</li>
-</ul>
-<a id="getGraph()">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>getGraph</h4>
-<pre class="methodSignature"><a href="Vertex.html" title="type parameter in Vertex">G</a>&nbsp;getGraph()</pre>
-</li>
-</ul>
-<a id="getAdjacentAfter()">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>getAdjacentAfter</h4>
-<pre class="methodSignature">java.util.ArrayList&lt;<a href="Vertex.html" title="type parameter in Vertex">V</a>&gt;&nbsp;getAdjacentAfter()</pre>
-</li>
-</ul>
-<a id="getAdjacentBefore()">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>getAdjacentBefore</h4>
-<pre class="methodSignature">java.util.ArrayList&lt;<a href="Vertex.html" title="type parameter in Vertex">V</a>&gt;&nbsp;getAdjacentBefore()</pre>
-</li>
-</ul>
-<a id="getIncidentalEdgesStarting()">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>getIncidentalEdgesStarting</h4>
-<pre class="methodSignature">java.util.ArrayList&lt;<a href="Vertex.html" title="type parameter in Vertex">E</a>&gt;&nbsp;getIncidentalEdgesStarting()</pre>
-</li>
-</ul>
-<a id="getIncidentalEdgesEnding()">
-<!--   -->
-</a>
-<ul class="blockListLast">
-<li class="blockList">
-<h4>getIncidentalEdgesEnding</h4>
-<pre class="methodSignature">java.util.ArrayList&lt;<a href="Vertex.html" title="type parameter in Vertex">E</a>&gt;&nbsp;getIncidentalEdgesEnding()</pre>
 </li>
 </ul>
 </li>

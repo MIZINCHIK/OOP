@@ -26,7 +26,7 @@
     catch(err) {
     }
 //-->
-var data = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10,"i8":10};
+var data = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10};
 var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -114,14 +114,14 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <main role="main">
 <div class="header">
 <div class="subTitle"><span class="packageLabelInType">Package</span>&nbsp;<a href="package-summary.html">io.github.mizinchik</a></div>
-<h2 title="Class EdgeImpl" class="title">Class EdgeImpl&lt;I,&#8203;L extends java.lang.Number&gt;</h2>
+<h2 title="Class EdgeImpl" class="title">Class EdgeImpl&lt;I&gt;</h2>
 </div>
 <div class="contentContainer">
 <ul class="inheritance">
 <li>java.lang.Object</li>
 <li>
 <ul class="inheritance">
-<li>io.github.mizinchik.EdgeImpl&lt;I,&#8203;L&gt;</li>
+<li>io.github.mizinchik.EdgeImpl&lt;I&gt;</li>
 </ul>
 </li>
 </ul>
@@ -130,12 +130,12 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <li class="blockList">
 <dl>
 <dt>All Implemented Interfaces:</dt>
-<dd><code><a href="Edge.html" title="interface in io.github.mizinchik">Edge</a>&lt;<a href="GraphImpl.html" title="class in io.github.mizinchik">GraphImpl</a>&lt;I,&#8203;L&gt;,&#8203;<a href="EdgeImpl.html" title="class in io.github.mizinchik">EdgeImpl</a>&lt;I,&#8203;L&gt;,&#8203;<a href="VertexImpl.html" title="class in io.github.mizinchik">VertexImpl</a>&lt;I,&#8203;L&gt;,&#8203;I,&#8203;L&gt;</code></dd>
+<dd><code><a href="Edge.html" title="interface in io.github.mizinchik">Edge</a>&lt;<a href="VertexImpl.html" title="class in io.github.mizinchik">VertexImpl</a>&lt;I&gt;,&#8203;I,&#8203;java.lang.Double&gt;</code></dd>
 </dl>
 <hr>
-<pre>public class <span class="typeNameLabel">EdgeImpl&lt;I,&#8203;L extends java.lang.Number&gt;</span>
+<pre>public class <span class="typeNameLabel">EdgeImpl&lt;I&gt;</span>
 extends java.lang.Object
-implements <a href="Edge.html" title="interface in io.github.mizinchik">Edge</a>&lt;<a href="GraphImpl.html" title="class in io.github.mizinchik">GraphImpl</a>&lt;I,&#8203;L&gt;,&#8203;<a href="EdgeImpl.html" title="class in io.github.mizinchik">EdgeImpl</a>&lt;I,&#8203;L&gt;,&#8203;<a href="VertexImpl.html" title="class in io.github.mizinchik">VertexImpl</a>&lt;I,&#8203;L&gt;,&#8203;I,&#8203;L&gt;</pre>
+implements <a href="Edge.html" title="interface in io.github.mizinchik">Edge</a>&lt;<a href="VertexImpl.html" title="class in io.github.mizinchik">VertexImpl</a>&lt;I&gt;,&#8203;I,&#8203;java.lang.Double&gt;</pre>
 </li>
 </ul>
 </div>
@@ -156,11 +156,10 @@ implements <a href="Edge.html" title="interface in io.github.mizinchik">Edge</a>
 <th class="colLast" scope="col">Description</th>
 </tr>
 <tr class="altColor">
-<th class="colConstructorName" scope="row"><code><span class="memberNameLink"><a href="#%3Cinit%3E(L,io.github.mizinchik.GraphImpl,java.lang.String,io.github.mizinchik.VertexImpl,io.github.mizinchik.VertexImpl)">EdgeImpl</a></span>&#8203;(<a href="EdgeImpl.html" title="type parameter in EdgeImpl">L</a>&nbsp;length,
-        <a href="GraphImpl.html" title="class in io.github.mizinchik">GraphImpl</a>&lt;<a href="EdgeImpl.html" title="type parameter in EdgeImpl">I</a>,&#8203;<a href="EdgeImpl.html" title="type parameter in EdgeImpl">L</a>&gt;&nbsp;graph,
+<th class="colConstructorName" scope="row"><code><span class="memberNameLink"><a href="#%3Cinit%3E(java.lang.Double,java.lang.String,io.github.mizinchik.VertexImpl,io.github.mizinchik.VertexImpl)">EdgeImpl</a></span>&#8203;(java.lang.Double&nbsp;length,
         java.lang.String&nbsp;name,
-        <a href="VertexImpl.html" title="class in io.github.mizinchik">VertexImpl</a>&lt;<a href="EdgeImpl.html" title="type parameter in EdgeImpl">I</a>,&#8203;<a href="EdgeImpl.html" title="type parameter in EdgeImpl">L</a>&gt;&nbsp;start,
-        <a href="VertexImpl.html" title="class in io.github.mizinchik">VertexImpl</a>&lt;<a href="EdgeImpl.html" title="type parameter in EdgeImpl">I</a>,&#8203;<a href="EdgeImpl.html" title="type parameter in EdgeImpl">L</a>&gt;&nbsp;end)</code></th>
+        <a href="VertexImpl.html" title="class in io.github.mizinchik">VertexImpl</a>&lt;<a href="EdgeImpl.html" title="type parameter in EdgeImpl">I</a>&gt;&nbsp;start,
+        <a href="VertexImpl.html" title="class in io.github.mizinchik">VertexImpl</a>&lt;<a href="EdgeImpl.html" title="type parameter in EdgeImpl">I</a>&gt;&nbsp;end)</code></th>
 <td class="colLast">&nbsp;</td>
 </tr>
 </table>
@@ -183,46 +182,26 @@ implements <a href="Edge.html" title="interface in io.github.mizinchik">Edge</a>
 </tr>
 <tr id="i0" class="altColor">
 <td class="colFirst"><code>void</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#changeLength(L)">changeLength</a></span>&#8203;(<a href="EdgeImpl.html" title="type parameter in EdgeImpl">L</a>&nbsp;newLength)</code></th>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#changeLength(java.lang.Double)">changeLength</a></span>&#8203;(java.lang.Double&nbsp;newLength)</code></th>
 <td class="colLast">&nbsp;</td>
 </tr>
 <tr id="i1" class="rowColor">
-<td class="colFirst"><code>void</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#deleteAdjacentEdge(io.github.mizinchik.EdgeImpl)">deleteAdjacentEdge</a></span>&#8203;(<a href="EdgeImpl.html" title="class in io.github.mizinchik">EdgeImpl</a>&lt;<a href="EdgeImpl.html" title="type parameter in EdgeImpl">I</a>,&#8203;<a href="EdgeImpl.html" title="type parameter in EdgeImpl">L</a>&gt;&nbsp;edge)</code></th>
-<td class="colLast">&nbsp;</td>
-</tr>
-<tr id="i2" class="altColor">
-<td class="colFirst"><code>java.util.ArrayList&lt;<a href="EdgeImpl.html" title="class in io.github.mizinchik">EdgeImpl</a>&lt;<a href="EdgeImpl.html" title="type parameter in EdgeImpl">I</a>,&#8203;<a href="EdgeImpl.html" title="type parameter in EdgeImpl">L</a>&gt;&gt;</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getAdjacentEdgesAfter()">getAdjacentEdgesAfter</a></span>()</code></th>
-<td class="colLast">&nbsp;</td>
-</tr>
-<tr id="i3" class="rowColor">
-<td class="colFirst"><code>java.util.ArrayList&lt;<a href="EdgeImpl.html" title="class in io.github.mizinchik">EdgeImpl</a>&lt;<a href="EdgeImpl.html" title="type parameter in EdgeImpl">I</a>,&#8203;<a href="EdgeImpl.html" title="type parameter in EdgeImpl">L</a>&gt;&gt;</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getAdjacentEdgesBefore()">getAdjacentEdgesBefore</a></span>()</code></th>
-<td class="colLast">&nbsp;</td>
-</tr>
-<tr id="i4" class="altColor">
-<td class="colFirst"><code><a href="VertexImpl.html" title="class in io.github.mizinchik">VertexImpl</a>&lt;<a href="EdgeImpl.html" title="type parameter in EdgeImpl">I</a>,&#8203;<a href="EdgeImpl.html" title="type parameter in EdgeImpl">L</a>&gt;</code></td>
+<td class="colFirst"><code><a href="VertexImpl.html" title="class in io.github.mizinchik">VertexImpl</a>&lt;<a href="EdgeImpl.html" title="type parameter in EdgeImpl">I</a>&gt;</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getEnd()">getEnd</a></span>()</code></th>
 <td class="colLast">&nbsp;</td>
 </tr>
-<tr id="i5" class="rowColor">
-<td class="colFirst"><code><a href="GraphImpl.html" title="class in io.github.mizinchik">GraphImpl</a>&lt;<a href="EdgeImpl.html" title="type parameter in EdgeImpl">I</a>,&#8203;<a href="EdgeImpl.html" title="type parameter in EdgeImpl">L</a>&gt;</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getGraph()">getGraph</a></span>()</code></th>
-<td class="colLast">&nbsp;</td>
-</tr>
-<tr id="i6" class="altColor">
-<td class="colFirst"><code><a href="EdgeImpl.html" title="type parameter in EdgeImpl">L</a></code></td>
+<tr id="i2" class="altColor">
+<td class="colFirst"><code>java.lang.Double</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getLength()">getLength</a></span>()</code></th>
 <td class="colLast">&nbsp;</td>
 </tr>
-<tr id="i7" class="rowColor">
+<tr id="i3" class="rowColor">
 <td class="colFirst"><code>java.lang.String</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getName()">getName</a></span>()</code></th>
 <td class="colLast">&nbsp;</td>
 </tr>
-<tr id="i8" class="altColor">
-<td class="colFirst"><code><a href="VertexImpl.html" title="class in io.github.mizinchik">VertexImpl</a>&lt;<a href="EdgeImpl.html" title="type parameter in EdgeImpl">I</a>,&#8203;<a href="EdgeImpl.html" title="type parameter in EdgeImpl">L</a>&gt;</code></td>
+<tr id="i4" class="altColor">
+<td class="colFirst"><code><a href="VertexImpl.html" title="class in io.github.mizinchik">VertexImpl</a>&lt;<a href="EdgeImpl.html" title="type parameter in EdgeImpl">I</a>&gt;</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getStart()">getStart</a></span>()</code></th>
 <td class="colLast">&nbsp;</td>
 </tr>
@@ -250,24 +229,16 @@ implements <a href="Edge.html" title="interface in io.github.mizinchik">Edge</a>
 <!--   -->
 </a>
 <h3>Constructor Detail</h3>
-<a id="&lt;init&gt;(java.lang.Number,io.github.mizinchik.GraphImpl,java.lang.String,io.github.mizinchik.VertexImpl,io.github.mizinchik.VertexImpl)">
-<!--   -->
-</a><a id="&lt;init&gt;(L,io.github.mizinchik.GraphImpl,java.lang.String,io.github.mizinchik.VertexImpl,io.github.mizinchik.VertexImpl)">
+<a id="&lt;init&gt;(java.lang.Double,java.lang.String,io.github.mizinchik.VertexImpl,io.github.mizinchik.VertexImpl)">
 <!--   -->
 </a>
 <ul class="blockListLast">
 <li class="blockList">
 <h4>EdgeImpl</h4>
-<pre>public&nbsp;EdgeImpl&#8203;(<a href="EdgeImpl.html" title="type parameter in EdgeImpl">L</a>&nbsp;length,
-                <a href="GraphImpl.html" title="class in io.github.mizinchik">GraphImpl</a>&lt;<a href="EdgeImpl.html" title="type parameter in EdgeImpl">I</a>,&#8203;<a href="EdgeImpl.html" title="type parameter in EdgeImpl">L</a>&gt;&nbsp;graph,
+<pre>public&nbsp;EdgeImpl&#8203;(java.lang.Double&nbsp;length,
                 java.lang.String&nbsp;name,
-                <a href="VertexImpl.html" title="class in io.github.mizinchik">VertexImpl</a>&lt;<a href="EdgeImpl.html" title="type parameter in EdgeImpl">I</a>,&#8203;<a href="EdgeImpl.html" title="type parameter in EdgeImpl">L</a>&gt;&nbsp;start,
-                <a href="VertexImpl.html" title="class in io.github.mizinchik">VertexImpl</a>&lt;<a href="EdgeImpl.html" title="type parameter in EdgeImpl">I</a>,&#8203;<a href="EdgeImpl.html" title="type parameter in EdgeImpl">L</a>&gt;&nbsp;end)
-         throws java.lang.IllegalArgumentException</pre>
-<dl>
-<dt><span class="throwsLabel">Throws:</span></dt>
-<dd><code>java.lang.IllegalArgumentException</code></dd>
-</dl>
+                <a href="VertexImpl.html" title="class in io.github.mizinchik">VertexImpl</a>&lt;<a href="EdgeImpl.html" title="type parameter in EdgeImpl">I</a>&gt;&nbsp;start,
+                <a href="VertexImpl.html" title="class in io.github.mizinchik">VertexImpl</a>&lt;<a href="EdgeImpl.html" title="type parameter in EdgeImpl">I</a>&gt;&nbsp;end)</pre>
 </li>
 </ul>
 </li>
@@ -286,25 +257,23 @@ implements <a href="Edge.html" title="interface in io.github.mizinchik">Edge</a>
 <ul class="blockList">
 <li class="blockList">
 <h4>getLength</h4>
-<pre class="methodSignature">public&nbsp;<a href="EdgeImpl.html" title="type parameter in EdgeImpl">L</a>&nbsp;getLength()</pre>
+<pre class="methodSignature">public&nbsp;java.lang.Double&nbsp;getLength()</pre>
 <dl>
 <dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
-<dd><code><a href="Edge.html#getLength()">getLength</a></code>&nbsp;in interface&nbsp;<code><a href="Edge.html" title="interface in io.github.mizinchik">Edge</a>&lt;<a href="GraphImpl.html" title="class in io.github.mizinchik">GraphImpl</a>&lt;<a href="EdgeImpl.html" title="type parameter in EdgeImpl">I</a>,&#8203;<a href="EdgeImpl.html" title="type parameter in EdgeImpl">L</a> extends java.lang.Number&gt;,&#8203;<a href="EdgeImpl.html" title="class in io.github.mizinchik">EdgeImpl</a>&lt;<a href="EdgeImpl.html" title="type parameter in EdgeImpl">I</a>,&#8203;<a href="EdgeImpl.html" title="type parameter in EdgeImpl">L</a> extends java.lang.Number&gt;,&#8203;<a href="VertexImpl.html" title="class in io.github.mizinchik">VertexImpl</a>&lt;<a href="EdgeImpl.html" title="type parameter in EdgeImpl">I</a>,&#8203;<a href="EdgeImpl.html" title="type parameter in EdgeImpl">L</a> extends java.lang.Number&gt;,&#8203;<a href="EdgeImpl.html" title="type parameter in EdgeImpl">I</a>,&#8203;<a href="EdgeImpl.html" title="type parameter in EdgeImpl">L</a> extends java.lang.Number&gt;</code></dd>
+<dd><code><a href="Edge.html#getLength()">getLength</a></code>&nbsp;in interface&nbsp;<code><a href="Edge.html" title="interface in io.github.mizinchik">Edge</a>&lt;<a href="VertexImpl.html" title="class in io.github.mizinchik">VertexImpl</a>&lt;<a href="EdgeImpl.html" title="type parameter in EdgeImpl">I</a>&gt;,&#8203;<a href="EdgeImpl.html" title="type parameter in EdgeImpl">I</a>,&#8203;java.lang.Double&gt;</code></dd>
 </dl>
 </li>
 </ul>
-<a id="changeLength(java.lang.Number)">
-<!--   -->
-</a><a id="changeLength(L)">
+<a id="changeLength(java.lang.Double)">
 <!--   -->
 </a>
 <ul class="blockList">
 <li class="blockList">
 <h4>changeLength</h4>
-<pre class="methodSignature">public&nbsp;void&nbsp;changeLength&#8203;(<a href="EdgeImpl.html" title="type parameter in EdgeImpl">L</a>&nbsp;newLength)</pre>
+<pre class="methodSignature">public&nbsp;void&nbsp;changeLength&#8203;(java.lang.Double&nbsp;newLength)</pre>
 <dl>
 <dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
-<dd><code><a href="Edge.html#changeLength(L)">changeLength</a></code>&nbsp;in interface&nbsp;<code><a href="Edge.html" title="interface in io.github.mizinchik">Edge</a>&lt;<a href="GraphImpl.html" title="class in io.github.mizinchik">GraphImpl</a>&lt;<a href="EdgeImpl.html" title="type parameter in EdgeImpl">I</a>,&#8203;<a href="EdgeImpl.html" title="type parameter in EdgeImpl">L</a> extends java.lang.Number&gt;,&#8203;<a href="EdgeImpl.html" title="class in io.github.mizinchik">EdgeImpl</a>&lt;<a href="EdgeImpl.html" title="type parameter in EdgeImpl">I</a>,&#8203;<a href="EdgeImpl.html" title="type parameter in EdgeImpl">L</a> extends java.lang.Number&gt;,&#8203;<a href="VertexImpl.html" title="class in io.github.mizinchik">VertexImpl</a>&lt;<a href="EdgeImpl.html" title="type parameter in EdgeImpl">I</a>,&#8203;<a href="EdgeImpl.html" title="type parameter in EdgeImpl">L</a> extends java.lang.Number&gt;,&#8203;<a href="EdgeImpl.html" title="type parameter in EdgeImpl">I</a>,&#8203;<a href="EdgeImpl.html" title="type parameter in EdgeImpl">L</a> extends java.lang.Number&gt;</code></dd>
+<dd><code><a href="Edge.html#changeLength(L)">changeLength</a></code>&nbsp;in interface&nbsp;<code><a href="Edge.html" title="interface in io.github.mizinchik">Edge</a>&lt;<a href="VertexImpl.html" title="class in io.github.mizinchik">VertexImpl</a>&lt;<a href="EdgeImpl.html" title="type parameter in EdgeImpl">I</a>&gt;,&#8203;<a href="EdgeImpl.html" title="type parameter in EdgeImpl">I</a>,&#8203;java.lang.Double&gt;</code></dd>
 </dl>
 </li>
 </ul>
@@ -317,20 +286,7 @@ implements <a href="Edge.html" title="interface in io.github.mizinchik">Edge</a>
 <pre class="methodSignature">public&nbsp;java.lang.String&nbsp;getName()</pre>
 <dl>
 <dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
-<dd><code><a href="Edge.html#getName()">getName</a></code>&nbsp;in interface&nbsp;<code><a href="Edge.html" title="interface in io.github.mizinchik">Edge</a>&lt;<a href="GraphImpl.html" title="class in io.github.mizinchik">GraphImpl</a>&lt;<a href="EdgeImpl.html" title="type parameter in EdgeImpl">I</a>,&#8203;<a href="EdgeImpl.html" title="type parameter in EdgeImpl">L</a> extends java.lang.Number&gt;,&#8203;<a href="EdgeImpl.html" title="class in io.github.mizinchik">EdgeImpl</a>&lt;<a href="EdgeImpl.html" title="type parameter in EdgeImpl">I</a>,&#8203;<a href="EdgeImpl.html" title="type parameter in EdgeImpl">L</a> extends java.lang.Number&gt;,&#8203;<a href="VertexImpl.html" title="class in io.github.mizinchik">VertexImpl</a>&lt;<a href="EdgeImpl.html" title="type parameter in EdgeImpl">I</a>,&#8203;<a href="EdgeImpl.html" title="type parameter in EdgeImpl">L</a> extends java.lang.Number&gt;,&#8203;<a href="EdgeImpl.html" title="type parameter in EdgeImpl">I</a>,&#8203;<a href="EdgeImpl.html" title="type parameter in EdgeImpl">L</a> extends java.lang.Number&gt;</code></dd>
-</dl>
-</li>
-</ul>
-<a id="getGraph()">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>getGraph</h4>
-<pre class="methodSignature">public&nbsp;<a href="GraphImpl.html" title="class in io.github.mizinchik">GraphImpl</a>&lt;<a href="EdgeImpl.html" title="type parameter in EdgeImpl">I</a>,&#8203;<a href="EdgeImpl.html" title="type parameter in EdgeImpl">L</a>&gt;&nbsp;getGraph()</pre>
-<dl>
-<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
-<dd><code><a href="Edge.html#getGraph()">getGraph</a></code>&nbsp;in interface&nbsp;<code><a href="Edge.html" title="interface in io.github.mizinchik">Edge</a>&lt;<a href="GraphImpl.html" title="class in io.github.mizinchik">GraphImpl</a>&lt;<a href="EdgeImpl.html" title="type parameter in EdgeImpl">I</a>,&#8203;<a href="EdgeImpl.html" title="type parameter in EdgeImpl">L</a> extends java.lang.Number&gt;,&#8203;<a href="EdgeImpl.html" title="class in io.github.mizinchik">EdgeImpl</a>&lt;<a href="EdgeImpl.html" title="type parameter in EdgeImpl">I</a>,&#8203;<a href="EdgeImpl.html" title="type parameter in EdgeImpl">L</a> extends java.lang.Number&gt;,&#8203;<a href="VertexImpl.html" title="class in io.github.mizinchik">VertexImpl</a>&lt;<a href="EdgeImpl.html" title="type parameter in EdgeImpl">I</a>,&#8203;<a href="EdgeImpl.html" title="type parameter in EdgeImpl">L</a> extends java.lang.Number&gt;,&#8203;<a href="EdgeImpl.html" title="type parameter in EdgeImpl">I</a>,&#8203;<a href="EdgeImpl.html" title="type parameter in EdgeImpl">L</a> extends java.lang.Number&gt;</code></dd>
+<dd><code><a href="Edge.html#getName()">getName</a></code>&nbsp;in interface&nbsp;<code><a href="Edge.html" title="interface in io.github.mizinchik">Edge</a>&lt;<a href="VertexImpl.html" title="class in io.github.mizinchik">VertexImpl</a>&lt;<a href="EdgeImpl.html" title="type parameter in EdgeImpl">I</a>&gt;,&#8203;<a href="EdgeImpl.html" title="type parameter in EdgeImpl">I</a>,&#8203;java.lang.Double&gt;</code></dd>
 </dl>
 </li>
 </ul>
@@ -340,63 +296,23 @@ implements <a href="Edge.html" title="interface in io.github.mizinchik">Edge</a>
 <ul class="blockList">
 <li class="blockList">
 <h4>getStart</h4>
-<pre class="methodSignature">public&nbsp;<a href="VertexImpl.html" title="class in io.github.mizinchik">VertexImpl</a>&lt;<a href="EdgeImpl.html" title="type parameter in EdgeImpl">I</a>,&#8203;<a href="EdgeImpl.html" title="type parameter in EdgeImpl">L</a>&gt;&nbsp;getStart()</pre>
+<pre class="methodSignature">public&nbsp;<a href="VertexImpl.html" title="class in io.github.mizinchik">VertexImpl</a>&lt;<a href="EdgeImpl.html" title="type parameter in EdgeImpl">I</a>&gt;&nbsp;getStart()</pre>
 <dl>
 <dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
-<dd><code><a href="Edge.html#getStart()">getStart</a></code>&nbsp;in interface&nbsp;<code><a href="Edge.html" title="interface in io.github.mizinchik">Edge</a>&lt;<a href="GraphImpl.html" title="class in io.github.mizinchik">GraphImpl</a>&lt;<a href="EdgeImpl.html" title="type parameter in EdgeImpl">I</a>,&#8203;<a href="EdgeImpl.html" title="type parameter in EdgeImpl">L</a> extends java.lang.Number&gt;,&#8203;<a href="EdgeImpl.html" title="class in io.github.mizinchik">EdgeImpl</a>&lt;<a href="EdgeImpl.html" title="type parameter in EdgeImpl">I</a>,&#8203;<a href="EdgeImpl.html" title="type parameter in EdgeImpl">L</a> extends java.lang.Number&gt;,&#8203;<a href="VertexImpl.html" title="class in io.github.mizinchik">VertexImpl</a>&lt;<a href="EdgeImpl.html" title="type parameter in EdgeImpl">I</a>,&#8203;<a href="EdgeImpl.html" title="type parameter in EdgeImpl">L</a> extends java.lang.Number&gt;,&#8203;<a href="EdgeImpl.html" title="type parameter in EdgeImpl">I</a>,&#8203;<a href="EdgeImpl.html" title="type parameter in EdgeImpl">L</a> extends java.lang.Number&gt;</code></dd>
+<dd><code><a href="Edge.html#getStart()">getStart</a></code>&nbsp;in interface&nbsp;<code><a href="Edge.html" title="interface in io.github.mizinchik">Edge</a>&lt;<a href="VertexImpl.html" title="class in io.github.mizinchik">VertexImpl</a>&lt;<a href="EdgeImpl.html" title="type parameter in EdgeImpl">I</a>&gt;,&#8203;<a href="EdgeImpl.html" title="type parameter in EdgeImpl">I</a>,&#8203;java.lang.Double&gt;</code></dd>
 </dl>
 </li>
 </ul>
 <a id="getEnd()">
 <!--   -->
 </a>
-<ul class="blockList">
-<li class="blockList">
-<h4>getEnd</h4>
-<pre class="methodSignature">public&nbsp;<a href="VertexImpl.html" title="class in io.github.mizinchik">VertexImpl</a>&lt;<a href="EdgeImpl.html" title="type parameter in EdgeImpl">I</a>,&#8203;<a href="EdgeImpl.html" title="type parameter in EdgeImpl">L</a>&gt;&nbsp;getEnd()</pre>
-<dl>
-<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
-<dd><code><a href="Edge.html#getEnd()">getEnd</a></code>&nbsp;in interface&nbsp;<code><a href="Edge.html" title="interface in io.github.mizinchik">Edge</a>&lt;<a href="GraphImpl.html" title="class in io.github.mizinchik">GraphImpl</a>&lt;<a href="EdgeImpl.html" title="type parameter in EdgeImpl">I</a>,&#8203;<a href="EdgeImpl.html" title="type parameter in EdgeImpl">L</a> extends java.lang.Number&gt;,&#8203;<a href="EdgeImpl.html" title="class in io.github.mizinchik">EdgeImpl</a>&lt;<a href="EdgeImpl.html" title="type parameter in EdgeImpl">I</a>,&#8203;<a href="EdgeImpl.html" title="type parameter in EdgeImpl">L</a> extends java.lang.Number&gt;,&#8203;<a href="VertexImpl.html" title="class in io.github.mizinchik">VertexImpl</a>&lt;<a href="EdgeImpl.html" title="type parameter in EdgeImpl">I</a>,&#8203;<a href="EdgeImpl.html" title="type parameter in EdgeImpl">L</a> extends java.lang.Number&gt;,&#8203;<a href="EdgeImpl.html" title="type parameter in EdgeImpl">I</a>,&#8203;<a href="EdgeImpl.html" title="type parameter in EdgeImpl">L</a> extends java.lang.Number&gt;</code></dd>
-</dl>
-</li>
-</ul>
-<a id="getAdjacentEdgesAfter()">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>getAdjacentEdgesAfter</h4>
-<pre class="methodSignature">public&nbsp;java.util.ArrayList&lt;<a href="EdgeImpl.html" title="class in io.github.mizinchik">EdgeImpl</a>&lt;<a href="EdgeImpl.html" title="type parameter in EdgeImpl">I</a>,&#8203;<a href="EdgeImpl.html" title="type parameter in EdgeImpl">L</a>&gt;&gt;&nbsp;getAdjacentEdgesAfter()</pre>
-<dl>
-<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
-<dd><code><a href="Edge.html#getAdjacentEdgesAfter()">getAdjacentEdgesAfter</a></code>&nbsp;in interface&nbsp;<code><a href="Edge.html" title="interface in io.github.mizinchik">Edge</a>&lt;<a href="GraphImpl.html" title="class in io.github.mizinchik">GraphImpl</a>&lt;<a href="EdgeImpl.html" title="type parameter in EdgeImpl">I</a>,&#8203;<a href="EdgeImpl.html" title="type parameter in EdgeImpl">L</a> extends java.lang.Number&gt;,&#8203;<a href="EdgeImpl.html" title="class in io.github.mizinchik">EdgeImpl</a>&lt;<a href="EdgeImpl.html" title="type parameter in EdgeImpl">I</a>,&#8203;<a href="EdgeImpl.html" title="type parameter in EdgeImpl">L</a> extends java.lang.Number&gt;,&#8203;<a href="VertexImpl.html" title="class in io.github.mizinchik">VertexImpl</a>&lt;<a href="EdgeImpl.html" title="type parameter in EdgeImpl">I</a>,&#8203;<a href="EdgeImpl.html" title="type parameter in EdgeImpl">L</a> extends java.lang.Number&gt;,&#8203;<a href="EdgeImpl.html" title="type parameter in EdgeImpl">I</a>,&#8203;<a href="EdgeImpl.html" title="type parameter in EdgeImpl">L</a> extends java.lang.Number&gt;</code></dd>
-</dl>
-</li>
-</ul>
-<a id="getAdjacentEdgesBefore()">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>getAdjacentEdgesBefore</h4>
-<pre class="methodSignature">public&nbsp;java.util.ArrayList&lt;<a href="EdgeImpl.html" title="class in io.github.mizinchik">EdgeImpl</a>&lt;<a href="EdgeImpl.html" title="type parameter in EdgeImpl">I</a>,&#8203;<a href="EdgeImpl.html" title="type parameter in EdgeImpl">L</a>&gt;&gt;&nbsp;getAdjacentEdgesBefore()</pre>
-<dl>
-<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
-<dd><code><a href="Edge.html#getAdjacentEdgesBefore()">getAdjacentEdgesBefore</a></code>&nbsp;in interface&nbsp;<code><a href="Edge.html" title="interface in io.github.mizinchik">Edge</a>&lt;<a href="GraphImpl.html" title="class in io.github.mizinchik">GraphImpl</a>&lt;<a href="EdgeImpl.html" title="type parameter in EdgeImpl">I</a>,&#8203;<a href="EdgeImpl.html" title="type parameter in EdgeImpl">L</a> extends java.lang.Number&gt;,&#8203;<a href="EdgeImpl.html" title="class in io.github.mizinchik">EdgeImpl</a>&lt;<a href="EdgeImpl.html" title="type parameter in EdgeImpl">I</a>,&#8203;<a href="EdgeImpl.html" title="type parameter in EdgeImpl">L</a> extends java.lang.Number&gt;,&#8203;<a href="VertexImpl.html" title="class in io.github.mizinchik">VertexImpl</a>&lt;<a href="EdgeImpl.html" title="type parameter in EdgeImpl">I</a>,&#8203;<a href="EdgeImpl.html" title="type parameter in EdgeImpl">L</a> extends java.lang.Number&gt;,&#8203;<a href="EdgeImpl.html" title="type parameter in EdgeImpl">I</a>,&#8203;<a href="EdgeImpl.html" title="type parameter in EdgeImpl">L</a> extends java.lang.Number&gt;</code></dd>
-</dl>
-</li>
-</ul>
-<a id="deleteAdjacentEdge(io.github.mizinchik.EdgeImpl)">
-<!--   -->
-</a>
 <ul class="blockListLast">
 <li class="blockList">
-<h4>deleteAdjacentEdge</h4>
-<pre class="methodSignature">public&nbsp;void&nbsp;deleteAdjacentEdge&#8203;(<a href="EdgeImpl.html" title="class in io.github.mizinchik">EdgeImpl</a>&lt;<a href="EdgeImpl.html" title="type parameter in EdgeImpl">I</a>,&#8203;<a href="EdgeImpl.html" title="type parameter in EdgeImpl">L</a>&gt;&nbsp;edge)
-                        throws java.util.NoSuchElementException</pre>
+<h4>getEnd</h4>
+<pre class="methodSignature">public&nbsp;<a href="VertexImpl.html" title="class in io.github.mizinchik">VertexImpl</a>&lt;<a href="EdgeImpl.html" title="type parameter in EdgeImpl">I</a>&gt;&nbsp;getEnd()</pre>
 <dl>
-<dt><span class="throwsLabel">Throws:</span></dt>
-<dd><code>java.util.NoSuchElementException</code></dd>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code><a href="Edge.html#getEnd()">getEnd</a></code>&nbsp;in interface&nbsp;<code><a href="Edge.html" title="interface in io.github.mizinchik">Edge</a>&lt;<a href="VertexImpl.html" title="class in io.github.mizinchik">VertexImpl</a>&lt;<a href="EdgeImpl.html" title="type parameter in EdgeImpl">I</a>&gt;,&#8203;<a href="EdgeImpl.html" title="type parameter in EdgeImpl">I</a>,&#8203;java.lang.Double&gt;</code></dd>
 </dl>
 </li>
 </ul>

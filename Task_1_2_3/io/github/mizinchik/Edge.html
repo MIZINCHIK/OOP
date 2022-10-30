@@ -26,7 +26,7 @@
     catch(err) {
     }
 //-->
-var data = {"i0":6,"i1":6,"i2":6,"i3":6,"i4":6,"i5":6,"i6":6,"i7":6};
+var data = {"i0":6,"i1":6,"i2":6,"i3":6,"i4":6};
 var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],4:["t3","Abstract Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -114,7 +114,7 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <main role="main">
 <div class="header">
 <div class="subTitle"><span class="packageLabelInType">Package</span>&nbsp;<a href="package-summary.html">io.github.mizinchik</a></div>
-<h2 title="Interface Edge" class="title">Interface Edge&lt;G extends <a href="Graph.html" title="interface in io.github.mizinchik">Graph</a>&lt;G,&#8203;E,&#8203;V,&#8203;I,&#8203;L&gt;,&#8203;E extends Edge&lt;G,&#8203;E,&#8203;V,&#8203;I,&#8203;L&gt;,&#8203;V extends <a href="Vertex.html" title="interface in io.github.mizinchik">Vertex</a>&lt;G,&#8203;E,&#8203;V,&#8203;I,&#8203;L&gt;,&#8203;I,&#8203;L&gt;</h2>
+<h2 title="Interface Edge" class="title">Interface Edge&lt;V extends <a href="Vertex.html" title="interface in io.github.mizinchik">Vertex</a>&lt;I&gt;,&#8203;I,&#8203;L&gt;</h2>
 </div>
 <div class="contentContainer">
 <div class="description">
@@ -125,7 +125,7 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <dd><code><a href="EdgeImpl.html" title="class in io.github.mizinchik">EdgeImpl</a></code></dd>
 </dl>
 <hr>
-<pre>public interface <span class="typeNameLabel">Edge&lt;G extends <a href="Graph.html" title="interface in io.github.mizinchik">Graph</a>&lt;G,&#8203;E,&#8203;V,&#8203;I,&#8203;L&gt;,&#8203;E extends Edge&lt;G,&#8203;E,&#8203;V,&#8203;I,&#8203;L&gt;,&#8203;V extends <a href="Vertex.html" title="interface in io.github.mizinchik">Vertex</a>&lt;G,&#8203;E,&#8203;V,&#8203;I,&#8203;L&gt;,&#8203;I,&#8203;L&gt;</span></pre>
+<pre>public interface <span class="typeNameLabel">Edge&lt;V extends <a href="Vertex.html" title="interface in io.github.mizinchik">Vertex</a>&lt;I&gt;,&#8203;I,&#8203;L&gt;</span></pre>
 </li>
 </ul>
 </div>
@@ -152,36 +152,21 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <td class="colLast">&nbsp;</td>
 </tr>
 <tr id="i1" class="rowColor">
-<td class="colFirst"><code>java.util.ArrayList&lt;<a href="Edge.html" title="type parameter in Edge">E</a>&gt;</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getAdjacentEdgesAfter()">getAdjacentEdgesAfter</a></span>()</code></th>
-<td class="colLast">&nbsp;</td>
-</tr>
-<tr id="i2" class="altColor">
-<td class="colFirst"><code>java.util.ArrayList&lt;<a href="Edge.html" title="type parameter in Edge">E</a>&gt;</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getAdjacentEdgesBefore()">getAdjacentEdgesBefore</a></span>()</code></th>
-<td class="colLast">&nbsp;</td>
-</tr>
-<tr id="i3" class="rowColor">
 <td class="colFirst"><code><a href="Edge.html" title="type parameter in Edge">V</a></code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getEnd()">getEnd</a></span>()</code></th>
 <td class="colLast">&nbsp;</td>
 </tr>
-<tr id="i4" class="altColor">
-<td class="colFirst"><code><a href="Edge.html" title="type parameter in Edge">G</a></code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getGraph()">getGraph</a></span>()</code></th>
-<td class="colLast">&nbsp;</td>
-</tr>
-<tr id="i5" class="rowColor">
+<tr id="i2" class="altColor">
 <td class="colFirst"><code><a href="Edge.html" title="type parameter in Edge">L</a></code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getLength()">getLength</a></span>()</code></th>
 <td class="colLast">&nbsp;</td>
 </tr>
-<tr id="i6" class="altColor">
+<tr id="i3" class="rowColor">
 <td class="colFirst"><code>java.lang.String</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getName()">getName</a></span>()</code></th>
 <td class="colLast">&nbsp;</td>
 </tr>
-<tr id="i7" class="rowColor">
+<tr id="i4" class="altColor">
 <td class="colFirst"><code><a href="Edge.html" title="type parameter in Edge">V</a></code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getStart()">getStart</a></span>()</code></th>
 <td class="colLast">&nbsp;</td>
@@ -232,15 +217,6 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <pre class="methodSignature">java.lang.String&nbsp;getName()</pre>
 </li>
 </ul>
-<a id="getGraph()">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>getGraph</h4>
-<pre class="methodSignature"><a href="Edge.html" title="type parameter in Edge">G</a>&nbsp;getGraph()</pre>
-</li>
-</ul>
 <a id="getStart()">
 <!--   -->
 </a>
@@ -253,28 +229,10 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <a id="getEnd()">
 <!--   -->
 </a>
-<ul class="blockList">
+<ul class="blockListLast">
 <li class="blockList">
 <h4>getEnd</h4>
 <pre class="methodSignature"><a href="Edge.html" title="type parameter in Edge">V</a>&nbsp;getEnd()</pre>
-</li>
-</ul>
-<a id="getAdjacentEdgesAfter()">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>getAdjacentEdgesAfter</h4>
-<pre class="methodSignature">java.util.ArrayList&lt;<a href="Edge.html" title="type parameter in Edge">E</a>&gt;&nbsp;getAdjacentEdgesAfter()</pre>
-</li>
-</ul>
-<a id="getAdjacentEdgesBefore()">
-<!--   -->
-</a>
-<ul class="blockListLast">
-<li class="blockList">
-<h4>getAdjacentEdgesBefore</h4>
-<pre class="methodSignature">java.util.ArrayList&lt;<a href="Edge.html" title="type parameter in Edge">E</a>&gt;&nbsp;getAdjacentEdgesBefore()</pre>
 </li>
 </ul>
 </li>

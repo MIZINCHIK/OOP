@@ -26,7 +26,7 @@
     catch(err) {
     }
 //-->
-var data = {"i0":6,"i1":6,"i2":6,"i3":6,"i4":6,"i5":6,"i6":6,"i7":6,"i8":6};
+var data = {"i0":6,"i1":6,"i2":6,"i3":6,"i4":6,"i5":6,"i6":6,"i7":6,"i8":6,"i9":6,"i10":6};
 var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],4:["t3","Abstract Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -114,7 +114,7 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <main role="main">
 <div class="header">
 <div class="subTitle"><span class="packageLabelInType">Package</span>&nbsp;<a href="package-summary.html">io.github.mizinchik</a></div>
-<h2 title="Interface Graph" class="title">Interface Graph&lt;G extends Graph&lt;G,&#8203;E,&#8203;V,&#8203;I,&#8203;L&gt;,&#8203;E extends <a href="Edge.html" title="interface in io.github.mizinchik">Edge</a>&lt;G,&#8203;E,&#8203;V,&#8203;I,&#8203;L&gt;,&#8203;V extends <a href="Vertex.html" title="interface in io.github.mizinchik">Vertex</a>&lt;G,&#8203;E,&#8203;V,&#8203;I,&#8203;L&gt;,&#8203;I,&#8203;L&gt;</h2>
+<h2 title="Interface Graph" class="title">Interface Graph&lt;E extends <a href="Edge.html" title="interface in io.github.mizinchik">Edge</a>&lt;V,&#8203;I,&#8203;L&gt;,&#8203;V extends <a href="Vertex.html" title="interface in io.github.mizinchik">Vertex</a>&lt;I&gt;,&#8203;I,&#8203;L&gt;</h2>
 </div>
 <div class="contentContainer">
 <div class="description">
@@ -122,10 +122,10 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <li class="blockList">
 <dl>
 <dt>All Known Implementing Classes:</dt>
-<dd><code><a href="GraphImpl.html" title="class in io.github.mizinchik">GraphImpl</a></code>, <code><a href="GraphInteger.html" title="class in io.github.mizinchik">GraphInteger</a></code></dd>
+<dd><code><a href="GraphImpl.html" title="class in io.github.mizinchik">GraphImpl</a></code></dd>
 </dl>
 <hr>
-<pre>public interface <span class="typeNameLabel">Graph&lt;G extends Graph&lt;G,&#8203;E,&#8203;V,&#8203;I,&#8203;L&gt;,&#8203;E extends <a href="Edge.html" title="interface in io.github.mizinchik">Edge</a>&lt;G,&#8203;E,&#8203;V,&#8203;I,&#8203;L&gt;,&#8203;V extends <a href="Vertex.html" title="interface in io.github.mizinchik">Vertex</a>&lt;G,&#8203;E,&#8203;V,&#8203;I,&#8203;L&gt;,&#8203;I,&#8203;L&gt;</span></pre>
+<pre>public interface <span class="typeNameLabel">Graph&lt;E extends <a href="Edge.html" title="interface in io.github.mizinchik">Edge</a>&lt;V,&#8203;I,&#8203;L&gt;,&#8203;V extends <a href="Vertex.html" title="interface in io.github.mizinchik">Vertex</a>&lt;I&gt;,&#8203;I,&#8203;L&gt;</span></pre>
 </li>
 </ul>
 </div>
@@ -171,8 +171,8 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <td class="colLast">&nbsp;</td>
 </tr>
 <tr id="i4" class="altColor">
-<td class="colFirst"><code>java.util.HashMap&lt;java.lang.String,&#8203;<a href="Graph.html" title="type parameter in Graph">E</a>&gt;</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getEdges()">getEdges</a></span>()</code></th>
+<td class="colFirst"><code>java.util.List&lt;<a href="Graph.html" title="type parameter in Graph">E</a>&gt;</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getEdgesList()">getEdgesList</a></span>()</code></th>
 <td class="colLast">&nbsp;</td>
 </tr>
 <tr id="i5" class="rowColor">
@@ -181,17 +181,27 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <td class="colLast">&nbsp;</td>
 </tr>
 <tr id="i6" class="altColor">
-<td class="colFirst"><code>java.util.HashMap&lt;java.lang.String,&#8203;<a href="Graph.html" title="type parameter in Graph">V</a>&gt;</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getVertices()">getVertices</a></span>()</code></th>
+<td class="colFirst"><code><a href="Graph.html" title="type parameter in Graph">V</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getVertex(java.lang.String)">getVertex</a></span>&#8203;(java.lang.String&nbsp;name)</code></th>
 <td class="colLast">&nbsp;</td>
 </tr>
 <tr id="i7" class="rowColor">
+<td class="colFirst"><code>java.util.Map&lt;java.lang.String,&#8203;<a href="Graph.html" title="type parameter in Graph">V</a>&gt;</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getVertices()">getVertices</a></span>()</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr id="i8" class="altColor">
+<td class="colFirst"><code>java.util.List&lt;<a href="Graph.html" title="type parameter in Graph">V</a>&gt;</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getVerticesList()">getVerticesList</a></span>()</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr id="i9" class="rowColor">
 <td class="colFirst"><code>int</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getVerticesQuantity()">getVerticesQuantity</a></span>()</code></th>
 <td class="colLast">&nbsp;</td>
 </tr>
-<tr id="i8" class="altColor">
-<td class="colFirst"><code>java.util.HashMap&lt;<a href="Graph.html" title="type parameter in Graph">V</a>,&#8203;<a href="Graph.html" title="type parameter in Graph">L</a>&gt;</code></td>
+<tr id="i10" class="altColor">
+<td class="colFirst"><code>java.util.List&lt;java.util.Map.Entry&lt;java.lang.String,&#8203;<a href="Graph.html" title="type parameter in Graph">L</a>&gt;&gt;</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#topSort(V)">topSort</a></span>&#8203;(<a href="Graph.html" title="type parameter in Graph">V</a>&nbsp;startingPoint)</code></th>
 <td class="colLast">&nbsp;</td>
 </tr>
@@ -230,22 +240,31 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <pre class="methodSignature">int&nbsp;getVerticesQuantity()</pre>
 </li>
 </ul>
+<a id="getEdgesList()">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getEdgesList</h4>
+<pre class="methodSignature">java.util.List&lt;<a href="Graph.html" title="type parameter in Graph">E</a>&gt;&nbsp;getEdgesList()</pre>
+</li>
+</ul>
+<a id="getVerticesList()">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getVerticesList</h4>
+<pre class="methodSignature">java.util.List&lt;<a href="Graph.html" title="type parameter in Graph">V</a>&gt;&nbsp;getVerticesList()</pre>
+</li>
+</ul>
 <a id="getVertices()">
 <!--   -->
 </a>
 <ul class="blockList">
 <li class="blockList">
 <h4>getVertices</h4>
-<pre class="methodSignature">java.util.HashMap&lt;java.lang.String,&#8203;<a href="Graph.html" title="type parameter in Graph">V</a>&gt;&nbsp;getVertices()</pre>
-</li>
-</ul>
-<a id="getEdges()">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>getEdges</h4>
-<pre class="methodSignature">java.util.HashMap&lt;java.lang.String,&#8203;<a href="Graph.html" title="type parameter in Graph">E</a>&gt;&nbsp;getEdges()</pre>
+<pre class="methodSignature">java.util.Map&lt;java.lang.String,&#8203;<a href="Graph.html" title="type parameter in Graph">V</a>&gt;&nbsp;getVertices()</pre>
 </li>
 </ul>
 <a id="addVertex(java.lang.String,java.lang.Object)">
@@ -258,6 +277,15 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <h4>addVertex</h4>
 <pre class="methodSignature"><a href="Graph.html" title="type parameter in Graph">V</a>&nbsp;addVertex&#8203;(java.lang.String&nbsp;name,
             <a href="Graph.html" title="type parameter in Graph">I</a>&nbsp;insideVal)</pre>
+</li>
+</ul>
+<a id="getVertex(java.lang.String)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getVertex</h4>
+<pre class="methodSignature"><a href="Graph.html" title="type parameter in Graph">V</a>&nbsp;getVertex&#8203;(java.lang.String&nbsp;name)</pre>
 </li>
 </ul>
 <a id="deleteVertex(io.github.mizinchik.Vertex)">
@@ -304,7 +332,7 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <ul class="blockListLast">
 <li class="blockList">
 <h4>topSort</h4>
-<pre class="methodSignature">java.util.HashMap&lt;<a href="Graph.html" title="type parameter in Graph">V</a>,&#8203;<a href="Graph.html" title="type parameter in Graph">L</a>&gt;&nbsp;topSort&#8203;(<a href="Graph.html" title="type parameter in Graph">V</a>&nbsp;startingPoint)</pre>
+<pre class="methodSignature">java.util.List&lt;java.util.Map.Entry&lt;java.lang.String,&#8203;<a href="Graph.html" title="type parameter in Graph">L</a>&gt;&gt;&nbsp;topSort&#8203;(<a href="Graph.html" title="type parameter in Graph">V</a>&nbsp;startingPoint)</pre>
 </li>
 </ul>
 </li>
