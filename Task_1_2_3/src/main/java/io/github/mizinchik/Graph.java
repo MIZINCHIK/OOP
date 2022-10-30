@@ -1,17 +1,21 @@
 package io.github.mizinchik;
 
-import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
-public interface Graph <G extends Graph<G, E, V, I, L>, E extends Edge<G, E, V, I, L>, V extends Vertex<G, E, V, I, L>, I, L> {
+public interface Graph <E extends Edge<V, I, L>, V extends Vertex<I>, I, L> {
     int getEdgesQuantity();
 
     int getVerticesQuantity();
+    List<E> getEdgesList();
 
-    HashMap<String, V> getVertices();
+    List<V> getVerticesList();
 
-    HashMap<String, E> getEdges();
+    Map<String, V> getVertices();
 
     V addVertex(String name, I insideVal);
+
+    V getVertex(String name);
 
     void deleteVertex(V vertex);
 
@@ -19,5 +23,5 @@ public interface Graph <G extends Graph<G, E, V, I, L>, E extends Edge<G, E, V, 
 
     void deleteEdge(E edge);
 
-    HashMap<V, L> topSort (V startingPoint);
+    List<Map.Entry<String, L>> topSort (V startingPoint);
 }
