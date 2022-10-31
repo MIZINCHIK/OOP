@@ -52,12 +52,15 @@ public class GraphTest {
     void testReference() throws Exception {
         var newGraph = new GraphImpl<Double>("./src/main/resources/AdjacentMatrix.txt", 'A');
         assertEquals(7, newGraph.getVerticesQuantity());
+        newGraph.sortPrinter("C");
         assertEquals("C(0.0) D(2.0) E(4.0) F(5.0) G(9.0) B(10.0) A(14.0) ", out.toString());
         newGraph = new GraphImpl<>("./src/main/resources/IncidenceMatrix.txt", 'I');
+        newGraph.sortPrinter("C");
         assertEquals(7, newGraph.getVerticesQuantity());
         assertEquals("C(0.0) D(2.0) E(4.0) F(5.0) G(9.0) B(10.0) A(14.0) "
                 + "C(0.0) D(2.0) E(4.0) F(5.0) G(9.0) B(10.0) A(14.0) ", out.toString());
         newGraph = new GraphImpl<>("./src/main/resources/AdjacencyList.txt", 'L');
+        newGraph.sortPrinter("C");
         assertEquals(7, newGraph.getVerticesQuantity());
         assertEquals("C(0.0) D(2.0) E(4.0) F(5.0) G(9.0) B(10.0) A(14.0) "
                 + "C(0.0) D(2.0) E(4.0) F(5.0) G(9.0) B(10.0) A(14.0) "
@@ -107,6 +110,7 @@ public class GraphTest {
     @DisplayName("GraphImpl class test")
     void testGraph() throws Exception {
         var newGraph = new GraphImpl<Double>("./src/main/resources/AdjacentMatrix.txt", 'A');
+        newGraph.sortPrinter("C");
         assertEquals(7, newGraph.getVerticesQuantity());
         assertEquals(20, newGraph.getEdgesQuantity());
         VertexImpl<Double> newVertex = newGraph.addVertex("New", null);

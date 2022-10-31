@@ -6,10 +6,10 @@ package io.github.mizinchik;
  *
  * @param <I> values inside vertices
  */
-public class EdgeImpl<I> implements Edge<VertexImpl<I>, I, Double> {
+public class EdgeImpl<I> implements Edge<I, Double> {
     private Double length;
-    private final VertexImpl<I> start;
-    private final VertexImpl<I> end;
+    private final Vertex<I> start;
+    private final Vertex<I> end;
     private final String name;
 
     /**
@@ -63,7 +63,7 @@ public class EdgeImpl<I> implements Edge<VertexImpl<I>, I, Double> {
      * @return starting endpoint of the edge
      */
     @Override
-    public VertexImpl<I> getStart() {
+    public Vertex<I> getStart() {
         return start;
     }
 
@@ -73,7 +73,7 @@ public class EdgeImpl<I> implements Edge<VertexImpl<I>, I, Double> {
      * @return ending endpoint of the edge
      */
     @Override
-    public VertexImpl<I> getEnd() {
+    public Vertex<I> getEnd() {
         return end;
     }
 }

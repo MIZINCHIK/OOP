@@ -7,4 +7,3 @@ NaN NaN NaN 2 4 5 10
 NaN NaN 4 NaN NaN NaN 5
 NaN NaN 5 NaN NaN NaN 5
 25 NaN 10 NaN 5 5 NaN
-2
