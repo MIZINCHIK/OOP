@@ -21,6 +21,7 @@ import java.util.Scanner;
  * I for incidence matrix
  * L for adjacency lists;
  * and for topological sort.
+ * Adjacency matrix should look like:
  *
  * @param <I> values stored in vertices
  */
@@ -144,10 +145,16 @@ public class GraphImpl<I> implements Graph<EdgeImpl<I>, VertexImpl<I>, I, Double
         this.edges = extractedEdges;
         this.vertices = new ArrayList<>();
         builder(extractedVertices);
-        line = scanner.nextLine();
-        int startingPointInt = Integer.parseInt(line);
-        VertexImpl<I> startingPoint = extractedVertices.get(startingPointInt);
-        List<Map.Entry<String, Double>> topSort = topSort(startingPoint);
+    }
+
+    /**
+     * Sorts the graph from the startingPoint
+     * and prints the results to the standard out stream.
+     *
+     * @param startingPoint name of the vertex to start sorting from
+     */
+    public void sortPrinter(String startingPoint) {
+        List<Map.Entry<String, Double>> topSort = topSort(namesToVertices.get(startingPoint));
         for (Map.Entry<String, Double> entry : topSort) {
             System.out.print(entry.getKey() + "(" + entry.getValue() + ") ");
         }

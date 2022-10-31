@@ -4,11 +4,10 @@ package io.github.mizinchik;
  * General interface describing an oriented
  * edge of a graph.
  *
- * @param <V> vertices at the ends of an edge
  * @param <I> objects inside vertices
  * @param <L> length of an edge
  */
-public interface Edge<V extends Vertex<I>, I, L> {
+public interface Edge<I, L> {
     /**
      * Accesses length of the edge.
      *
@@ -35,12 +34,12 @@ public interface Edge<V extends Vertex<I>, I, L> {
      *
      * @return starting endpoint of the edge
      */
-    V getStart();
+    Vertex<I> getStart();
 
     /**
      * Accesses vertex to which the edge goes.
      *
      * @return ending endpoint of the edge
      */
-    V getEnd();
+    Vertex<I> getEnd();
 }
