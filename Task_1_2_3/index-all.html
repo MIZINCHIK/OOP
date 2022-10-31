@@ -90,7 +90,7 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 </nav>
 </header>
 <main role="main">
-<div class="contentContainer"><a href="#I:A">A</a>&nbsp;<a href="#I:C">C</a>&nbsp;<a href="#I:D">D</a>&nbsp;<a href="#I:E">E</a>&nbsp;<a href="#I:F">F</a>&nbsp;<a href="#I:G">G</a>&nbsp;<a href="#I:I">I</a>&nbsp;<a href="#I:N">N</a>&nbsp;<a href="#I:T">T</a>&nbsp;<a href="#I:V">V</a>&nbsp;<br><a href="allclasses-index.html">All&nbsp;Classes</a>&nbsp;<a href="allpackages-index.html">All&nbsp;Packages</a><a id="I:A">
+<div class="contentContainer"><a href="#I:A">A</a>&nbsp;<a href="#I:C">C</a>&nbsp;<a href="#I:D">D</a>&nbsp;<a href="#I:E">E</a>&nbsp;<a href="#I:F">F</a>&nbsp;<a href="#I:G">G</a>&nbsp;<a href="#I:I">I</a>&nbsp;<a href="#I:N">N</a>&nbsp;<a href="#I:S">S</a>&nbsp;<a href="#I:T">T</a>&nbsp;<a href="#I:V">V</a>&nbsp;<br><a href="allclasses-index.html">All&nbsp;Classes</a>&nbsp;<a href="allpackages-index.html">All&nbsp;Packages</a><a id="I:A">
 <!--   -->
 </a>
 <h2 class="title">A</h2>
@@ -161,7 +161,7 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 </a>
 <h2 class="title">E</h2>
 <dl>
-<dt><a href="io/github/mizinchik/Edge.html" title="interface in io.github.mizinchik"><span class="typeNameLink">Edge</span></a>&lt;<a href="io/github/mizinchik/Edge.html" title="type parameter in Edge">V</a> extends <a href="io/github/mizinchik/Vertex.html" title="interface in io.github.mizinchik">Vertex</a>&lt;<a href="io/github/mizinchik/Edge.html" title="type parameter in Edge">I</a>&gt;,&#8203;<a href="io/github/mizinchik/Edge.html" title="type parameter in Edge">I</a>,&#8203;<a href="io/github/mizinchik/Edge.html" title="type parameter in Edge">L</a>&gt; - Interface in <a href="io/github/mizinchik/package-summary.html">io.github.mizinchik</a></dt>
+<dt><a href="io/github/mizinchik/Edge.html" title="interface in io.github.mizinchik"><span class="typeNameLink">Edge</span></a>&lt;<a href="io/github/mizinchik/Edge.html" title="type parameter in Edge">I</a>,&#8203;<a href="io/github/mizinchik/Edge.html" title="type parameter in Edge">L</a>&gt; - Interface in <a href="io/github/mizinchik/package-summary.html">io.github.mizinchik</a></dt>
 <dd>
 <div class="block">General interface describing an oriented
  edge of a graph.</div>
@@ -288,7 +288,7 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <dd>
 <div class="block">Counts vertices in the graph.</div>
 </dd>
-<dt><a href="io/github/mizinchik/Graph.html" title="interface in io.github.mizinchik"><span class="typeNameLink">Graph</span></a>&lt;<a href="io/github/mizinchik/Graph.html" title="type parameter in Graph">E</a> extends <a href="io/github/mizinchik/Edge.html" title="interface in io.github.mizinchik">Edge</a>&lt;<a href="io/github/mizinchik/Graph.html" title="type parameter in Graph">V</a>,&#8203;<a href="io/github/mizinchik/Graph.html" title="type parameter in Graph">I</a>,&#8203;<a href="io/github/mizinchik/Graph.html" title="type parameter in Graph">L</a>&gt;,&#8203;<a href="io/github/mizinchik/Graph.html" title="type parameter in Graph">V</a> extends <a href="io/github/mizinchik/Vertex.html" title="interface in io.github.mizinchik">Vertex</a>&lt;<a href="io/github/mizinchik/Graph.html" title="type parameter in Graph">I</a>&gt;,&#8203;<a href="io/github/mizinchik/Graph.html" title="type parameter in Graph">I</a>,&#8203;<a href="io/github/mizinchik/Graph.html" title="type parameter in Graph">L</a>&gt; - Interface in <a href="io/github/mizinchik/package-summary.html">io.github.mizinchik</a></dt>
+<dt><a href="io/github/mizinchik/Graph.html" title="interface in io.github.mizinchik"><span class="typeNameLink">Graph</span></a>&lt;<a href="io/github/mizinchik/Graph.html" title="type parameter in Graph">E</a> extends <a href="io/github/mizinchik/Edge.html" title="interface in io.github.mizinchik">Edge</a>&lt;<a href="io/github/mizinchik/Graph.html" title="type parameter in Graph">I</a>,&#8203;<a href="io/github/mizinchik/Graph.html" title="type parameter in Graph">L</a>&gt;,&#8203;<a href="io/github/mizinchik/Graph.html" title="type parameter in Graph">V</a> extends <a href="io/github/mizinchik/Vertex.html" title="interface in io.github.mizinchik">Vertex</a>&lt;<a href="io/github/mizinchik/Graph.html" title="type parameter in Graph">I</a>&gt;,&#8203;<a href="io/github/mizinchik/Graph.html" title="type parameter in Graph">I</a>,&#8203;<a href="io/github/mizinchik/Graph.html" title="type parameter in Graph">L</a>&gt; - Interface in <a href="io/github/mizinchik/package-summary.html">io.github.mizinchik</a></dt>
 <dd>
 <div class="block">General graph interface.</div>
 </dd>
@@ -322,6 +322,17 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <dd>
 <div class="block">Checks whether the graph represented by the
  distance matrix contains cycles of negative lengths.</div>
+</dd>
+</dl>
+<a id="I:S">
+<!--   -->
+</a>
+<h2 class="title">S</h2>
+<dl>
+<dt><span class="memberNameLink"><a href="io/github/mizinchik/GraphImpl.html#sortPrinter(java.lang.String)">sortPrinter(String)</a></span> - Method in class io.github.mizinchik.<a href="io/github/mizinchik/GraphImpl.html" title="class in io.github.mizinchik">GraphImpl</a></dt>
+<dd>
+<div class="block">Sorts the graph from the startingPoint
+ and prints the results to the standard out stream.</div>
 </dd>
 </dl>
 <a id="I:T">
@@ -362,7 +373,7 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <div class="block">Constructor.</div>
 </dd>
 </dl>
-<a href="#I:A">A</a>&nbsp;<a href="#I:C">C</a>&nbsp;<a href="#I:D">D</a>&nbsp;<a href="#I:E">E</a>&nbsp;<a href="#I:F">F</a>&nbsp;<a href="#I:G">G</a>&nbsp;<a href="#I:I">I</a>&nbsp;<a href="#I:N">N</a>&nbsp;<a href="#I:T">T</a>&nbsp;<a href="#I:V">V</a>&nbsp;<br><a href="allclasses-index.html">All&nbsp;Classes</a>&nbsp;<a href="allpackages-index.html">All&nbsp;Packages</a></div>
+<a href="#I:A">A</a>&nbsp;<a href="#I:C">C</a>&nbsp;<a href="#I:D">D</a>&nbsp;<a href="#I:E">E</a>&nbsp;<a href="#I:F">F</a>&nbsp;<a href="#I:G">G</a>&nbsp;<a href="#I:I">I</a>&nbsp;<a href="#I:N">N</a>&nbsp;<a href="#I:S">S</a>&nbsp;<a href="#I:T">T</a>&nbsp;<a href="#I:V">V</a>&nbsp;<br><a href="allclasses-index.html">All&nbsp;Classes</a>&nbsp;<a href="allpackages-index.html">All&nbsp;Packages</a></div>
 </main>
 <footer role="contentinfo">
 <nav role="navigation">

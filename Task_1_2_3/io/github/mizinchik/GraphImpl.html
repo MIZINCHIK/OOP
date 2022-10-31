@@ -26,7 +26,7 @@
     catch(err) {
     }
 //-->
-var data = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10,"i8":10,"i9":10,"i10":10,"i11":10,"i12":10};
+var data = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10,"i8":10,"i9":10,"i10":10,"i11":10,"i12":10,"i13":10};
 var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -148,7 +148,8 @@ implements <a href="Graph.html" title="interface in io.github.mizinchik">Graph</
  A for adjacency matrix
  I for incidence matrix
  L for adjacency lists;
- and for topological sort.</div>
+ and for topological sort.
+ Adjacency matrix should look like:</div>
 </li>
 </ul>
 </div>
@@ -291,6 +292,14 @@ implements <a href="Graph.html" title="interface in io.github.mizinchik">Graph</
 </td>
 </tr>
 <tr id="i12" class="altColor">
+<td class="colFirst"><code>void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#sortPrinter(java.lang.String)">sortPrinter</a></span>&#8203;(java.lang.String&nbsp;startingPoint)</code></th>
+<td class="colLast">
+<div class="block">Sorts the graph from the startingPoint
+ and prints the results to the standard out stream.</div>
+</td>
+</tr>
+<tr id="i13" class="rowColor">
 <td class="colFirst"><code>java.util.List&lt;java.util.Map.Entry&lt;java.lang.String,&#8203;java.lang.Double&gt;&gt;</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#topSort(io.github.mizinchik.VertexImpl)">topSort</a></span>&#8203;(<a href="VertexImpl.html" title="class in io.github.mizinchik">VertexImpl</a>&lt;<a href="GraphImpl.html" title="type parameter in GraphImpl">I</a>&gt;&nbsp;startingPoint)</code></th>
 <td class="colLast">
@@ -371,6 +380,21 @@ implements <a href="Graph.html" title="interface in io.github.mizinchik">Graph</
 <!--   -->
 </a>
 <h3>Method Detail</h3>
+<a id="sortPrinter(java.lang.String)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>sortPrinter</h4>
+<pre class="methodSignature">public&nbsp;void&nbsp;sortPrinter&#8203;(java.lang.String&nbsp;startingPoint)</pre>
+<div class="block">Sorts the graph from the startingPoint
+ and prints the results to the standard out stream.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>startingPoint</code> - name of the vertex to start sorting from</dd>
+</dl>
+</li>
+</ul>
 <a id="getEdgesQuantity()">
 <!--   -->
 </a>

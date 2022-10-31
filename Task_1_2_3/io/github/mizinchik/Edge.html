@@ -114,7 +114,7 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <main role="main">
 <div class="header">
 <div class="subTitle"><span class="packageLabelInType">Package</span>&nbsp;<a href="package-summary.html">io.github.mizinchik</a></div>
-<h2 title="Interface Edge" class="title">Interface Edge&lt;V extends <a href="Vertex.html" title="interface in io.github.mizinchik">Vertex</a>&lt;I&gt;,&#8203;I,&#8203;L&gt;</h2>
+<h2 title="Interface Edge" class="title">Interface Edge&lt;I,&#8203;L&gt;</h2>
 </div>
 <div class="contentContainer">
 <div class="description">
@@ -122,7 +122,6 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <li class="blockList">
 <dl>
 <dt><span class="paramLabel">Type Parameters:</span></dt>
-<dd><code>V</code> - vertices at the ends of an edge</dd>
 <dd><code>I</code> - objects inside vertices</dd>
 <dd><code>L</code> - length of an edge</dd>
 </dl>
@@ -131,7 +130,7 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <dd><code><a href="EdgeImpl.html" title="class in io.github.mizinchik">EdgeImpl</a></code></dd>
 </dl>
 <hr>
-<pre>public interface <span class="typeNameLabel">Edge&lt;V extends <a href="Vertex.html" title="interface in io.github.mizinchik">Vertex</a>&lt;I&gt;,&#8203;I,&#8203;L&gt;</span></pre>
+<pre>public interface <span class="typeNameLabel">Edge&lt;I,&#8203;L&gt;</span></pre>
 <div class="block">General interface describing an oriented
  edge of a graph.</div>
 </li>
@@ -162,7 +161,7 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 </td>
 </tr>
 <tr id="i1" class="rowColor">
-<td class="colFirst"><code><a href="Edge.html" title="type parameter in Edge">V</a></code></td>
+<td class="colFirst"><code><a href="Vertex.html" title="interface in io.github.mizinchik">Vertex</a>&lt;<a href="Edge.html" title="type parameter in Edge">I</a>&gt;</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getEnd()">getEnd</a></span>()</code></th>
 <td class="colLast">
 <div class="block">Accesses vertex to which the edge goes.</div>
@@ -183,7 +182,7 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 </td>
 </tr>
 <tr id="i4" class="altColor">
-<td class="colFirst"><code><a href="Edge.html" title="type parameter in Edge">V</a></code></td>
+<td class="colFirst"><code><a href="Vertex.html" title="interface in io.github.mizinchik">Vertex</a>&lt;<a href="Edge.html" title="type parameter in Edge">I</a>&gt;</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getStart()">getStart</a></span>()</code></th>
 <td class="colLast">
 <div class="block">Accesses vertex from which the edge starts.</div>
@@ -256,7 +255,7 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <ul class="blockList">
 <li class="blockList">
 <h4>getStart</h4>
-<pre class="methodSignature"><a href="Edge.html" title="type parameter in Edge">V</a>&nbsp;getStart()</pre>
+<pre class="methodSignature"><a href="Vertex.html" title="interface in io.github.mizinchik">Vertex</a>&lt;<a href="Edge.html" title="type parameter in Edge">I</a>&gt;&nbsp;getStart()</pre>
 <div class="block">Accesses vertex from which the edge starts.</div>
 <dl>
 <dt><span class="returnLabel">Returns:</span></dt>
@@ -270,7 +269,7 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <ul class="blockListLast">
 <li class="blockList">
 <h4>getEnd</h4>
-<pre class="methodSignature"><a href="Edge.html" title="type parameter in Edge">V</a>&nbsp;getEnd()</pre>
+<pre class="methodSignature"><a href="Vertex.html" title="interface in io.github.mizinchik">Vertex</a>&lt;<a href="Edge.html" title="type parameter in Edge">I</a>&gt;&nbsp;getEnd()</pre>
 <div class="block">Accesses vertex to which the edge goes.</div>
 <dl>
 <dt><span class="returnLabel">Returns:</span></dt>
