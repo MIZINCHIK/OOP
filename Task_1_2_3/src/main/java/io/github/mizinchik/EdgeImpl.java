@@ -20,7 +20,7 @@ public class EdgeImpl<I> implements Edge<I, Double> {
      * @param start vertex where it starts
      * @param end vertex where it ends
      */
-    public EdgeImpl(Double length, String name, VertexImpl<I> start, VertexImpl<I> end) {
+    public EdgeImpl(Double length, String name, Vertex<I> start, Vertex<I> end) {
         this.length = length;
         this.name = name;
         this.start = start;

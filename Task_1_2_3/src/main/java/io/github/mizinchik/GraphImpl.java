@@ -26,11 +26,11 @@ import java.util.Scanner;
  * @param <I> values stored in vertices
  */
 public class GraphImpl<I> implements Graph<EdgeImpl<I>, VertexImpl<I>, I, Double> {
-    private HashMap<String, VertexImpl<I>> namesToVertices;
-    private HashMap<String, ArrayList<EdgeImpl<I>>> edgeOutLists;
-    private HashMap<String, HashMap<String, EdgeImpl<I>>> adjacencyMatrix;
-    private final ArrayList<EdgeImpl<I>> edges;
-    private final ArrayList<String> vertices;
+    private Map<String, VertexImpl<I>> namesToVertices;
+    private Map<String, ArrayList<EdgeImpl<I>>> edgeOutLists;
+    private Map<String, HashMap<String, EdgeImpl<I>>> adjacencyMatrix;
+    private final List<EdgeImpl<I>> edges;
+    private final List<String> vertices;
 
     /**
      * Constructor.
@@ -267,7 +267,7 @@ public class GraphImpl<I> implements Graph<EdgeImpl<I>, VertexImpl<I>, I, Double
      */
     @Override
     public ArrayList<EdgeImpl<I>> getEdgesList() {
-        return edges;
+        return (ArrayList<EdgeImpl<I>>) edges;
     }
 
     /**
@@ -291,7 +291,7 @@ public class GraphImpl<I> implements Graph<EdgeImpl<I>, VertexImpl<I>, I, Double
      */
     @Override
     public HashMap<String, VertexImpl<I>> getVertices() {
-        return namesToVertices;
+        return (HashMap<String, VertexImpl<I>>) namesToVertices;
     }
 
     /**
