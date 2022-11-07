@@ -114,7 +114,7 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <main role="main">
 <div class="header">
 <div class="subTitle"><span class="packageLabelInType">Package</span>&nbsp;<a href="package-summary.html">io.github.mizinchik</a></div>
-<h2 title="Interface Graph" class="title">Interface Graph&lt;E extends <a href="Edge.html" title="interface in io.github.mizinchik">Edge</a>&lt;I,&#8203;L&gt;,&#8203;V extends <a href="Vertex.html" title="interface in io.github.mizinchik">Vertex</a>&lt;I&gt;,&#8203;I,&#8203;L&gt;</h2>
+<h2 title="Interface Graph" class="title">Interface Graph&lt;I,&#8203;L&gt;</h2>
 </div>
 <div class="contentContainer">
 <div class="description">
@@ -122,8 +122,6 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <li class="blockList">
 <dl>
 <dt><span class="paramLabel">Type Parameters:</span></dt>
-<dd><code>E</code> - edges</dd>
-<dd><code>V</code> - vertices</dd>
 <dd><code>I</code> - values inside vertices</dd>
 <dd><code>L</code> - length of edges</dd>
 </dl>
@@ -132,7 +130,7 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <dd><code><a href="GraphImpl.html" title="class in io.github.mizinchik">GraphImpl</a></code></dd>
 </dl>
 <hr>
-<pre>public interface <span class="typeNameLabel">Graph&lt;E extends <a href="Edge.html" title="interface in io.github.mizinchik">Edge</a>&lt;I,&#8203;L&gt;,&#8203;V extends <a href="Vertex.html" title="interface in io.github.mizinchik">Vertex</a>&lt;I&gt;,&#8203;I,&#8203;L&gt;</span></pre>
+<pre>public interface <span class="typeNameLabel">Graph&lt;I,&#8203;L&gt;</span></pre>
 <div class="block">General graph interface.
  May use whatever implementation of the
  Edge and Vertex interfaces you like.</div>
@@ -157,17 +155,17 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <th class="colLast" scope="col">Description</th>
 </tr>
 <tr id="i0" class="altColor">
-<td class="colFirst"><code><a href="Graph.html" title="type parameter in Graph">E</a></code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#addEdge(java.lang.String,V,V,L)">addEdge</a></span>&#8203;(java.lang.String&nbsp;name,
-       <a href="Graph.html" title="type parameter in Graph">V</a>&nbsp;start,
-       <a href="Graph.html" title="type parameter in Graph">V</a>&nbsp;end,
+<td class="colFirst"><code><a href="Edge.html" title="interface in io.github.mizinchik">Edge</a>&lt;<a href="Graph.html" title="type parameter in Graph">I</a>,&#8203;<a href="Graph.html" title="type parameter in Graph">L</a>&gt;</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#addEdge(java.lang.String,io.github.mizinchik.Vertex,io.github.mizinchik.Vertex,L)">addEdge</a></span>&#8203;(java.lang.String&nbsp;name,
+       <a href="Vertex.html" title="interface in io.github.mizinchik">Vertex</a>&lt;<a href="Graph.html" title="type parameter in Graph">I</a>&gt;&nbsp;start,
+       <a href="Vertex.html" title="interface in io.github.mizinchik">Vertex</a>&lt;<a href="Graph.html" title="type parameter in Graph">I</a>&gt;&nbsp;end,
        <a href="Graph.html" title="type parameter in Graph">L</a>&nbsp;edgeLength)</code></th>
 <td class="colLast">
 <div class="block">Add an edge to the graph.</div>
 </td>
 </tr>
 <tr id="i1" class="rowColor">
-<td class="colFirst"><code><a href="Graph.html" title="type parameter in Graph">V</a></code></td>
+<td class="colFirst"><code><a href="Vertex.html" title="interface in io.github.mizinchik">Vertex</a>&lt;<a href="Graph.html" title="type parameter in Graph">I</a>&gt;</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#addVertex(java.lang.String,I)">addVertex</a></span>&#8203;(java.lang.String&nbsp;name,
          <a href="Graph.html" title="type parameter in Graph">I</a>&nbsp;insideVal)</code></th>
 <td class="colLast">
@@ -176,20 +174,20 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 </tr>
 <tr id="i2" class="altColor">
 <td class="colFirst"><code>void</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#deleteEdge(E)">deleteEdge</a></span>&#8203;(<a href="Graph.html" title="type parameter in Graph">E</a>&nbsp;edge)</code></th>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#deleteEdge(io.github.mizinchik.Edge)">deleteEdge</a></span>&#8203;(<a href="Edge.html" title="interface in io.github.mizinchik">Edge</a>&lt;<a href="Graph.html" title="type parameter in Graph">I</a>,&#8203;<a href="Graph.html" title="type parameter in Graph">L</a>&gt;&nbsp;edge)</code></th>
 <td class="colLast">
 <div class="block">Deletes an edge from the graph.</div>
 </td>
 </tr>
 <tr id="i3" class="rowColor">
 <td class="colFirst"><code>void</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#deleteVertex(V)">deleteVertex</a></span>&#8203;(<a href="Graph.html" title="type parameter in Graph">V</a>&nbsp;vertex)</code></th>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#deleteVertex(io.github.mizinchik.Vertex)">deleteVertex</a></span>&#8203;(<a href="Vertex.html" title="interface in io.github.mizinchik">Vertex</a>&lt;<a href="Graph.html" title="type parameter in Graph">I</a>&gt;&nbsp;vertex)</code></th>
 <td class="colLast">
 <div class="block">Deletes a vertex from the graph.</div>
 </td>
 </tr>
 <tr id="i4" class="altColor">
-<td class="colFirst"><code>java.util.List&lt;<a href="Graph.html" title="type parameter in Graph">E</a>&gt;</code></td>
+<td class="colFirst"><code>java.util.List&lt;<a href="Edge.html" title="interface in io.github.mizinchik">Edge</a>&lt;<a href="Graph.html" title="type parameter in Graph">I</a>,&#8203;<a href="Graph.html" title="type parameter in Graph">L</a>&gt;&gt;</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getEdgesList()">getEdgesList</a></span>()</code></th>
 <td class="colLast">
 <div class="block">Accesses an edge list of the graph.</div>
@@ -203,21 +201,21 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 </td>
 </tr>
 <tr id="i6" class="altColor">
-<td class="colFirst"><code><a href="Graph.html" title="type parameter in Graph">V</a></code></td>
+<td class="colFirst"><code><a href="Vertex.html" title="interface in io.github.mizinchik">Vertex</a>&lt;<a href="Graph.html" title="type parameter in Graph">I</a>&gt;</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getVertex(java.lang.String)">getVertex</a></span>&#8203;(java.lang.String&nbsp;name)</code></th>
 <td class="colLast">
 <div class="block">Accesses a vertex by its name.</div>
 </td>
 </tr>
 <tr id="i7" class="rowColor">
-<td class="colFirst"><code>java.util.Map&lt;java.lang.String,&#8203;<a href="Graph.html" title="type parameter in Graph">V</a>&gt;</code></td>
+<td class="colFirst"><code>java.util.Map&lt;java.lang.String,&#8203;<a href="Vertex.html" title="interface in io.github.mizinchik">Vertex</a>&lt;<a href="Graph.html" title="type parameter in Graph">I</a>&gt;&gt;</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getVertices()">getVertices</a></span>()</code></th>
 <td class="colLast">
 <div class="block">Accesses a mapping from names to vertices.</div>
 </td>
 </tr>
 <tr id="i8" class="altColor">
-<td class="colFirst"><code>java.util.List&lt;<a href="Graph.html" title="type parameter in Graph">V</a>&gt;</code></td>
+<td class="colFirst"><code>java.util.List&lt;<a href="Vertex.html" title="interface in io.github.mizinchik">Vertex</a>&lt;<a href="Graph.html" title="type parameter in Graph">I</a>&gt;&gt;</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getVerticesList()">getVerticesList</a></span>()</code></th>
 <td class="colLast">
 <div class="block">Accesses a vertex list of the graph.</div>
@@ -232,7 +230,7 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 </tr>
 <tr id="i10" class="altColor">
 <td class="colFirst"><code>java.util.List&lt;java.util.Map.Entry&lt;java.lang.String,&#8203;<a href="Graph.html" title="type parameter in Graph">L</a>&gt;&gt;</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#topSort(V)">topSort</a></span>&#8203;(<a href="Graph.html" title="type parameter in Graph">V</a>&nbsp;startingPoint)</code></th>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#topSort(io.github.mizinchik.Vertex)">topSort</a></span>&#8203;(<a href="Vertex.html" title="interface in io.github.mizinchik">Vertex</a>&lt;<a href="Graph.html" title="type parameter in Graph">I</a>&gt;&nbsp;startingPoint)</code></th>
 <td class="colLast">
 <div class="block">Performs a topological sort on a graph starting
  from the startingPoint and ordering others by their
@@ -290,7 +288,7 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <ul class="blockList">
 <li class="blockList">
 <h4>getEdgesList</h4>
-<pre class="methodSignature">java.util.List&lt;<a href="Graph.html" title="type parameter in Graph">E</a>&gt;&nbsp;getEdgesList()</pre>
+<pre class="methodSignature">java.util.List&lt;<a href="Edge.html" title="interface in io.github.mizinchik">Edge</a>&lt;<a href="Graph.html" title="type parameter in Graph">I</a>,&#8203;<a href="Graph.html" title="type parameter in Graph">L</a>&gt;&gt;&nbsp;getEdgesList()</pre>
 <div class="block">Accesses an edge list of the graph.</div>
 <dl>
 <dt><span class="returnLabel">Returns:</span></dt>
@@ -304,7 +302,7 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <ul class="blockList">
 <li class="blockList">
 <h4>getVerticesList</h4>
-<pre class="methodSignature">java.util.List&lt;<a href="Graph.html" title="type parameter in Graph">V</a>&gt;&nbsp;getVerticesList()</pre>
+<pre class="methodSignature">java.util.List&lt;<a href="Vertex.html" title="interface in io.github.mizinchik">Vertex</a>&lt;<a href="Graph.html" title="type parameter in Graph">I</a>&gt;&gt;&nbsp;getVerticesList()</pre>
 <div class="block">Accesses a vertex list of the graph.</div>
 <dl>
 <dt><span class="returnLabel">Returns:</span></dt>
@@ -318,7 +316,7 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <ul class="blockList">
 <li class="blockList">
 <h4>getVertices</h4>
-<pre class="methodSignature">java.util.Map&lt;java.lang.String,&#8203;<a href="Graph.html" title="type parameter in Graph">V</a>&gt;&nbsp;getVertices()</pre>
+<pre class="methodSignature">java.util.Map&lt;java.lang.String,&#8203;<a href="Vertex.html" title="interface in io.github.mizinchik">Vertex</a>&lt;<a href="Graph.html" title="type parameter in Graph">I</a>&gt;&gt;&nbsp;getVertices()</pre>
 <div class="block">Accesses a mapping from names to vertices.</div>
 <dl>
 <dt><span class="returnLabel">Returns:</span></dt>
@@ -334,8 +332,8 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <ul class="blockList">
 <li class="blockList">
 <h4>addVertex</h4>
-<pre class="methodSignature"><a href="Graph.html" title="type parameter in Graph">V</a>&nbsp;addVertex&#8203;(java.lang.String&nbsp;name,
-            <a href="Graph.html" title="type parameter in Graph">I</a>&nbsp;insideVal)</pre>
+<pre class="methodSignature"><a href="Vertex.html" title="interface in io.github.mizinchik">Vertex</a>&lt;<a href="Graph.html" title="type parameter in Graph">I</a>&gt;&nbsp;addVertex&#8203;(java.lang.String&nbsp;name,
+                    <a href="Graph.html" title="type parameter in Graph">I</a>&nbsp;insideVal)</pre>
 <div class="block">Adds a vertex to the graph.</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
@@ -352,7 +350,7 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <ul class="blockList">
 <li class="blockList">
 <h4>getVertex</h4>
-<pre class="methodSignature"><a href="Graph.html" title="type parameter in Graph">V</a>&nbsp;getVertex&#8203;(java.lang.String&nbsp;name)</pre>
+<pre class="methodSignature"><a href="Vertex.html" title="interface in io.github.mizinchik">Vertex</a>&lt;<a href="Graph.html" title="type parameter in Graph">I</a>&gt;&nbsp;getVertex&#8203;(java.lang.String&nbsp;name)</pre>
 <div class="block">Accesses a vertex by its name.</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
@@ -364,13 +362,11 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 </ul>
 <a id="deleteVertex(io.github.mizinchik.Vertex)">
 <!--   -->
-</a><a id="deleteVertex(V)">
-<!--   -->
 </a>
 <ul class="blockList">
 <li class="blockList">
 <h4>deleteVertex</h4>
-<pre class="methodSignature">void&nbsp;deleteVertex&#8203;(<a href="Graph.html" title="type parameter in Graph">V</a>&nbsp;vertex)</pre>
+<pre class="methodSignature">void&nbsp;deleteVertex&#8203;(<a href="Vertex.html" title="interface in io.github.mizinchik">Vertex</a>&lt;<a href="Graph.html" title="type parameter in Graph">I</a>&gt;&nbsp;vertex)</pre>
 <div class="block">Deletes a vertex from the graph.</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
@@ -380,16 +376,16 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 </ul>
 <a id="addEdge(java.lang.String,io.github.mizinchik.Vertex,io.github.mizinchik.Vertex,java.lang.Object)">
 <!--   -->
-</a><a id="addEdge(java.lang.String,V,V,L)">
+</a><a id="addEdge(java.lang.String,io.github.mizinchik.Vertex,io.github.mizinchik.Vertex,L)">
 <!--   -->
 </a>
 <ul class="blockList">
 <li class="blockList">
 <h4>addEdge</h4>
-<pre class="methodSignature"><a href="Graph.html" title="type parameter in Graph">E</a>&nbsp;addEdge&#8203;(java.lang.String&nbsp;name,
-          <a href="Graph.html" title="type parameter in Graph">V</a>&nbsp;start,
-          <a href="Graph.html" title="type parameter in Graph">V</a>&nbsp;end,
-          <a href="Graph.html" title="type parameter in Graph">L</a>&nbsp;edgeLength)</pre>
+<pre class="methodSignature"><a href="Edge.html" title="interface in io.github.mizinchik">Edge</a>&lt;<a href="Graph.html" title="type parameter in Graph">I</a>,&#8203;<a href="Graph.html" title="type parameter in Graph">L</a>&gt;&nbsp;addEdge&#8203;(java.lang.String&nbsp;name,
+                        <a href="Vertex.html" title="interface in io.github.mizinchik">Vertex</a>&lt;<a href="Graph.html" title="type parameter in Graph">I</a>&gt;&nbsp;start,
+                        <a href="Vertex.html" title="interface in io.github.mizinchik">Vertex</a>&lt;<a href="Graph.html" title="type parameter in Graph">I</a>&gt;&nbsp;end,
+                        <a href="Graph.html" title="type parameter in Graph">L</a>&nbsp;edgeLength)</pre>
 <div class="block">Add an edge to the graph.</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
@@ -404,13 +400,11 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 </ul>
 <a id="deleteEdge(io.github.mizinchik.Edge)">
 <!--   -->
-</a><a id="deleteEdge(E)">
-<!--   -->
 </a>
 <ul class="blockList">
 <li class="blockList">
 <h4>deleteEdge</h4>
-<pre class="methodSignature">void&nbsp;deleteEdge&#8203;(<a href="Graph.html" title="type parameter in Graph">E</a>&nbsp;edge)</pre>
+<pre class="methodSignature">void&nbsp;deleteEdge&#8203;(<a href="Edge.html" title="interface in io.github.mizinchik">Edge</a>&lt;<a href="Graph.html" title="type parameter in Graph">I</a>,&#8203;<a href="Graph.html" title="type parameter in Graph">L</a>&gt;&nbsp;edge)</pre>
 <div class="block">Deletes an edge from the graph.</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
@@ -420,13 +414,11 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 </ul>
 <a id="topSort(io.github.mizinchik.Vertex)">
 <!--   -->
-</a><a id="topSort(V)">
-<!--   -->
 </a>
 <ul class="blockListLast">
 <li class="blockList">
 <h4>topSort</h4>
-<pre class="methodSignature">java.util.List&lt;java.util.Map.Entry&lt;java.lang.String,&#8203;<a href="Graph.html" title="type parameter in Graph">L</a>&gt;&gt;&nbsp;topSort&#8203;(<a href="Graph.html" title="type parameter in Graph">V</a>&nbsp;startingPoint)</pre>
+<pre class="methodSignature">java.util.List&lt;java.util.Map.Entry&lt;java.lang.String,&#8203;<a href="Graph.html" title="type parameter in Graph">L</a>&gt;&gt;&nbsp;topSort&#8203;(<a href="Vertex.html" title="interface in io.github.mizinchik">Vertex</a>&lt;<a href="Graph.html" title="type parameter in Graph">I</a>&gt;&nbsp;startingPoint)</pre>
 <div class="block">Performs a topological sort on a graph starting
  from the startingPoint and ordering others by their
  distance from it.</div>
