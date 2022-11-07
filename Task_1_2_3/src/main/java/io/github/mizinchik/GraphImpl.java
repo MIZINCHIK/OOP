@@ -25,11 +25,11 @@ import java.util.Scanner;
  *
  * @param <I> values stored in vertices
  */
-public class GraphImpl<I> implements Graph<EdgeImpl<I>, VertexImpl<I>, I, Double> {
-    private Map<String, VertexImpl<I>> namesToVertices;
-    private Map<String, ArrayList<EdgeImpl<I>>> edgeOutLists;
-    private Map<String, HashMap<String, EdgeImpl<I>>> adjacencyMatrix;
-    private final List<EdgeImpl<I>> edges;
+public class GraphImpl<I> implements Graph<I, Double> {
+    private Map<String, Vertex<I>> namesToVertices;
+    private Map<String, List<Edge<I, Double>>> edgeOutLists;
+    private Map<String, Map<String, Edge<I, Double>>> adjacencyMatrix;
+    private final List<Edge<I, Double>> edges;
     private final List<String> vertices;
 
     /**
@@ -39,7 +39,7 @@ public class GraphImpl<I> implements Graph<EdgeImpl<I>, VertexImpl<I>, I, Double
      * @param edges list of edges
      * @throws IllegalArgumentException in case vertices' list contains duplicates by names
      */
-    public GraphImpl(ArrayList<VertexImpl<I>> vertices, ArrayList<EdgeImpl<I>> edges)
+    public GraphImpl(List<Vertex<I>> vertices, List<Edge<I, Double>> edges)
             throws IllegalArgumentException {
         this.edges = edges;
         this.vertices = new ArrayList<>();
@@ -56,8 +56,8 @@ public class GraphImpl<I> implements Graph<EdgeImpl<I>, VertexImpl<I>, I, Double
     public GraphImpl(String fileName, char mode) throws Exception {
         File source = new File(fileName);
         Scanner scanner = new Scanner(source);
-        var extractedVertices = new ArrayList<VertexImpl<I>>();
-        var extractedEdges = new ArrayList<EdgeImpl<I>>();
+        var extractedVertices = new ArrayList<Vertex<I>>();
+        var extractedEdges = new ArrayList<Edge<I, Double>>();
         String line = scanner.nextLine();
         int verticesQuantity = Integer.parseInt(line);
         line = scanner.nextLine();
@@ -167,7 +167,7 @@ public class GraphImpl<I> implements Graph<EdgeImpl<I>, VertexImpl<I>, I, Double
      *
      * @param vertices list of vertices
      */
-    private void builder(ArrayList<VertexImpl<I>> vertices) {
+    private void builder(List<Vertex<I>> vertices) {
         buildVertices(vertices);
         buildEdgeOutList(vertices);
         buildHashMap(vertices);
@@ -179,8 +179,8 @@ public class GraphImpl<I> implements Graph<EdgeImpl<I>, VertexImpl<I>, I, Double
      *
      * @param vertices list of graph's vertices
      */
-    private void buildVertices(ArrayList<VertexImpl<I>> vertices) {
-        for (VertexImpl<I> vertex : vertices) {
+    private void buildVertices(List<Vertex<I>> vertices) {
+        for (Vertex<I> vertex : vertices) {
             if (this.vertices.contains(vertex.getName())) {
                 throw new IllegalArgumentException("Duplicate names.");
             } else {
@@ -195,11 +195,11 @@ public class GraphImpl<I> implements Graph<EdgeImpl<I>, VertexImpl<I>, I, Double
      *
      * @param vertices list of graph's vertices
      */
-    private void buildEdgeOutList(ArrayList<VertexImpl<I>> vertices) {
+    private void buildEdgeOutList(List<Vertex<I>> vertices) {
         edgeOutLists = new HashMap<>();
-        for (VertexImpl<I> vertex : vertices) {
-            var curList = new ArrayList<EdgeImpl<I>>();
-            for (EdgeImpl<I> edge : edges) {
+        for (Vertex<I> vertex : vertices) {
+            var curList = new ArrayList<Edge<I, Double>>();
+            for (Edge<I, Double> edge : edges) {
                 if (Objects.equals(edge.getStart().getName(), vertex.getName())) {
                     curList.add(edge);
                 }
@@ -214,9 +214,9 @@ public class GraphImpl<I> implements Graph<EdgeImpl<I>, VertexImpl<I>, I, Double
      *
      * @param vertices list of graph's vertices
      */
-    private void buildHashMap(ArrayList<VertexImpl<I>> vertices) {
+    private void buildHashMap(List<Vertex<I>> vertices) {
         namesToVertices = new HashMap<>();
-        for (VertexImpl<I> vertex : vertices) {
+        for (Vertex<I> vertex : vertices) {
             namesToVertices.put(vertex.getName(), vertex);
         }
     }
@@ -229,11 +229,11 @@ public class GraphImpl<I> implements Graph<EdgeImpl<I>, VertexImpl<I>, I, Double
      *
      * @param vertices list of graph's vertices
      */
-    private void buildAdjacencyMatrix(ArrayList<VertexImpl<I>> vertices) {
+    private void buildAdjacencyMatrix(List<Vertex<I>> vertices) {
         adjacencyMatrix = new HashMap<>();
-        for (VertexImpl<I> vertex : vertices) {
-            var curMap = new HashMap<String, EdgeImpl<I>>();
-            for (EdgeImpl<I> incidentalEdge : edgeOutLists.get(vertex.getName())) {
+        for (Vertex<I> vertex : vertices) {
+            var curMap = new HashMap<String, Edge<I, Double>>();
+            for (Edge<I, Double> incidentalEdge : edgeOutLists.get(vertex.getName())) {
                 curMap.put(incidentalEdge.getEnd().getName(), incidentalEdge);
             }
             adjacencyMatrix.put(vertex.getName(), curMap);
@@ -266,8 +266,8 @@ public class GraphImpl<I> implements Graph<EdgeImpl<I>, VertexImpl<I>, I, Double
      * @return list of edges in a graph.
      */
     @Override
-    public ArrayList<EdgeImpl<I>> getEdgesList() {
-        return (ArrayList<EdgeImpl<I>>) edges;
+    public List<Edge<I, Double>> getEdgesList() {
+        return edges;
     }
 
     /**
@@ -276,8 +276,8 @@ public class GraphImpl<I> implements Graph<EdgeImpl<I>, VertexImpl<I>, I, Double
      * @return list of vertices in a graph
      */
     @Override
-    public ArrayList<VertexImpl<I>> getVerticesList() {
-        var result = new ArrayList<VertexImpl<I>>();
+    public List<Vertex<I>> getVerticesList() {
+        var result = new ArrayList<Vertex<I>>();
         for (String vertex : vertices) {
             result.add(namesToVertices.get(vertex));
         }
@@ -290,8 +290,8 @@ public class GraphImpl<I> implements Graph<EdgeImpl<I>, VertexImpl<I>, I, Double
      * @return mapping from vertices' names to vertices themselves
      */
     @Override
-    public HashMap<String, VertexImpl<I>> getVertices() {
-        return (HashMap<String, VertexImpl<I>>) namesToVertices;
+    public Map<String, Vertex<I>> getVertices() {
+        return namesToVertices;
     }
 
     /**
@@ -302,13 +302,13 @@ public class GraphImpl<I> implements Graph<EdgeImpl<I>, VertexImpl<I>, I, Double
      * @return vertex added
      */
     @Override
-    public VertexImpl<I> addVertex(String name, I insideVal) throws IllegalArgumentException {
-        VertexImpl<I> newVertex = new VertexImpl<>(insideVal, name);
+    public Vertex<I> addVertex(String name, I insideVal) throws IllegalArgumentException {
+        Vertex<I> newVertex = new VertexImpl<>(insideVal, name);
         vertices.add(name);
         namesToVertices.put(name, newVertex);
-        var newMap = new HashMap<String, EdgeImpl<I>>();
+        var newMap = new HashMap<String, Edge<I, Double>>();
         adjacencyMatrix.put(name, newMap);
-        ArrayList<EdgeImpl<I>> list = new ArrayList<>();
+        ArrayList<Edge<I, Double>> list = new ArrayList<>();
         edgeOutLists.put(name, list);
         return newVertex;
     }
@@ -320,7 +320,7 @@ public class GraphImpl<I> implements Graph<EdgeImpl<I>, VertexImpl<I>, I, Double
      * @return vertex itself
      */
     @Override
-    public VertexImpl<I> getVertex(String name) {
+    public Vertex<I> getVertex(String name) {
         return namesToVertices.get(name);
     }
 
@@ -330,7 +330,7 @@ public class GraphImpl<I> implements Graph<EdgeImpl<I>, VertexImpl<I>, I, Double
      * @param vertex to delete
      */
     @Override
-    public void deleteVertex(VertexImpl<I> vertex) throws NoSuchElementException {
+    public void deleteVertex(Vertex<I> vertex) throws NoSuchElementException {
         vertices.remove(vertex.getName());
         edges.removeIf(edge -> edge.getEnd() == vertex || edge.getStart() == vertex);
         namesToVertices.remove(vertex.getName());
@@ -353,8 +353,8 @@ public class GraphImpl<I> implements Graph<EdgeImpl<I>, VertexImpl<I>, I, Double
      * @return edge added
      */
     @Override
-    public EdgeImpl<I> addEdge(String name, VertexImpl<I> start,
-                               VertexImpl<I> end, Double edgeLength) {
+    public Edge<I, Double> addEdge(String name, Vertex<I> start,
+                               Vertex<I> end, Double edgeLength) {
         var newEdge = new EdgeImpl<>(edgeLength, name, start, end);
         edges.add(newEdge);
         edgeOutLists.get(start.getName()).add(newEdge);
@@ -368,7 +368,7 @@ public class GraphImpl<I> implements Graph<EdgeImpl<I>, VertexImpl<I>, I, Double
      * @param edge to delete
      */
     @Override
-    public void deleteEdge(EdgeImpl<I> edge) {
+    public void deleteEdge(Edge<I, Double> edge) {
         edges.remove(edge);
         for (String vertex : vertices) {
             edgeOutLists.get(vertex).remove(edge);
@@ -388,7 +388,7 @@ public class GraphImpl<I> implements Graph<EdgeImpl<I>, VertexImpl<I>, I, Double
             for (int j = 0; j < vertices.size(); j++) {
                 String vertexI = vertices.get(i);
                 String vertexJ = vertices.get(j);
-                EdgeImpl<I> curEdge = adjacencyMatrix.get(vertexI).get(vertexJ);
+                Edge<I, Double> curEdge = adjacencyMatrix.get(vertexI).get(vertexJ);
                 if (curEdge != null) {
                     adjacencyDoubles[i][j] = curEdge.getLength();
                 } else {
@@ -438,7 +438,7 @@ public class GraphImpl<I> implements Graph<EdgeImpl<I>, VertexImpl<I>, I, Double
      * @return list of pairs Name-Length-from-the-starting-point
      */
     @Override
-    public List<Map.Entry<String, Double>> topSort(VertexImpl<I> startingPoint) {
+    public List<Map.Entry<String, Double>> topSort(Vertex<I> startingPoint) {
         Double[][] adjacencyDoubles = floydWarshall();
         if (negativeCycles(adjacencyDoubles)) {
             return null;

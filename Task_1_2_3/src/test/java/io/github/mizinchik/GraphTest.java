@@ -9,8 +9,6 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
-import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import org.junit.jupiter.api.AfterEach;
@@ -113,7 +111,7 @@ public class GraphTest {
         newGraph.sortPrinter("C");
         assertEquals(7, newGraph.getVerticesQuantity());
         assertEquals(20, newGraph.getEdgesQuantity());
-        VertexImpl<Double> newVertex = newGraph.addVertex("New", null);
+        Vertex<Double> newVertex = newGraph.addVertex("New", null);
         List<Map.Entry<String, Double>> list =  newGraph.topSort(newGraph.getVertex("C"));
         for (Map.Entry<String, Double> entry : list) {
             System.out.print(entry.getKey() + "(" + entry.getValue() + ") ");
@@ -145,11 +143,11 @@ public class GraphTest {
                 + "C(0.0) D(2.0) E(4.0) F(5.0) G(9.0) B(10.0) A(14.0) New(Infinity) "
                 + "C(0.0) D(2.0) E(4.0) F(5.0) G(9.0) B(10.0) A(14.0) New(Infinity) "
                 + "C(0.0) D(2.0) E(4.0) F(5.0) G(9.0) B(10.0) A(14.0) ", out.toString());
-        HashMap<String, VertexImpl<Double>> vertices = newGraph.getVertices();
+        Map<String, Vertex<Double>> vertices = newGraph.getVertices();
         assertTrue(vertices.containsKey("C"));
         assertFalse(vertices.containsKey("New"));
-        ArrayList<EdgeImpl<Double>> oldEdges = newGraph.getEdgesList();
-        ArrayList<VertexImpl<Double>> oldVertices = newGraph.getVerticesList();
+        List<Edge<Double, Double>> oldEdges = newGraph.getEdgesList();
+        List<Vertex<Double>> oldVertices = newGraph.getVerticesList();
         var superNewGraph = new GraphImpl<>(oldVertices, oldEdges);
         list =  superNewGraph.topSort(newGraph.getVertex("C"));
         for (Map.Entry<String, Double> entry : list) {
