@@ -45,7 +45,7 @@ public class SubstringFinderImpl implements SubstringFinder {
     }
 
     /**
-     * Constructor
+     * Constructor.
      *
      * @param reader source of text
      * @param substring pattern
@@ -67,8 +67,8 @@ public class SubstringFinderImpl implements SubstringFinder {
      */
     private void buildZarray() throws UnsupportedOperationException {
         if (reader == null || substring == null) {
-            throw new UnsupportedOperationException("Can't build a Z array w/o" +
-                    " a reader and/or a substring");
+            throw new UnsupportedOperationException("Can't build a Z array w/o"
+                    + " a reader and/or a substring");
         } else {
             try (var bufferedReader = new BufferedReader(reader)) {
                 var stringArray = new ArrayList<Integer>();

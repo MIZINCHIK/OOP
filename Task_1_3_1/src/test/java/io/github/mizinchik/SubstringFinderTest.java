@@ -65,7 +65,8 @@ public class SubstringFinderTest {
     @Test
     @DisplayName("Minor methods test")
     void testMinor() throws FileNotFoundException {
-        var reader = new InputStreamReader(new FileInputStream("./src/main/resources/RandomTest.txt"),
+        var reader = new InputStreamReader(
+                new FileInputStream("./src/main/resources/RandomTest.txt"),
                 StandardCharsets.UTF_8);
         var finder = new SubstringFinderImpl(reader, "bet");
         assertEquals("98 12349 16565 \n", out.toString());
