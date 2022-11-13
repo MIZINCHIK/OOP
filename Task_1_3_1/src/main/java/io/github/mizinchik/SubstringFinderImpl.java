@@ -1,11 +1,28 @@
 package io.github.mizinchik;
 
-import java.io.*;
+import java.io.BufferedReader;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.InputStreamReader;
+import java.io.IOException;
+import java.io.Reader;
 import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
+/**
+ * A class providing a basic method
+ * of finding all occurrences of a
+ * given substring in a reader which
+ * may be given directly or via a name
+ * of a file.
+ * Occurrences are represented as real indices
+ * of characters in readers.
+ * Files are decoded in UTF-8.
+ *
+ * @author MIZINCHIK
+ */
 public class SubstringFinderImpl implements SubstringFinder {
     private String substring;
     private Reader reader;
@@ -25,7 +42,13 @@ public class SubstringFinderImpl implements SubstringFinder {
         buildZArray();
     }
 
-    private void buildZArray() throws RuntimeException {
+    /**
+     * Builds a map from indices of each occurrence of a pattern prefix in a reader
+     * to their lengths. Prints them in operation.
+     *
+     * @throws UnsupportedOperationException if substring or reader are null
+     */
+    private void buildZArray() throws UnsupportedOperationException {
         if (reader == null || substring == null) {
             throw new UnsupportedOperationException("Can't build a Z array w/o a reader and/or a substring");
         } else {
@@ -118,12 +141,25 @@ public class SubstringFinderImpl implements SubstringFinder {
         }
     }
 
+    /**
+     * Finds all occurrences of an inner string
+     * in the given reader.
+     *
+     * @param reader source of text
+     */
     @Override
     public void eatReader(Reader reader) {
         this.reader = reader;
         buildZArray();
     }
 
+    /**
+     * Finds all occurrences of the pattern
+     * in the source.
+     *
+     * @param reader source of text
+     * @param substring pattern to find
+     */
     @Override
     public void eatReaderAndSubstring(Reader reader, String substring) {
         this.substring = substring;
@@ -131,6 +167,15 @@ public class SubstringFinderImpl implements SubstringFinder {
         buildZArray();
     }
 
+
+    /**
+     * Finds all occurrences of the pattern
+     * in the source.
+     *
+     * @param fileName source of text in UTF-8
+     * @param substring pattern to find
+     * @throws FileNotFoundException if fileName is incorrect
+     */
     @Override
     public void eatReaderAndSubstring(String fileName, String substring) throws FileNotFoundException {
         this.substring = substring;
