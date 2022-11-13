@@ -26,7 +26,7 @@
     catch(err) {
     }
 //-->
-var data = {"i0":6,"i1":6,"i2":6,"i3":6};
+var data = {"i0":6,"i1":6,"i2":6};
 var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],4:["t3","Abstract Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -148,23 +148,19 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 </tr>
 <tr id="i0" class="altColor">
 <td class="colFirst"><code>void</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#eatFile(java.lang.String)">eatFile</a></span>&#8203;(java.lang.String&nbsp;filePath)</code></th>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#eatReader(java.io.Reader)">eatReader</a></span>&#8203;(java.io.Reader&nbsp;reader)</code></th>
 <td class="colLast">&nbsp;</td>
 </tr>
 <tr id="i1" class="rowColor">
 <td class="colFirst"><code>void</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#eatFileAndSubstring(java.lang.String,java.lang.String)">eatFileAndSubstring</a></span>&#8203;(java.lang.String&nbsp;filePath,
-                   java.lang.String&nbsp;substring)</code></th>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#eatReaderAndSubstring(java.io.Reader,java.lang.String)">eatReaderAndSubstring</a></span>&#8203;(java.io.Reader&nbsp;reader,
+                     java.lang.String&nbsp;substring)</code></th>
 <td class="colLast">&nbsp;</td>
 </tr>
 <tr id="i2" class="altColor">
 <td class="colFirst"><code>void</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#eatSubstring(java.lang.String)">eatSubstring</a></span>&#8203;(java.lang.String&nbsp;substring)</code></th>
-<td class="colLast">&nbsp;</td>
-</tr>
-<tr id="i3" class="rowColor">
-<td class="colFirst"><code>void</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#printIndices()">printIndices</a></span>()</code></th>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#eatReaderAndSubstring(java.lang.String,java.lang.String)">eatReaderAndSubstring</a></span>&#8203;(java.lang.String&nbsp;fileName,
+                     java.lang.String&nbsp;substring)</code></th>
 <td class="colLast">&nbsp;</td>
 </tr>
 </table>
@@ -184,41 +180,38 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <!--   -->
 </a>
 <h3>Method Detail</h3>
-<a id="eatFile(java.lang.String)">
+<a id="eatReader(java.io.Reader)">
 <!--   -->
 </a>
 <ul class="blockList">
 <li class="blockList">
-<h4>eatFile</h4>
-<pre class="methodSignature">void&nbsp;eatFile&#8203;(java.lang.String&nbsp;filePath)</pre>
+<h4>eatReader</h4>
+<pre class="methodSignature">void&nbsp;eatReader&#8203;(java.io.Reader&nbsp;reader)</pre>
 </li>
 </ul>
-<a id="eatSubstring(java.lang.String)">
+<a id="eatReaderAndSubstring(java.io.Reader,java.lang.String)">
 <!--   -->
 </a>
 <ul class="blockList">
 <li class="blockList">
-<h4>eatSubstring</h4>
-<pre class="methodSignature">void&nbsp;eatSubstring&#8203;(java.lang.String&nbsp;substring)</pre>
+<h4>eatReaderAndSubstring</h4>
+<pre class="methodSignature">void&nbsp;eatReaderAndSubstring&#8203;(java.io.Reader&nbsp;reader,
+                           java.lang.String&nbsp;substring)</pre>
 </li>
 </ul>
-<a id="eatFileAndSubstring(java.lang.String,java.lang.String)">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>eatFileAndSubstring</h4>
-<pre class="methodSignature">void&nbsp;eatFileAndSubstring&#8203;(java.lang.String&nbsp;filePath,
-                         java.lang.String&nbsp;substring)</pre>
-</li>
-</ul>
-<a id="printIndices()">
+<a id="eatReaderAndSubstring(java.lang.String,java.lang.String)">
 <!--   -->
 </a>
 <ul class="blockListLast">
 <li class="blockList">
-<h4>printIndices</h4>
-<pre class="methodSignature">void&nbsp;printIndices()</pre>
+<h4>eatReaderAndSubstring</h4>
+<pre class="methodSignature">void&nbsp;eatReaderAndSubstring&#8203;(java.lang.String&nbsp;fileName,
+                           java.lang.String&nbsp;substring)
+                    throws java.io.FileNotFoundException</pre>
+<dl>
+<dt><span class="throwsLabel">Throws:</span></dt>
+<dd><code>java.io.FileNotFoundException</code></dd>
+</dl>
 </li>
 </ul>
 </li>

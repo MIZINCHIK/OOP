@@ -26,7 +26,7 @@
     catch(err) {
     }
 //-->
-var data = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10};
+var data = {"i0":10,"i1":10,"i2":10};
 var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -156,7 +156,13 @@ implements <a href="SubstringFinder.html" title="interface in io.github.mizinchi
 <th class="colLast" scope="col">Description</th>
 </tr>
 <tr class="altColor">
-<th class="colConstructorName" scope="row"><code><span class="memberNameLink"><a href="#%3Cinit%3E()">SubstringFinderImpl</a></span>()</code></th>
+<th class="colConstructorName" scope="row"><code><span class="memberNameLink"><a href="#%3Cinit%3E(java.io.Reader,java.lang.String)">SubstringFinderImpl</a></span>&#8203;(java.io.Reader&nbsp;reader,
+                   java.lang.String&nbsp;substring)</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="rowColor">
+<th class="colConstructorName" scope="row"><code><span class="memberNameLink"><a href="#%3Cinit%3E(java.lang.String,java.lang.String)">SubstringFinderImpl</a></span>&#8203;(java.lang.String&nbsp;fileName,
+                   java.lang.String&nbsp;substring)</code></th>
 <td class="colLast">&nbsp;</td>
 </tr>
 </table>
@@ -179,29 +185,19 @@ implements <a href="SubstringFinder.html" title="interface in io.github.mizinchi
 </tr>
 <tr id="i0" class="altColor">
 <td class="colFirst"><code>void</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#eatFile(java.lang.String)">eatFile</a></span>&#8203;(java.lang.String&nbsp;fileName)</code></th>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#eatReader(java.io.Reader)">eatReader</a></span>&#8203;(java.io.Reader&nbsp;reader)</code></th>
 <td class="colLast">&nbsp;</td>
 </tr>
 <tr id="i1" class="rowColor">
 <td class="colFirst"><code>void</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#eatFileAndSubstring(java.lang.String,java.lang.String)">eatFileAndSubstring</a></span>&#8203;(java.lang.String&nbsp;fileName,
-                   java.lang.String&nbsp;substring)</code></th>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#eatReaderAndSubstring(java.io.Reader,java.lang.String)">eatReaderAndSubstring</a></span>&#8203;(java.io.Reader&nbsp;reader,
+                     java.lang.String&nbsp;substring)</code></th>
 <td class="colLast">&nbsp;</td>
 </tr>
 <tr id="i2" class="altColor">
 <td class="colFirst"><code>void</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#eatSubstring(java.lang.String)">eatSubstring</a></span>&#8203;(java.lang.String&nbsp;substring)</code></th>
-<td class="colLast">&nbsp;</td>
-</tr>
-<tr id="i3" class="rowColor">
-<td class="colFirst"><code>void</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#printIndices()">printIndices</a></span>()</code></th>
-<td class="colLast">&nbsp;</td>
-</tr>
-<tr id="i4" class="altColor">
-<td class="colFirst"><code>void</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#SubstringFinder(java.lang.String,java.lang.String)">SubstringFinder</a></span>&#8203;(java.lang.String&nbsp;fileName,
-               java.lang.String&nbsp;substring)</code></th>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#eatReaderAndSubstring(java.lang.String,java.lang.String)">eatReaderAndSubstring</a></span>&#8203;(java.lang.String&nbsp;fileName,
+                     java.lang.String&nbsp;substring)</code></th>
 <td class="colLast">&nbsp;</td>
 </tr>
 </table>
@@ -228,13 +224,36 @@ implements <a href="SubstringFinder.html" title="interface in io.github.mizinchi
 <!--   -->
 </a>
 <h3>Constructor Detail</h3>
-<a id="&lt;init&gt;()">
+<a id="&lt;init&gt;(java.lang.String,java.lang.String)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>SubstringFinderImpl</h4>
+<pre>public&nbsp;SubstringFinderImpl&#8203;(java.lang.String&nbsp;fileName,
+                           java.lang.String&nbsp;substring)
+                    throws java.lang.UnsupportedOperationException,
+                           java.io.FileNotFoundException</pre>
+<dl>
+<dt><span class="throwsLabel">Throws:</span></dt>
+<dd><code>java.lang.UnsupportedOperationException</code></dd>
+<dd><code>java.io.FileNotFoundException</code></dd>
+</dl>
+</li>
+</ul>
+<a id="&lt;init&gt;(java.io.Reader,java.lang.String)">
 <!--   -->
 </a>
 <ul class="blockListLast">
 <li class="blockList">
 <h4>SubstringFinderImpl</h4>
-<pre>public&nbsp;SubstringFinderImpl()</pre>
+<pre>public&nbsp;SubstringFinderImpl&#8203;(java.io.Reader&nbsp;reader,
+                           java.lang.String&nbsp;substring)
+                    throws java.lang.UnsupportedOperationException</pre>
+<dl>
+<dt><span class="throwsLabel">Throws:</span></dt>
+<dd><code>java.lang.UnsupportedOperationException</code></dd>
+</dl>
 </li>
 </ul>
 </li>
@@ -247,74 +266,47 @@ implements <a href="SubstringFinder.html" title="interface in io.github.mizinchi
 <!--   -->
 </a>
 <h3>Method Detail</h3>
-<a id="SubstringFinder(java.lang.String,java.lang.String)">
+<a id="eatReader(java.io.Reader)">
 <!--   -->
 </a>
 <ul class="blockList">
 <li class="blockList">
-<h4>SubstringFinder</h4>
-<pre class="methodSignature">public&nbsp;void&nbsp;SubstringFinder&#8203;(java.lang.String&nbsp;fileName,
-                            java.lang.String&nbsp;substring)
-                     throws java.lang.UnsupportedOperationException</pre>
-<dl>
-<dt><span class="throwsLabel">Throws:</span></dt>
-<dd><code>java.lang.UnsupportedOperationException</code></dd>
-</dl>
-</li>
-</ul>
-<a id="eatFile(java.lang.String)">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>eatFile</h4>
-<pre class="methodSignature">public&nbsp;void&nbsp;eatFile&#8203;(java.lang.String&nbsp;fileName)
-             throws java.lang.IllegalArgumentException</pre>
+<h4>eatReader</h4>
+<pre class="methodSignature">public&nbsp;void&nbsp;eatReader&#8203;(java.io.Reader&nbsp;reader)</pre>
 <dl>
 <dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
-<dd><code><a href="SubstringFinder.html#eatFile(java.lang.String)">eatFile</a></code>&nbsp;in interface&nbsp;<code><a href="SubstringFinder.html" title="interface in io.github.mizinchik">SubstringFinder</a></code></dd>
-<dt><span class="throwsLabel">Throws:</span></dt>
-<dd><code>java.lang.IllegalArgumentException</code></dd>
+<dd><code><a href="SubstringFinder.html#eatReader(java.io.Reader)">eatReader</a></code>&nbsp;in interface&nbsp;<code><a href="SubstringFinder.html" title="interface in io.github.mizinchik">SubstringFinder</a></code></dd>
 </dl>
 </li>
 </ul>
-<a id="eatSubstring(java.lang.String)">
+<a id="eatReaderAndSubstring(java.io.Reader,java.lang.String)">
 <!--   -->
 </a>
 <ul class="blockList">
 <li class="blockList">
-<h4>eatSubstring</h4>
-<pre class="methodSignature">public&nbsp;void&nbsp;eatSubstring&#8203;(java.lang.String&nbsp;substring)</pre>
+<h4>eatReaderAndSubstring</h4>
+<pre class="methodSignature">public&nbsp;void&nbsp;eatReaderAndSubstring&#8203;(java.io.Reader&nbsp;reader,
+                                  java.lang.String&nbsp;substring)</pre>
 <dl>
 <dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
-<dd><code><a href="SubstringFinder.html#eatSubstring(java.lang.String)">eatSubstring</a></code>&nbsp;in interface&nbsp;<code><a href="SubstringFinder.html" title="interface in io.github.mizinchik">SubstringFinder</a></code></dd>
+<dd><code><a href="SubstringFinder.html#eatReaderAndSubstring(java.io.Reader,java.lang.String)">eatReaderAndSubstring</a></code>&nbsp;in interface&nbsp;<code><a href="SubstringFinder.html" title="interface in io.github.mizinchik">SubstringFinder</a></code></dd>
 </dl>
 </li>
 </ul>
-<a id="eatFileAndSubstring(java.lang.String,java.lang.String)">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>eatFileAndSubstring</h4>
-<pre class="methodSignature">public&nbsp;void&nbsp;eatFileAndSubstring&#8203;(java.lang.String&nbsp;fileName,
-                                java.lang.String&nbsp;substring)</pre>
-<dl>
-<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
-<dd><code><a href="SubstringFinder.html#eatFileAndSubstring(java.lang.String,java.lang.String)">eatFileAndSubstring</a></code>&nbsp;in interface&nbsp;<code><a href="SubstringFinder.html" title="interface in io.github.mizinchik">SubstringFinder</a></code></dd>
-</dl>
-</li>
-</ul>
-<a id="printIndices()">
+<a id="eatReaderAndSubstring(java.lang.String,java.lang.String)">
 <!--   -->
 </a>
 <ul class="blockListLast">
 <li class="blockList">
-<h4>printIndices</h4>
-<pre class="methodSignature">public&nbsp;void&nbsp;printIndices()</pre>
+<h4>eatReaderAndSubstring</h4>
+<pre class="methodSignature">public&nbsp;void&nbsp;eatReaderAndSubstring&#8203;(java.lang.String&nbsp;fileName,
+                                  java.lang.String&nbsp;substring)
+                           throws java.io.FileNotFoundException</pre>
 <dl>
 <dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
-<dd><code><a href="SubstringFinder.html#printIndices()">printIndices</a></code>&nbsp;in interface&nbsp;<code><a href="SubstringFinder.html" title="interface in io.github.mizinchik">SubstringFinder</a></code></dd>
+<dd><code><a href="SubstringFinder.html#eatReaderAndSubstring(java.lang.String,java.lang.String)">eatReaderAndSubstring</a></code>&nbsp;in interface&nbsp;<code><a href="SubstringFinder.html" title="interface in io.github.mizinchik">SubstringFinder</a></code></dd>
+<dt><span class="throwsLabel">Throws:</span></dt>
+<dd><code>java.io.FileNotFoundException</code></dd>
 </dl>
 </li>
 </ul>
