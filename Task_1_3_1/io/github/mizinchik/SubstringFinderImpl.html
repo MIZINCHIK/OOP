@@ -166,12 +166,16 @@ implements <a href="SubstringFinder.html" title="interface in io.github.mizinchi
 <tr class="altColor">
 <th class="colConstructorName" scope="row"><code><span class="memberNameLink"><a href="#%3Cinit%3E(java.io.Reader,java.lang.String)">SubstringFinderImpl</a></span>&#8203;(java.io.Reader&nbsp;reader,
                    java.lang.String&nbsp;substring)</code></th>
-<td class="colLast">&nbsp;</td>
+<td class="colLast">
+<div class="block">Constructor.</div>
+</td>
 </tr>
 <tr class="rowColor">
 <th class="colConstructorName" scope="row"><code><span class="memberNameLink"><a href="#%3Cinit%3E(java.lang.String,java.lang.String)">SubstringFinderImpl</a></span>&#8203;(java.lang.String&nbsp;fileName,
                    java.lang.String&nbsp;substring)</code></th>
-<td class="colLast">&nbsp;</td>
+<td class="colLast">
+<div class="block">Constructor.</div>
+</td>
 </tr>
 </table>
 </li>
@@ -251,10 +255,14 @@ implements <a href="SubstringFinder.html" title="interface in io.github.mizinchi
                            java.lang.String&nbsp;substring)
                     throws java.lang.UnsupportedOperationException,
                            java.io.FileNotFoundException</pre>
+<div class="block">Constructor.</div>
 <dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>fileName</code> - source of text</dd>
+<dd><code>substring</code> - pattern</dd>
 <dt><span class="throwsLabel">Throws:</span></dt>
-<dd><code>java.lang.UnsupportedOperationException</code></dd>
-<dd><code>java.io.FileNotFoundException</code></dd>
+<dd><code>java.lang.UnsupportedOperationException</code> - if either reader of string are null</dd>
+<dd><code>java.io.FileNotFoundException</code> - if fileName is incorrect</dd>
 </dl>
 </li>
 </ul>
@@ -267,9 +275,13 @@ implements <a href="SubstringFinder.html" title="interface in io.github.mizinchi
 <pre>public&nbsp;SubstringFinderImpl&#8203;(java.io.Reader&nbsp;reader,
                            java.lang.String&nbsp;substring)
                     throws java.lang.UnsupportedOperationException</pre>
+<div class="block">Constructor.</div>
 <dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>reader</code> - source of text</dd>
+<dd><code>substring</code> - pattern</dd>
 <dt><span class="throwsLabel">Throws:</span></dt>
-<dd><code>java.lang.UnsupportedOperationException</code></dd>
+<dd><code>java.lang.UnsupportedOperationException</code> - if either reader of string are null</dd>
 </dl>
 </li>
 </ul>
