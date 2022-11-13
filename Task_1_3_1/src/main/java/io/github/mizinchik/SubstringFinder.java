@@ -1,11 +1,12 @@
 package io.github.mizinchik;
 
+import java.io.FileNotFoundException;
+import java.io.Reader;
+
 public interface SubstringFinder {
-    void eatFile(String filePath);
+    void eatReader(Reader reader);
 
-    void eatSubstring(String substring);
+    void eatReaderAndSubstring(Reader reader, String substring);
 
-    void eatFileAndSubstring(String filePath, String substring);
-
-    void printIndices();
+    void eatReaderAndSubstring(String fileName, String substring) throws FileNotFoundException;
 }
