@@ -74,7 +74,7 @@ public class SubstringFinderTest {
         File file = new File("./src/main/resources/LargeTest.txt");
         try (RandomAccessFile randomAccessFile = new RandomAccessFile(file, "rw")){
             randomAccessFile.setLength(16000000000L);
-            new SubstringFinderImpl("./src/main/resources/LargeTest.txt", "");
+            new SubstringFinderImpl("./src/main/resources/LargeTest.txt", "sdads");
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
