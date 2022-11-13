@@ -7,8 +7,8 @@ import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
-import java.io.InputStreamReader;
 import java.io.IOException;
+import java.io.InputStreamReader;
 import java.io.PrintStream;
 import java.io.RandomAccessFile;
 import java.io.Reader;
@@ -41,21 +41,6 @@ public class SubstringFinderTest {
     @AfterEach
     public void restoreOut() {
         System.setOut(originalOut);
-    }
-
-    /**
-     * Runs a reference test.
-     *
-     * @throws FileNotFoundException if file name is incorrect
-     */
-    @Test
-    @DisplayName("Reference test")
-    void testReference() throws FileNotFoundException {
-        String string = "\u043f\u0438\u0440\u043e\u0433";
-        var finder = new SubstringFinderImpl("./src/main/resources/PieTest.txt", string);
-        assertEquals("7 \n", out.toString());
-        finder.eatReaderAndSubstring("./src/main/resources/PieTest.txt", "\u043e");
-        assertEquals("7 \n3 10 \n", out.toString());
     }
 
     /**
