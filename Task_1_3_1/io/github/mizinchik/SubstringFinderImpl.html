@@ -136,6 +136,14 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <pre>public class <span class="typeNameLabel">SubstringFinderImpl</span>
 extends java.lang.Object
 implements <a href="SubstringFinder.html" title="interface in io.github.mizinchik">SubstringFinder</a></pre>
+<div class="block">A class providing a basic method
+ of finding all occurrences of a
+ given substring in a reader which
+ may be given directly or via a name
+ of a file.
+ Occurrences are represented as real indices
+ of characters in readers.
+ Files are decoded in UTF-8.</div>
 </li>
 </ul>
 </div>
@@ -186,19 +194,28 @@ implements <a href="SubstringFinder.html" title="interface in io.github.mizinchi
 <tr id="i0" class="altColor">
 <td class="colFirst"><code>void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#eatReader(java.io.Reader)">eatReader</a></span>&#8203;(java.io.Reader&nbsp;reader)</code></th>
-<td class="colLast">&nbsp;</td>
+<td class="colLast">
+<div class="block">Finds all occurrences of an inner string
+ in the given reader.</div>
+</td>
 </tr>
 <tr id="i1" class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#eatReaderAndSubstring(java.io.Reader,java.lang.String)">eatReaderAndSubstring</a></span>&#8203;(java.io.Reader&nbsp;reader,
                      java.lang.String&nbsp;substring)</code></th>
-<td class="colLast">&nbsp;</td>
+<td class="colLast">
+<div class="block">Finds all occurrences of the pattern
+ in the source.</div>
+</td>
 </tr>
 <tr id="i2" class="altColor">
 <td class="colFirst"><code>void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#eatReaderAndSubstring(java.lang.String,java.lang.String)">eatReaderAndSubstring</a></span>&#8203;(java.lang.String&nbsp;fileName,
                      java.lang.String&nbsp;substring)</code></th>
-<td class="colLast">&nbsp;</td>
+<td class="colLast">
+<div class="block">Finds all occurrences of the pattern
+ in the source.</div>
+</td>
 </tr>
 </table>
 <ul class="blockList">
@@ -273,9 +290,13 @@ implements <a href="SubstringFinder.html" title="interface in io.github.mizinchi
 <li class="blockList">
 <h4>eatReader</h4>
 <pre class="methodSignature">public&nbsp;void&nbsp;eatReader&#8203;(java.io.Reader&nbsp;reader)</pre>
+<div class="block">Finds all occurrences of an inner string
+ in the given reader.</div>
 <dl>
 <dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
 <dd><code><a href="SubstringFinder.html#eatReader(java.io.Reader)">eatReader</a></code>&nbsp;in interface&nbsp;<code><a href="SubstringFinder.html" title="interface in io.github.mizinchik">SubstringFinder</a></code></dd>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>reader</code> - source of text</dd>
 </dl>
 </li>
 </ul>
@@ -287,9 +308,14 @@ implements <a href="SubstringFinder.html" title="interface in io.github.mizinchi
 <h4>eatReaderAndSubstring</h4>
 <pre class="methodSignature">public&nbsp;void&nbsp;eatReaderAndSubstring&#8203;(java.io.Reader&nbsp;reader,
                                   java.lang.String&nbsp;substring)</pre>
+<div class="block">Finds all occurrences of the pattern
+ in the source.</div>
 <dl>
 <dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
 <dd><code><a href="SubstringFinder.html#eatReaderAndSubstring(java.io.Reader,java.lang.String)">eatReaderAndSubstring</a></code>&nbsp;in interface&nbsp;<code><a href="SubstringFinder.html" title="interface in io.github.mizinchik">SubstringFinder</a></code></dd>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>reader</code> - source of text</dd>
+<dd><code>substring</code> - pattern to find</dd>
 </dl>
 </li>
 </ul>
@@ -302,11 +328,16 @@ implements <a href="SubstringFinder.html" title="interface in io.github.mizinchi
 <pre class="methodSignature">public&nbsp;void&nbsp;eatReaderAndSubstring&#8203;(java.lang.String&nbsp;fileName,
                                   java.lang.String&nbsp;substring)
                            throws java.io.FileNotFoundException</pre>
+<div class="block">Finds all occurrences of the pattern
+ in the source.</div>
 <dl>
 <dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
 <dd><code><a href="SubstringFinder.html#eatReaderAndSubstring(java.lang.String,java.lang.String)">eatReaderAndSubstring</a></code>&nbsp;in interface&nbsp;<code><a href="SubstringFinder.html" title="interface in io.github.mizinchik">SubstringFinder</a></code></dd>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>fileName</code> - source of text in UTF-8</dd>
+<dd><code>substring</code> - pattern to find</dd>
 <dt><span class="throwsLabel">Throws:</span></dt>
-<dd><code>java.io.FileNotFoundException</code></dd>
+<dd><code>java.io.FileNotFoundException</code> - if fileName is incorrect</dd>
 </dl>
 </li>
 </ul>
