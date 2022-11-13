@@ -3,8 +3,8 @@ package io.github.mizinchik;
 import java.io.BufferedReader;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
-import java.io.InputStreamReader;
 import java.io.IOException;
+import java.io.InputStreamReader;
 import java.io.Reader;
 import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
@@ -26,20 +26,37 @@ import java.util.Map;
 public class SubstringFinderImpl implements SubstringFinder {
     private String substring;
     private Reader reader;
-    private final Map<Long, Integer> zArray;
+    private final Map<Long, Integer> zarray;
 
-    public SubstringFinderImpl(String fileName, String substring) throws UnsupportedOperationException, FileNotFoundException {
+    /**
+     * Constructor.
+     *
+     * @param fileName source of text
+     * @param substring pattern
+     * @throws UnsupportedOperationException if either reader of string are null
+     * @throws FileNotFoundException if fileName is incorrect
+     */
+    public SubstringFinderImpl(String fileName, String substring)
+            throws UnsupportedOperationException, FileNotFoundException {
         this.substring = substring;
         this.reader = new InputStreamReader(new FileInputStream(fileName), StandardCharsets.UTF_8);
-        zArray = new HashMap<>();
-        buildZArray();
+        zarray = new HashMap<>();
+        buildZarray();
     }
 
-    public SubstringFinderImpl(Reader reader, String substring) throws UnsupportedOperationException {
+    /**
+     * Constructor
+     *
+     * @param reader source of text
+     * @param substring pattern
+     * @throws UnsupportedOperationException if either reader of string are null
+     */
+    public SubstringFinderImpl(Reader reader, String substring)
+            throws UnsupportedOperationException {
         this.substring = substring;
         this.reader = reader;
-        zArray = new HashMap<>();
-        buildZArray();
+        zarray = new HashMap<>();
+        buildZarray();
     }
 
     /**
@@ -48,9 +65,10 @@ public class SubstringFinderImpl implements SubstringFinder {
      *
      * @throws UnsupportedOperationException if substring or reader are null
      */
-    private void buildZArray() throws UnsupportedOperationException {
+    private void buildZarray() throws UnsupportedOperationException {
         if (reader == null || substring == null) {
-            throw new UnsupportedOperationException("Can't build a Z array w/o a reader and/or a substring");
+            throw new UnsupportedOperationException("Can't build a Z array w/o" +
+                    " a reader and/or a substring");
         } else {
             try (var bufferedReader = new BufferedReader(reader)) {
                 var stringArray = new ArrayList<Integer>();
@@ -61,9 +79,9 @@ public class SubstringFinderImpl implements SubstringFinder {
                     if (i > intRightIndex) {
                         intLeftIndex = i;
                         intRightIndex = i;
-                        while (intRightIndex < substring.length() &&
-                                substring.charAt(intRightIndex - intLeftIndex) ==
-                                        substring.charAt(intRightIndex)) {
+                        while (intRightIndex < substring.length()
+                                && substring.charAt(intRightIndex - intLeftIndex)
+                                == substring.charAt(intRightIndex)) {
                             intRightIndex++;
                         }
                         stringArray.add(i, intRightIndex - intLeftIndex);
@@ -74,9 +92,9 @@ public class SubstringFinderImpl implements SubstringFinder {
                             stringArray.add(i, stringArray.get(insideIndex));
                         } else {
                             intLeftIndex = i;
-                            while(intRightIndex < substring.length() &&
-                                    substring.charAt(intRightIndex - intLeftIndex) ==
-                                            substring.charAt(intRightIndex)) {
+                            while (intRightIndex < substring.length()
+                                    && substring.charAt(intRightIndex - intLeftIndex)
+                                    == substring.charAt(intRightIndex)) {
                                 intRightIndex++;
                             }
                             stringArray.add(i, intRightIndex - intLeftIndex);
@@ -92,9 +110,9 @@ public class SubstringFinderImpl implements SubstringFinder {
                         longLeftIndex = i;
                         longRightIndex = i;
                         boolean beenInCycle = false;
-                        while (longRightIndex - longLeftIndex < substring.length() &&
-                                substring.charAt((int)(longRightIndex - longLeftIndex)) ==
-                                        currentChar) {
+                        while (longRightIndex - longLeftIndex < substring.length()
+                                && substring.charAt((int) (longRightIndex - longLeftIndex))
+                                == currentChar) {
                             beenInCycle = true;
                             currentChar = bufferedReader.read();
                             longRightIndex++;
@@ -102,36 +120,36 @@ public class SubstringFinderImpl implements SubstringFinder {
                         if (!beenInCycle) {
                             currentChar = bufferedReader.read();
                         }
-                        zArray.put(i, (int) (longRightIndex - longLeftIndex));
+                        zarray.put(i, (int) (longRightIndex - longLeftIndex));
                         longRightIndex--;
-                        for (Map.Entry<Long, Integer> entry : zArray.entrySet()) {
+                        for (Map.Entry<Long, Integer> entry : zarray.entrySet()) {
                             if (entry.getValue() == substring.length()) {
                                 System.out.print(entry.getKey() + " ");
                             }
                         }
-                        zArray.clear();
+                        zarray.clear();
                     } else {
-                        int insideIndex = (int)(i - longLeftIndex);
+                        int insideIndex = (int) (i - longLeftIndex);
                         if (stringArray.get(insideIndex) < (longRightIndex - i + 1)) {
-                            zArray.put(i, stringArray.get(insideIndex));
+                            zarray.put(i, stringArray.get(insideIndex));
                         } else {
                             longLeftIndex = i;
                             longRightIndex++;
-                            while(longRightIndex - longLeftIndex < substring.length() &&
-                                    substring.charAt((int)(longRightIndex - longLeftIndex)) ==
-                                            currentChar) {
+                            while (longRightIndex - longLeftIndex < substring.length()
+                                    && substring.charAt((int) (longRightIndex - longLeftIndex))
+                                    == currentChar) {
                                 currentChar = bufferedReader.read();
                                 longRightIndex++;
                             }
-                            zArray.put(i, (int)(longRightIndex - longLeftIndex));
+                            zarray.put(i, (int) (longRightIndex - longLeftIndex));
                             longRightIndex--;
                         }
-                        for (Map.Entry<Long, Integer> entry : zArray.entrySet()) {
+                        for (Map.Entry<Long, Integer> entry : zarray.entrySet()) {
                             if (entry.getValue() == substring.length()) {
                                 System.out.print(entry.getKey() + " ");
                             }
                         }
-                        zArray.clear();
+                        zarray.clear();
                     }
                 }
                 System.out.print("\n");
@@ -150,7 +168,7 @@ public class SubstringFinderImpl implements SubstringFinder {
     @Override
     public void eatReader(Reader reader) {
         this.reader = reader;
-        buildZArray();
+        buildZarray();
     }
 
     /**
@@ -164,7 +182,7 @@ public class SubstringFinderImpl implements SubstringFinder {
     public void eatReaderAndSubstring(Reader reader, String substring) {
         this.substring = substring;
         this.reader = reader;
-        buildZArray();
+        buildZarray();
     }
 
 
@@ -177,9 +195,10 @@ public class SubstringFinderImpl implements SubstringFinder {
      * @throws FileNotFoundException if fileName is incorrect
      */
     @Override
-    public void eatReaderAndSubstring(String fileName, String substring) throws FileNotFoundException {
+    public void eatReaderAndSubstring(String fileName, String substring)
+            throws FileNotFoundException {
         this.substring = substring;
         this.reader = new InputStreamReader(new FileInputStream(fileName), StandardCharsets.UTF_8);
-        buildZArray();
+        buildZarray();
     }
 }

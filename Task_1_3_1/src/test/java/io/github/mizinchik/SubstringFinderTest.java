@@ -65,17 +65,22 @@ public class SubstringFinderTest {
     @Test
     @DisplayName("Minor methods test")
     void testMinor() throws FileNotFoundException {
-        var reader = new InputStreamReader(new FileInputStream("./src/main/resources/RandomTest.txt"), StandardCharsets.UTF_8);
+        var reader = new InputStreamReader(new FileInputStream("./src/main/resources/RandomTest.txt"),
+                StandardCharsets.UTF_8);
         var finder = new SubstringFinderImpl(reader, "bet");
         assertEquals("98 12349 16565 \n", out.toString());
-        reader = new InputStreamReader(new FileInputStream("./src/main/resources/RandomTest.txt"), StandardCharsets.UTF_8);
+        reader = new InputStreamReader(new FileInputStream("./src/main/resources/RandomTest.txt"),
+                StandardCharsets.UTF_8);
         finder.eatReaderAndSubstring(reader, "sdasd");
         assertEquals("98 12349 16565 \n\n", out.toString());
-        reader = new InputStreamReader(new FileInputStream("./src/main/resources/RandomTest.txt"), StandardCharsets.UTF_8);
+        reader = new InputStreamReader(new FileInputStream("./src/main/resources/RandomTest.txt"),
+                StandardCharsets.UTF_8);
         finder.eatReader(reader);
         assertEquals("98 12349 16565 \n\n\n", out.toString());
-        reader = new InputStreamReader(new FileInputStream("./src/main/resources/PieTest.txt"), StandardCharsets.UTF_8);
-        assertThrows(UnsupportedOperationException.class, () -> finder.eatReaderAndSubstring((Reader) null, "a"));
+        reader = new InputStreamReader(new FileInputStream("./src/main/resources/PieTest.txt"),
+                StandardCharsets.UTF_8);
+        assertThrows(UnsupportedOperationException.class,
+                () -> finder.eatReaderAndSubstring((Reader) null, "a"));
         finder.eatReaderAndSubstring(reader, "");
         assertEquals("98 12349 16565 \n\n\n0 1 2 3 4 5 6 7 8 9 10 11 12 \n", out.toString());
     }
@@ -87,7 +92,7 @@ public class SubstringFinderTest {
     @DisplayName("Large file test")
     public void testLargeFile() {
         File file = new File("./src/main/resources/LargeTest.txt");
-        try (RandomAccessFile randomAccessFile = new RandomAccessFile(file, "rw")){
+        try (RandomAccessFile randomAccessFile = new RandomAccessFile(file, "rw")) {
             randomAccessFile.setLength(16000000000L);
             new SubstringFinderImpl("./src/main/resources/LargeTest.txt", "sdads");
             assertEquals("\n", out.toString());
