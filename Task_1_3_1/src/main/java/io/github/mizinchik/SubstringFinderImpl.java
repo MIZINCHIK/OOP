@@ -28,6 +28,7 @@ public class SubstringFinderImpl implements SubstringFinder {
     private String substring;
     private Reader reader;
     private final Map<Long, Integer> zarray;
+    List<Integer> stringList;
     private List<Long> indices;
 
     /**
@@ -75,8 +76,8 @@ public class SubstringFinderImpl implements SubstringFinder {
                     + " a reader and/or a substring");
         }
         try (var bufferedReader = new BufferedReader(reader)) {
-            List<Integer> stringList = fillStringList();
-            fillZarray(bufferedReader, stringList);
+            fillStringList();
+            fillZarray(bufferedReader);
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
@@ -84,10 +85,8 @@ public class SubstringFinderImpl implements SubstringFinder {
 
     /**
      * Z-Function computing for a pattern.
-     *
-     * @return list of z-function values for a String
      */
-    private List<Integer> fillStringList() {
+    private void fillStringList() {
         var stringList = new ArrayList<Integer>();
         int intLeftIndex = 0;
         int intRightIndex = 0;
@@ -119,17 +118,16 @@ public class SubstringFinderImpl implements SubstringFinder {
                 }
             }
         }
-        return stringList;
+        this.stringList = stringList;
     }
 
     /**
      * Z-Function computing for a source.
      *
      * @param bufferedReader source
-     * @param stringList pattern z-function values
      * @throws IOException if reader fails
      */
-    private void fillZarray(BufferedReader bufferedReader, List<Integer> stringList)
+    private void fillZarray(BufferedReader bufferedReader)
             throws IOException {
         long longLeftIndex = -1;
         long longRightIndex = -1;
@@ -192,8 +190,11 @@ public class SubstringFinderImpl implements SubstringFinder {
     @Override
     public List<Long> eatReader(Reader reader) {
         this.reader = reader;
-        this.indices = new ArrayList<>();
-        buildZarray();
+        try (var bufferedReader = new BufferedReader(reader)) {
+            fillZarray(bufferedReader);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
         return indices;
     }
 
