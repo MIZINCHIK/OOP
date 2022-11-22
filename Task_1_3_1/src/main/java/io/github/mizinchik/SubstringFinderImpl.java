@@ -7,7 +7,10 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.Reader;
 import java.nio.charset.StandardCharsets;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 /**
  * A class providing a basic method
@@ -126,7 +129,8 @@ public class SubstringFinderImpl implements SubstringFinder {
      * @param stringList pattern z-function values
      * @throws IOException if reader fails
      */
-    private void fillZarray(BufferedReader bufferedReader, List<Integer> stringList) throws IOException {
+    private void fillZarray(BufferedReader bufferedReader, List<Integer> stringList)
+            throws IOException {
         long longLeftIndex = -1;
         long longRightIndex = -1;
         long currentChar = bufferedReader.read();
