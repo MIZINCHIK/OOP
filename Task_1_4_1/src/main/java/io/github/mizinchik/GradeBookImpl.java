@@ -1,8 +1,7 @@
 package io.github.mizinchik;
 
-import static java.util.stream.Collectors.toList;
-
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class GradeBookImpl implements GradeBook {
     Double GPA;
@@ -46,7 +45,7 @@ public class GradeBookImpl implements GradeBook {
     public List<Subject> getSubjects() {
         return terms.stream()
                 .flatMap(term -> term.getSubjects().stream())
-                .toList();
+                .collect(Collectors.toList());
     }
 
     @Override
