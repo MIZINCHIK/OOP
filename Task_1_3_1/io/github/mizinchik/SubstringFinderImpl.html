@@ -6,15 +6,16 @@
 <title>SubstringFinderImpl (Task_1_3_1 1.0-SNAPSHOT API)</title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <link rel="stylesheet" type="text/css" href="../../../stylesheet.css" title="Style">
-<link rel="stylesheet" type="text/css" href="../../../jquery/jquery-ui.css" title="Style">
+<link rel="stylesheet" type="text/css" href="../../../jquery/jquery-ui.min.css" title="Style">
+<link rel="stylesheet" type="text/css" href="../../../jquery-ui.overrides.css" title="Style">
 <script type="text/javascript" src="../../../script.js"></script>
 <script type="text/javascript" src="../../../jquery/jszip/dist/jszip.min.js"></script>
 <script type="text/javascript" src="../../../jquery/jszip-utils/dist/jszip-utils.min.js"></script>
 <!--[if IE]>
 <script type="text/javascript" src="../../../jquery/jszip-utils/dist/jszip-utils-ie.min.js"></script>
 <![endif]-->
-<script type="text/javascript" src="../../../jquery/jquery-3.5.1.js"></script>
-<script type="text/javascript" src="../../../jquery/jquery-ui.js"></script>
+<script type="text/javascript" src="../../../jquery/jquery-3.6.0.min.js"></script>
+<script type="text/javascript" src="../../../jquery/jquery-ui.min.js"></script>
 </head>
 <body>
 <script type="text/javascript"><!--
@@ -26,7 +27,7 @@
     catch(err) {
     }
 //-->
-var data = {"i0":10,"i1":10,"i2":10};
+var data = {"i0":10,"i1":10,"i2":10,"i3":10};
 var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -151,7 +152,7 @@ implements <a href="SubstringFinder.html" title="interface in io.github.mizinchi
 <ul class="blockList">
 <li class="blockList">
 <!-- ======== CONSTRUCTOR SUMMARY ======== -->
-<section role="region">
+<section>
 <ul class="blockList">
 <li class="blockList"><a id="constructor.summary">
 <!--   -->
@@ -182,7 +183,7 @@ implements <a href="SubstringFinder.html" title="interface in io.github.mizinchi
 </ul>
 </section>
 <!-- ========== METHOD SUMMARY =========== -->
-<section role="region">
+<section>
 <ul class="blockList">
 <li class="blockList"><a id="method.summary">
 <!--   -->
@@ -196,7 +197,7 @@ implements <a href="SubstringFinder.html" title="interface in io.github.mizinchi
 <th class="colLast" scope="col">Description</th>
 </tr>
 <tr id="i0" class="altColor">
-<td class="colFirst"><code>void</code></td>
+<td class="colFirst"><code>java.util.List&lt;java.lang.Long&gt;</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#eatReader(java.io.Reader)">eatReader</a></span>&#8203;(java.io.Reader&nbsp;reader)</code></th>
 <td class="colLast">
 <div class="block">Finds all occurrences of an inner string
@@ -204,7 +205,7 @@ implements <a href="SubstringFinder.html" title="interface in io.github.mizinchi
 </td>
 </tr>
 <tr id="i1" class="rowColor">
-<td class="colFirst"><code>void</code></td>
+<td class="colFirst"><code>java.util.List&lt;java.lang.Long&gt;</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#eatReaderAndSubstring(java.io.Reader,java.lang.String)">eatReaderAndSubstring</a></span>&#8203;(java.io.Reader&nbsp;reader,
                      java.lang.String&nbsp;substring)</code></th>
 <td class="colLast">
@@ -213,12 +214,19 @@ implements <a href="SubstringFinder.html" title="interface in io.github.mizinchi
 </td>
 </tr>
 <tr id="i2" class="altColor">
-<td class="colFirst"><code>void</code></td>
+<td class="colFirst"><code>java.util.List&lt;java.lang.Long&gt;</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#eatReaderAndSubstring(java.lang.String,java.lang.String)">eatReaderAndSubstring</a></span>&#8203;(java.lang.String&nbsp;fileName,
                      java.lang.String&nbsp;substring)</code></th>
 <td class="colLast">
 <div class="block">Finds all occurrences of the pattern
  in the source.</div>
+</td>
+</tr>
+<tr id="i3" class="rowColor">
+<td class="colFirst"><code>java.util.List&lt;java.lang.Long&gt;</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getIndices()">getIndices</a></span>()</code></th>
+<td class="colLast">
+<div class="block">Returns the List of occurrences of a substring.</div>
 </td>
 </tr>
 </table>
@@ -239,7 +247,7 @@ implements <a href="SubstringFinder.html" title="interface in io.github.mizinchi
 <ul class="blockList">
 <li class="blockList">
 <!-- ========= CONSTRUCTOR DETAIL ======== -->
-<section role="region">
+<section>
 <ul class="blockList">
 <li class="blockList"><a id="constructor.detail">
 <!--   -->
@@ -253,7 +261,7 @@ implements <a href="SubstringFinder.html" title="interface in io.github.mizinchi
 <h4>SubstringFinderImpl</h4>
 <pre>public&nbsp;SubstringFinderImpl&#8203;(java.lang.String&nbsp;fileName,
                            java.lang.String&nbsp;substring)
-                    throws java.lang.UnsupportedOperationException,
+                    throws java.lang.IllegalStateException,
                            java.io.FileNotFoundException</pre>
 <div class="block">Constructor.</div>
 <dl>
@@ -261,7 +269,7 @@ implements <a href="SubstringFinder.html" title="interface in io.github.mizinchi
 <dd><code>fileName</code> - source of text</dd>
 <dd><code>substring</code> - pattern</dd>
 <dt><span class="throwsLabel">Throws:</span></dt>
-<dd><code>java.lang.UnsupportedOperationException</code> - if either reader of string are null</dd>
+<dd><code>java.lang.IllegalStateException</code> - if either reader of string are null</dd>
 <dd><code>java.io.FileNotFoundException</code> - if fileName is incorrect</dd>
 </dl>
 </li>
@@ -274,14 +282,14 @@ implements <a href="SubstringFinder.html" title="interface in io.github.mizinchi
 <h4>SubstringFinderImpl</h4>
 <pre>public&nbsp;SubstringFinderImpl&#8203;(java.io.Reader&nbsp;reader,
                            java.lang.String&nbsp;substring)
-                    throws java.lang.UnsupportedOperationException</pre>
+                    throws java.lang.IllegalStateException</pre>
 <div class="block">Constructor.</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>reader</code> - source of text</dd>
 <dd><code>substring</code> - pattern</dd>
 <dt><span class="throwsLabel">Throws:</span></dt>
-<dd><code>java.lang.UnsupportedOperationException</code> - if either reader of string are null</dd>
+<dd><code>java.lang.IllegalStateException</code> - if either reader of string are null</dd>
 </dl>
 </li>
 </ul>
@@ -289,7 +297,7 @@ implements <a href="SubstringFinder.html" title="interface in io.github.mizinchi
 </ul>
 </section>
 <!-- ============ METHOD DETAIL ========== -->
-<section role="region">
+<section>
 <ul class="blockList">
 <li class="blockList"><a id="method.detail">
 <!--   -->
@@ -301,7 +309,7 @@ implements <a href="SubstringFinder.html" title="interface in io.github.mizinchi
 <ul class="blockList">
 <li class="blockList">
 <h4>eatReader</h4>
-<pre class="methodSignature">public&nbsp;void&nbsp;eatReader&#8203;(java.io.Reader&nbsp;reader)</pre>
+<pre class="methodSignature">public&nbsp;java.util.List&lt;java.lang.Long&gt;&nbsp;eatReader&#8203;(java.io.Reader&nbsp;reader)</pre>
 <div class="block">Finds all occurrences of an inner string
  in the given reader.</div>
 <dl>
@@ -318,8 +326,8 @@ implements <a href="SubstringFinder.html" title="interface in io.github.mizinchi
 <ul class="blockList">
 <li class="blockList">
 <h4>eatReaderAndSubstring</h4>
-<pre class="methodSignature">public&nbsp;void&nbsp;eatReaderAndSubstring&#8203;(java.io.Reader&nbsp;reader,
-                                  java.lang.String&nbsp;substring)</pre>
+<pre class="methodSignature">public&nbsp;java.util.List&lt;java.lang.Long&gt;&nbsp;eatReaderAndSubstring&#8203;(java.io.Reader&nbsp;reader,
+                                                            java.lang.String&nbsp;substring)</pre>
 <div class="block">Finds all occurrences of the pattern
  in the source.</div>
 <dl>
@@ -334,12 +342,12 @@ implements <a href="SubstringFinder.html" title="interface in io.github.mizinchi
 <a id="eatReaderAndSubstring(java.lang.String,java.lang.String)">
 <!--   -->
 </a>
-<ul class="blockListLast">
+<ul class="blockList">
 <li class="blockList">
 <h4>eatReaderAndSubstring</h4>
-<pre class="methodSignature">public&nbsp;void&nbsp;eatReaderAndSubstring&#8203;(java.lang.String&nbsp;fileName,
-                                  java.lang.String&nbsp;substring)
-                           throws java.io.FileNotFoundException</pre>
+<pre class="methodSignature">public&nbsp;java.util.List&lt;java.lang.Long&gt;&nbsp;eatReaderAndSubstring&#8203;(java.lang.String&nbsp;fileName,
+                                                            java.lang.String&nbsp;substring)
+                                                     throws java.io.FileNotFoundException</pre>
 <div class="block">Finds all occurrences of the pattern
  in the source.</div>
 <dl>
@@ -350,6 +358,22 @@ implements <a href="SubstringFinder.html" title="interface in io.github.mizinchi
 <dd><code>substring</code> - pattern to find</dd>
 <dt><span class="throwsLabel">Throws:</span></dt>
 <dd><code>java.io.FileNotFoundException</code> - if fileName is incorrect</dd>
+</dl>
+</li>
+</ul>
+<a id="getIndices()">
+<!--   -->
+</a>
+<ul class="blockListLast">
+<li class="blockList">
+<h4>getIndices</h4>
+<pre class="methodSignature">public&nbsp;java.util.List&lt;java.lang.Long&gt;&nbsp;getIndices()</pre>
+<div class="block">Returns the List of occurrences of a substring.</div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code><a href="SubstringFinder.html#getIndices()">getIndices</a></code>&nbsp;in interface&nbsp;<code><a href="SubstringFinder.html" title="interface in io.github.mizinchik">SubstringFinder</a></code></dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>indices of a substring occurrences</dd>
 </dl>
 </li>
 </ul>
