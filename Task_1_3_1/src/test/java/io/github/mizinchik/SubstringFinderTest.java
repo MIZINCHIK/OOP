@@ -31,22 +31,6 @@ public class SubstringFinderTest {
     private final PrintStream originalOut = System.out;
 
     /**
-     * Changes standard output stream before each method.
-     */
-    @BeforeEach
-    public void setUpOut() {
-        System.setOut(new PrintStream(out));
-    }
-
-    /**
-     * Restores standard output system after each method.
-     */
-    @AfterEach
-    public void restoreOut() {
-        System.setOut(originalOut);
-    }
-
-    /**
      * Runs tests in a file with a very common and overlapping pattern.
      *
      * @throws FileNotFoundException if file name is incorrect
