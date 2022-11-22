@@ -1,5 +1,8 @@
 package io.github.mizinchik;
 
+import static org.junit.jupiter.api.Assertions.assertIterableEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
+
 import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileInputStream;
@@ -13,13 +16,10 @@ import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
-
-import static org.junit.jupiter.api.Assertions.*;
 
 /**
  * Test class for a SubstringFinderImpl java class.
@@ -57,11 +57,11 @@ public class SubstringFinderTest {
         var finder = new SubstringFinderImpl("./src/main/resources/CommonTest.txt", "aabaa");
         List<Long> result = finder.getIndices();
         Long[] array = {0L, 3L, 6L, 9L, 12L, 15L, 18L, 21L, 24L};
-        List<Long> reference = Arrays.stream(array).toList();
+        List<Long> reference = Arrays.asList(array);
         assertIterableEquals(reference, result);
         result = finder.eatReaderAndSubstring("./src/main/resources/CommonTest.txt", "aab");
         array = new Long[]{0L, 3L, 6L, 9L, 12L, 15L, 18L, 21L, 24L, 27L};
-        reference = Arrays.stream(array).toList();
+        reference = Arrays.asList(array);
         assertIterableEquals(reference, result);
     }
 
@@ -79,7 +79,7 @@ public class SubstringFinderTest {
         var finder = new SubstringFinderImpl(reader, "bet");
         List<Long> result = finder.getIndices();
         Long[] array = {98L, 12349L, 16565L};
-        List<Long> reference = Arrays.stream(array).toList();
+        List<Long> reference = Arrays.asList(array);
         assertIterableEquals(reference, result);
         reader = new InputStreamReader(new FileInputStream("./src/main/resources/RandomTest.txt"),
                 StandardCharsets.UTF_8);
@@ -97,7 +97,7 @@ public class SubstringFinderTest {
                 () -> finder.eatReaderAndSubstring((Reader) null, "a"));
         result = finder.eatReaderAndSubstring(reader, "");
         array = new Long[]{0L, 1L, 2L, 3L, 4L, 5L, 6L, 7L, 8L, 9L, 10L, 11L, 12L};
-        reference = Arrays.stream(array).toList();
+        reference = Arrays.asList(array);
         assertIterableEquals(reference, result);
     }
 

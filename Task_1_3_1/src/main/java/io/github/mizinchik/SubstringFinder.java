@@ -42,7 +42,8 @@ public interface SubstringFinder {
      * @param substring pattern to find
      * @throws FileNotFoundException if fileName is incorrect
      */
-    List<Long> eatReaderAndSubstring(String fileName, String substring) throws FileNotFoundException;
+    List<Long> eatReaderAndSubstring(String fileName, String substring)
+            throws FileNotFoundException;
 
     /**
      * Returns the List of occurrences of a substring.
