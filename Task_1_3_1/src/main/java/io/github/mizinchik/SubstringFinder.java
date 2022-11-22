@@ -2,6 +2,7 @@ package io.github.mizinchik;
 
 import java.io.FileNotFoundException;
 import java.io.Reader;
+import java.util.List;
 
 /**
  * An interface describing a basic method
@@ -22,7 +23,7 @@ public interface SubstringFinder {
      *
      * @param reader source of text
      */
-    void eatReader(Reader reader);
+    List<Long> eatReader(Reader reader);
 
     /**
      * Finds all occurrences of the pattern
@@ -31,7 +32,7 @@ public interface SubstringFinder {
      * @param reader source of text
      * @param substring pattern to find
      */
-    void eatReaderAndSubstring(Reader reader, String substring);
+    List<Long> eatReaderAndSubstring(Reader reader, String substring);
 
     /**
      * Finds all occurrences of the pattern
@@ -41,5 +42,12 @@ public interface SubstringFinder {
      * @param substring pattern to find
      * @throws FileNotFoundException if fileName is incorrect
      */
-    void eatReaderAndSubstring(String fileName, String substring) throws FileNotFoundException;
+    List<Long> eatReaderAndSubstring(String fileName, String substring) throws FileNotFoundException;
+
+    /**
+     * Returns the List of occurrences of a substring.
+     *
+     * @return indices of a substring occurrences
+     */
+    List<Long> getIndices();
 }

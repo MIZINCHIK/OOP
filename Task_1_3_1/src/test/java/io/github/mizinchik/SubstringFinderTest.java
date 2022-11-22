@@ -1,8 +1,5 @@
 package io.github.mizinchik;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertThrows;
-
 import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileInputStream;
@@ -13,10 +10,16 @@ import java.io.PrintStream;
 import java.io.RandomAccessFile;
 import java.io.Reader;
 import java.nio.charset.StandardCharsets;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+
+import static org.junit.jupiter.api.Assertions.*;
 
 /**
  * Test class for a SubstringFinderImpl java class.
@@ -52,9 +55,14 @@ public class SubstringFinderTest {
     @DisplayName("Common pattern test")
     void testCommon() throws FileNotFoundException {
         var finder = new SubstringFinderImpl("./src/main/resources/CommonTest.txt", "aabaa");
-        assertEquals("0 3 6 9 12 15 18 21 24 \n", out.toString());
-        finder.eatReaderAndSubstring("./src/main/resources/CommonTest.txt", "aab");
-        assertEquals("0 3 6 9 12 15 18 21 24 \n0 3 6 9 12 15 18 21 24 27 \n", out.toString());
+        List<Long> result = finder.getIndices();
+        Long[] array = {0L, 3L, 6L, 9L, 12L, 15L, 18L, 21L, 24L};
+        List<Long> reference = Arrays.stream(array).toList();
+        assertIterableEquals(reference, result);
+        result = finder.eatReaderAndSubstring("./src/main/resources/CommonTest.txt", "aab");
+        array = new Long[]{0L, 3L, 6L, 9L, 12L, 15L, 18L, 21L, 24L, 27L};
+        reference = Arrays.stream(array).toList();
+        assertIterableEquals(reference, result);
     }
 
     /**
@@ -69,21 +77,28 @@ public class SubstringFinderTest {
                 new FileInputStream("./src/main/resources/RandomTest.txt"),
                 StandardCharsets.UTF_8);
         var finder = new SubstringFinderImpl(reader, "bet");
-        assertEquals("98 12349 16565 \n", out.toString());
+        List<Long> result = finder.getIndices();
+        Long[] array = {98L, 12349L, 16565L};
+        List<Long> reference = Arrays.stream(array).toList();
+        assertIterableEquals(reference, result);
         reader = new InputStreamReader(new FileInputStream("./src/main/resources/RandomTest.txt"),
                 StandardCharsets.UTF_8);
-        finder.eatReaderAndSubstring(reader, "sdasd");
-        assertEquals("98 12349 16565 \n\n", out.toString());
+        result = finder.eatReaderAndSubstring(reader, "sdasd");
+        reference = new ArrayList<>();
+        assertIterableEquals(reference, result);
         reader = new InputStreamReader(new FileInputStream("./src/main/resources/RandomTest.txt"),
                 StandardCharsets.UTF_8);
-        finder.eatReader(reader);
-        assertEquals("98 12349 16565 \n\n\n", out.toString());
+        result = finder.eatReader(reader);
+        reference = new ArrayList<>();
+        assertIterableEquals(reference, result);
         reader = new InputStreamReader(new FileInputStream("./src/main/resources/PieTest.txt"),
                 StandardCharsets.UTF_8);
-        assertThrows(UnsupportedOperationException.class,
+        assertThrows(IllegalStateException.class,
                 () -> finder.eatReaderAndSubstring((Reader) null, "a"));
-        finder.eatReaderAndSubstring(reader, "");
-        assertEquals("98 12349 16565 \n\n\n0 1 2 3 4 5 6 7 8 9 10 11 12 \n", out.toString());
+        result = finder.eatReaderAndSubstring(reader, "");
+        array = new Long[]{0L, 1L, 2L, 3L, 4L, 5L, 6L, 7L, 8L, 9L, 10L, 11L, 12L};
+        reference = Arrays.stream(array).toList();
+        assertIterableEquals(reference, result);
     }
 
     /**
@@ -94,9 +109,10 @@ public class SubstringFinderTest {
     public void testLargeFile() {
         File file = new File("./src/main/resources/LargeTest.txt");
         try (RandomAccessFile randomAccessFile = new RandomAccessFile(file, "rw")) {
-            randomAccessFile.setLength(16000000000L);
-            new SubstringFinderImpl("./src/main/resources/LargeTest.txt", "sdads");
-            assertEquals("\n", out.toString());
+            randomAccessFile.setLength(100L);
+            var result = new SubstringFinderImpl("./src/main/resources/LargeTest.txt", "sdads");
+            var reference = new ArrayList<>();
+            assertIterableEquals(reference, result.getIndices());
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
