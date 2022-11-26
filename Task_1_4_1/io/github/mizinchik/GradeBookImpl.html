@@ -84,6 +84,8 @@ loadScripts(document, 'script');</script>
 <div class="type-signature"><span class="modifiers">public class </span><span class="element-name type-name-label">GradeBookImpl</span>
 <span class="extends-implements">extends <a href="https://docs.oracle.com/en/java/javase/16/docs/api/java.base/java/lang/Object.html" title="class or interface in java.lang" class="external-link">Object</a>
 implements <a href="GradeBook.html" title="interface in io.github.mizinchik">GradeBook</a></span></div>
+<div class="block">Represents a grade book for
+ the Novosibirsk State University.</div>
 </section>
 <section class="summary">
 <ul class="summary-list">
@@ -98,7 +100,9 @@ implements <a href="GradeBook.html" title="interface in io.github.mizinchik">Gra
 <div class="col-constructor-name even-row-color"><code><span class="member-name-link"><a href="#%3Cinit%3E(java.lang.Integer,int,java.util.List)">GradeBookImpl</a></span>&#8203;(<a href="https://docs.oracle.com/en/java/javase/16/docs/api/java.base/java/lang/Integer.html" title="class or interface in java.lang" class="external-link">Integer</a>&nbsp;diplomaGrade,
  int&nbsp;termNumber,
  <a href="https://docs.oracle.com/en/java/javase/16/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="Term.html" title="interface in io.github.mizinchik">Term</a>&gt;&nbsp;terms)</code></div>
-<div class="col-last even-row-color">&nbsp;</div>
+<div class="col-last even-row-color">
+<div class="block">Constructs a grade book from terms and a thesis grade.</div>
+</div>
 </div>
 </section>
 </li>
@@ -215,9 +219,14 @@ implements <a href="GradeBook.html" title="interface in io.github.mizinchik">Gra
  int&nbsp;termNumber,
  <a href="https://docs.oracle.com/en/java/javase/16/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="Term.html" title="interface in io.github.mizinchik">Term</a>&gt;&nbsp;terms)</span>
               throws <span class="exceptions"><a href="https://docs.oracle.com/en/java/javase/16/docs/api/java.base/java/lang/IllegalArgumentException.html" title="class or interface in java.lang" class="external-link">IllegalArgumentException</a></span></div>
+<div class="block">Constructs a grade book from terms and a thesis grade.</div>
 <dl class="notes">
+<dt>Parameters:</dt>
+<dd><code>diplomaGrade</code> - if known</dd>
+<dd><code>termNumber</code> - which term you a currently in</dd>
+<dd><code>terms</code> - to get a diploma</dd>
 <dt>Throws:</dt>
-<dd><code><a href="https://docs.oracle.com/en/java/javase/16/docs/api/java.base/java/lang/IllegalArgumentException.html" title="class or interface in java.lang" class="external-link">IllegalArgumentException</a></code></dd>
+<dd><code><a href="https://docs.oracle.com/en/java/javase/16/docs/api/java.base/java/lang/IllegalArgumentException.html" title="class or interface in java.lang" class="external-link">IllegalArgumentException</a></code> - there are absent terms</dd>
 </dl>
 </section>
 </li>
@@ -233,9 +242,11 @@ implements <a href="GradeBook.html" title="interface in io.github.mizinchik">Gra
 <section class="detail" id="getGPA()">
 <h3>getGPA</h3>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/16/docs/api/java.base/java/lang/Double.html" title="class or interface in java.lang" class="external-link">Double</a></span>&nbsp;<span class="element-name">getGPA</span>()</div>
-<div class="block"><span class="descfrm-type-label">Description copied from interface:&nbsp;<code><a href="GradeBook.html#getGPA()">GradeBook</a></code></span></div>
 <div class="block">Get a grade point average for all
- the subjects in the previous terms.</div>
+ the subjects in the previous terms.
+ Computes it each time it's called due to the
+ presence of the ability to change the state of grades
+ individually without notifying the parent.</div>
 <dl class="notes">
 <dt>Specified by:</dt>
 <dd><code><a href="GradeBook.html#getGPA()">getGPA</a></code>&nbsp;in interface&nbsp;<code><a href="GradeBook.html" title="interface in io.github.mizinchik">GradeBook</a></code></dd>
@@ -248,7 +259,6 @@ implements <a href="GradeBook.html" title="interface in io.github.mizinchik">Gra
 <section class="detail" id="getDiplomaGrade()">
 <h3>getDiplomaGrade</h3>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/16/docs/api/java.base/java/lang/Integer.html" title="class or interface in java.lang" class="external-link">Integer</a></span>&nbsp;<span class="element-name">getDiplomaGrade</span>()</div>
-<div class="block"><span class="descfrm-type-label">Description copied from interface:&nbsp;<code><a href="GradeBook.html#getDiplomaGrade()">GradeBook</a></code></span></div>
 <div class="block">Get a grade of the thesis.</div>
 <dl class="notes">
 <dt>Specified by:</dt>
@@ -262,7 +272,6 @@ implements <a href="GradeBook.html" title="interface in io.github.mizinchik">Gra
 <section class="detail" id="setDiplomaGrade(java.lang.Integer)">
 <h3>setDiplomaGrade</h3>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">setDiplomaGrade</span>&#8203;<span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/16/docs/api/java.base/java/lang/Integer.html" title="class or interface in java.lang" class="external-link">Integer</a>&nbsp;grade)</span></div>
-<div class="block"><span class="descfrm-type-label">Description copied from interface:&nbsp;<code><a href="GradeBook.html#setDiplomaGrade(java.lang.Integer)">GradeBook</a></code></span></div>
 <div class="block">Set the thesis' grade.</div>
 <dl class="notes">
 <dt>Specified by:</dt>
@@ -277,7 +286,6 @@ implements <a href="GradeBook.html" title="interface in io.github.mizinchik">Gra
 <h3>getSubjectGrade</h3>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="Grade.html" title="interface in io.github.mizinchik">Grade</a></span>&nbsp;<span class="element-name">getSubjectGrade</span>&#8203;<span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/16/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;subject,
  int&nbsp;term)</span></div>
-<div class="block"><span class="descfrm-type-label">Description copied from interface:&nbsp;<code><a href="GradeBook.html#getSubjectGrade(java.lang.String,int)">GradeBook</a></code></span></div>
 <div class="block">Get the grade of a subject.</div>
 <dl class="notes">
 <dt>Specified by:</dt>
@@ -296,7 +304,6 @@ implements <a href="GradeBook.html" title="interface in io.github.mizinchik">Gra
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">setSubjectGrade</span>&#8203;<span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/16/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;subject,
  int&nbsp;term,
  <a href="https://docs.oracle.com/en/java/javase/16/docs/api/java.base/java/lang/Integer.html" title="class or interface in java.lang" class="external-link">Integer</a>&nbsp;grade)</span></div>
-<div class="block"><span class="descfrm-type-label">Description copied from interface:&nbsp;<code><a href="GradeBook.html#setSubjectGrade(java.lang.String,int,java.lang.Integer)">GradeBook</a></code></span></div>
 <div class="block">Set the grade of a subject.</div>
 <dl class="notes">
 <dt>Specified by:</dt>
@@ -313,7 +320,6 @@ implements <a href="GradeBook.html" title="interface in io.github.mizinchik">Gra
 <h3>getLecturer</h3>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/16/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></span>&nbsp;<span class="element-name">getLecturer</span>&#8203;<span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/16/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;subject,
  int&nbsp;term)</span></div>
-<div class="block"><span class="descfrm-type-label">Description copied from interface:&nbsp;<code><a href="GradeBook.html#getLecturer(java.lang.String,int)">GradeBook</a></code></span></div>
 <div class="block">Get the name of a lecturer on the subject.</div>
 <dl class="notes">
 <dt>Specified by:</dt>
@@ -330,7 +336,6 @@ implements <a href="GradeBook.html" title="interface in io.github.mizinchik">Gra
 <section class="detail" id="getTermsAmount()">
 <h3>getTermsAmount</h3>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">int</span>&nbsp;<span class="element-name">getTermsAmount</span>()</div>
-<div class="block"><span class="descfrm-type-label">Description copied from interface:&nbsp;<code><a href="GradeBook.html#getTermsAmount()">GradeBook</a></code></span></div>
 <div class="block">Get the amount of terms to complete to get
  a diploma.</div>
 <dl class="notes">
@@ -345,7 +350,6 @@ implements <a href="GradeBook.html" title="interface in io.github.mizinchik">Gra
 <section class="detail" id="getTermNumber()">
 <h3>getTermNumber</h3>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">int</span>&nbsp;<span class="element-name">getTermNumber</span>()</div>
-<div class="block"><span class="descfrm-type-label">Description copied from interface:&nbsp;<code><a href="GradeBook.html#getTermNumber()">GradeBook</a></code></span></div>
 <div class="block">Get the number of the current term.</div>
 <dl class="notes">
 <dt>Specified by:</dt>
@@ -359,7 +363,6 @@ implements <a href="GradeBook.html" title="interface in io.github.mizinchik">Gra
 <section class="detail" id="getCurrentTerm()">
 <h3>getCurrentTerm</h3>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="Term.html" title="interface in io.github.mizinchik">Term</a></span>&nbsp;<span class="element-name">getCurrentTerm</span>()</div>
-<div class="block"><span class="descfrm-type-label">Description copied from interface:&nbsp;<code><a href="GradeBook.html#getCurrentTerm()">GradeBook</a></code></span></div>
 <div class="block">Get the current term.</div>
 <dl class="notes">
 <dt>Specified by:</dt>
@@ -373,7 +376,6 @@ implements <a href="GradeBook.html" title="interface in io.github.mizinchik">Gra
 <section class="detail" id="goNextTerm()">
 <h3>goNextTerm</h3>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">goNextTerm</span>()</div>
-<div class="block"><span class="descfrm-type-label">Description copied from interface:&nbsp;<code><a href="GradeBook.html#goNextTerm()">GradeBook</a></code></span></div>
 <div class="block">Changes the current term to the next one.</div>
 <dl class="notes">
 <dt>Specified by:</dt>
@@ -385,7 +387,6 @@ implements <a href="GradeBook.html" title="interface in io.github.mizinchik">Gra
 <section class="detail" id="getTerms()">
 <h3>getTerms</h3>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/16/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="Term.html" title="interface in io.github.mizinchik">Term</a>&gt;</span>&nbsp;<span class="element-name">getTerms</span>()</div>
-<div class="block"><span class="descfrm-type-label">Description copied from interface:&nbsp;<code><a href="GradeBook.html#getTerms()">GradeBook</a></code></span></div>
 <div class="block">Get the list of all the terms required to
  get a diploma.</div>
 <dl class="notes">
@@ -400,7 +401,6 @@ implements <a href="GradeBook.html" title="interface in io.github.mizinchik">Gra
 <section class="detail" id="getMarkedSubjects()">
 <h3>getMarkedSubjects</h3>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/16/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="Subject.html" title="interface in io.github.mizinchik">Subject</a>&gt;</span>&nbsp;<span class="element-name">getMarkedSubjects</span>()</div>
-<div class="block"><span class="descfrm-type-label">Description copied from interface:&nbsp;<code><a href="GradeBook.html#getMarkedSubjects()">GradeBook</a></code></span></div>
 <div class="block">Get all the subjects which classes where conducted
  in the previous terms. And thus they are already
  necessarily evaluated.</div>
@@ -416,8 +416,10 @@ implements <a href="GradeBook.html" title="interface in io.github.mizinchik">Gra
 <section class="detail" id="possibleHonoredGraduation()">
 <h3>possibleHonoredGraduation</h3>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name">possibleHonoredGraduation</span>()</div>
-<div class="block"><span class="descfrm-type-label">Description copied from interface:&nbsp;<code><a href="GradeBook.html#possibleHonoredGraduation()">GradeBook</a></code></span></div>
-<div class="block">Check if it's still possible to graduate with honors.</div>
+<div class="block">Check if it's still possible to graduate with honors.
+ Graduation with honors is possible if no grades under 4 points
+ were received, if the GPA is 4.75 or above and if the thesis
+ is evaluated as excellent.</div>
 <dl class="notes">
 <dt>Specified by:</dt>
 <dd><code><a href="GradeBook.html#possibleHonoredGraduation()">possibleHonoredGraduation</a></code>&nbsp;in interface&nbsp;<code><a href="GradeBook.html" title="interface in io.github.mizinchik">GradeBook</a></code></dd>
@@ -430,8 +432,9 @@ implements <a href="GradeBook.html" title="interface in io.github.mizinchik">Gra
 <section class="detail" id="receiveExtraStipend()">
 <h3>receiveExtraStipend</h3>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name">receiveExtraStipend</span>()</div>
-<div class="block"><span class="descfrm-type-label">Description copied from interface:&nbsp;<code><a href="GradeBook.html#receiveExtraStipend()">GradeBook</a></code></span></div>
-<div class="block">Check if you were granted with an extra stipend.</div>
+<div class="block">Check if you were granted with an extra stipend.
+ You are granted with it if your previous term was completed
+ with excellent marks only.</div>
 <dl class="notes">
 <dt>Specified by:</dt>
 <dd><code><a href="GradeBook.html#receiveExtraStipend()">receiveExtraStipend</a></code>&nbsp;in interface&nbsp;<code><a href="GradeBook.html" title="interface in io.github.mizinchik">GradeBook</a></code></dd>
