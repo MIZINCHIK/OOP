@@ -33,7 +33,7 @@ public class GradeBookImpl implements GradeBook {
         this.termNumber = termNumber;
         this.terms = terms;
         setMarkedSubjects();
-        computeGPA();
+        computeGpa();
     }
 
     /**
@@ -47,7 +47,7 @@ public class GradeBookImpl implements GradeBook {
      */
     @Override
     public Double getGpa() {
-        computeGPA();
+        computeGpa();
         return gpa;
     }
 
@@ -221,7 +221,7 @@ public class GradeBookImpl implements GradeBook {
      * Computes the GPA.
      * If you have just started your education it is set to zero.
      */
-    private void computeGPA() {
+    private void computeGpa() {
         if (termNumber == 1) {
             gpa = (double) 0;
         } else {

@@ -40,7 +40,7 @@ public class TermImpl implements Term {
      */
     @Override
     public Double getGpa() {
-        computeGPA();
+        computeGpa();
         return gpa;
     }
 
@@ -90,7 +90,7 @@ public class TermImpl implements Term {
     /**
      * Computes the GPA of the semester.
      */
-    private void computeGPA() {
+    private void computeGpa() {
         gpa = subjects.values().stream()
                 .mapToDouble(subject -> subject.isGraded() ? subject.getGrade().getMark() : 0)
                 .average().orElse(Double.NaN);
