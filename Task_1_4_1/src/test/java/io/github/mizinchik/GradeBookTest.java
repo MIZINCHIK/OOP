@@ -1,10 +1,14 @@
 package io.github.mizinchik;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertNull;
+import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+
 import java.util.ArrayList;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
-
-import static org.junit.jupiter.api.Assertions.*;
 
 /**
  * Test class for everything related to the GradeBookImpl
@@ -26,13 +30,13 @@ public class GradeBookTest {
         var programmingGrade1 = new GradeMark(4);
         var programming1 = new SubjectImpl(1, "Programming", "Gatilov", programmingGrade1);
         var izmorGrade = new GradeCredit(null);
-        var izmor = new SubjectImpl(2, "Izmor", "HeZe", izmorGrade);
         var calculusGrade2 = new GradeMark(null);
         var programmingGrade2 = new GradeMark(null);
         var calculus2 = new SubjectImpl(2, "Calculus", "Vaskevich", calculusGrade2);
-        var programming2 = new SubjectImpl(2, "Programming", "Gatilov", programmingGrade2);
         var firstTerm = new ArrayList<Subject>();
+        var izmor = new SubjectImpl(2, "Izmor", "HeZe", izmorGrade);
         firstTerm.add(calculus1);
+        var programming2 = new SubjectImpl(2, "Programming", "Gatilov", programmingGrade2);
         firstTerm.add(programming1);
         var secondTerm = new ArrayList<Subject>();
         secondTerm.add(calculus2);
@@ -87,9 +91,9 @@ public class GradeBookTest {
     @DisplayName("Grade Test")
     void testGrade() {
         var calculusGrade = new GradeMark(null);
-        var izmorGrade = new GradeCredit(null);
         calculusGrade.updateGrade(null);
         assertNull(calculusGrade.getCredit());
+        var izmorGrade = new GradeCredit(null);
         assertNull(calculusGrade.getMark());
         izmorGrade.updateGrade(null);
         assertNull(izmorGrade.getMark());

@@ -198,7 +198,8 @@ public class GradeBookImpl implements GradeBook {
         return ((terms.stream().flatMap(term -> term.getSubjects().stream())
                 .mapToDouble(x -> x.isGraded() ? x.getGrade().getMark() : 5)
                 .average().orElse(Double.NaN) >= 4.75)
-                && (markedSubjects == null || markedSubjects.stream().map(x -> x.getGrade().getMark()).noneMatch(x -> x < 4))
+                && (markedSubjects == null || markedSubjects.stream()
+                .map(x -> x.getGrade().getMark()).noneMatch(x -> x < 4))
                 && (diplomaGrade == null || diplomaGrade == 5));
     }
 
