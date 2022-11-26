@@ -46,6 +46,8 @@ public class GradeBookTest {
         termList.add(term1);
         termList.add(term2);
         var gradeBook = new GradeBookImpl(null, 2, termList);
+        assertEquals("Vaskevich", gradeBook.getLecturer("Calculus", 1));
+        assertEquals(2, calculus2.getTermNumber());
         assertEquals(2, gradeBook.getTermNumber());
         assertEquals(2, gradeBook.getTermsAmount());
         assertTrue(gradeBook.possibleHonoredGraduation());
@@ -76,6 +78,8 @@ public class GradeBookTest {
         gradeBook.setDiplomaGrade(4);
         assertFalse(gradeBook.possibleHonoredGraduation());
         assertNull(gradeBook.getCurrentTerm());
+        assertEquals(5, gradeBook.getMarkedSubjects().size());
+        assertEquals(2, gradeBook.getTerms().size());
     }
 
     @Test
