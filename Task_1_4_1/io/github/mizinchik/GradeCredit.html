@@ -84,6 +84,8 @@ loadScripts(document, 'script');</script>
 <div class="type-signature"><span class="modifiers">public class </span><span class="element-name type-name-label">GradeCredit</span>
 <span class="extends-implements">extends <a href="https://docs.oracle.com/en/java/javase/16/docs/api/java.base/java/lang/Object.html" title="class or interface in java.lang" class="external-link">Object</a>
 implements <a href="Grade.html" title="interface in io.github.mizinchik">Grade</a></span></div>
+<div class="block">Represents a grade which is represented by
+ a boolean value. True means the form of evaluation was passed.</div>
 </section>
 <section class="summary">
 <ul class="summary-list">
@@ -96,7 +98,9 @@ implements <a href="Grade.html" title="interface in io.github.mizinchik">Grade</
 <div class="table-header col-first">Constructor</div>
 <div class="table-header col-last">Description</div>
 <div class="col-constructor-name even-row-color"><code><span class="member-name-link"><a href="#%3Cinit%3E(java.lang.Boolean)">GradeCredit</a></span>&#8203;(<a href="https://docs.oracle.com/en/java/javase/16/docs/api/java.base/java/lang/Boolean.html" title="class or interface in java.lang" class="external-link">Boolean</a>&nbsp;credit)</code></div>
-<div class="col-last even-row-color">&nbsp;</div>
+<div class="col-last even-row-color">
+<div class="block">Constructs a grade from a boolean value of it.</div>
+</div>
 </div>
 </section>
 </li>
@@ -114,13 +118,12 @@ implements <a href="Grade.html" title="interface in io.github.mizinchik">Grade</
 <div class="col-first even-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table"><code><a href="https://docs.oracle.com/en/java/javase/16/docs/api/java.base/java/lang/Boolean.html" title="class or interface in java.lang" class="external-link">Boolean</a></code></div>
 <div class="col-second even-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table"><code><span class="member-name-link"><a href="#getCredit()">getCredit</a></span>()</code></div>
 <div class="col-last even-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table">
-<div class="block">Get the grade in a pass-or-fail
- format.</div>
+<div class="block">Get the grade in its genuine format.</div>
 </div>
 <div class="col-first odd-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table"><code><a href="https://docs.oracle.com/en/java/javase/16/docs/api/java.base/java/lang/Integer.html" title="class or interface in java.lang" class="external-link">Integer</a></code></div>
 <div class="col-second odd-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table"><code><span class="member-name-link"><a href="#getMark()">getMark</a></span>()</code></div>
 <div class="col-last odd-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table">
-<div class="block">Get the grade in a mark format.</div>
+<div class="block">Get the grade in a numerical format.</div>
 </div>
 <div class="col-first even-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table"><code>void</code></div>
 <div class="col-second even-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table"><code><span class="member-name-link"><a href="#updateGrade(java.lang.Integer)">updateGrade</a></span>&#8203;(<a href="https://docs.oracle.com/en/java/javase/16/docs/api/java.base/java/lang/Integer.html" title="class or interface in java.lang" class="external-link">Integer</a>&nbsp;mark)</code></div>
@@ -148,6 +151,11 @@ implements <a href="Grade.html" title="interface in io.github.mizinchik">Grade</
 <section class="detail" id="&lt;init&gt;(java.lang.Boolean)">
 <h3>GradeCredit</h3>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="element-name">GradeCredit</span>&#8203;<span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/16/docs/api/java.base/java/lang/Boolean.html" title="class or interface in java.lang" class="external-link">Boolean</a>&nbsp;credit)</span></div>
+<div class="block">Constructs a grade from a boolean value of it.</div>
+<dl class="notes">
+<dt>Parameters:</dt>
+<dd><code>credit</code> - to put as a grade</dd>
+</dl>
 </section>
 </li>
 </ul>
@@ -162,9 +170,8 @@ implements <a href="Grade.html" title="interface in io.github.mizinchik">Grade</
 <section class="detail" id="getCredit()">
 <h3>getCredit</h3>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/16/docs/api/java.base/java/lang/Boolean.html" title="class or interface in java.lang" class="external-link">Boolean</a></span>&nbsp;<span class="element-name">getCredit</span>()</div>
-<div class="block"><span class="descfrm-type-label">Description copied from interface:&nbsp;<code><a href="Grade.html#getCredit()">Grade</a></code></span></div>
-<div class="block">Get the grade in a pass-or-fail
- format.</div>
+<div class="block">Get the grade in its genuine format.
+ Null means the grade hasn't been put yet.</div>
 <dl class="notes">
 <dt>Specified by:</dt>
 <dd><code><a href="Grade.html#getCredit()">getCredit</a></code>&nbsp;in interface&nbsp;<code><a href="Grade.html" title="interface in io.github.mizinchik">Grade</a></code></dd>
@@ -177,13 +184,13 @@ implements <a href="Grade.html" title="interface in io.github.mizinchik">Grade</
 <section class="detail" id="getMark()">
 <h3>getMark</h3>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/16/docs/api/java.base/java/lang/Integer.html" title="class or interface in java.lang" class="external-link">Integer</a></span>&nbsp;<span class="element-name">getMark</span>()</div>
-<div class="block"><span class="descfrm-type-label">Description copied from interface:&nbsp;<code><a href="Grade.html#getMark()">Grade</a></code></span></div>
-<div class="block">Get the grade in a mark format.</div>
+<div class="block">Get the grade in a numerical format.
+ Null means the grade hasn't been put yet.</div>
 <dl class="notes">
 <dt>Specified by:</dt>
 <dd><code><a href="Grade.html#getMark()">getMark</a></code>&nbsp;in interface&nbsp;<code><a href="Grade.html" title="interface in io.github.mizinchik">Grade</a></code></dd>
 <dt>Returns:</dt>
-<dd>mark</dd>
+<dd>5 if passed, 2 if not</dd>
 </dl>
 </section>
 </li>
@@ -191,7 +198,6 @@ implements <a href="Grade.html" title="interface in io.github.mizinchik">Grade</
 <section class="detail" id="updateGrade(java.lang.Integer)">
 <h3>updateGrade</h3>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">updateGrade</span>&#8203;<span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/16/docs/api/java.base/java/lang/Integer.html" title="class or interface in java.lang" class="external-link">Integer</a>&nbsp;mark)</span></div>
-<div class="block"><span class="descfrm-type-label">Description copied from interface:&nbsp;<code><a href="Grade.html#updateGrade(java.lang.Integer)">Grade</a></code></span></div>
 <div class="block">Set a new grade value.</div>
 <dl class="notes">
 <dt>Specified by:</dt>
