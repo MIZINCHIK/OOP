@@ -8,9 +8,15 @@ public class TermImpl implements Term {
     private final Map<String, Subject> subjects;
     private Double GPA;
 
-    public TermImpl(List<Subject> subjects) {
+    public TermImpl(List<Subject> subjects) throws IllegalArgumentException {
+        if (subjects == null || subjects.contains(null)) {
+            throw new IllegalArgumentException("Null parsed to Term constructor");
+        }
         this.subjects = new HashMap<>();
         for (Subject subject : subjects) {
+            if (this.subjects.containsKey(subject.getName())) {
+                throw new IllegalArgumentException("Subjects with identical names");
+            }
             this.subjects.put(subject.getName(), subject);
         }
     }

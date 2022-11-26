@@ -6,7 +6,11 @@ public class SubjectImpl implements Subject {
     String lecturer;
     Grade grade;
 
-    public SubjectImpl(int termNumber, String name, String lecturer, Grade grade) {
+    public SubjectImpl(int termNumber, String name, String lecturer,
+                       Grade grade) throws IllegalArgumentException {
+        if (grade == null) {
+            throw new IllegalArgumentException("Grade can't be null");
+        }
         this.termNumber = termNumber;
         this.name = name;
         this.lecturer = lecturer;

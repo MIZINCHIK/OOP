@@ -1,18 +1,6 @@
 package io.github.mizinchik;
 
-import java.io.ByteArrayOutputStream;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.io.PrintStream;
-import java.io.RandomAccessFile;
-import java.io.Reader;
-import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
 
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -20,6 +8,7 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
 public class GradeBookTest {
+
     @Test
     @DisplayName("Small test")
     void testSmall() {
@@ -101,5 +90,32 @@ public class GradeBookTest {
         assertEquals(true, izmorGrade.getCredit());
         var newCredit = new GradeCredit(false);
         assertFalse(newCredit.getCredit());
+    }
+
+    @Test
+    @DisplayName("Exception Test")
+    void testExceptions() {
+        var termList = new ArrayList<Term>();
+        for (int i = 0; i < 100; i++) {
+            termList.add(null);
+        }
+        assertThrows(IllegalArgumentException.class,
+                () -> new GradeBookImpl(null, 100, termList));
+        var subjectList = new ArrayList<Subject>();
+        for (int i = 0; i < 100; i++) {
+            subjectList.add(null);
+        }
+        assertThrows(IllegalArgumentException.class,
+                () -> new TermImpl(subjectList));
+        assertThrows(IllegalArgumentException.class,
+                () -> new SubjectImpl(1, "Subject", "Lecturer", null));
+        var grade = new GradeMark(2);
+        var subject1 = new SubjectImpl(1, "Sub", "sdjkahsdajd", grade);
+        var subject2 = new SubjectImpl(1, "Sub", "sdfhjasdfdsfdsf", grade);
+        var subjects = new ArrayList<Subject>();
+        subjects.add(subject1);
+        subjects.add(subject2);
+        assertThrows(IllegalArgumentException.class,
+                () -> new TermImpl(subjects));
     }
 }

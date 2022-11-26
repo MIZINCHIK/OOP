@@ -1,6 +1,7 @@
 package io.github.mizinchik;
 
 import java.util.List;
+import java.util.Objects;
 import java.util.stream.Collectors;
 
 public class GradeBookImpl implements GradeBook {
@@ -10,7 +11,11 @@ public class GradeBookImpl implements GradeBook {
     private final List<Term> terms;
     private List<Subject> markedSubjects;
 
-    public GradeBookImpl(Integer diplomaGrade, int termNumber, List<Term> terms) {
+    public GradeBookImpl(Integer diplomaGrade, int termNumber,
+                         List<Term> terms) throws IllegalArgumentException {
+        if (terms == null || termNumber == 0 || terms.contains(null)) {
+            throw new IllegalArgumentException("Can't create a GradeBook with 0 terms");
+        }
         this.diplomaGrade = diplomaGrade;
         this.termNumber = termNumber;
         this.terms = terms;
