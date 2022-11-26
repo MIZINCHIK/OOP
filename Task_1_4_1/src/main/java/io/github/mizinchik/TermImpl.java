@@ -11,7 +11,7 @@ import java.util.Map;
  */
 public class TermImpl implements Term {
     private final Map<String, Subject> subjects;
-    private Double GPA;
+    private Double Gpa;
 
     /**
      * Constructs a term from a list of subjects.
@@ -39,9 +39,9 @@ public class TermImpl implements Term {
      * @return GPA
      */
     @Override
-    public Double getGPA() {
+    public Double getGpa() {
         computeGPA();
-        return GPA;
+        return Gpa;
     }
 
     /**
@@ -91,7 +91,7 @@ public class TermImpl implements Term {
      * Computes the GPA of the semester.
      */
     private void computeGPA() {
-        GPA = subjects.values().stream()
+        Gpa = subjects.values().stream()
                 .mapToDouble(subject -> subject.isGraded() ? subject.getGrade().getMark() : 0)
                 .average().orElse(Double.NaN);
     }

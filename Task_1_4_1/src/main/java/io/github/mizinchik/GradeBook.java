@@ -15,7 +15,7 @@ public interface GradeBook {
      *
      * @return GPA
      */
-    Double getGPA();
+    Double getGpa();
 
     /**
      * Get a grade of the thesis.

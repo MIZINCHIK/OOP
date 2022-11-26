@@ -1,7 +1,6 @@
 package io.github.mizinchik;
 
 import java.util.List;
-import java.util.Objects;
 import java.util.stream.Collectors;
 
 /**
@@ -11,7 +10,7 @@ import java.util.stream.Collectors;
  * @author MIZINCHIK
  */
 public class GradeBookImpl implements GradeBook {
-    private Double GPA;
+    private Double Gpa;
     private Integer diplomaGrade;
     private int termNumber;
     private final List<Term> terms;
@@ -47,9 +46,9 @@ public class GradeBookImpl implements GradeBook {
      * @return GPA
      */
     @Override
-    public Double getGPA() {
+    public Double getGpa() {
         computeGPA();
-        return GPA;
+        return Gpa;
     }
 
     /**
@@ -215,7 +214,7 @@ public class GradeBookImpl implements GradeBook {
         if (termNumber == 1) {
             return false;
         }
-        return terms.get(termNumber - 2).getGPA() == 5.0;
+        return terms.get(termNumber - 2).getGpa() == 5.0;
     }
 
     /**
@@ -224,9 +223,9 @@ public class GradeBookImpl implements GradeBook {
      */
     private void computeGPA() {
         if (termNumber == 1) {
-            GPA = (double) 0;
+            Gpa = (double) 0;
         } else {
-            GPA = markedSubjects.stream().mapToDouble(x -> x.getGrade().getMark())
+            Gpa = markedSubjects.stream().mapToDouble(x -> x.getGrade().getMark())
                     .average().orElse(Double.NaN);
         }
     }
