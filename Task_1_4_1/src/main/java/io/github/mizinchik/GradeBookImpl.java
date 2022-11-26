@@ -4,7 +4,6 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 public class GradeBookImpl implements GradeBook {
-    private boolean GPAComputed;
     private Double GPA;
     private Integer diplomaGrade;
     private int termNumber;
@@ -17,20 +16,11 @@ public class GradeBookImpl implements GradeBook {
         this.terms = terms;
         setMarkedSubjects();
         computeGPA();
-        GPAComputed = true;
     }
 
     @Override
     public Double getGPA() {
         computeGPA();
-        return GPA;
-    }
-
-    @Override
-    public Double getSavedGPA() {
-        if (!GPAComputed) {
-            computeGPA();
-        }
         return GPA;
     }
 
@@ -47,11 +37,6 @@ public class GradeBookImpl implements GradeBook {
     @Override
     public Grade getSubjectGrade(String subject, int term) {
         return terms.get(term - 1).getGrade(subject);
-    }
-
-    @Override
-    public void setSubjectGrade(String subject, int term, Grade grade) {
-        terms.get(term - 1).updateGrade(subject, grade);
     }
 
     @Override
@@ -120,11 +105,9 @@ public class GradeBookImpl implements GradeBook {
     private void computeGPA() {
         if (termNumber == 1) {
             GPA = (double) 0;
-            GPAComputed = true;
         } else {
             GPA = markedSubjects.stream().mapToDouble(x -> x.getGrade().getMark())
                     .average().orElse(Double.NaN);
-            GPAComputed = true;
         }
     }
 }
