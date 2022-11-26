@@ -113,20 +113,31 @@ implements <a href="Term.html" title="interface in io.github.mizinchik">Term</a>
 <div class="table-header col-last">Description</div>
 <div class="col-first even-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table"><code><a href="https://docs.oracle.com/en/java/javase/16/docs/api/java.base/java/lang/Double.html" title="class or interface in java.lang" class="external-link">Double</a></code></div>
 <div class="col-second even-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table"><code><span class="member-name-link"><a href="#getGPA()">getGPA</a></span>()</code></div>
-<div class="col-last even-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table">&nbsp;</div>
+<div class="col-last even-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table">
+<div class="block">Get a grade point average for all
+ the subjects in the term.</div>
+</div>
 <div class="col-first odd-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table"><code><a href="Grade.html" title="interface in io.github.mizinchik">Grade</a></code></div>
 <div class="col-second odd-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table"><code><span class="member-name-link"><a href="#getGrade(java.lang.String)">getGrade</a></span>&#8203;(<a href="https://docs.oracle.com/en/java/javase/16/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;subject)</code></div>
-<div class="col-last odd-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table">&nbsp;</div>
+<div class="col-last odd-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table">
+<div class="block">Get the grade for the specific subject.</div>
+</div>
 <div class="col-first even-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table"><code><a href="https://docs.oracle.com/en/java/javase/16/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></code></div>
 <div class="col-second even-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table"><code><span class="member-name-link"><a href="#getLecturer(java.lang.String)">getLecturer</a></span>&#8203;(<a href="https://docs.oracle.com/en/java/javase/16/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;subject)</code></div>
-<div class="col-last even-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table">&nbsp;</div>
+<div class="col-last even-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table">
+<div class="block">Get the name of a lecturer on a particular subject.</div>
+</div>
 <div class="col-first odd-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table"><code><a href="https://docs.oracle.com/en/java/javase/16/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="Subject.html" title="interface in io.github.mizinchik">Subject</a>&gt;</code></div>
 <div class="col-second odd-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table"><code><span class="member-name-link"><a href="#getSubjects()">getSubjects</a></span>()</code></div>
-<div class="col-last odd-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table">&nbsp;</div>
+<div class="col-last odd-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table">
+<div class="block">Get the list of all the subjects taking place on the term.</div>
+</div>
 <div class="col-first even-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table"><code>void</code></div>
 <div class="col-second even-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table"><code><span class="member-name-link"><a href="#updateGrade(java.lang.String,java.lang.Integer)">updateGrade</a></span>&#8203;(<a href="https://docs.oracle.com/en/java/javase/16/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;subject,
  <a href="https://docs.oracle.com/en/java/javase/16/docs/api/java.base/java/lang/Integer.html" title="class or interface in java.lang" class="external-link">Integer</a>&nbsp;grade)</code></div>
-<div class="col-last even-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table">&nbsp;</div>
+<div class="col-last even-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table">
+<div class="block">Set or change the grade for a certain subject.</div>
+</div>
 </div>
 </div>
 </div>
@@ -167,9 +178,14 @@ implements <a href="Term.html" title="interface in io.github.mizinchik">Term</a>
 <section class="detail" id="getGPA()">
 <h3>getGPA</h3>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/16/docs/api/java.base/java/lang/Double.html" title="class or interface in java.lang" class="external-link">Double</a></span>&nbsp;<span class="element-name">getGPA</span>()</div>
+<div class="block"><span class="descfrm-type-label">Description copied from interface:&nbsp;<code><a href="Term.html#getGPA()">Term</a></code></span></div>
+<div class="block">Get a grade point average for all
+ the subjects in the term.</div>
 <dl class="notes">
 <dt>Specified by:</dt>
 <dd><code><a href="Term.html#getGPA()">getGPA</a></code>&nbsp;in interface&nbsp;<code><a href="Term.html" title="interface in io.github.mizinchik">Term</a></code></dd>
+<dt>Returns:</dt>
+<dd>GPA</dd>
 </dl>
 </section>
 </li>
@@ -177,9 +193,13 @@ implements <a href="Term.html" title="interface in io.github.mizinchik">Term</a>
 <section class="detail" id="getSubjects()">
 <h3>getSubjects</h3>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/16/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="Subject.html" title="interface in io.github.mizinchik">Subject</a>&gt;</span>&nbsp;<span class="element-name">getSubjects</span>()</div>
+<div class="block"><span class="descfrm-type-label">Description copied from interface:&nbsp;<code><a href="Term.html#getSubjects()">Term</a></code></span></div>
+<div class="block">Get the list of all the subjects taking place on the term.</div>
 <dl class="notes">
 <dt>Specified by:</dt>
 <dd><code><a href="Term.html#getSubjects()">getSubjects</a></code>&nbsp;in interface&nbsp;<code><a href="Term.html" title="interface in io.github.mizinchik">Term</a></code></dd>
+<dt>Returns:</dt>
+<dd>list of subjects</dd>
 </dl>
 </section>
 </li>
@@ -187,9 +207,15 @@ implements <a href="Term.html" title="interface in io.github.mizinchik">Term</a>
 <section class="detail" id="getLecturer(java.lang.String)">
 <h3>getLecturer</h3>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/16/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></span>&nbsp;<span class="element-name">getLecturer</span>&#8203;<span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/16/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;subject)</span></div>
+<div class="block"><span class="descfrm-type-label">Description copied from interface:&nbsp;<code><a href="Term.html#getLecturer(java.lang.String)">Term</a></code></span></div>
+<div class="block">Get the name of a lecturer on a particular subject.</div>
 <dl class="notes">
 <dt>Specified by:</dt>
 <dd><code><a href="Term.html#getLecturer(java.lang.String)">getLecturer</a></code>&nbsp;in interface&nbsp;<code><a href="Term.html" title="interface in io.github.mizinchik">Term</a></code></dd>
+<dt>Parameters:</dt>
+<dd><code>subject</code> - which you seek for</dd>
+<dt>Returns:</dt>
+<dd>name of the lecturer</dd>
 </dl>
 </section>
 </li>
@@ -198,9 +224,14 @@ implements <a href="Term.html" title="interface in io.github.mizinchik">Term</a>
 <h3>updateGrade</h3>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">updateGrade</span>&#8203;<span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/16/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;subject,
  <a href="https://docs.oracle.com/en/java/javase/16/docs/api/java.base/java/lang/Integer.html" title="class or interface in java.lang" class="external-link">Integer</a>&nbsp;grade)</span></div>
+<div class="block"><span class="descfrm-type-label">Description copied from interface:&nbsp;<code><a href="Term.html#updateGrade(java.lang.String,java.lang.Integer)">Term</a></code></span></div>
+<div class="block">Set or change the grade for a certain subject.</div>
 <dl class="notes">
 <dt>Specified by:</dt>
 <dd><code><a href="Term.html#updateGrade(java.lang.String,java.lang.Integer)">updateGrade</a></code>&nbsp;in interface&nbsp;<code><a href="Term.html" title="interface in io.github.mizinchik">Term</a></code></dd>
+<dt>Parameters:</dt>
+<dd><code>subject</code> - to set the grade on</dd>
+<dd><code>grade</code> - to set</dd>
 </dl>
 </section>
 </li>
@@ -208,9 +239,15 @@ implements <a href="Term.html" title="interface in io.github.mizinchik">Term</a>
 <section class="detail" id="getGrade(java.lang.String)">
 <h3>getGrade</h3>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="Grade.html" title="interface in io.github.mizinchik">Grade</a></span>&nbsp;<span class="element-name">getGrade</span>&#8203;<span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/16/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;subject)</span></div>
+<div class="block"><span class="descfrm-type-label">Description copied from interface:&nbsp;<code><a href="Term.html#getGrade(java.lang.String)">Term</a></code></span></div>
+<div class="block">Get the grade for the specific subject.</div>
 <dl class="notes">
 <dt>Specified by:</dt>
 <dd><code><a href="Term.html#getGrade(java.lang.String)">getGrade</a></code>&nbsp;in interface&nbsp;<code><a href="Term.html" title="interface in io.github.mizinchik">Term</a></code></dd>
+<dt>Parameters:</dt>
+<dd><code>subject</code> - to get the grade on</dd>
+<dt>Returns:</dt>
+<dd>grade</dd>
 </dl>
 </section>
 </li>

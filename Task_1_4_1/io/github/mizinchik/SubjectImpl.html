@@ -116,22 +116,35 @@ implements <a href="Subject.html" title="interface in io.github.mizinchik">Subje
 <div class="table-header col-last">Description</div>
 <div class="col-first even-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table"><code><a href="Grade.html" title="interface in io.github.mizinchik">Grade</a></code></div>
 <div class="col-second even-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table"><code><span class="member-name-link"><a href="#getGrade()">getGrade</a></span>()</code></div>
-<div class="col-last even-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table">&nbsp;</div>
+<div class="col-last even-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table">
+<div class="block">Get the grade your work on the subject was evaluated with.</div>
+</div>
 <div class="col-first odd-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table"><code><a href="https://docs.oracle.com/en/java/javase/16/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></code></div>
 <div class="col-second odd-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table"><code><span class="member-name-link"><a href="#getLecturer()">getLecturer</a></span>()</code></div>
-<div class="col-last odd-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table">&nbsp;</div>
+<div class="col-last odd-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table">
+<div class="block">Get the name of the lecturer.</div>
+</div>
 <div class="col-first even-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table"><code><a href="https://docs.oracle.com/en/java/javase/16/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></code></div>
 <div class="col-second even-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table"><code><span class="member-name-link"><a href="#getName()">getName</a></span>()</code></div>
-<div class="col-last even-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table">&nbsp;</div>
+<div class="col-last even-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table">
+<div class="block">Get the name of the subject.</div>
+</div>
 <div class="col-first odd-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table"><code>int</code></div>
 <div class="col-second odd-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table"><code><span class="member-name-link"><a href="#getTermNumber()">getTermNumber</a></span>()</code></div>
-<div class="col-last odd-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table">&nbsp;</div>
+<div class="col-last odd-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table">
+<div class="block">Get the number of the term the subject's classes
+ are conducted in.</div>
+</div>
 <div class="col-first even-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table"><code>boolean</code></div>
 <div class="col-second even-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table"><code><span class="member-name-link"><a href="#isGraded()">isGraded</a></span>()</code></div>
-<div class="col-last even-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table">&nbsp;</div>
+<div class="col-last even-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table">
+<div class="block">Check if the subject has been graded already.</div>
+</div>
 <div class="col-first odd-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table"><code>void</code></div>
 <div class="col-second odd-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table"><code><span class="member-name-link"><a href="#putGrade(java.lang.Integer)">putGrade</a></span>&#8203;(<a href="https://docs.oracle.com/en/java/javase/16/docs/api/java.base/java/lang/Integer.html" title="class or interface in java.lang" class="external-link">Integer</a>&nbsp;grade)</code></div>
-<div class="col-last odd-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table">&nbsp;</div>
+<div class="col-last odd-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table">
+<div class="block">Change or set the grade for the subject.</div>
+</div>
 </div>
 </div>
 </div>
@@ -175,9 +188,14 @@ implements <a href="Subject.html" title="interface in io.github.mizinchik">Subje
 <section class="detail" id="getTermNumber()">
 <h3>getTermNumber</h3>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">int</span>&nbsp;<span class="element-name">getTermNumber</span>()</div>
+<div class="block"><span class="descfrm-type-label">Description copied from interface:&nbsp;<code><a href="Subject.html#getTermNumber()">Subject</a></code></span></div>
+<div class="block">Get the number of the term the subject's classes
+ are conducted in.</div>
 <dl class="notes">
 <dt>Specified by:</dt>
 <dd><code><a href="Subject.html#getTermNumber()">getTermNumber</a></code>&nbsp;in interface&nbsp;<code><a href="Subject.html" title="interface in io.github.mizinchik">Subject</a></code></dd>
+<dt>Returns:</dt>
+<dd>the order number of the term</dd>
 </dl>
 </section>
 </li>
@@ -185,9 +203,13 @@ implements <a href="Subject.html" title="interface in io.github.mizinchik">Subje
 <section class="detail" id="getName()">
 <h3>getName</h3>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/16/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></span>&nbsp;<span class="element-name">getName</span>()</div>
+<div class="block"><span class="descfrm-type-label">Description copied from interface:&nbsp;<code><a href="Subject.html#getName()">Subject</a></code></span></div>
+<div class="block">Get the name of the subject.</div>
 <dl class="notes">
 <dt>Specified by:</dt>
 <dd><code><a href="Subject.html#getName()">getName</a></code>&nbsp;in interface&nbsp;<code><a href="Subject.html" title="interface in io.github.mizinchik">Subject</a></code></dd>
+<dt>Returns:</dt>
+<dd>name of the subject</dd>
 </dl>
 </section>
 </li>
@@ -195,9 +217,13 @@ implements <a href="Subject.html" title="interface in io.github.mizinchik">Subje
 <section class="detail" id="getLecturer()">
 <h3>getLecturer</h3>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/16/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></span>&nbsp;<span class="element-name">getLecturer</span>()</div>
+<div class="block"><span class="descfrm-type-label">Description copied from interface:&nbsp;<code><a href="Subject.html#getLecturer()">Subject</a></code></span></div>
+<div class="block">Get the name of the lecturer.</div>
 <dl class="notes">
 <dt>Specified by:</dt>
 <dd><code><a href="Subject.html#getLecturer()">getLecturer</a></code>&nbsp;in interface&nbsp;<code><a href="Subject.html" title="interface in io.github.mizinchik">Subject</a></code></dd>
+<dt>Returns:</dt>
+<dd>name of the lecturer</dd>
 </dl>
 </section>
 </li>
@@ -205,9 +231,13 @@ implements <a href="Subject.html" title="interface in io.github.mizinchik">Subje
 <section class="detail" id="getGrade()">
 <h3>getGrade</h3>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="Grade.html" title="interface in io.github.mizinchik">Grade</a></span>&nbsp;<span class="element-name">getGrade</span>()</div>
+<div class="block"><span class="descfrm-type-label">Description copied from interface:&nbsp;<code><a href="Subject.html#getGrade()">Subject</a></code></span></div>
+<div class="block">Get the grade your work on the subject was evaluated with.</div>
 <dl class="notes">
 <dt>Specified by:</dt>
 <dd><code><a href="Subject.html#getGrade()">getGrade</a></code>&nbsp;in interface&nbsp;<code><a href="Subject.html" title="interface in io.github.mizinchik">Subject</a></code></dd>
+<dt>Returns:</dt>
+<dd>grade evaluating the subject completion</dd>
 </dl>
 </section>
 </li>
@@ -215,9 +245,13 @@ implements <a href="Subject.html" title="interface in io.github.mizinchik">Subje
 <section class="detail" id="isGraded()">
 <h3>isGraded</h3>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name">isGraded</span>()</div>
+<div class="block"><span class="descfrm-type-label">Description copied from interface:&nbsp;<code><a href="Subject.html#isGraded()">Subject</a></code></span></div>
+<div class="block">Check if the subject has been graded already.</div>
 <dl class="notes">
 <dt>Specified by:</dt>
 <dd><code><a href="Subject.html#isGraded()">isGraded</a></code>&nbsp;in interface&nbsp;<code><a href="Subject.html" title="interface in io.github.mizinchik">Subject</a></code></dd>
+<dt>Returns:</dt>
+<dd>true if the subject is already graded</dd>
 </dl>
 </section>
 </li>
@@ -225,9 +259,13 @@ implements <a href="Subject.html" title="interface in io.github.mizinchik">Subje
 <section class="detail" id="putGrade(java.lang.Integer)">
 <h3>putGrade</h3>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">putGrade</span>&#8203;<span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/16/docs/api/java.base/java/lang/Integer.html" title="class or interface in java.lang" class="external-link">Integer</a>&nbsp;grade)</span></div>
+<div class="block"><span class="descfrm-type-label">Description copied from interface:&nbsp;<code><a href="Subject.html#putGrade(java.lang.Integer)">Subject</a></code></span></div>
+<div class="block">Change or set the grade for the subject.</div>
 <dl class="notes">
 <dt>Specified by:</dt>
 <dd><code><a href="Subject.html#putGrade(java.lang.Integer)">putGrade</a></code>&nbsp;in interface&nbsp;<code><a href="Subject.html" title="interface in io.github.mizinchik">Subject</a></code></dd>
+<dt>Parameters:</dt>
+<dd><code>grade</code> - to put</dd>
 </dl>
 </section>
 </li>
