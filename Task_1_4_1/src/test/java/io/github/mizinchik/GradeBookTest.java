@@ -51,7 +51,7 @@ public class GradeBookTest {
         assertTrue(gradeBook.possibleHonoredGraduation());
         assertFalse(gradeBook.receiveExtraStipend());
         assertNull(gradeBook.getSubjectGrade("Izmor", 2).getMark());
-        assertEquals(4.5, gradeBook.getGPA());
+        assertEquals(4.5, gradeBook.getGpa());
         assertEquals(5, gradeBook.getSubjectGrade("Calculus", 1).getMark());
         assertNull(gradeBook.getDiplomaGrade());
         programming1.grade.updateGrade(3);
@@ -70,9 +70,9 @@ public class GradeBookTest {
         assertFalse(gradeBook.possibleHonoredGraduation());
         gradeBook.setSubjectGrade("Programming", 2, 5);
         assertTrue(gradeBook.possibleHonoredGraduation());
-        assertEquals(4.5, gradeBook.getGPA());
+        assertEquals(4.5, gradeBook.getGpa());
         gradeBook.goNextTerm();
-        assertEquals(4.8, gradeBook.getGPA());
+        assertEquals(4.8, gradeBook.getGpa());
         gradeBook.setDiplomaGrade(4);
         assertFalse(gradeBook.possibleHonoredGraduation());
         assertNull(gradeBook.getCurrentTerm());

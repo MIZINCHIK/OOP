@@ -15,7 +15,7 @@ public interface Term {
      *
      * @return GPA
      */
-    Double getGPA();
+    Double getGpa();
 
     /**
      * Get the list of all the subjects taking place on the term.
