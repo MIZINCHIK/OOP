@@ -1,14 +1,23 @@
 package io.github.mizinchik;
 
 import java.util.ArrayList;
-
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+/**
+ * Test class for everything related to the GradeBookImpl
+ * class representing the NSU grade book.
+ *
+ * @author MIZINCHIK
+ */
 public class GradeBookTest {
 
+    /**
+     * Creates a small but fulfilling grade book and
+     * tests all about grade book, term and subject classes.
+     */
     @Test
     @DisplayName("Small test")
     void testSmall() {
@@ -71,6 +80,9 @@ public class GradeBookTest {
         assertEquals(2, gradeBook.getTerms().size());
     }
 
+    /**
+     * Tests grade classes specifically.
+     */
     @Test
     @DisplayName("Grade Test")
     void testGrade() {
@@ -92,6 +104,9 @@ public class GradeBookTest {
         assertFalse(newCredit.getCredit());
     }
 
+    /**
+     * Tests exceptions.
+     */
     @Test
     @DisplayName("Exception Test")
     void testExceptions() {
