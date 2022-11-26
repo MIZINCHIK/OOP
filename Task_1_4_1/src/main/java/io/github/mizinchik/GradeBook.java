@@ -13,6 +13,8 @@ public interface GradeBook {
 
     void setSubjectGrade(String subject, int term, Integer grade);
 
+    String getLecturer(String subject, int term);
+
     int getTermsAmount();
 
     int getTermNumber();

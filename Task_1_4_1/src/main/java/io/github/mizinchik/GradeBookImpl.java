@@ -45,6 +45,11 @@ public class GradeBookImpl implements GradeBook {
     }
 
     @Override
+    public String getLecturer(String subject, int term) {
+        return terms.get(term - 1).getLecturer(subject);
+    }
+
+    @Override
     public int getTermsAmount() {
         return terms.size();
     }
@@ -88,7 +93,7 @@ public class GradeBookImpl implements GradeBook {
     @Override
     public boolean possibleHonoredGraduation() {
         return ((terms.stream().flatMap(term -> term.getSubjects().stream())
-                .mapToDouble(x -> !x.isGraded() ? 5 : x.getGrade().getMark())
+                .mapToDouble(x -> x.isGraded() ? x.getGrade().getMark() : 5)
                 .average().orElse(Double.NaN) >= 4.75)
                 && (markedSubjects == null || markedSubjects.stream().map(x -> x.getGrade().getMark()).noneMatch(x -> x < 4))
                 && (diplomaGrade == null || diplomaGrade == 5));

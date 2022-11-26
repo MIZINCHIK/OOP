@@ -7,7 +7,7 @@ public interface Term {
 
     List<Subject> getSubjects();
 
-    void updateGrade(String subject, Grade grade);
+    String getLecturer(String subject);
 
     void updateGrade(String subject, Integer grade);
 

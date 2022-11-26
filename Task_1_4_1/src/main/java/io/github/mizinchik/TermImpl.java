@@ -27,8 +27,8 @@ public class TermImpl implements Term {
     }
 
     @Override
-    public void updateGrade(String subject, Grade grade) {
-        subjects.get(subject).putGrade(grade);
+    public String getLecturer(String subject) {
+        return subjects.get(subject).getLecturer();
     }
 
     @Override
@@ -43,7 +43,7 @@ public class TermImpl implements Term {
 
     private void computeGPA() {
         GPA = subjects.values().stream()
-                .mapToDouble(subject -> !subject.isGraded() ? 0 : subject.getGrade().getMark())
+                .mapToDouble(subject -> subject.isGraded() ? subject.getGrade().getMark() : 0)
                 .average().orElse(Double.NaN);
     }
 }

@@ -39,11 +39,6 @@ public class SubjectImpl implements Subject {
     }
 
     @Override
-    public void putGrade(Grade grade) {
-        this.grade = grade;
-    }
-
-    @Override
     public void putGrade(Integer grade) {
         this.grade.updateGrade(grade);
     }
