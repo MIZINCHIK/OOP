@@ -7,9 +7,15 @@ public interface GradeBook {
 
     Integer getDiplomaGrade();
 
+    void setDiplomaGrade(Integer grade);
+
+    int getTermsAmount();
+
     int getTermNumber();
 
     Term getCurrentTerm();
+
+    void goNextTerm();
 
     List<Term> getTerms();
 

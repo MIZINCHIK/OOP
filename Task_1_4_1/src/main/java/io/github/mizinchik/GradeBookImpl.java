@@ -4,16 +4,18 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 public class GradeBookImpl implements GradeBook {
-    Double GPA;
-    Integer diplomaGrade;
-    int termNumber;
-    List<Term> terms;
+    private Double GPA;
+    private boolean GPAComputed;
+    private Integer diplomaGrade;
+    private int termNumber;
+    private List<Term> terms;
 
     public GradeBookImpl(Integer diplomaGrade, int termNumber, List<Term> terms) {
         this.diplomaGrade = diplomaGrade;
         this.termNumber = termNumber;
         this.terms = terms;
         computeGPA();
+        GPAComputed = true;
     }
 
     @Override
@@ -27,6 +29,16 @@ public class GradeBookImpl implements GradeBook {
     }
 
     @Override
+    public void setDiplomaGrade(Integer grade) {
+        diplomaGrade = grade;
+    }
+
+    @Override
+    public int getTermsAmount() {
+        return terms.size();
+    }
+
+    @Override
     public int getTermNumber() {
         return termNumber;
     }
@@ -34,6 +46,11 @@ public class GradeBookImpl implements GradeBook {
     @Override
     public Term getCurrentTerm() {
         return terms.get(termNumber - 1);
+    }
+
+    @Override
+    public void goNextTerm() {
+        termNumber++;
     }
 
     @Override

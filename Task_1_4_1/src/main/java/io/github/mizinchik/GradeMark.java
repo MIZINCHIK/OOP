@@ -1,7 +1,7 @@
 package io.github.mizinchik;
 
 public class GradeMark implements Grade {
-    Integer mark;
+    private Integer mark;
 
     public GradeMark(Integer mark) {
         this.mark = mark;
