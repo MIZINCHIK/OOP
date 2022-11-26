@@ -35,7 +35,7 @@ public class SubjectImpl implements Subject {
 
     @Override
     public boolean isGraded() {
-        return grade != null;
+        return grade.getCredit() != null;
     }
 
     @Override

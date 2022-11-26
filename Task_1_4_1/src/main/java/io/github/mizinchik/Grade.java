@@ -1,7 +1,7 @@
 package io.github.mizinchik;
 
 public interface Grade {
-    Boolean credit();
+    Boolean getCredit();
 
-    Integer mark();
+    Integer getMark();
 }

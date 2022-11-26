@@ -47,9 +47,9 @@ public class GradeBookTest {
         var termList = new ArrayList<Term>();
         termList.add(term1);
         termList.add(term2);
-        var gradeBook = new GradeBookImpl(null, 1, termList);
+        var gradeBook = new GradeBookImpl(null, 2, termList);
         assertTrue(gradeBook.possibleHonoredGraduation());
-        assertFalse(gradeBook.receiveExtraStipend());
+        assertTrue(gradeBook.receiveExtraStipend());
         assertEquals(5, gradeBook.getGPA());
     }
 }

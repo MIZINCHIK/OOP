@@ -15,9 +15,9 @@ public class GradeBookImpl implements GradeBook {
         this.diplomaGrade = diplomaGrade;
         this.termNumber = termNumber;
         this.terms = terms;
+        setMarkedSubjects();
         computeGPA();
         GPAComputed = true;
-        setMarkedSubjects();
     }
 
     @Override
@@ -88,9 +88,9 @@ public class GradeBookImpl implements GradeBook {
     @Override
     public boolean possibleHonoredGraduation() {
         return ((terms.stream().flatMap(term -> term.getSubjects().stream())
-                .mapToDouble(x -> x.getGrade() == null ? 5 : x.getGrade().mark())
+                .mapToDouble(x -> !x.isGraded() ? 5 : x.getGrade().getMark())
                 .average().orElse(Double.NaN) >= 4.5)
-                && (markedSubjects.stream().map(x -> x.getGrade().mark()).noneMatch(x -> x < 4))
+                && (markedSubjects == null || markedSubjects.stream().map(x -> x.getGrade().getMark()).noneMatch(x -> x < 4))
                 && (diplomaGrade == null || diplomaGrade == 5));
     }
 
@@ -103,8 +103,13 @@ public class GradeBookImpl implements GradeBook {
     }
 
     private void computeGPA() {
-        GPA = markedSubjects.stream().mapToDouble(x -> x.getGrade().mark())
-                .average().orElse(Double.NaN);
-        GPAComputed = true;
+        if (termNumber == 1) {
+            GPA = (double) 0;
+            GPAComputed = true;
+        } else {
+            GPA = markedSubjects.stream().mapToDouble(x -> x.getGrade().getMark())
+                    .average().orElse(Double.NaN);
+            GPAComputed = true;
+        }
     }
 }

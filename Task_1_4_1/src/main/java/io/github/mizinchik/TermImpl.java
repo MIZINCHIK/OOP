@@ -14,8 +14,7 @@ public class TermImpl implements Term {
         for (Subject subject : subjects) {
             this.subjects.put(subject.getName(), subject);
         }
-        computeGPA();
-        GPAComputed = true;
+        GPAComputed = false;
     }
 
     @Override
@@ -35,7 +34,7 @@ public class TermImpl implements Term {
 
     @Override
     public List<Subject> getSubjects() {
-        return null;
+        return subjects.values().stream().toList();
     }
 
     @Override
@@ -51,7 +50,7 @@ public class TermImpl implements Term {
 
     private void computeGPA() {
         GPA = subjects.values().stream()
-                .mapToDouble(subject -> subject.getGrade().mark())
+                .mapToDouble(subject -> !subject.isGraded() ? 0 : subject.getGrade().getMark())
                 .average().orElse(Double.NaN);
     }
 }
