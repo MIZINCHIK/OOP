@@ -4,7 +4,7 @@ import java.util.List;
 import java.util.Map;
 
 public class TermImpl implements Term {
-    private Map<String, Subject> subjects;
+    private final Map<String, Subject> subjects;
     private Double GPA;
     private boolean GPAComputed;
 
