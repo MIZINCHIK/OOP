@@ -6,15 +6,16 @@
 <title>SubjectImpl (Task_1_4_1 1.0-SNAPSHOT API)</title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <link rel="stylesheet" type="text/css" href="../../../stylesheet.css" title="Style">
-<link rel="stylesheet" type="text/css" href="../../../jquery/jquery-ui.css" title="Style">
+<link rel="stylesheet" type="text/css" href="../../../jquery/jquery-ui.min.css" title="Style">
+<link rel="stylesheet" type="text/css" href="../../../jquery-ui.overrides.css" title="Style">
 <script type="text/javascript" src="../../../script.js"></script>
 <script type="text/javascript" src="../../../jquery/jszip/dist/jszip.min.js"></script>
 <script type="text/javascript" src="../../../jquery/jszip-utils/dist/jszip-utils.min.js"></script>
 <!--[if IE]>
 <script type="text/javascript" src="../../../jquery/jszip-utils/dist/jszip-utils-ie.min.js"></script>
 <![endif]-->
-<script type="text/javascript" src="../../../jquery/jquery-3.5.1.js"></script>
-<script type="text/javascript" src="../../../jquery/jquery-ui.js"></script>
+<script type="text/javascript" src="../../../jquery/jquery-3.6.0.min.js"></script>
+<script type="text/javascript" src="../../../jquery/jquery-ui.min.js"></script>
 </head>
 <body>
 <script type="text/javascript"><!--
@@ -26,7 +27,7 @@
     catch(err) {
     }
 //-->
-var data = {"i0":10,"i1":10,"i2":10,"i3":10};
+var data = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10};
 var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -143,7 +144,7 @@ implements <a href="Subject.html" title="interface in io.github.mizinchik">Subje
 <ul class="blockList">
 <li class="blockList">
 <!-- ======== CONSTRUCTOR SUMMARY ======== -->
-<section role="region">
+<section>
 <ul class="blockList">
 <li class="blockList"><a id="constructor.summary">
 <!--   -->
@@ -156,7 +157,8 @@ implements <a href="Subject.html" title="interface in io.github.mizinchik">Subje
 <th class="colLast" scope="col">Description</th>
 </tr>
 <tr class="altColor">
-<th class="colConstructorName" scope="row"><code><span class="memberNameLink"><a href="#%3Cinit%3E(java.lang.String,io.github.mizinchik.Grade)">SubjectImpl</a></span>&#8203;(java.lang.String&nbsp;name,
+<th class="colConstructorName" scope="row"><code><span class="memberNameLink"><a href="#%3Cinit%3E(java.lang.String,java.lang.String,io.github.mizinchik.Grade)">SubjectImpl</a></span>&#8203;(java.lang.String&nbsp;name,
+           java.lang.String&nbsp;lecturer,
            <a href="Grade.html" title="interface in io.github.mizinchik">Grade</a>&nbsp;grade)</code></th>
 <td class="colLast">&nbsp;</td>
 </tr>
@@ -165,7 +167,7 @@ implements <a href="Subject.html" title="interface in io.github.mizinchik">Subje
 </ul>
 </section>
 <!-- ========== METHOD SUMMARY =========== -->
-<section role="region">
+<section>
 <ul class="blockList">
 <li class="blockList"><a id="method.summary">
 <!--   -->
@@ -185,15 +187,20 @@ implements <a href="Subject.html" title="interface in io.github.mizinchik">Subje
 </tr>
 <tr id="i1" class="rowColor">
 <td class="colFirst"><code>java.lang.String</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getName()">getName</a></span>()</code></th>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getLecturer()">getLecturer</a></span>()</code></th>
 <td class="colLast">&nbsp;</td>
 </tr>
 <tr id="i2" class="altColor">
+<td class="colFirst"><code>java.lang.String</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getName()">getName</a></span>()</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr id="i3" class="rowColor">
 <td class="colFirst"><code>boolean</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#isGraded()">isGraded</a></span>()</code></th>
 <td class="colLast">&nbsp;</td>
 </tr>
-<tr id="i3" class="rowColor">
+<tr id="i4" class="altColor">
 <td class="colFirst"><code>void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#putGrade(io.github.mizinchik.Grade)">putGrade</a></span>&#8203;(<a href="Grade.html" title="interface in io.github.mizinchik">Grade</a>&nbsp;grade)</code></th>
 <td class="colLast">&nbsp;</td>
@@ -216,19 +223,20 @@ implements <a href="Subject.html" title="interface in io.github.mizinchik">Subje
 <ul class="blockList">
 <li class="blockList">
 <!-- ========= CONSTRUCTOR DETAIL ======== -->
-<section role="region">
+<section>
 <ul class="blockList">
 <li class="blockList"><a id="constructor.detail">
 <!--   -->
 </a>
 <h3>Constructor Detail</h3>
-<a id="&lt;init&gt;(java.lang.String,io.github.mizinchik.Grade)">
+<a id="&lt;init&gt;(java.lang.String,java.lang.String,io.github.mizinchik.Grade)">
 <!--   -->
 </a>
 <ul class="blockListLast">
 <li class="blockList">
 <h4>SubjectImpl</h4>
 <pre>public&nbsp;SubjectImpl&#8203;(java.lang.String&nbsp;name,
+                   java.lang.String&nbsp;lecturer,
                    <a href="Grade.html" title="interface in io.github.mizinchik">Grade</a>&nbsp;grade)</pre>
 </li>
 </ul>
@@ -236,7 +244,7 @@ implements <a href="Subject.html" title="interface in io.github.mizinchik">Subje
 </ul>
 </section>
 <!-- ============ METHOD DETAIL ========== -->
-<section role="region">
+<section>
 <ul class="blockList">
 <li class="blockList"><a id="method.detail">
 <!--   -->
@@ -252,6 +260,19 @@ implements <a href="Subject.html" title="interface in io.github.mizinchik">Subje
 <dl>
 <dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
 <dd><code><a href="Subject.html#getName()">getName</a></code>&nbsp;in interface&nbsp;<code><a href="Subject.html" title="interface in io.github.mizinchik">Subject</a></code></dd>
+</dl>
+</li>
+</ul>
+<a id="getLecturer()">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getLecturer</h4>
+<pre class="methodSignature">public&nbsp;java.lang.String&nbsp;getLecturer()</pre>
+<dl>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code><a href="Subject.html#getLecturer()">getLecturer</a></code>&nbsp;in interface&nbsp;<code><a href="Subject.html" title="interface in io.github.mizinchik">Subject</a></code></dd>
 </dl>
 </li>
 </ul>

@@ -6,15 +6,16 @@
 <title>GradeBookImpl (Task_1_4_1 1.0-SNAPSHOT API)</title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <link rel="stylesheet" type="text/css" href="../../../stylesheet.css" title="Style">
-<link rel="stylesheet" type="text/css" href="../../../jquery/jquery-ui.css" title="Style">
+<link rel="stylesheet" type="text/css" href="../../../jquery/jquery-ui.min.css" title="Style">
+<link rel="stylesheet" type="text/css" href="../../../jquery-ui.overrides.css" title="Style">
 <script type="text/javascript" src="../../../script.js"></script>
 <script type="text/javascript" src="../../../jquery/jszip/dist/jszip.min.js"></script>
 <script type="text/javascript" src="../../../jquery/jszip-utils/dist/jszip-utils.min.js"></script>
 <!--[if IE]>
 <script type="text/javascript" src="../../../jquery/jszip-utils/dist/jszip-utils-ie.min.js"></script>
 <![endif]-->
-<script type="text/javascript" src="../../../jquery/jquery-3.5.1.js"></script>
-<script type="text/javascript" src="../../../jquery/jquery-ui.js"></script>
+<script type="text/javascript" src="../../../jquery/jquery-3.6.0.min.js"></script>
+<script type="text/javascript" src="../../../jquery/jquery-ui.min.js"></script>
 </head>
 <body>
 <script type="text/javascript"><!--
@@ -26,7 +27,7 @@
     catch(err) {
     }
 //-->
-var data = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10};
+var data = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10,"i8":10,"i9":10,"i10":10};
 var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -143,7 +144,7 @@ implements <a href="GradeBook.html" title="interface in io.github.mizinchik">Gra
 <ul class="blockList">
 <li class="blockList">
 <!-- ======== CONSTRUCTOR SUMMARY ======== -->
-<section role="region">
+<section>
 <ul class="blockList">
 <li class="blockList"><a id="constructor.summary">
 <!--   -->
@@ -166,7 +167,7 @@ implements <a href="GradeBook.html" title="interface in io.github.mizinchik">Gra
 </ul>
 </section>
 <!-- ========== METHOD SUMMARY =========== -->
-<section role="region">
+<section>
 <ul class="blockList">
 <li class="blockList"><a id="method.summary">
 <!--   -->
@@ -210,13 +211,28 @@ implements <a href="GradeBook.html" title="interface in io.github.mizinchik">Gra
 <td class="colLast">&nbsp;</td>
 </tr>
 <tr id="i6" class="altColor">
+<td class="colFirst"><code>int</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getTermsAmount()">getTermsAmount</a></span>()</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr id="i7" class="rowColor">
+<td class="colFirst"><code>void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#goNextTerm()">goNextTerm</a></span>()</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr id="i8" class="altColor">
 <td class="colFirst"><code>boolean</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#possibleHonoredGraduation()">possibleHonoredGraduation</a></span>()</code></th>
 <td class="colLast">&nbsp;</td>
 </tr>
-<tr id="i7" class="rowColor">
+<tr id="i9" class="rowColor">
 <td class="colFirst"><code>boolean</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#receiveExtraStipend()">receiveExtraStipend</a></span>()</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr id="i10" class="altColor">
+<td class="colFirst"><code>void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setDiplomaGrade(java.lang.Integer)">setDiplomaGrade</a></span>&#8203;(java.lang.Integer&nbsp;grade)</code></th>
 <td class="colLast">&nbsp;</td>
 </tr>
 </table>
@@ -237,7 +253,7 @@ implements <a href="GradeBook.html" title="interface in io.github.mizinchik">Gra
 <ul class="blockList">
 <li class="blockList">
 <!-- ========= CONSTRUCTOR DETAIL ======== -->
-<section role="region">
+<section>
 <ul class="blockList">
 <li class="blockList"><a id="constructor.detail">
 <!--   -->
@@ -258,7 +274,7 @@ implements <a href="GradeBook.html" title="interface in io.github.mizinchik">Gra
 </ul>
 </section>
 <!-- ============ METHOD DETAIL ========== -->
-<section role="region">
+<section>
 <ul class="blockList">
 <li class="blockList"><a id="method.detail">
 <!--   -->
@@ -290,6 +306,32 @@ implements <a href="GradeBook.html" title="interface in io.github.mizinchik">Gra
 </dl>
 </li>
 </ul>
+<a id="setDiplomaGrade(java.lang.Integer)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>setDiplomaGrade</h4>
+<pre class="methodSignature">public&nbsp;void&nbsp;setDiplomaGrade&#8203;(java.lang.Integer&nbsp;grade)</pre>
+<dl>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code><a href="GradeBook.html#setDiplomaGrade(java.lang.Integer)">setDiplomaGrade</a></code>&nbsp;in interface&nbsp;<code><a href="GradeBook.html" title="interface in io.github.mizinchik">GradeBook</a></code></dd>
+</dl>
+</li>
+</ul>
+<a id="getTermsAmount()">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getTermsAmount</h4>
+<pre class="methodSignature">public&nbsp;int&nbsp;getTermsAmount()</pre>
+<dl>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code><a href="GradeBook.html#getTermsAmount()">getTermsAmount</a></code>&nbsp;in interface&nbsp;<code><a href="GradeBook.html" title="interface in io.github.mizinchik">GradeBook</a></code></dd>
+</dl>
+</li>
+</ul>
 <a id="getTermNumber()">
 <!--   -->
 </a>
@@ -313,6 +355,19 @@ implements <a href="GradeBook.html" title="interface in io.github.mizinchik">Gra
 <dl>
 <dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
 <dd><code><a href="GradeBook.html#getCurrentTerm()">getCurrentTerm</a></code>&nbsp;in interface&nbsp;<code><a href="GradeBook.html" title="interface in io.github.mizinchik">GradeBook</a></code></dd>
+</dl>
+</li>
+</ul>
+<a id="goNextTerm()">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>goNextTerm</h4>
+<pre class="methodSignature">public&nbsp;void&nbsp;goNextTerm()</pre>
+<dl>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code><a href="GradeBook.html#goNextTerm()">goNextTerm</a></code>&nbsp;in interface&nbsp;<code><a href="GradeBook.html" title="interface in io.github.mizinchik">GradeBook</a></code></dd>
 </dl>
 </li>
 </ul>

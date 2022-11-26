@@ -6,15 +6,16 @@
 <title>Index (Task_1_4_1 1.0-SNAPSHOT API)</title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <link rel="stylesheet" type="text/css" href="stylesheet.css" title="Style">
-<link rel="stylesheet" type="text/css" href="jquery/jquery-ui.css" title="Style">
+<link rel="stylesheet" type="text/css" href="jquery/jquery-ui.min.css" title="Style">
+<link rel="stylesheet" type="text/css" href="jquery-ui.overrides.css" title="Style">
 <script type="text/javascript" src="script.js"></script>
 <script type="text/javascript" src="jquery/jszip/dist/jszip.min.js"></script>
 <script type="text/javascript" src="jquery/jszip-utils/dist/jszip-utils.min.js"></script>
 <!--[if IE]>
 <script type="text/javascript" src="jquery/jszip-utils/dist/jszip-utils-ie.min.js"></script>
 <![endif]-->
-<script type="text/javascript" src="jquery/jquery-3.5.1.js"></script>
-<script type="text/javascript" src="jquery/jquery-ui.js"></script>
+<script type="text/javascript" src="jquery/jquery-3.6.0.min.js"></script>
+<script type="text/javascript" src="jquery/jquery-ui.min.js"></script>
 </head>
 <body>
 <script type="text/javascript"><!--
@@ -131,6 +132,10 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="io/github/mizinchik/SubjectImpl.html#getGrade()">getGrade()</a></span> - Method in class io.github.mizinchik.<a href="io/github/mizinchik/SubjectImpl.html" title="class in io.github.mizinchik">SubjectImpl</a></dt>
 <dd>&nbsp;</dd>
+<dt><span class="memberNameLink"><a href="io/github/mizinchik/Subject.html#getLecturer()">getLecturer()</a></span> - Method in interface io.github.mizinchik.<a href="io/github/mizinchik/Subject.html" title="interface in io.github.mizinchik">Subject</a></dt>
+<dd>&nbsp;</dd>
+<dt><span class="memberNameLink"><a href="io/github/mizinchik/SubjectImpl.html#getLecturer()">getLecturer()</a></span> - Method in class io.github.mizinchik.<a href="io/github/mizinchik/SubjectImpl.html" title="class in io.github.mizinchik">SubjectImpl</a></dt>
+<dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="io/github/mizinchik/Grade.html#getMark()">getMark()</a></span> - Method in interface io.github.mizinchik.<a href="io/github/mizinchik/Grade.html" title="interface in io.github.mizinchik">Grade</a></dt>
 <dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="io/github/mizinchik/GradeCredit.html#getMark()">getMark()</a></span> - Method in class io.github.mizinchik.<a href="io/github/mizinchik/GradeCredit.html" title="class in io.github.mizinchik">GradeCredit</a></dt>
@@ -156,6 +161,14 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <dt><span class="memberNameLink"><a href="io/github/mizinchik/GradeBook.html#getTerms()">getTerms()</a></span> - Method in interface io.github.mizinchik.<a href="io/github/mizinchik/GradeBook.html" title="interface in io.github.mizinchik">GradeBook</a></dt>
 <dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="io/github/mizinchik/GradeBookImpl.html#getTerms()">getTerms()</a></span> - Method in class io.github.mizinchik.<a href="io/github/mizinchik/GradeBookImpl.html" title="class in io.github.mizinchik">GradeBookImpl</a></dt>
+<dd>&nbsp;</dd>
+<dt><span class="memberNameLink"><a href="io/github/mizinchik/GradeBook.html#getTermsAmount()">getTermsAmount()</a></span> - Method in interface io.github.mizinchik.<a href="io/github/mizinchik/GradeBook.html" title="interface in io.github.mizinchik">GradeBook</a></dt>
+<dd>&nbsp;</dd>
+<dt><span class="memberNameLink"><a href="io/github/mizinchik/GradeBookImpl.html#getTermsAmount()">getTermsAmount()</a></span> - Method in class io.github.mizinchik.<a href="io/github/mizinchik/GradeBookImpl.html" title="class in io.github.mizinchik">GradeBookImpl</a></dt>
+<dd>&nbsp;</dd>
+<dt><span class="memberNameLink"><a href="io/github/mizinchik/GradeBook.html#goNextTerm()">goNextTerm()</a></span> - Method in interface io.github.mizinchik.<a href="io/github/mizinchik/GradeBook.html" title="interface in io.github.mizinchik">GradeBook</a></dt>
+<dd>&nbsp;</dd>
+<dt><span class="memberNameLink"><a href="io/github/mizinchik/GradeBookImpl.html#goNextTerm()">goNextTerm()</a></span> - Method in class io.github.mizinchik.<a href="io/github/mizinchik/GradeBookImpl.html" title="class in io.github.mizinchik">GradeBookImpl</a></dt>
 <dd>&nbsp;</dd>
 <dt><a href="io/github/mizinchik/Grade.html" title="interface in io.github.mizinchik"><span class="typeNameLink">Grade</span></a> - Interface in <a href="io/github/mizinchik/package-summary.html">io.github.mizinchik</a></dt>
 <dd>&nbsp;</dd>
@@ -215,11 +228,15 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 </a>
 <h2 class="title">S</h2>
 <dl>
+<dt><span class="memberNameLink"><a href="io/github/mizinchik/GradeBook.html#setDiplomaGrade(java.lang.Integer)">setDiplomaGrade(Integer)</a></span> - Method in interface io.github.mizinchik.<a href="io/github/mizinchik/GradeBook.html" title="interface in io.github.mizinchik">GradeBook</a></dt>
+<dd>&nbsp;</dd>
+<dt><span class="memberNameLink"><a href="io/github/mizinchik/GradeBookImpl.html#setDiplomaGrade(java.lang.Integer)">setDiplomaGrade(Integer)</a></span> - Method in class io.github.mizinchik.<a href="io/github/mizinchik/GradeBookImpl.html" title="class in io.github.mizinchik">GradeBookImpl</a></dt>
+<dd>&nbsp;</dd>
 <dt><a href="io/github/mizinchik/Subject.html" title="interface in io.github.mizinchik"><span class="typeNameLink">Subject</span></a> - Interface in <a href="io/github/mizinchik/package-summary.html">io.github.mizinchik</a></dt>
 <dd>&nbsp;</dd>
 <dt><a href="io/github/mizinchik/SubjectImpl.html" title="class in io.github.mizinchik"><span class="typeNameLink">SubjectImpl</span></a> - Class in <a href="io/github/mizinchik/package-summary.html">io.github.mizinchik</a></dt>
 <dd>&nbsp;</dd>
-<dt><span class="memberNameLink"><a href="io/github/mizinchik/SubjectImpl.html#%3Cinit%3E(java.lang.String,io.github.mizinchik.Grade)">SubjectImpl(String, Grade)</a></span> - Constructor for class io.github.mizinchik.<a href="io/github/mizinchik/SubjectImpl.html" title="class in io.github.mizinchik">SubjectImpl</a></dt>
+<dt><span class="memberNameLink"><a href="io/github/mizinchik/SubjectImpl.html#%3Cinit%3E(java.lang.String,java.lang.String,io.github.mizinchik.Grade)">SubjectImpl(String, String, Grade)</a></span> - Constructor for class io.github.mizinchik.<a href="io/github/mizinchik/SubjectImpl.html" title="class in io.github.mizinchik">SubjectImpl</a></dt>
 <dd>&nbsp;</dd>
 </dl>
 <a id="I:T">
@@ -231,7 +248,7 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <dd>&nbsp;</dd>
 <dt><a href="io/github/mizinchik/TermImpl.html" title="class in io.github.mizinchik"><span class="typeNameLink">TermImpl</span></a> - Class in <a href="io/github/mizinchik/package-summary.html">io.github.mizinchik</a></dt>
 <dd>&nbsp;</dd>
-<dt><span class="memberNameLink"><a href="io/github/mizinchik/TermImpl.html#%3Cinit%3E()">TermImpl()</a></span> - Constructor for class io.github.mizinchik.<a href="io/github/mizinchik/TermImpl.html" title="class in io.github.mizinchik">TermImpl</a></dt>
+<dt><span class="memberNameLink"><a href="io/github/mizinchik/TermImpl.html#%3Cinit%3E(java.util.Map)">TermImpl(Map&lt;String, Subject&gt;)</a></span> - Constructor for class io.github.mizinchik.<a href="io/github/mizinchik/TermImpl.html" title="class in io.github.mizinchik">TermImpl</a></dt>
 <dd>&nbsp;</dd>
 </dl>
 <a id="I:U">
