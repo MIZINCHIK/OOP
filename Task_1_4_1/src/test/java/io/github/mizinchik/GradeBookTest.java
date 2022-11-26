@@ -90,11 +90,16 @@ public class GradeBookTest {
         calculusGrade.updateGrade(null);
         assertNull(calculusGrade.getCredit());
         assertNull(calculusGrade.getMark());
+        izmorGrade.updateGrade(null);
+        assertNull(izmorGrade.getMark());
+        assertNull(izmorGrade.getCredit());
         izmorGrade.updateGrade(2);
         assertEquals(2, izmorGrade.getMark());
         assertEquals(false, izmorGrade.getCredit());
         izmorGrade.updateGrade(3);
         assertEquals(5, izmorGrade.getMark());
         assertEquals(true, izmorGrade.getCredit());
+        var newCredit = new GradeCredit(false);
+        assertFalse(newCredit.getCredit());
     }
 }
