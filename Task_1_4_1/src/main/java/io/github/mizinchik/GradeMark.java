@@ -1,8 +1,8 @@
 package io.github.mizinchik;
 
 public class GradeMark implements Grade {
-    private final Boolean credit;
-    private final Integer mark;
+    private Boolean credit;
+    private Integer mark;
 
     public GradeMark(Integer mark) {
         if (mark == null) {
@@ -22,5 +22,15 @@ public class GradeMark implements Grade {
     @Override
     public Integer getMark() {
         return mark;
+    }
+
+    @Override
+    public void updateGrade(Integer mark) {
+        this.mark = mark;
+        if (mark == null) {
+            this.credit = null;
+        } else {
+            this.credit = mark > 2;
+        }
     }
 }

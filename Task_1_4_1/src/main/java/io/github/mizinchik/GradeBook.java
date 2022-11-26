@@ -5,6 +5,8 @@ import java.util.List;
 public interface GradeBook {
     Double getGPA();
 
+    Double getSavedGPA();
+
     Integer getDiplomaGrade();
 
     void setDiplomaGrade(Integer grade);
@@ -12,6 +14,8 @@ public interface GradeBook {
     Grade getSubjectGrade(String subject, int term);
 
     void setSubjectGrade(String subject, int term, Grade grade);
+
+    void setSubjectGrade(String subject, int term, Integer grade);
 
     int getTermsAmount();
 

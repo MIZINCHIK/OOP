@@ -12,4 +12,6 @@ public interface Subject {
     boolean isGraded();
 
     void putGrade(Grade grade);
+
+    void putGrade(Integer grade);
 }

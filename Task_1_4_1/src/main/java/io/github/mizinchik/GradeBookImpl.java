@@ -22,6 +22,12 @@ public class GradeBookImpl implements GradeBook {
 
     @Override
     public Double getGPA() {
+        computeGPA();
+        return GPA;
+    }
+
+    @Override
+    public Double getSavedGPA() {
         if (!GPAComputed) {
             computeGPA();
         }
@@ -45,6 +51,11 @@ public class GradeBookImpl implements GradeBook {
 
     @Override
     public void setSubjectGrade(String subject, int term, Grade grade) {
+        terms.get(term - 1).updateGrade(subject, grade);
+    }
+
+    @Override
+    public void setSubjectGrade(String subject, int term, Integer grade) {
         terms.get(term - 1).updateGrade(subject, grade);
     }
 

@@ -19,10 +19,16 @@ public class TermImpl implements Term {
 
     @Override
     public Double getGPA() {
-        if (!GPAComputed){
-            computeGPA();
-            GPAComputed = true;
+        computeGPA();
+        return GPA;
+    }
+
+    @Override
+    public Double getSavedGPA() {
+        if (GPAComputed) {
+            return GPA;
         }
+        computeGPA();
         return GPA;
     }
 
@@ -39,6 +45,12 @@ public class TermImpl implements Term {
 
     @Override
     public void updateGrade(String subject, Grade grade) {
+        subjects.get(subject).putGrade(grade);
+        GPAComputed = false;
+    }
+
+    @Override
+    public void updateGrade(String subject, Integer grade) {
         subjects.get(subject).putGrade(grade);
         GPAComputed = false;
     }
