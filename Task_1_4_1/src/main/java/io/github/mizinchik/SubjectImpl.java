@@ -1,14 +1,21 @@
 package io.github.mizinchik;
 
 public class SubjectImpl implements Subject {
+    int termNumber;
     String name;
     String lecturer;
     Grade grade;
 
-    public SubjectImpl(String name, String lecturer, Grade grade) {
+    public SubjectImpl(int termNumber, String name, String lecturer, Grade grade) {
+        this.termNumber = termNumber;
         this.name = name;
         this.lecturer = lecturer;
         this.grade = grade;
+    }
+
+    @Override
+    public int getTermNumber() {
+        return termNumber;
     }
 
     @Override

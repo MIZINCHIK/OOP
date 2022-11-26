@@ -10,4 +10,6 @@ public interface Term {
     List<Subject> getSubjects();
 
     void updateGrade(String subject, Grade grade);
+
+    Grade getGrade(String subject);
 }

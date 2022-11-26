@@ -40,6 +40,11 @@ public class TermImpl implements Term {
         GPAComputed = false;
     }
 
+    @Override
+    public Grade getGrade(String subject) {
+        return subjects.get(subject).getGrade();
+    }
+
     private void computeGPA() {
         GPA = subjects.values().stream()
                 .mapToDouble(subject -> subject.getGrade().mark())

@@ -9,6 +9,10 @@ public interface GradeBook {
 
     void setDiplomaGrade(Integer grade);
 
+    Grade getSubjectGrade(String subject, int term);
+
+    void setSubjectGrade(String subject, int term, Grade grade);
+
     int getTermsAmount();
 
     int getTermNumber();
@@ -19,7 +23,7 @@ public interface GradeBook {
 
     List<Term> getTerms();
 
-    List<Subject> getSubjects();
+    List<Subject> getMarkedSubjects();
 
     boolean possibleHonoredGraduation();
 
