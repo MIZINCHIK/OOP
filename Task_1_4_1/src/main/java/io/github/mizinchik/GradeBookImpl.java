@@ -96,6 +96,9 @@ public class GradeBookImpl implements GradeBook {
 
     @Override
     public boolean receiveExtraStipend() {
+        if (termNumber == 1) {
+            return false;
+        }
         return terms.get(termNumber - 2).getGPA() == 5.0;
     }
 
