@@ -8,7 +8,7 @@ public class GradeBookImpl implements GradeBook {
     private boolean GPAComputed;
     private Integer diplomaGrade;
     private int termNumber;
-    private List<Term> terms;
+    private final List<Term> terms;
 
     public GradeBookImpl(Integer diplomaGrade, int termNumber, List<Term> terms) {
         this.diplomaGrade = diplomaGrade;

@@ -1,7 +1,7 @@
 package io.github.mizinchik;
 
 public class GradeCredit implements Grade {
-    private Boolean credit;
+    private final Boolean credit;
 
     public GradeCredit(Boolean credit) {
         this.credit = credit;
