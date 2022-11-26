@@ -34,11 +34,11 @@ public class GradeBookTest {
         var programmingGrade2 = new GradeMark(null);
         var calculus2 = new SubjectImpl(2, "Calculus", "Vaskevich", calculusGrade2);
         var firstTerm = new ArrayList<Subject>();
-        var izmor = new SubjectImpl(2, "Izmor", "HeZe", izmorGrade);
         firstTerm.add(calculus1);
         var programming2 = new SubjectImpl(2, "Programming", "Gatilov", programmingGrade2);
         firstTerm.add(programming1);
         var secondTerm = new ArrayList<Subject>();
+        var izmor = new SubjectImpl(2, "Izmor", "HeZe", izmorGrade);
         secondTerm.add(calculus2);
         secondTerm.add(programming2);
         secondTerm.add(izmor);
