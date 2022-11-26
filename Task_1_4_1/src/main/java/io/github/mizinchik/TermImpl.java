@@ -1,5 +1,6 @@
 package io.github.mizinchik;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -8,8 +9,11 @@ public class TermImpl implements Term {
     private Double GPA;
     private boolean GPAComputed;
 
-    public TermImpl(Map<String, Subject> subjects) {
-        this.subjects = subjects;
+    public TermImpl(List<Subject> subjects) {
+        this.subjects = new HashMap<>();
+        for (Subject subject : subjects) {
+            this.subjects.put(subject.getName(), subject);
+        }
         computeGPA();
         GPAComputed = true;
     }
