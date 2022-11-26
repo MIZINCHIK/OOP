@@ -10,7 +10,7 @@ import java.util.stream.Collectors;
  * @author MIZINCHIK
  */
 public class GradeBookImpl implements GradeBook {
-    private Double Gpa;
+    private Double gpa;
     private Integer diplomaGrade;
     private int termNumber;
     private final List<Term> terms;
@@ -48,7 +48,7 @@ public class GradeBookImpl implements GradeBook {
     @Override
     public Double getGpa() {
         computeGPA();
-        return Gpa;
+        return gpa;
     }
 
     /**
@@ -223,9 +223,9 @@ public class GradeBookImpl implements GradeBook {
      */
     private void computeGPA() {
         if (termNumber == 1) {
-            Gpa = (double) 0;
+            gpa = (double) 0;
         } else {
-            Gpa = markedSubjects.stream().mapToDouble(x -> x.getGrade().getMark())
+            gpa = markedSubjects.stream().mapToDouble(x -> x.getGrade().getMark())
                     .average().orElse(Double.NaN);
         }
     }
