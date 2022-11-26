@@ -1,19 +1,9 @@
 package io.github.mizinchik;
 
-public class GradeCredit implements Grade {
-    private final Boolean credit;
-
-    public GradeCredit(Boolean credit) {
-        this.credit = credit;
-    }
+public record GradeCredit(Boolean credit) implements Grade {
 
     @Override
-    public Boolean getCredit() {
-        return credit;
-    }
-
-    @Override
-    public Integer getMark() {
+    public Integer mark() {
         if (credit) {
             return 5;
         } else {

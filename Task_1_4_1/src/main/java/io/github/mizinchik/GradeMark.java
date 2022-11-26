@@ -1,23 +1,13 @@
 package io.github.mizinchik;
 
-public class GradeMark implements Grade {
-    private final Integer mark;
-
-    public GradeMark(Integer mark) {
-        this.mark = mark;
-    }
+public record GradeMark(Integer mark) implements Grade {
 
     @Override
-    public Boolean getCredit() {
+    public Boolean credit() {
         if (mark > 2) {
             return true;
         } else {
             return false;
         }
-    }
-
-    @Override
-    public Integer getMark() {
-        return mark;
     }
 }

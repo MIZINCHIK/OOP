@@ -42,7 +42,7 @@ public class TermImpl implements Term {
 
     private void computeGPA() {
         GPA = subjects.values().stream()
-                .mapToDouble(subject -> subject.getGrade().getMark())
+                .mapToDouble(subject -> subject.getGrade().mark())
                 .average().orElse(Double.NaN);
     }
 }
