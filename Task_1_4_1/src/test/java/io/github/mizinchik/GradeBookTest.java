@@ -60,6 +60,7 @@ public class GradeBookTest {
         programming1.grade.updateGrade(5);
         assertTrue(gradeBook.receiveExtraStipend());
         izmorGrade.updateGrade(3);
+        assertEquals(5, izmorGrade.getMark());
         assertTrue(gradeBook.possibleHonoredGraduation());
         gradeBook.setSubjectGrade("Calculus", 2, 4);
         gradeBook.setSubjectGrade("Programming", 2, 4);
@@ -75,5 +76,21 @@ public class GradeBookTest {
         gradeBook.setDiplomaGrade(4);
         assertFalse(gradeBook.possibleHonoredGraduation());
         assertNull(gradeBook.getCurrentTerm());
+    }
+
+    @Test
+    @DisplayName("Grade Test")
+    void testGrade() {
+        var calculusGrade = new GradeMark(null);
+        var izmorGrade = new GradeCredit(null);
+        calculusGrade.updateGrade(null);
+        assertNull(calculusGrade.getCredit());
+        assertNull(calculusGrade.getMark());
+        izmorGrade.updateGrade(2);
+        assertEquals(2, izmorGrade.getMark());
+        assertEquals(false, izmorGrade.getCredit());
+        izmorGrade.updateGrade(3);
+        assertEquals(5, izmorGrade.getMark());
+        assertEquals(true, izmorGrade.getCredit());
     }
 }
