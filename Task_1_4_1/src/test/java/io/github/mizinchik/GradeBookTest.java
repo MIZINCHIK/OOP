@@ -46,8 +46,11 @@ public class GradeBookTest {
         termList.add(term1);
         termList.add(term2);
         var gradeBook = new GradeBookImpl(null, 2, termList);
+        assertEquals(2, gradeBook.getTermNumber());
+        assertEquals(2, gradeBook.getTermsAmount());
         assertTrue(gradeBook.possibleHonoredGraduation());
         assertFalse(gradeBook.receiveExtraStipend());
+        assertNull(gradeBook.getSubjectGrade("Izmor", 2).getMark());
         assertEquals(4.5, gradeBook.getGPA());
         assertEquals(5, gradeBook.getSubjectGrade("Calculus", 1).getMark());
         assertNull(gradeBook.getDiplomaGrade());
@@ -56,5 +59,21 @@ public class GradeBookTest {
         assertFalse(gradeBook.receiveExtraStipend());
         programming1.grade.updateGrade(5);
         assertTrue(gradeBook.receiveExtraStipend());
+        izmorGrade.updateGrade(3);
+        assertTrue(gradeBook.possibleHonoredGraduation());
+        gradeBook.setSubjectGrade("Calculus", 2, 4);
+        gradeBook.setSubjectGrade("Programming", 2, 4);
+        gradeBook.setSubjectGrade("Programming", 1, 4);
+        assertFalse(gradeBook.possibleHonoredGraduation());
+        gradeBook.setSubjectGrade("Calculus", 2, 5);
+        assertFalse(gradeBook.possibleHonoredGraduation());
+        gradeBook.setSubjectGrade("Programming", 2, 5);
+        assertTrue(gradeBook.possibleHonoredGraduation());
+        assertEquals(4.5, gradeBook.getGPA());
+        gradeBook.goNextTerm();
+        assertEquals(4.8, gradeBook.getGPA());
+        gradeBook.setDiplomaGrade(4);
+        assertFalse(gradeBook.possibleHonoredGraduation());
+        assertNull(gradeBook.getCurrentTerm());
     }
 }

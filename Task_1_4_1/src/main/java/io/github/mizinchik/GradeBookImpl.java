@@ -71,7 +71,11 @@ public class GradeBookImpl implements GradeBook {
 
     @Override
     public Term getCurrentTerm() {
-        return terms.get(termNumber - 1);
+        if (termNumber < terms.size()) {
+            return terms.get(termNumber - 1);
+        } else {
+            return null;
+        }
     }
 
     @Override
@@ -100,7 +104,7 @@ public class GradeBookImpl implements GradeBook {
     public boolean possibleHonoredGraduation() {
         return ((terms.stream().flatMap(term -> term.getSubjects().stream())
                 .mapToDouble(x -> !x.isGraded() ? 5 : x.getGrade().getMark())
-                .average().orElse(Double.NaN) >= 4.5)
+                .average().orElse(Double.NaN) >= 4.75)
                 && (markedSubjects == null || markedSubjects.stream().map(x -> x.getGrade().getMark()).noneMatch(x -> x < 4))
                 && (diplomaGrade == null || diplomaGrade == 5));
     }
