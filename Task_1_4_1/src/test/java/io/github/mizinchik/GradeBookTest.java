@@ -14,8 +14,6 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
@@ -27,7 +25,7 @@ public class GradeBookTest {
     void testSmall() {
         var calculusGrade1 = new GradeMark(5);
         var calculus1 = new SubjectImpl(1, "Calculus", "Vaskevich", calculusGrade1);
-        var programmingGrade1 = new GradeMark(5);
+        var programmingGrade1 = new GradeMark(4);
         var programming1 = new SubjectImpl(1, "Programming", "Gatilov", programmingGrade1);
         var izmorGrade = new GradeCredit(null);
         var izmor = new SubjectImpl(2, "Izmor", "HeZe", izmorGrade);
@@ -49,7 +47,14 @@ public class GradeBookTest {
         termList.add(term2);
         var gradeBook = new GradeBookImpl(null, 2, termList);
         assertTrue(gradeBook.possibleHonoredGraduation());
+        assertFalse(gradeBook.receiveExtraStipend());
+        assertEquals(4.5, gradeBook.getGPA());
+        assertEquals(5, gradeBook.getSubjectGrade("Calculus", 1).getMark());
+        assertNull(gradeBook.getDiplomaGrade());
+        programming1.grade.updateGrade(3);
+        assertFalse(gradeBook.possibleHonoredGraduation());
+        assertFalse(gradeBook.receiveExtraStipend());
+        programming1.grade.updateGrade(5);
         assertTrue(gradeBook.receiveExtraStipend());
-        assertEquals(5, gradeBook.getGPA());
     }
 }
