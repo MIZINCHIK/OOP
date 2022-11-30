@@ -84,8 +84,8 @@ public class SubstringFinderImpl implements SubstringFinder {
                     + " a reader and/or a substring");
         }
         try (var bufferedReader = new BufferedReader(reader);
-            var stringReager = new BufferedReader(new StringReader(substring))) {
-            fillZarray(stringReager, stringMap, true);
+            var stringReaDer = new BufferedReader(new StringReader(substring))) {
+            fillZarray(stringReaDer, stringMap, true);
             fillZarray(bufferedReader, zarray, false);
         } catch (IOException e) {
             throw new RuntimeException(e);
