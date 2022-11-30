@@ -43,7 +43,8 @@ public class SubstringFinderImpl implements SubstringFinder {
     public SubstringFinderImpl(String fileName, String substring)
             throws IllegalStateException, FileNotFoundException {
         this.substring = substring;
-        try (var iReader = new InputStreamReader(new FileInputStream(fileName), StandardCharsets.UTF_8)) {
+        try (var iReader = new InputStreamReader(new FileInputStream(fileName),
+                StandardCharsets.UTF_8)) {
             reader = iReader;
             zarray = new HashMap<>();
             stringMap = new HashMap<>();
