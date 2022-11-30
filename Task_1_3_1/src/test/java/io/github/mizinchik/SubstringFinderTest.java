@@ -86,7 +86,7 @@ public class SubstringFinderTest {
     public void testLargeFile() {
         File file = new File("./src/main/resources/LargeTest.txt");
         try (RandomAccessFile randomAccessFile = new RandomAccessFile(file, "rw")) {
-            randomAccessFile.setLength(1600L);
+            randomAccessFile.setLength(16000000000L);
             var result = new SubstringFinderImpl("./src/main/resources/LargeTest.txt", "sdads");
             var reference = new ArrayList<>();
             assertIterableEquals(reference, result.getIndices());
