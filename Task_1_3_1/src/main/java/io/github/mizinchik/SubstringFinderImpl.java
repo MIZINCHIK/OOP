@@ -98,7 +98,8 @@ public class SubstringFinderImpl implements SubstringFinder {
      * @param bufferedReader source
      * @throws IOException if reader fails
      */
-    private void fillZarray(BufferedReader bufferedReader, Map<Long, Integer> mapToFill, boolean isString)
+    private void fillZarray(BufferedReader bufferedReader,
+                            Map<Long, Integer> mapToFill, boolean isString)
             throws IOException {
         long longLeftIndex = -1;
         long longRightIndex = -1;
