@@ -3,21 +3,17 @@ package io.github.mizinchik;
 import static org.junit.jupiter.api.Assertions.assertIterableEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
-import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.io.PrintStream;
 import java.io.RandomAccessFile;
 import java.io.Reader;
 import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
@@ -27,9 +23,6 @@ import org.junit.jupiter.api.Test;
  * @author MIZINCHIK
  */
 public class SubstringFinderTest {
-    private final ByteArrayOutputStream out = new ByteArrayOutputStream();
-    private final PrintStream originalOut = System.out;
-
     /**
      * Runs tests in a file with a very common and overlapping pattern.
      *
@@ -93,7 +86,7 @@ public class SubstringFinderTest {
     public void testLargeFile() {
         File file = new File("./src/main/resources/LargeTest.txt");
         try (RandomAccessFile randomAccessFile = new RandomAccessFile(file, "rw")) {
-            randomAccessFile.setLength(16000000000L);
+            randomAccessFile.setLength(1600L);
             var result = new SubstringFinderImpl("./src/main/resources/LargeTest.txt", "sdads");
             var reference = new ArrayList<>();
             assertIterableEquals(reference, result.getIndices());
