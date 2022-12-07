@@ -48,6 +48,12 @@ public class GradeBookTest {
         termList.add(term1);
         termList.add(term2);
         var gradeBook = new GradeBookImpl(null, 2, termList);
+        assertThrows(IllegalArgumentException.class, () ->
+                gradeBook.getSubjectGrade("Badlska", 100));
+        assertThrows(IllegalArgumentException.class, () ->
+                gradeBook.setSubjectGrade("Badlska", 100, 2));
+        assertThrows(IllegalArgumentException.class, () ->
+                gradeBook.getLecturer("Badlska", 100));
         assertEquals("Vaskevich", gradeBook.getLecturer("Calculus", 1));
         assertEquals(2, calculus2.getTermNumber());
         assertEquals(2, gradeBook.getTermNumber());
