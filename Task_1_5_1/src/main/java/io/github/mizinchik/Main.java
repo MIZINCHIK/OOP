@@ -6,7 +6,19 @@ import java.util.Stack;
 import java.util.function.BiFunction;
 import java.util.function.UnaryOperator;
 
+/**
+ * Command-line calculator.
+ *
+ * @author MIZINCHIk
+ */
 public class Main {
+    /**
+     * Executes a calculator. Prints the result of the calculation
+     * to stdout.
+     *
+     * @param args of the command line
+     * @throws IllegalArgumentException if not enough operands
+     */
     public static void main(String[] args)
             throws IllegalArgumentException {
         Stack<Double> numbers = new Stack<>();
