@@ -16,8 +16,9 @@ public class BinaryFunctionFactory extends FunctionFactory {
      * @return a relevant arithmetic object
      * @throws IllegalArgumentException if the function in unknown
      */
-    BiFunction<Double, Double, Double> createFunction(String functionName) throws IllegalArgumentException {
-        return switch(functionName) {
+    BiFunction<Double, Double, Double> createFunction(String functionName)
+            throws IllegalArgumentException {
+        return switch (functionName) {
             case "+" -> new Addition();
             case "-" -> new Subtraction();
             case "*" -> new Multiplication();

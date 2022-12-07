@@ -17,7 +17,7 @@ public class UnaryFunctionFactory extends FunctionFactory {
      * @throws IllegalArgumentException if the function in unknown
      */
     UnaryOperator<Double> createFunction(String functionName) throws IllegalArgumentException {
-        return switch(functionName) {
+        return switch (functionName) {
             case "sqrt" -> new SquareRoot();
             case "sin" -> new Sine();
             case "cos" -> new Cosine();
