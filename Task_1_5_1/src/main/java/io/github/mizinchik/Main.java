@@ -52,6 +52,10 @@ public class Main {
                 }
             }
         }
-        System.out.println(numbers.pop());
+        if (numbers.size() == 1) {
+            System.out.println(numbers.pop());
+        } else {
+            throw new IllegalArgumentException("Not enough operators");
+        }
     }
 }
