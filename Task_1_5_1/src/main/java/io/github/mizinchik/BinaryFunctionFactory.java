@@ -10,6 +10,8 @@ import java.util.function.BiFunction;
  */
 public class BinaryFunctionFactory extends FunctionFactory {
     /**
+     * Bakes instances of binary arithmetic function classes.
+     *
      * @param functionName operation in an expression
      * @return a relevant arithmetic object
      * @throws IllegalArgumentException if the function in unknown
