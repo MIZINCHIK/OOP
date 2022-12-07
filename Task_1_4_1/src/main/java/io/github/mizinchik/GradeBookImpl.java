@@ -120,7 +120,7 @@ public class GradeBookImpl implements GradeBook {
             throws IllegalArgumentException {
         try {
             return terms.get(term - 1).getLecturer(subject);
-        } catch(IndexOutOfBoundsException e) {
+        } catch (IndexOutOfBoundsException e) {
             throw new IllegalArgumentException("Incorrect term index");
         }
     }
