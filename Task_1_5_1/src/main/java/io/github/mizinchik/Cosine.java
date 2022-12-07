@@ -10,7 +10,7 @@ import java.util.function.UnaryOperator;
  */
 public class Cosine implements UnaryOperator<Double> {
     @Override
-    public Double apply(Double aDouble) {
-        return Math.cos(aDouble);
+    public Double apply(Double number) {
+        return Math.cos(number);
     }
 }
