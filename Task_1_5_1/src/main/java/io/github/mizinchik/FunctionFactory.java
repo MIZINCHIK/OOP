@@ -11,17 +11,17 @@ import java.util.Arrays;
  */
 public abstract class FunctionFactory {
     private static final String[] binaryFunctions =  {
-            "+",
-            "-",
-            "*",
-            "/",
-            "log",
-            "pow"
+        "+",
+        "-",
+        "*",
+        "/",
+        "log",
+        "pow"
     };
     private static final String[] unaryFunctions = {
-            "sqrt",
-            "sin",
-            "cos"
+        "sqrt",
+        "sin",
+        "cos"
     };
 
     public static String[] getBinaryFunctions() {
