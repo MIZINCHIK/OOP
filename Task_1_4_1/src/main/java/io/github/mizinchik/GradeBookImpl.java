@@ -22,7 +22,7 @@ public class GradeBookImpl implements GradeBook {
      * @param diplomaGrade if known
      * @param termNumber which term you a currently in
      * @param terms to get a diploma
-     * @throws IllegalArgumentException there are absent terms
+     * @throws IllegalArgumentException if there are absent terms
      */
     public GradeBookImpl(Integer diplomaGrade, int termNumber,
                          List<Term> terms) throws IllegalArgumentException {
@@ -77,10 +77,16 @@ public class GradeBookImpl implements GradeBook {
      * @param subject which you seek for
      * @param term in which the subject was evaluated
      * @return the grade
+     * @throws IllegalArgumentException if the term index is out of bounds
      */
     @Override
-    public Grade getSubjectGrade(String subject, int term) {
-        return terms.get(term - 1).getGrade(subject);
+    public Grade getSubjectGrade(String subject, int term)
+            throws IllegalArgumentException {
+        try {
+            return terms.get(term - 1).getGrade(subject);
+        } catch (IndexOutOfBoundsException e) {
+            throw new IllegalArgumentException("Incorrect term index");
+        }
     }
 
     /**
@@ -89,10 +95,16 @@ public class GradeBookImpl implements GradeBook {
      * @param subject which you seek for
      * @param term in which the subject was evaluated
      * @param grade of the evaluation
+     * @throws IllegalArgumentException if the term index is out of bounds
      */
     @Override
-    public void setSubjectGrade(String subject, int term, Integer grade) {
-        terms.get(term - 1).updateGrade(subject, grade);
+    public void setSubjectGrade(String subject, int term, Integer grade)
+            throws IllegalArgumentException {
+        try {
+            terms.get(term - 1).updateGrade(subject, grade);
+        } catch (IndexOutOfBoundsException e) {
+            throw new IllegalArgumentException("Incorrect term index");
+        }
     }
 
     /**
@@ -101,10 +113,16 @@ public class GradeBookImpl implements GradeBook {
      * @param subject which you seek for
      * @param term in which the subject was evaluated
      * @return the lecturer's name
+     * @throws IllegalArgumentException if the term index is out of bounds
      */
     @Override
-    public String getLecturer(String subject, int term) {
-        return terms.get(term - 1).getLecturer(subject);
+    public String getLecturer(String subject, int term)
+            throws IllegalArgumentException {
+        try {
+            return terms.get(term - 1).getLecturer(subject);
+        } catch(IndexOutOfBoundsException e) {
+            throw new IllegalArgumentException("Incorrect term index");
+        }
     }
 
     /**
