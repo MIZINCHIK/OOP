@@ -10,7 +10,7 @@ import java.util.function.UnaryOperator;
  */
 public class SquareRoot implements UnaryOperator<Double> {
     @Override
-    public Double apply(Double aDouble) {
-        return Math.sqrt(aDouble);
+    public Double apply(Double number) {
+        return Math.sqrt(number);
     }
 }

@@ -69,8 +69,7 @@ public class MainTest {
                 + "-7.0" + System.lineSeparator()
                 + "9.0" + System.lineSeparator()
                 + "24.158753006985307" + System.lineSeparator(), out.toString());
-        expression = new String[]{"pow", "1.001",
-                "2222"};
+        expression = new String[]{"pow", "1.001", "2222"};
         Main.main(expression);
         assertEquals("0.0" + System.lineSeparator()
                 + "-7.0" + System.lineSeparator()
@@ -86,7 +85,7 @@ public class MainTest {
                 + "9.21552664298739" + System.lineSeparator()
                 + "-0.9899924966004454" + System.lineSeparator(), out.toString());
         expression = new String[]{"pow", "log", "10", "10.01",
-                "*", "23534", "sqrt", "cos", "7"};
+            "*", "23534", "sqrt", "cos", "7"};
         Main.main(expression);
         assertEquals("0.0" + System.lineSeparator()
                 + "-7.0" + System.lineSeparator()

@@ -10,7 +10,7 @@ import java.util.function.UnaryOperator;
  */
 public class Sine implements UnaryOperator<Double> {
     @Override
-    public Double apply(Double aDouble) {
-        return Math.sin(aDouble);
+    public Double apply(Double number) {
+        return Math.sin(number);
     }
 }

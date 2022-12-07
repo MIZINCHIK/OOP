@@ -10,7 +10,7 @@ import java.util.function.BiFunction;
  */
 public class Addition implements BiFunction<Double, Double, Double> {
     @Override
-    public Double apply(Double aDouble, Double aDouble2) {
-        return aDouble + aDouble2;
+    public Double apply(Double numberOne, Double numberTwo) {
+        return numberOne + numberTwo;
     }
 }
