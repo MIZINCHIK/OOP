@@ -226,7 +226,7 @@ implements <a href="GradeBook.html" title="interface in io.github.mizinchik">Gra
 <dd><code>termNumber</code> - which term you a currently in</dd>
 <dd><code>terms</code> - to get a diploma</dd>
 <dt>Throws:</dt>
-<dd><code><a href="https://docs.oracle.com/en/java/javase/16/docs/api/java.base/java/lang/IllegalArgumentException.html" title="class or interface in java.lang" class="external-link">IllegalArgumentException</a></code> - there are absent terms</dd>
+<dd><code><a href="https://docs.oracle.com/en/java/javase/16/docs/api/java.base/java/lang/IllegalArgumentException.html" title="class or interface in java.lang" class="external-link">IllegalArgumentException</a></code> - if there are absent terms</dd>
 </dl>
 </section>
 </li>
@@ -285,7 +285,8 @@ implements <a href="GradeBook.html" title="interface in io.github.mizinchik">Gra
 <section class="detail" id="getSubjectGrade(java.lang.String,int)">
 <h3>getSubjectGrade</h3>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="Grade.html" title="interface in io.github.mizinchik">Grade</a></span>&nbsp;<span class="element-name">getSubjectGrade</span>&#8203;<span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/16/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;subject,
- int&nbsp;term)</span></div>
+ int&nbsp;term)</span>
+                      throws <span class="exceptions"><a href="https://docs.oracle.com/en/java/javase/16/docs/api/java.base/java/lang/IllegalArgumentException.html" title="class or interface in java.lang" class="external-link">IllegalArgumentException</a></span></div>
 <div class="block">Get the grade of a subject.</div>
 <dl class="notes">
 <dt>Specified by:</dt>
@@ -295,6 +296,8 @@ implements <a href="GradeBook.html" title="interface in io.github.mizinchik">Gra
 <dd><code>term</code> - in which the subject was evaluated</dd>
 <dt>Returns:</dt>
 <dd>the grade</dd>
+<dt>Throws:</dt>
+<dd><code><a href="https://docs.oracle.com/en/java/javase/16/docs/api/java.base/java/lang/IllegalArgumentException.html" title="class or interface in java.lang" class="external-link">IllegalArgumentException</a></code> - if the term index is out of bounds</dd>
 </dl>
 </section>
 </li>
@@ -303,7 +306,8 @@ implements <a href="GradeBook.html" title="interface in io.github.mizinchik">Gra
 <h3>setSubjectGrade</h3>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">setSubjectGrade</span>&#8203;<span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/16/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;subject,
  int&nbsp;term,
- <a href="https://docs.oracle.com/en/java/javase/16/docs/api/java.base/java/lang/Integer.html" title="class or interface in java.lang" class="external-link">Integer</a>&nbsp;grade)</span></div>
+ <a href="https://docs.oracle.com/en/java/javase/16/docs/api/java.base/java/lang/Integer.html" title="class or interface in java.lang" class="external-link">Integer</a>&nbsp;grade)</span>
+                     throws <span class="exceptions"><a href="https://docs.oracle.com/en/java/javase/16/docs/api/java.base/java/lang/IllegalArgumentException.html" title="class or interface in java.lang" class="external-link">IllegalArgumentException</a></span></div>
 <div class="block">Set the grade of a subject.</div>
 <dl class="notes">
 <dt>Specified by:</dt>
@@ -312,6 +316,8 @@ implements <a href="GradeBook.html" title="interface in io.github.mizinchik">Gra
 <dd><code>subject</code> - which you seek for</dd>
 <dd><code>term</code> - in which the subject was evaluated</dd>
 <dd><code>grade</code> - of the evaluation</dd>
+<dt>Throws:</dt>
+<dd><code><a href="https://docs.oracle.com/en/java/javase/16/docs/api/java.base/java/lang/IllegalArgumentException.html" title="class or interface in java.lang" class="external-link">IllegalArgumentException</a></code> - if the term index is out of bounds</dd>
 </dl>
 </section>
 </li>
@@ -319,7 +325,8 @@ implements <a href="GradeBook.html" title="interface in io.github.mizinchik">Gra
 <section class="detail" id="getLecturer(java.lang.String,int)">
 <h3>getLecturer</h3>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/16/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></span>&nbsp;<span class="element-name">getLecturer</span>&#8203;<span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/16/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;subject,
- int&nbsp;term)</span></div>
+ int&nbsp;term)</span>
+                   throws <span class="exceptions"><a href="https://docs.oracle.com/en/java/javase/16/docs/api/java.base/java/lang/IllegalArgumentException.html" title="class or interface in java.lang" class="external-link">IllegalArgumentException</a></span></div>
 <div class="block">Get the name of a lecturer on the subject.</div>
 <dl class="notes">
 <dt>Specified by:</dt>
@@ -329,6 +336,8 @@ implements <a href="GradeBook.html" title="interface in io.github.mizinchik">Gra
 <dd><code>term</code> - in which the subject was evaluated</dd>
 <dt>Returns:</dt>
 <dd>the lecturer's name</dd>
+<dt>Throws:</dt>
+<dd><code><a href="https://docs.oracle.com/en/java/javase/16/docs/api/java.base/java/lang/IllegalArgumentException.html" title="class or interface in java.lang" class="external-link">IllegalArgumentException</a></code> - if the term index is out of bounds</dd>
 </dl>
 </section>
 </li>
