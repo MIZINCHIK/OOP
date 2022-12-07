@@ -1,6 +1,7 @@
 package io.github.mizinchik;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
@@ -115,5 +116,21 @@ public class MainTest {
                 + "7101.151407970923" + System.lineSeparator()
                 + "NaN" + System.lineSeparator()
                 + "4.049855339167285E-4" + System.lineSeparator(), out.toString());
+    }
+
+    /**
+     * Tests all the cases of throwing exceptions.
+     */
+    @Test
+    @DisplayName("Exceptions test")
+    void testException() {
+        String[] expression = {"asdsad", "+", "-", "1", "2", "1"};
+        assertThrows(IllegalArgumentException.class, () -> Main.main(expression));
+        String[] expressionTwo = new String[]{"pow", "3"};
+        assertThrows(IllegalArgumentException.class, () -> Main.main(expressionTwo));
+        String[] expressionThree = new String[]{"log"};
+        assertThrows(IllegalArgumentException.class, () -> Main.main(expressionThree));
+        String[] expressionFour = new String[]{"1", "2"};
+        assertThrows(IllegalArgumentException.class, () -> Main.main(expressionFour));
     }
 }
