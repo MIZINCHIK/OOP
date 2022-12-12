@@ -1,6 +1,11 @@
 package io.github.mizinchik;
 
-import io.github.mizinchik.operations.binary.*;
+import io.github.mizinchik.operations.binary.Addition;
+import io.github.mizinchik.operations.binary.Division;
+import io.github.mizinchik.operations.binary.Logarithm;
+import io.github.mizinchik.operations.binary.Multiplication;
+import io.github.mizinchik.operations.binary.Power;
+import io.github.mizinchik.operations.binary.Subtraction;
 import io.github.mizinchik.operations.unary.Cosine;
 import io.github.mizinchik.operations.unary.Sine;
 import io.github.mizinchik.operations.unary.SquareRoot;
