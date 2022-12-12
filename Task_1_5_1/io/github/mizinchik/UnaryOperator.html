@@ -89,6 +89,7 @@ loadScripts(document, 'script');</script>
 <div class="type-signature"><span class="modifiers">public abstract class </span><span class="element-name type-name-label">UnaryOperator</span>
 <span class="extends-implements">extends <a href="https://docs.oracle.com/en/java/javase/16/docs/api/java.base/java/lang/Object.html" title="class or interface in java.lang" class="external-link">Object</a>
 implements <a href="Operator.html" title="interface in io.github.mizinchik">Operator</a></span></div>
+<div class="block">Class for operations taking one operand as arguments.</div>
 </section>
 <section class="summary">
 <ul class="summary-list">
@@ -118,7 +119,9 @@ implements <a href="Operator.html" title="interface in io.github.mizinchik">Oper
 <div class="table-header col-last">Description</div>
 <div class="col-first even-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table"><code>boolean</code></div>
 <div class="col-second even-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table"><code><span class="member-name-link"><a href="#isBinary()">isBinary</a></span>()</code></div>
-<div class="col-last even-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table">&nbsp;</div>
+<div class="col-last even-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table">
+<div class="block">Checks if the operator is binary.</div>
+</div>
 </div>
 </div>
 </div>
@@ -157,9 +160,13 @@ implements <a href="Operator.html" title="interface in io.github.mizinchik">Oper
 <section class="detail" id="isBinary()">
 <h3>isBinary</h3>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name">isBinary</span>()</div>
+<div class="block">Checks if the operator is binary.
+ In this case it's always unary.</div>
 <dl class="notes">
 <dt>Specified by:</dt>
 <dd><code><a href="Operator.html#isBinary()">isBinary</a></code>&nbsp;in interface&nbsp;<code><a href="Operator.html" title="interface in io.github.mizinchik">Operator</a></code></dd>
+<dt>Returns:</dt>
+<dd>always false</dd>
 </dl>
 </section>
 </li>

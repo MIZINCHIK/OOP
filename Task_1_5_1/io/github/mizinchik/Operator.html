@@ -80,6 +80,8 @@ loadScripts(document, 'script');</script>
 </dl>
 <hr>
 <div class="type-signature"><span class="modifiers">public interface </span><span class="element-name type-name-label">Operator</span></div>
+<div class="block">Class for operators working on up to two
+ Double arguments and returning Double on apply.</div>
 </section>
 <section class="summary">
 <ul class="summary-list">
@@ -96,10 +98,14 @@ loadScripts(document, 'script');</script>
 <div class="table-header col-last">Description</div>
 <div class="col-first even-row-color method-summary-table-tab2 method-summary-table method-summary-table-tab3"><code><a href="https://docs.oracle.com/en/java/javase/16/docs/api/java.base/java/lang/Double.html" title="class or interface in java.lang" class="external-link">Double</a></code></div>
 <div class="col-second even-row-color method-summary-table-tab2 method-summary-table method-summary-table-tab3"><code><span class="member-name-link"><a href="#apply(java.lang.Double...)">apply</a></span>&#8203;(<a href="https://docs.oracle.com/en/java/javase/16/docs/api/java.base/java/lang/Double.html" title="class or interface in java.lang" class="external-link">Double</a>...&nbsp;args)</code></div>
-<div class="col-last even-row-color method-summary-table-tab2 method-summary-table method-summary-table-tab3">&nbsp;</div>
+<div class="col-last even-row-color method-summary-table-tab2 method-summary-table method-summary-table-tab3">
+<div class="block">Apply the operator to the operands.</div>
+</div>
 <div class="col-first odd-row-color method-summary-table-tab2 method-summary-table method-summary-table-tab3"><code>boolean</code></div>
 <div class="col-second odd-row-color method-summary-table-tab2 method-summary-table method-summary-table-tab3"><code><span class="member-name-link"><a href="#isBinary()">isBinary</a></span>()</code></div>
-<div class="col-last odd-row-color method-summary-table-tab2 method-summary-table method-summary-table-tab3">&nbsp;</div>
+<div class="col-last odd-row-color method-summary-table-tab2 method-summary-table method-summary-table-tab3">
+<div class="block">Checks if the operator takes 2 arguments.</div>
+</div>
 </div>
 </div>
 </div>
@@ -118,12 +124,24 @@ loadScripts(document, 'script');</script>
 <section class="detail" id="isBinary()">
 <h3>isBinary</h3>
 <div class="member-signature"><span class="return-type">boolean</span>&nbsp;<span class="element-name">isBinary</span>()</div>
+<div class="block">Checks if the operator takes 2 arguments.</div>
+<dl class="notes">
+<dt>Returns:</dt>
+<dd>if the operator is binary</dd>
+</dl>
 </section>
 </li>
 <li>
 <section class="detail" id="apply(java.lang.Double...)">
 <h3>apply</h3>
 <div class="member-signature"><span class="return-type"><a href="https://docs.oracle.com/en/java/javase/16/docs/api/java.base/java/lang/Double.html" title="class or interface in java.lang" class="external-link">Double</a></span>&nbsp;<span class="element-name">apply</span>&#8203;<span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/16/docs/api/java.base/java/lang/Double.html" title="class or interface in java.lang" class="external-link">Double</a>...&nbsp;args)</span></div>
+<div class="block">Apply the operator to the operands.</div>
+<dl class="notes">
+<dt>Parameters:</dt>
+<dd><code>args</code> - operands</dd>
+<dt>Returns:</dt>
+<dd>value of the preformed operation</dd>
+</dl>
 </section>
 </li>
 </ul>
