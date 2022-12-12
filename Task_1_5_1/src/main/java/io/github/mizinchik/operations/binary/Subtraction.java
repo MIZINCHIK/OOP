@@ -2,8 +2,6 @@ package io.github.mizinchik.operations.binary;
 
 import io.github.mizinchik.BinaryOperator;
 
-import java.util.function.BiFunction;
-
 /**
  * Subtraction class for a calculator method factory.
  * Binary function.
