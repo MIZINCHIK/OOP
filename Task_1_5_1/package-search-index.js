@@ -1,1 +1,1 @@
-packageSearchIndex = [{"l":"All Packages","u":"allpackages-index.html"},{"l":"io.github.mizinchik"}];updateSearchResults();
+packageSearchIndex = [{"l":"All Packages","u":"allpackages-index.html"},{"l":"io.github.mizinchik"},{"l":"io.github.mizinchik.operations.binary"},{"l":"io.github.mizinchik.operations.unary"}];updateSearchResults();
