@@ -1,34 +1,37 @@
 package io.github.mizinchik;
 
-import java.util.Arrays;
+import io.github.mizinchik.operations.binary.*;
+import io.github.mizinchik.operations.unary.Cosine;
+import io.github.mizinchik.operations.unary.Sine;
+import io.github.mizinchik.operations.unary.SquareRoot;
 
 /**
- * Abstract class for the method factories for functions in
+ * Method factory for binary functions in
  * a simple command-line calculator.
- * Contains all the names of the binary and unary functions.
  *
  * @author MIZINCHIK
  */
-public abstract class FunctionFactory {
-    private static final String[] binaryFunctions =  {
-        "+",
-        "-",
-        "*",
-        "/",
-        "log",
-        "pow"
-    };
-    private static final String[] unaryFunctions = {
-        "sqrt",
-        "sin",
-        "cos"
-    };
-
-    public static String[] getBinaryFunctions() {
-        return binaryFunctions;
-    }
-
-    public static String[] getUnaryFunctions() {
-        return unaryFunctions;
+public class FunctionFactory {
+    /**
+     * Bakes instances of binary arithmetic function classes.
+     *
+     * @param functionName operation in an expression
+     * @return a relevant arithmetic object
+     * @throws IllegalArgumentException if the function in unknown
+     */
+    Operator createFunction(String functionName)
+            throws IllegalArgumentException {
+        return switch (functionName) {
+            case "+" -> new Addition();
+            case "-" -> new Subtraction();
+            case "*" -> new Multiplication();
+            case "/" -> new Division();
+            case "log" -> new Logarithm();
+            case "pow" -> new Power();
+            case "sqrt" -> new SquareRoot();
+            case "sin" -> new Sine();
+            case "cos" -> new Cosine();
+            default -> throw new IllegalArgumentException("No such function");
+        };
     }
 }
