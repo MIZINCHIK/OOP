@@ -3,6 +3,8 @@ package io.github.mizinchik;
 import java.util.EmptyStackException;
 import java.util.Stack;
 
+import static io.github.mizinchik.FunctionFactory.createFunction;
+
 /**
  * Command-line calculator.
  *
@@ -24,8 +26,7 @@ public class Main {
                 numbers.push(Double.parseDouble(args[lastIndex]));
             } catch (NumberFormatException e) {
                 try {
-                    Operator function = new FunctionFactory()
-                            .createFunction(args[lastIndex]);
+                    Operator function = createFunction(args[lastIndex]);
                     if (function.isBinary()) {
                         Double firstArg = numbers.pop();
                         Double secondArg = numbers.pop();
