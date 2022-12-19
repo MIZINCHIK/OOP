@@ -5,7 +5,23 @@ import java.util.Stack;
 
 import static io.github.mizinchik.FunctionFactory.createFunction;
 
+/**
+ * Calculates prefix expressions of double values
+ * with operators described in the corresponding package
+ * into a double value.
+ *
+ * @author MIZINCHIK
+ */
 public class Calculator {
+    /**
+     * Takes an expression split into an array of strings
+     * containing operators and operands. Returns the value of
+     * the calculated expression.
+     *
+     * @param expression to calculate
+     * @return result
+     * @throws IllegalArgumentException if the string is incorrect
+     */
     public static Double calculate(String[] expression) throws IllegalArgumentException {
         Stack<Double> numbers = new Stack<>();
         for (int lastIndex = expression.length - 1; lastIndex >= 0; lastIndex--) {
