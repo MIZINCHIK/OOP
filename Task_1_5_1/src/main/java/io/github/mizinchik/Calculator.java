@@ -14,15 +14,16 @@ import java.util.Stack;
  */
 public class Calculator {
     /**
-     * Takes an expression split into an array of strings
+     * Takes an expression as a string
      * containing operators and operands. Returns the value of
      * the calculated expression.
      *
-     * @param expression to calculate
+     * @param expressionRaw to calculate
      * @return result
      * @throws IllegalArgumentException if the string is incorrect
      */
-    public static Double calculate(String[] expression) throws IllegalArgumentException {
+    public static Double calculate(String expressionRaw) throws IllegalArgumentException {
+        String[] expression = expressionRaw.split(" ");
         Stack<Double> numbers = new Stack<>();
         for (int lastIndex = expression.length - 1; lastIndex >= 0; lastIndex--) {
             try {

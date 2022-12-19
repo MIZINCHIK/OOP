@@ -42,7 +42,7 @@ public class CalculatorTest {
     @Test
     @DisplayName("Tests the reference example")
     void testReference() {
-        String[] expression = {"sin", "+", "-", "1", "2", "1"};
+        String expression = "sin + - 1 2 1";
         assertEquals(0.0, calculate(expression));
     }
 
@@ -52,24 +52,23 @@ public class CalculatorTest {
     @Test
     @DisplayName("Tests many expressions")
     void testLarge() {
-        String[] expression = {"sin", "+", "-", "1", "2", "1"};
+        String expression = "sin + - 1 2 1";
         assertEquals(0.0, calculate(expression));
-        expression = new String[]{"*", "-", "5", "6", "7"};
+        expression = "* - 5 6 7";
         assertEquals(-7.0, calculate(expression));
-        expression = new String[]{"pow", "3", "2"};
+        expression = "pow 3 2";
         assertEquals(9.0, calculate(expression));
-        expression = new String[]{"log", "1.1", "9.9999"};
+        expression = "log 1.1 9.9999";
         assertEquals(24.158753006985307, calculate(expression));
-        expression = new String[]{"pow", "1.001", "2222"};
+        expression = "pow 1.001 2222";
         assertEquals(9.21552664298739, calculate(expression));
-        expression = new String[]{"cos", "3"};
+        expression = "cos 3";
         assertEquals(-0.9899924966004454, calculate(expression));
-        expression = new String[]{"pow", "log", "10", "10.01",
-            "*", "23534", "sqrt", "cos", "7"};
+        expression = "pow log 10 10.01 * 23534 sqrt cos 7";
         assertEquals(7101.151407970923, calculate(expression));
-        expression = new String[]{"/", "0", "0"};
+        expression = "/ 0 0";
         assertEquals(Double.NaN, calculate(expression));
-        expression = new String[]{"/", "500", "1234612"};
+        expression = "/ 500 1234612";
         assertEquals(4.049855339167285E-4, calculate(expression));
     }
 
@@ -79,13 +78,13 @@ public class CalculatorTest {
     @Test
     @DisplayName("Exceptions test")
     void testException() {
-        String[] expression = {"asdsad", "+", "-", "1", "2", "1"};
+        String expression = "asdsad + - 1 2 1";
         assertThrows(IllegalArgumentException.class, () -> calculate(expression));
-        String[] expressionTwo = new String[]{"pow", "3"};
+        String expressionTwo = "pow 3";
         assertThrows(IllegalArgumentException.class, () -> calculate(expressionTwo));
-        String[] expressionThree = new String[]{"log"};
+        String expressionThree = "log";
         assertThrows(IllegalArgumentException.class, () -> calculate(expressionThree));
-        String[] expressionFour = new String[]{"1", "2"};
+        String expressionFour = "1 2";
         assertThrows(IllegalArgumentException.class, () -> calculate(expressionFour));
     }
 }
