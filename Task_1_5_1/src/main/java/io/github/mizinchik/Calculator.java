@@ -1,9 +1,9 @@
 package io.github.mizinchik;
 
+import static io.github.mizinchik.FunctionFactory.createFunction;
+
 import java.util.EmptyStackException;
 import java.util.Stack;
-
-import static io.github.mizinchik.FunctionFactory.createFunction;
 
 /**
  * Calculates prefix expressions of double values
