@@ -24,7 +24,7 @@ public class FunctionFactory {
      * @return a relevant arithmetic object
      * @throws IllegalArgumentException if the function in unknown
      */
-    Operator createFunction(String functionName)
+    public static Operator createFunction(String functionName)
             throws IllegalArgumentException {
         return switch (functionName) {
             case "+" -> new Addition();
