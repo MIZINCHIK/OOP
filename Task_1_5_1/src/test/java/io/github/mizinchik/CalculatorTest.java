@@ -40,7 +40,7 @@ public class CalculatorTest {
      * Performs a reference test for our task.
      */
     @Test
-    @DisplayName("Tests the reference example")
+    @DisplayName("Reference test")
     void testReference() {
         String expression = "sin + - 1 2 1";
         assertEquals(0.0, calculate(expression));
@@ -50,7 +50,7 @@ public class CalculatorTest {
      * Tests various complicated expressions.
      */
     @Test
-    @DisplayName("Tests many expressions")
+    @DisplayName("Vast test")
     void testLarge() {
         String expression = "sin + - 1 2 1";
         assertEquals(0.0, calculate(expression));
