@@ -1,0 +1,1 @@
+typeSearchIndex = [{"l":"All Classes","url":"allclasses-index.html"},{"p":"io.github.mizinchik","l":"BookKeeper"},{"p":"io.github.mizinchik","l":"BookKeeperImpl"},{"p":"io.github.mizinchik","l":"Main"}]
