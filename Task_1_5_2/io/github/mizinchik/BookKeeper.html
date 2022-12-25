@@ -27,12 +27,6 @@
     catch(err) {
     }
 //-->
-var data = {"i0":6,"i1":6,"i2":6,"i3":6};
-var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],4:["t3","Abstract Methods"]};
-var altColor = "altColor";
-var rowColor = "rowColor";
-var tableTab = "tableTab";
-var activeTableTab = "activeTableTab";
 var pathtoroot = "../../../";
 var useModuleDirectories = true;
 loadScripts(document, 'script');</script>
@@ -121,10 +115,6 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <div class="description">
 <ul class="blockList">
 <li class="blockList">
-<dl>
-<dt>All Known Implementing Classes:</dt>
-<dd><code><a href="BookKeeperImpl.html" title="class in io.github.mizinchik">BookKeeperImpl</a></code></dd>
-</dl>
 <hr>
 <pre>public interface <span class="typeNameLabel">BookKeeper</span></pre>
 </li>
@@ -141,33 +131,26 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 </a>
 <h3>Method Summary</h3>
 <table class="memberSummary">
-<caption><span id="t0" class="activeTableTab"><span>All Methods</span><span class="tabEnd">&nbsp;</span></span><span id="t2" class="tableTab"><span><a href="javascript:show(2);">Instance Methods</a></span><span class="tabEnd">&nbsp;</span></span><span id="t3" class="tableTab"><span><a href="javascript:show(4);">Abstract Methods</a></span><span class="tabEnd">&nbsp;</span></span></caption>
+<caption><span>Static Methods</span><span class="tabEnd">&nbsp;</span></caption>
 <tr>
 <th class="colFirst" scope="col">Modifier and Type</th>
 <th class="colSecond" scope="col">Method</th>
 <th class="colLast" scope="col">Description</th>
 </tr>
 <tr id="i0" class="altColor">
-<td class="colFirst"><code>void</code></td>
+<td class="colFirst"><code>static void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#addRecord(java.lang.String,java.lang.String)">addRecord</a></span>&#8203;(java.lang.String&nbsp;recordName,
          java.lang.String&nbsp;recordContents)</code></th>
 <td class="colLast">&nbsp;</td>
 </tr>
 <tr id="i1" class="rowColor">
-<td class="colFirst"><code>void</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#printAll()">printAll</a></span>()</code></th>
+<td class="colFirst"><code>static void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#print(java.lang.String%5B%5D)">print</a></span>&#8203;(java.lang.String[]&nbsp;args)</code></th>
 <td class="colLast">&nbsp;</td>
 </tr>
 <tr id="i2" class="altColor">
-<td class="colFirst"><code>void</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#printAllContaining(java.lang.String,java.lang.String,java.lang.String%5B%5D)">printAllContaining</a></span>&#8203;(java.lang.String&nbsp;start,
-                  java.lang.String&nbsp;finish,
-                  java.lang.String[]&nbsp;contents)</code></th>
-<td class="colLast">&nbsp;</td>
-</tr>
-<tr id="i3" class="rowColor">
-<td class="colFirst"><code>void</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#removeAll()">removeAll</a></span>()</code></th>
+<td class="colFirst"><code>static void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#removeGiven(java.lang.String%5B%5D)">removeGiven</a></span>&#8203;(java.lang.String[]&nbsp;names)</code></th>
 <td class="colLast">&nbsp;</td>
 </tr>
 </table>
@@ -193,37 +176,26 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <ul class="blockList">
 <li class="blockList">
 <h4>addRecord</h4>
-<pre class="methodSignature">void&nbsp;addRecord&#8203;(java.lang.String&nbsp;recordName,
-               java.lang.String&nbsp;recordContents)</pre>
+<pre class="methodSignature">static&nbsp;void&nbsp;addRecord&#8203;(java.lang.String&nbsp;recordName,
+                      java.lang.String&nbsp;recordContents)</pre>
 </li>
 </ul>
-<a id="removeAll()">
+<a id="removeGiven(java.lang.String[])">
 <!--   -->
 </a>
 <ul class="blockList">
 <li class="blockList">
-<h4>removeAll</h4>
-<pre class="methodSignature">void&nbsp;removeAll()</pre>
+<h4>removeGiven</h4>
+<pre class="methodSignature">static&nbsp;void&nbsp;removeGiven&#8203;(java.lang.String[]&nbsp;names)</pre>
 </li>
 </ul>
-<a id="printAll()">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>printAll</h4>
-<pre class="methodSignature">void&nbsp;printAll()</pre>
-</li>
-</ul>
-<a id="printAllContaining(java.lang.String,java.lang.String,java.lang.String[])">
+<a id="print(java.lang.String[])">
 <!--   -->
 </a>
 <ul class="blockListLast">
 <li class="blockList">
-<h4>printAllContaining</h4>
-<pre class="methodSignature">void&nbsp;printAllContaining&#8203;(java.lang.String&nbsp;start,
-                        java.lang.String&nbsp;finish,
-                        java.lang.String[]&nbsp;contents)</pre>
+<h4>print</h4>
+<pre class="methodSignature">static&nbsp;void&nbsp;print&#8203;(java.lang.String[]&nbsp;args)</pre>
 </li>
 </ul>
 </li>
