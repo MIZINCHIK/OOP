@@ -1,11 +1,15 @@
 package io.github.mizinchik;
 
 public interface BookKeeper {
-    void addRecord(String recordName, String recordContents);
+    static void addRecord(String recordName, String recordContents) {
 
-    void removeAll();
+    }
 
-    void printAll();
+    static void removeGiven(String[] names) {
 
-    void printAllContaining(String start, String finish, String[] contents);
+    }
+
+    static void print(String[] args) {
+
+    }
 }
