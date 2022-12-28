@@ -34,7 +34,6 @@ public class Journal {
     }
 
     public static void main(String[] args) {
-        int exitCode = new CommandLine(new Journal()).execute(args);
-        System.exit(exitCode);
+        new CommandLine(new Journal()).execute(args);
     }
 }
