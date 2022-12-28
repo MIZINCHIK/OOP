@@ -53,6 +53,6 @@ public class JournalTest {
     @Test
     @DisplayName("Complete test")
     void testComplete() {
-
+        return;
     }
 }
