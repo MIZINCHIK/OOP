@@ -11,6 +11,7 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Date;
+import java.util.List;
 
 public interface BookKeeper {
     static String fileName = "bookkeeper.json";
@@ -32,9 +33,8 @@ public interface BookKeeper {
         var date = new Date();
         var file = new File(fileName);
         if (file.exists()) {
-            try (var reader = new FileReader(file);
-            var writer = new FileWriter(file)) {
-                Type type = new TypeToken<ArrayList<Note>>(){}.getType();
+            try (var reader = new BufferedReader(new FileReader(file))) {
+                Type type = new TypeToken<List<Note>>(){}.getType();
                 Gson gson = new GsonBuilder().create();
                 ArrayList<Note> list = gson.fromJson(reader, type);
                 if (list == null) {
@@ -42,7 +42,9 @@ public interface BookKeeper {
                 }
                 var newNote = new Note(format.format(date), recordName, recordContents);
                 list.add(newNote);
-                gson.toJson(list, writer);
+                try (var writer = new FileWriter(file)) {
+                    gson.toJson(list, writer);
+                }
             } catch (IOException e) {
                 throw new RuntimeException(e);
             }
@@ -59,13 +61,14 @@ public interface BookKeeper {
     static void removeGiven(String[] names) throws RuntimeException {
         var file = new File(fileName);
         if (file.exists()) {
-            try (var reader = new FileReader(file);
-            var writer = new FileWriter(file)) {
-                Type type = new TypeToken<ArrayList<Note>>(){}.getType();
+            try (var reader = new BufferedReader(new FileReader(file))) {
+                Type type = new TypeToken<List<Note>>(){}.getType();
                 Gson gson = new GsonBuilder().create();
                 ArrayList<Note> list = gson.fromJson(reader, type);
                 list.removeIf(note -> Arrays.asList(names).contains(note.head));
-                gson.toJson(list, writer);
+                try (var writer = new FileWriter(file)) {
+                    gson.toJson(list, writer);
+                }
             } catch (IOException e) {
                 throw new RuntimeException(e);
             }
@@ -88,8 +91,8 @@ public interface BookKeeper {
     static void printGiven(String[] args) throws IllegalArgumentException {
         var file = new File(fileName);
         if (file.exists()) {
-            try (var reader = new FileReader(file)) {
-                Type type = new TypeToken<ArrayList<Note>>(){}.getType();
+            try (var reader = new BufferedReader(new FileReader(file))) {
+                Type type = new TypeToken<List<Note>>(){}.getType();
                 Gson gson = new GsonBuilder().create();
                 ArrayList<Note> list = gson.fromJson(reader, type);
                 var position = new ParsePosition(0);
@@ -106,7 +109,7 @@ public interface BookKeeper {
                         if (noteDate.after(dateFrom) && noteDate.before(dateTo)) {
                             for (int i = 2; i < args.length; i++) {
                                 if (note.head.contains(args[i])) {
-                                    System.out.println(note.date + note.head + note.body);
+                                    System.out.println(note.date + " " + note.head + " " + note.body);
                                 }
                             }
                         }
@@ -121,12 +124,12 @@ public interface BookKeeper {
     static void printAll() {
         var file = new File(fileName);
         if (file.exists()) {
-            try (var reader = new FileReader(file)) {
-                Type type = new TypeToken<ArrayList<Note>>(){}.getType();
+            try (var reader = new BufferedReader(new FileReader(file))) {
+                Type type = new TypeToken<List<Note>>(){}.getType();
                 Gson gson = new GsonBuilder().create();
                 ArrayList<Note> list = gson.fromJson(reader, type);
                 for (Note note : list) {
-                    System.out.println(note.date + note.head + note.body);
+                    System.out.println(note.date + " " + note.head + " " + note.body);
                 }
             } catch (IOException e) {
                 throw new RuntimeException(e);
