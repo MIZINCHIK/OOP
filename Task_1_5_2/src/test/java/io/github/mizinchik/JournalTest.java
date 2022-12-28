@@ -81,7 +81,6 @@ public class JournalTest {
         Journal.main(new String[]{"add", "asduighsadhgjsa", "sadfjhsdafbgdas"});
         Journal.main(new String[]{"add", "asduighsadhgjsa", "sadfjhsdafbgdas"});
         Journal.main(new String[]{"add", "asduighsadhgjsa", "sadfjhsdafbgdas"});
-        Journal.main(new String[]{"add", "asduighsadhgjsa", "sadfjhsdafbgdas"});
         Journal.main(new String[]{"show"});
         var singleString = format.format(date) + " asduighsadhgjsa sadfjhsdafbgdas"
                 + System.lineSeparator();
