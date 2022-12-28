@@ -53,5 +53,28 @@ public class JournalTest {
     @Test
     @DisplayName("Complete test")
     void testComplete() {
+        BookKeeper.removeAll();
+        BookKeeper.printAll();
+        assertEquals("", out.toString());
+        var date = new Date();
+        BookKeeper.addRecord("asduighsadhgjsa", "sadfjhsdafbgdas");
+        BookKeeper.addRecord("asduighsadhgjsa", "sadfjhsdafbgdas");
+        BookKeeper.addRecord("asduighsadhgjsa", "sadfjhsdafbgdas");
+        BookKeeper.addRecord("asduighsadhgjsa", "sadfjhsdafbgdas");
+        BookKeeper.addRecord("asduighsadhgjsa", "sadfjhsdafbgdas");
+        BookKeeper.addRecord("asduighsadhgjsa", "sadfjhsdafbgdas");
+        BookKeeper.addRecord("asduighsadhgjsa", "sadfjhsdafbgdas");
+        BookKeeper.addRecord("asduighsadhgjsa", "sadfjhsdafbgdas");
+        BookKeeper.printAll();
+        var singleString = format.format(date) + " asduighsadhgjsa sadfjhsdafbgdas" + System.lineSeparator();
+        var soughtString = new String(new char[8]).replace("\0", singleString);
+        assertEquals(soughtString, out.toString());
+        Journal.remove(null);
+        Journal.show(null);
+        assertEquals(soughtString, out.toString());
+        var newDate = new Date();
+        Journal.add(new String[]{"sdasdasd", "saadsadsad"});
+        Journal.show(null);
+        assertEquals(soughtString + format.format(newDate) + " sdasdasd saadsadsad" + System.lineSeparator(), out.toString());
     }
 }
