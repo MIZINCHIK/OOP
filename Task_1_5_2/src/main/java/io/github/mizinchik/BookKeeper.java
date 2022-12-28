@@ -37,6 +37,9 @@ public interface BookKeeper {
                 Type type = new TypeToken<ArrayList<Note>>(){}.getType();
                 Gson gson = new GsonBuilder().create();
                 ArrayList<Note> list = gson.fromJson(reader, type);
+                if (list == null) {
+                    list = new ArrayList<>();
+                }
                 var newNote = new Note(format.format(date), recordName, recordContents);
                 list.add(newNote);
                 gson.toJson(list, writer);
@@ -69,7 +72,20 @@ public interface BookKeeper {
         }
     }
 
-    static void print(String[] args) throws IllegalArgumentException {
+    static void removeAll() throws RuntimeException {
+        var file = new File(fileName);
+        if (file.exists()) {
+            try (var writer = new FileWriter(file)) {
+                Gson gson = new GsonBuilder().create();
+                ArrayList<Note> list = new ArrayList<>();
+                gson.toJson(list, writer);
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+        }
+    }
+
+    static void printGiven(String[] args) throws IllegalArgumentException {
         var file = new File(fileName);
         if (file.exists()) {
             try (var reader = new FileReader(file)) {
