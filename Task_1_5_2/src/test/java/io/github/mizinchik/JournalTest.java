@@ -4,7 +4,6 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
-import java.text.SimpleDateFormat;
 import java.util.Date;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
@@ -17,7 +16,6 @@ import org.junit.jupiter.api.Test;
  * @author MIZINCHIK
  */
 public class JournalTest {
-    private final SimpleDateFormat format = new SimpleDateFormat("dd.MM.yyyy HH:mm");
     private final ByteArrayOutputStream out = new ByteArrayOutputStream();
     private final PrintStream originalOut = System.out;
 
@@ -47,18 +45,18 @@ public class JournalTest {
         var date = new Date();
         Journal.main(new String[]{"add", "Моя заметка", "Очень важная заметка"});
         Journal.main(new String[]{"show"});
-        assertEquals(format.format(date) + " Моя заметка Очень важная заметка"
+        assertEquals(BookKeeper.format.format(date) + " Моя заметка Очень важная заметка"
                 + System.lineSeparator(), out.toString());
-        Journal.main(new String[]{"show", format.format(date), format.format(date), "Моя"});
-        assertEquals(format.format(date) + " Моя заметка Очень важная заметка"
+        Journal.main(new String[]{"show", BookKeeper.format.format(date), BookKeeper.format.format(date), "Моя"});
+        assertEquals(BookKeeper.format.format(date) + " Моя заметка Очень важная заметка"
                 + System.lineSeparator()
-                + format.format(date) + " Моя заметка Очень важная заметка"
+                + BookKeeper.format.format(date) + " Моя заметка Очень важная заметка"
                 + System.lineSeparator(), out.toString());
         Journal.main(new String[]{"remove", "Моя заметка"});
         Journal.main(new String[]{"show"});
-        assertEquals(format.format(date) + " Моя заметка Очень важная заметка"
+        assertEquals(BookKeeper.format.format(date) + " Моя заметка Очень важная заметка"
                 + System.lineSeparator()
-                + format.format(date) + " Моя заметка Очень важная заметка"
+                + BookKeeper.format.format(date) + " Моя заметка Очень важная заметка"
                 + System.lineSeparator(), out.toString());
 
     }
@@ -82,7 +80,7 @@ public class JournalTest {
         Journal.main(new String[]{"add", "asduighsadhgjsa", "sadfjhsdafbgdas"});
         Journal.main(new String[]{"add", "asduighsadhgjsa", "sadfjhsdafbgdas"});
         Journal.main(new String[]{"show"});
-        var singleString = format.format(date) + " asduighsadhgjsa sadfjhsdafbgdas"
+        var singleString = BookKeeper.format.format(date) + " asduighsadhgjsa sadfjhsdafbgdas"
                 + System.lineSeparator();
         var soughtString = new String(new char[8]).replace("\0", singleString);
         assertEquals(soughtString, out.toString());
@@ -93,7 +91,7 @@ public class JournalTest {
         var newDate = new Date();
         journal.add(new String[]{"sdasdasd", "saadsadsad"});
         journal.show(null);
-        assertEquals(soughtString + format.format(newDate) + " sdasdasd saadsadsad"
+        assertEquals(soughtString + BookKeeper.format.format(newDate) + " sdasdasd saadsadsad"
                 + System.lineSeparator(), out.toString());
     }
 }
