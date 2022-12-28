@@ -47,7 +47,8 @@ public class JournalTest {
         Journal.main(new String[]{"show"});
         assertEquals(BookKeeper.format.format(date) + " Моя заметка Очень важная заметка"
                 + System.lineSeparator(), out.toString());
-        Journal.main(new String[]{"show", BookKeeper.format.format(date), BookKeeper.format.format(date), "Моя"});
+        Journal.main(new String[]{"show", BookKeeper.format.format(date),
+                BookKeeper.format.format(date), "Моя"});
         assertEquals(BookKeeper.format.format(date) + " Моя заметка Очень важная заметка"
                 + System.lineSeparator()
                 + BookKeeper.format.format(date) + " Моя заметка Очень важная заметка"
