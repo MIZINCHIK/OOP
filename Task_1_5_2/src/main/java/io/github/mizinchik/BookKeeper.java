@@ -44,7 +44,8 @@ public interface BookKeeper {
      * @param recordContents contents of the note
      * @throws RuntimeException in case of troubles with io
      */
-    static void addRecord(String recordName, String recordContents, List<Note> list) throws RuntimeException {
+    static void addRecord(String recordName, String recordContents, List<Note> list)
+            throws RuntimeException {
         var date = new Date();
         var newNote = new Note(format.format(date), recordName, recordContents);
         list.add(newNote);
@@ -69,7 +70,8 @@ public interface BookKeeper {
      * @throws IllegalArgumentException if dates provided are incorrect
      * @throws RuntimeException         in case of troubles with the io
      */
-    static void printGiven(String[] args, List<Note> list) throws IllegalArgumentException, RuntimeException {
+    static void printGiven(String[] args, List<Note> list)
+            throws IllegalArgumentException, RuntimeException {
         var position = new ParsePosition(0);
         Date dateFrom = format.parse(args[0], position);
         position.setIndex(0);
