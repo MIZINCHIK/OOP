@@ -39,20 +39,19 @@ public class JournalTest {
         var date = new Date();
         Journal.main(new String[]{"add", "Моя заметка", "Очень важная заметка"});
         Journal.main(new String[]{"show"});
-        assertEquals(format.format(date) + " Моя заметка Очень важная заметка\r\n", out.toString());
+        assertEquals(format.format(date) + " Моя заметка Очень важная заметка" + System.lineSeparator(), out.toString());
         Journal.main(new String[]{"show", format.format(date), format.format(date), "Моя"});
-        assertEquals(format.format(date) + " Моя заметка Очень важная заметка\r\n"
-                + format.format(date) + " Моя заметка Очень важная заметка\r\n", out.toString());
+        assertEquals(format.format(date) + " Моя заметка Очень важная заметка" + System.lineSeparator()
+                + format.format(date) + " Моя заметка Очень важная заметка"  + System.lineSeparator(), out.toString());
         Journal.main(new String[]{"remove", "Моя заметка"});
         Journal.main(new String[]{"show"});
-        assertEquals(format.format(date) + " Моя заметка Очень важная заметка\r\n"
-                + format.format(date) + " Моя заметка Очень важная заметка\r\n", out.toString());
+        assertEquals(format.format(date) + " Моя заметка Очень важная заметка"  + System.lineSeparator()
+                + format.format(date) + " Моя заметка Очень важная заметка"  + System.lineSeparator(), out.toString());
 
     }
 
     @Test
     @DisplayName("Complete test")
     void testComplete() {
-        return;
     }
 }
