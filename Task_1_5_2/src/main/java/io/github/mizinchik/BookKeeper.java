@@ -34,6 +34,13 @@ public interface BookKeeper {
         String head;
         String body;
 
+        /**
+         * Class constructor.
+         *
+         * @param date of adding the note
+         * @param head of the note
+         * @param body of the note (its contents)
+         */
         public Note(String date, String head, String body) {
             this.date = date;
             this.head = head;
@@ -151,7 +158,8 @@ public interface BookKeeper {
                         if (!noteDate.before(dateFrom) && !noteDate.after(dateTo)) {
                             for (int i = 2; i < args.length; i++) {
                                 if (note.head.contains(args[i])) {
-                                    System.out.println(note.date + " " + note.head + " " + note.body);
+                                    System.out.println(note.date + " "
+                                            + note.head + " " + note.body);
                                     break;
                                 }
                             }

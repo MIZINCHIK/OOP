@@ -1,6 +1,10 @@
 package io.github.mizinchik;
 
-import static io.github.mizinchik.BookKeeper.*;
+import static io.github.mizinchik.BookKeeper.addRecord;
+import static io.github.mizinchik.BookKeeper.printAll;
+import static io.github.mizinchik.BookKeeper.printGiven;
+import static io.github.mizinchik.BookKeeper.removeAll;
+import static io.github.mizinchik.BookKeeper.removeGiven;
 
 import picocli.CommandLine;
 import picocli.CommandLine.Command;

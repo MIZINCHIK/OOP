@@ -47,14 +47,19 @@ public class JournalTest {
         var date = new Date();
         Journal.main(new String[]{"add", "Моя заметка", "Очень важная заметка"});
         Journal.main(new String[]{"show"});
-        assertEquals(format.format(date) + " Моя заметка Очень важная заметка" + System.lineSeparator(), out.toString());
+        assertEquals(format.format(date) + " Моя заметка Очень важная заметка"
+                + System.lineSeparator(), out.toString());
         Journal.main(new String[]{"show", format.format(date), format.format(date), "Моя"});
-        assertEquals(format.format(date) + " Моя заметка Очень важная заметка" + System.lineSeparator()
-                + format.format(date) + " Моя заметка Очень важная заметка"  + System.lineSeparator(), out.toString());
+        assertEquals(format.format(date) + " Моя заметка Очень важная заметка"
+                + System.lineSeparator()
+                + format.format(date) + " Моя заметка Очень важная заметка"
+                + System.lineSeparator(), out.toString());
         Journal.main(new String[]{"remove", "Моя заметка"});
         Journal.main(new String[]{"show"});
-        assertEquals(format.format(date) + " Моя заметка Очень важная заметка"  + System.lineSeparator()
-                + format.format(date) + " Моя заметка Очень важная заметка"  + System.lineSeparator(), out.toString());
+        assertEquals(format.format(date) + " Моя заметка Очень важная заметка"
+                + System.lineSeparator()
+                + format.format(date) + " Моя заметка Очень важная заметка"
+                + System.lineSeparator(), out.toString());
 
     }
 
@@ -77,7 +82,8 @@ public class JournalTest {
         BookKeeper.addRecord("asduighsadhgjsa", "sadfjhsdafbgdas");
         BookKeeper.addRecord("asduighsadhgjsa", "sadfjhsdafbgdas");
         BookKeeper.printAll();
-        var singleString = format.format(date) + " asduighsadhgjsa sadfjhsdafbgdas" + System.lineSeparator();
+        var singleString = format.format(date) + " asduighsadhgjsa sadfjhsdafbgdas"
+                + System.lineSeparator();
         var soughtString = new String(new char[8]).replace("\0", singleString);
         assertEquals(soughtString, out.toString());
         var journal = new Journal();
@@ -87,6 +93,7 @@ public class JournalTest {
         var newDate = new Date();
         journal.add(new String[]{"sdasdasd", "saadsadsad"});
         journal.show(null);
-        assertEquals(soughtString + format.format(newDate) + " sdasdasd saadsadsad" + System.lineSeparator(), out.toString());
+        assertEquals(soughtString + format.format(newDate) + " sdasdasd saadsadsad"
+                + System.lineSeparator(), out.toString());
     }
 }
