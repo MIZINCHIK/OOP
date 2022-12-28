@@ -11,6 +11,11 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
+/**
+ * Tests the note-keeper classes.
+ *
+ * @author MIZINCHIK
+ */
 public class JournalTest {
     private final SimpleDateFormat format = new SimpleDateFormat("dd.MM.yyyy HH:mm");
     private final ByteArrayOutputStream out = new ByteArrayOutputStream();
@@ -32,6 +37,9 @@ public class JournalTest {
         System.setOut(originalOut);
     }
 
+    /**
+     * Tests the reference example of how the app should work.
+     */
     @Test
     @DisplayName("Reference test")
     void testReference() {
@@ -50,6 +58,9 @@ public class JournalTest {
 
     }
 
+    /**
+     * Tests everything that's left after the first test.
+     */
     @Test
     @DisplayName("Complete test")
     void testComplete() {
@@ -69,12 +80,13 @@ public class JournalTest {
         var singleString = format.format(date) + " asduighsadhgjsa sadfjhsdafbgdas" + System.lineSeparator();
         var soughtString = new String(new char[8]).replace("\0", singleString);
         assertEquals(soughtString, out.toString());
-        Journal.remove(null);
-        Journal.show(null);
+        var journal = new Journal();
+        journal.remove(null);
+        journal.show(null);
         assertEquals(soughtString, out.toString());
         var newDate = new Date();
-        Journal.add(new String[]{"sdasdasd", "saadsadsad"});
-        Journal.show(null);
+        journal.add(new String[]{"sdasdasd", "saadsadsad"});
+        journal.show(null);
         assertEquals(soughtString + format.format(newDate) + " sdasdasd saadsadsad" + System.lineSeparator(), out.toString());
     }
 }

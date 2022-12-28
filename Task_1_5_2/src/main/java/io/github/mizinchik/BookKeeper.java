@@ -3,8 +3,11 @@ package io.github.mizinchik;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.reflect.TypeToken;
-
-import java.io.*;
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.lang.reflect.Type;
 import java.text.ParsePosition;
 import java.text.SimpleDateFormat;
@@ -13,10 +16,19 @@ import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
 
+/**
+ * Works with a JSON-based note-keeper placed
+ * in a file bookkeeper.json wherever it's created by default.
+ *
+ * @author MIZINCHIK
+ */
 public interface BookKeeper {
-    static String fileName = "bookkeeper.json";
-    static SimpleDateFormat format = new SimpleDateFormat("dd.MM.yyyy HH:mm");
+    String fileName = "bookkeeper.json";
+    SimpleDateFormat format = new SimpleDateFormat("dd.MM.yyyy HH:mm");
 
+    /**
+     * Used for storing records in a book.
+     */
     class Note {
         String date;
         String head;
@@ -29,6 +41,13 @@ public interface BookKeeper {
         }
     }
 
+    /**
+     * Adds record to the book.
+     *
+     * @param recordName head of the note
+     * @param recordContents contents of the note
+     * @throws RuntimeException in case of troubles with io
+     */
     static void addRecord(String recordName, String recordContents) throws RuntimeException {
         var date = new Date();
         var file = new File(fileName);
@@ -61,6 +80,12 @@ public interface BookKeeper {
         }
     }
 
+    /**
+     * Deletes notes with the names given.
+     *
+     * @param names of notes to delete
+     * @throws RuntimeException in case of troubles with the io
+     */
     static void removeGiven(String[] names) throws RuntimeException {
         var file = new File(fileName);
         if (file.exists()) {
@@ -78,6 +103,11 @@ public interface BookKeeper {
         }
     }
 
+    /**
+     * Removes all the notes from the book.
+     *
+     * @throws RuntimeException in case of troubles with the io
+     */
     static void removeAll() throws RuntimeException {
         var file = new File(fileName);
         if (file.exists()) {
@@ -91,7 +121,16 @@ public interface BookKeeper {
         }
     }
 
-    static void printGiven(String[] args) throws IllegalArgumentException {
+    /**
+     * Prints all the notes from the date stated as the first member of the array
+     * to the date as the second and containing all the other strings as substrings of
+     * their headings.
+     *
+     * @param args substrings of heads of the notes to delete
+     * @throws IllegalArgumentException if dates provided are incorrect
+     * @throws RuntimeException in case of troubles with the io
+     */
+    static void printGiven(String[] args) throws IllegalArgumentException, RuntimeException {
         var file = new File(fileName);
         if (file.exists()) {
             try (var reader = new BufferedReader(new FileReader(file))) {
@@ -125,6 +164,9 @@ public interface BookKeeper {
         }
     }
 
+    /**
+     * Prints all the notes in the book.
+     */
     static void printAll() {
         var file = new File(fileName);
         if (file.exists()) {
