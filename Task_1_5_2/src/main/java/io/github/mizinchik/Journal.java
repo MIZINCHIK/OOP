@@ -2,7 +2,6 @@ package io.github.mizinchik;
 
 import picocli.CommandLine;
 import picocli.CommandLine.Command;
-import picocli.CommandLine.Option;
 import picocli.CommandLine.Parameters;
 
 import static io.github.mizinchik.BookKeeper.*;
@@ -15,7 +14,7 @@ public class Journal {
     }
 
     @Command(name = "remove", description = "Remove given records")
-    void remove(@Option(names = "remove", arity = "0..*") String[] names) {
+    void remove(@Parameters(arity = "0..*") String[] names) {
         if (names == null) {
             removeAll();
         } else {
@@ -24,7 +23,7 @@ public class Journal {
     }
 
     @Command(name = "show", description = "Show records")
-    void show(@Option(names = "show", arity = "0..*") String[] show) {
+    void show(@Parameters(arity = "0..*") String[] show) {
         if (show == null) {
             printAll();
         } else if (show.length == 1) {
