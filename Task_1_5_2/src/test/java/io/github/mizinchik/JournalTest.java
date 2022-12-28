@@ -69,19 +69,20 @@ public class JournalTest {
     @Test
     @DisplayName("Complete test")
     void testComplete() {
-        BookKeeper.removeAll();
-        BookKeeper.printAll();
+        Journal.main(new String[]{"remove"});
+        Journal.main(new String[]{"show"});
         assertEquals("", out.toString());
         var date = new Date();
-        BookKeeper.addRecord("asduighsadhgjsa", "sadfjhsdafbgdas");
-        BookKeeper.addRecord("asduighsadhgjsa", "sadfjhsdafbgdas");
-        BookKeeper.addRecord("asduighsadhgjsa", "sadfjhsdafbgdas");
-        BookKeeper.addRecord("asduighsadhgjsa", "sadfjhsdafbgdas");
-        BookKeeper.addRecord("asduighsadhgjsa", "sadfjhsdafbgdas");
-        BookKeeper.addRecord("asduighsadhgjsa", "sadfjhsdafbgdas");
-        BookKeeper.addRecord("asduighsadhgjsa", "sadfjhsdafbgdas");
-        BookKeeper.addRecord("asduighsadhgjsa", "sadfjhsdafbgdas");
-        BookKeeper.printAll();
+        Journal.main(new String[]{"add", "asduighsadhgjsa", "sadfjhsdafbgdas"});
+        Journal.main(new String[]{"add", "asduighsadhgjsa", "sadfjhsdafbgdas"});
+        Journal.main(new String[]{"add", "asduighsadhgjsa", "sadfjhsdafbgdas"});
+        Journal.main(new String[]{"add", "asduighsadhgjsa", "sadfjhsdafbgdas"});
+        Journal.main(new String[]{"add", "asduighsadhgjsa", "sadfjhsdafbgdas"});
+        Journal.main(new String[]{"add", "asduighsadhgjsa", "sadfjhsdafbgdas"});
+        Journal.main(new String[]{"add", "asduighsadhgjsa", "sadfjhsdafbgdas"});
+        Journal.main(new String[]{"add", "asduighsadhgjsa", "sadfjhsdafbgdas"});
+        Journal.main(new String[]{"add", "asduighsadhgjsa", "sadfjhsdafbgdas"});
+        Journal.main(new String[]{"show"});
         var singleString = format.format(date) + " asduighsadhgjsa sadfjhsdafbgdas"
                 + System.lineSeparator();
         var soughtString = new String(new char[8]).replace("\0", singleString);
