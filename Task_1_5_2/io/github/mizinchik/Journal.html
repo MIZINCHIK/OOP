@@ -27,8 +27,8 @@
     catch(err) {
     }
 //-->
-var data = {"i0":9,"i1":9,"i2":9,"i3":9};
-var tabs = {65535:["t0","All Methods"],1:["t1","Static Methods"],8:["t4","Concrete Methods"]};
+var data = {"i0":10,"i1":9,"i2":10,"i3":10};
+var tabs = {65535:["t0","All Methods"],1:["t1","Static Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
 var tableTab = "tableTab";
@@ -132,6 +132,7 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <hr>
 <pre>public class <span class="typeNameLabel">Journal</span>
 extends java.lang.Object</pre>
+<div class="block">Handles arguments of the command line for the note-keeper.</div>
 </li>
 </ul>
 </div>
@@ -167,31 +168,43 @@ extends java.lang.Object</pre>
 </a>
 <h3>Method Summary</h3>
 <table class="memberSummary">
-<caption><span id="t0" class="activeTableTab"><span>All Methods</span><span class="tabEnd">&nbsp;</span></span><span id="t1" class="tableTab"><span><a href="javascript:show(1);">Static Methods</a></span><span class="tabEnd">&nbsp;</span></span><span id="t4" class="tableTab"><span><a href="javascript:show(8);">Concrete Methods</a></span><span class="tabEnd">&nbsp;</span></span></caption>
+<caption><span id="t0" class="activeTableTab"><span>All Methods</span><span class="tabEnd">&nbsp;</span></span><span id="t1" class="tableTab"><span><a href="javascript:show(1);">Static Methods</a></span><span class="tabEnd">&nbsp;</span></span><span id="t2" class="tableTab"><span><a href="javascript:show(2);">Instance Methods</a></span><span class="tabEnd">&nbsp;</span></span><span id="t4" class="tableTab"><span><a href="javascript:show(8);">Concrete Methods</a></span><span class="tabEnd">&nbsp;</span></span></caption>
 <tr>
 <th class="colFirst" scope="col">Modifier and Type</th>
 <th class="colSecond" scope="col">Method</th>
 <th class="colLast" scope="col">Description</th>
 </tr>
 <tr id="i0" class="altColor">
-<td class="colFirst"><code>static void</code></td>
+<td class="colFirst"><code>void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#add(java.lang.String%5B%5D)">add</a></span>&#8203;(java.lang.String[]&nbsp;add)</code></th>
-<td class="colLast">&nbsp;</td>
+<td class="colLast">
+<div class="block">Adds a note to the book.</div>
+</td>
 </tr>
 <tr id="i1" class="rowColor">
 <td class="colFirst"><code>static void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#main(java.lang.String%5B%5D)">main</a></span>&#8203;(java.lang.String[]&nbsp;args)</code></th>
-<td class="colLast">&nbsp;</td>
+<td class="colLast">
+<div class="block">Runs the book from a command line.</div>
+</td>
 </tr>
 <tr id="i2" class="altColor">
-<td class="colFirst"><code>static void</code></td>
+<td class="colFirst"><code>void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#remove(java.lang.String%5B%5D)">remove</a></span>&#8203;(java.lang.String[]&nbsp;names)</code></th>
-<td class="colLast">&nbsp;</td>
+<td class="colLast">
+<div class="block">Removes notes from the book.</div>
+</td>
 </tr>
 <tr id="i3" class="rowColor">
-<td class="colFirst"><code>static void</code></td>
+<td class="colFirst"><code>void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#show(java.lang.String%5B%5D)">show</a></span>&#8203;(java.lang.String[]&nbsp;show)</code></th>
-<td class="colLast">&nbsp;</td>
+<td class="colLast">
+<div class="block">Shows either all the contents of the book
+ when no arguments were provided or just the ones
+ that were added between the date in the firs member of array
+ and the date in the second and containing all the other strings as substrings
+ in their headings.</div>
+</td>
 </tr>
 </table>
 <ul class="blockList">
@@ -242,7 +255,12 @@ extends java.lang.Object</pre>
 <ul class="blockList">
 <li class="blockList">
 <h4>add</h4>
-<pre class="methodSignature">public static&nbsp;void&nbsp;add&#8203;(java.lang.String[]&nbsp;add)</pre>
+<pre class="methodSignature">public&nbsp;void&nbsp;add&#8203;(java.lang.String[]&nbsp;add)</pre>
+<div class="block">Adds a note to the book.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>add</code> - note to add</dd>
+</dl>
 </li>
 </ul>
 <a id="remove(java.lang.String[])">
@@ -251,7 +269,13 @@ extends java.lang.Object</pre>
 <ul class="blockList">
 <li class="blockList">
 <h4>remove</h4>
-<pre class="methodSignature">public static&nbsp;void&nbsp;remove&#8203;(java.lang.String[]&nbsp;names)</pre>
+<pre class="methodSignature">public&nbsp;void&nbsp;remove&#8203;(java.lang.String[]&nbsp;names)</pre>
+<div class="block">Removes notes from the book.
+ If no names provided wipes the book entirely.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>names</code> - of the notes to remove</dd>
+</dl>
 </li>
 </ul>
 <a id="show(java.lang.String[])">
@@ -260,7 +284,16 @@ extends java.lang.Object</pre>
 <ul class="blockList">
 <li class="blockList">
 <h4>show</h4>
-<pre class="methodSignature">public static&nbsp;void&nbsp;show&#8203;(java.lang.String[]&nbsp;show)</pre>
+<pre class="methodSignature">public&nbsp;void&nbsp;show&#8203;(java.lang.String[]&nbsp;show)</pre>
+<div class="block">Shows either all the contents of the book
+ when no arguments were provided or just the ones
+ that were added between the date in the firs member of array
+ and the date in the second and containing all the other strings as substrings
+ in their headings.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>show</code> - dates and substrings</dd>
+</dl>
 </li>
 </ul>
 <a id="main(java.lang.String[])">
@@ -270,6 +303,11 @@ extends java.lang.Object</pre>
 <li class="blockList">
 <h4>main</h4>
 <pre class="methodSignature">public static&nbsp;void&nbsp;main&#8203;(java.lang.String[]&nbsp;args)</pre>
+<div class="block">Runs the book from a command line.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>args</code> - CLI</dd>
+</dl>
 </li>
 </ul>
 </li>
