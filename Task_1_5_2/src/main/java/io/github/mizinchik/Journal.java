@@ -9,12 +9,12 @@ import static io.github.mizinchik.BookKeeper.*;
 @Command(name = "Journal", mixinStandardHelpOptions = true)
 public class Journal {
     @Command(name = "add", description = "Add a new record")
-    void add(@Parameters(arity = "2") String[] add) {
+    public static void add(@Parameters(arity = "2") String[] add) {
         addRecord(add[0], add[1]);
     }
 
     @Command(name = "remove", description = "Remove given records")
-    void remove(@Parameters(arity = "0..*") String[] names) {
+    public static void remove(@Parameters(arity = "0..*") String[] names) {
         if (names == null) {
             removeAll();
         } else {
@@ -23,7 +23,7 @@ public class Journal {
     }
 
     @Command(name = "show", description = "Show records")
-    void show(@Parameters(arity = "0..*") String[] show) {
+    public static void show(@Parameters(arity = "0..*") String[] show) {
         if (show == null) {
             printAll();
         } else if (show.length == 1) {
