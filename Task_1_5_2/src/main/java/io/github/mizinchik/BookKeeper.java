@@ -51,7 +51,10 @@ public interface BookKeeper {
         } else {
             try (var writer = new FileWriter(file)) {
                 Gson gson = new GsonBuilder().create();
-                gson.toJson(new Note(format.format(date), recordName, recordContents), writer);
+                var newNote = new Note(format.format(date), recordName, recordContents);
+                var newList = new ArrayList<Note>();
+                newList.add(newNote);
+                gson.toJson(newList, writer);
             } catch (IOException e) {
                 throw new RuntimeException(e);
             }
