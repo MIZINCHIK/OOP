@@ -106,10 +106,11 @@ public interface BookKeeper {
                     position.setIndex(0);
                     for (Note note : list) {
                         Date noteDate = format.parse(note.date, position);
-                        if (noteDate.after(dateFrom) && noteDate.before(dateTo)) {
+                        if (!noteDate.before(dateFrom) && !noteDate.after(dateTo)) {
                             for (int i = 2; i < args.length; i++) {
                                 if (note.head.contains(args[i])) {
                                     System.out.println(note.date + " " + note.head + " " + note.body);
+                                    break;
                                 }
                             }
                         }
