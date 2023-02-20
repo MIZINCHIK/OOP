@@ -48,6 +48,10 @@ public class CompositeArrayTest {
         var threadLarge = new CompositeArrayThread(arrayLarge);
         assertTrue(threadSmall.containsComposite(4));
         assertFalse(threadLarge.containsComposite(4));
+        var streamSmall = new CompositeArrayStream(arraySmall);
+        var streamLarge = new CompositeArrayStream(arrayLarge);
+        assertTrue(streamSmall.containsCompositeStream());
+        assertFalse(streamLarge.containsCompositeStream());
     }
 
     @Test
@@ -64,9 +68,12 @@ public class CompositeArrayTest {
             }
             var consecutiveChecker = new CompositeArrayConsecutive(array);
             var threadChecker = new CompositeArrayThread(array);
+            var streamChecker = new CompositeArrayStream(array);
             boolean consecutiveRes = consecutiveChecker.containsComposite();
             boolean threadRes = threadChecker.containsComposite(4);
+            boolean streamRes = streamChecker.containsCompositeStream();
             assertEquals(consecutiveRes, threadRes);
+            assertEquals(consecutiveRes, streamRes);
         }
     }
 }
