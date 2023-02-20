@@ -1,39 +1,69 @@
 package io.github.mizinchik;
 
+import static io.github.mizinchik.CompositeArrayConsecutive.isPrime;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+
+import java.util.concurrent.ThreadLocalRandom;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-import java.util.concurrent.ThreadLocalRandom;
-
-import static io.github.mizinchik.CompositeArrayConsecutive.isPrime;
-import static org.junit.jupiter.api.Assertions.*;
-
+/**
+ * A test class for CompositeArrayConsecutive,
+ * CompositeArrayThread and CompositeArrayStream classes.
+ *
+ * @author MIZINCHIK
+ */
 public class CompositeArrayTest {
-    private int bits = 31;
 
-    private static int nBitRandom(int n) {
+    /**
+     * Returns a candidate for a primality,
+     * a random number of n bits.
+     * Required to build a large array of prime numbers.
+     *
+     * @param n number of bits in a random number
+     * @return random number
+     */
+    private static int nBit(int n) {
         int max = (int)Math.pow(2, n) - 1;
         int min = (int)Math.pow(2, n - 1) + 1;
         return ThreadLocalRandom.current().nextInt(min, max + 1);
     }
 
+    private static int nBitRandom(int n) {
+        int result = nBit(n);
+        while (!isPrime(result)) {
+            result = nBit(n);
+        }
+        return result;
+    }
+
+    /**
+     * Tests the isPrime method.
+     */
     @Test
     @DisplayName("Single prime checker test")
     void singlePrimeTest() {
-        assertEquals(true, isPrime(1_000_000_007));
-        assertEquals(false, isPrime(44_041 * 46_051));
-        assertEquals(true, isPrime(1000004099));
-        assertEquals(true, isPrime(2000004023));
-        assertEquals(true, isPrime(2000012563));
-        assertEquals(true, isPrime(2000012233));
-        assertEquals(true, isPrime(2000014889));
-        assertEquals(true, isPrime(2000015819));
-        assertEquals(true, isPrime(2000016517));
-        assertEquals(false, isPrime(1));
-        assertEquals(false, isPrime(0));
-        assertEquals(true, isPrime(2));
+        assertTrue(isPrime(1_000_000_007));
+        assertFalse(isPrime(44_041 * 46_051));
+        assertTrue(isPrime(1000004099));
+        assertTrue(isPrime(2000004023));
+        assertTrue(isPrime(2000012563));
+        assertTrue(isPrime(2000012233));
+        assertTrue(isPrime(2000014889));
+        assertTrue(isPrime(2000015819));
+        assertTrue(isPrime(2000016517));
+        assertFalse(isPrime(1));
+        assertFalse(isPrime(0));
+        assertTrue(isPrime(2));
     }
 
+    /**
+     * Tests the reference example.
+     *
+     * @throws InterruptedException if any thread has interrupted the current thread
+     */
     @Test
     @DisplayName("Reference test")
     void testReference() throws InterruptedException {
@@ -54,26 +84,43 @@ public class CompositeArrayTest {
         assertFalse(streamLarge.containsCompositeStream());
     }
 
+    /**
+     * Tests large arrays of large primes and large composite numbers.
+     *
+     * @throws InterruptedException if any thread has interrupted the current thread
+     */
     @Test
     @DisplayName("Initial test")
     void testInitial() throws InterruptedException {
-        for (int j = 0; j < 10; j++) {
-            int[] array = new int[100_000];
-            for (int i = 0; i < 1000; i++) {
-                int randPrime = nBitRandom(bits);
-                while (!isPrime(randPrime)) {
-                    randPrime = nBitRandom(bits);
-                }
-                array[i] = randPrime;
-            }
-            var consecutiveChecker = new CompositeArrayConsecutive(array);
-            var threadChecker = new CompositeArrayThread(array);
-            var streamChecker = new CompositeArrayStream(array);
-            boolean consecutiveRes = consecutiveChecker.containsComposite();
-            boolean threadRes = threadChecker.containsComposite(4);
-            boolean streamRes = streamChecker.containsCompositeStream();
-            assertEquals(consecutiveRes, threadRes);
-            assertEquals(consecutiveRes, streamRes);
+        int size = 100_000;
+        int[] arrayPrimes = new int[size];
+        int[] arrayNotPrimes = new int[size];
+        for (int i = 0; i < size; i++) {
+            int bits = 31;
+            int randPrime = nBitRandom(bits);
+            bits = 15;
+            int randPrime1 = nBitRandom(bits);
+            int randPrime2 = nBitRandom(bits);
+            arrayPrimes[i] = randPrime;
+            arrayNotPrimes[i] = randPrime2 * randPrime1;
         }
+        var consecutiveChecker1 = new CompositeArrayConsecutive(arrayPrimes);
+        var threadChecker1 = new CompositeArrayThread(arrayPrimes);
+        var streamChecker1 = new CompositeArrayStream(arrayPrimes);
+        boolean consecutiveRes1 = consecutiveChecker1.containsComposite();
+        boolean threadRes1 = threadChecker1.containsComposite(4);
+        boolean streamRes1 = streamChecker1.containsCompositeStream();
+        assertEquals(consecutiveRes1, threadRes1);
+        assertEquals(consecutiveRes1, streamRes1);
+        assertFalse(consecutiveRes1);
+        var consecutiveChecker2 = new CompositeArrayConsecutive(arrayNotPrimes);
+        var threadChecker2 = new CompositeArrayThread(arrayNotPrimes);
+        var streamChecker2 = new CompositeArrayStream(arrayNotPrimes);
+        boolean consecutiveRes2 = consecutiveChecker2.containsComposite();
+        boolean threadRes2 = threadChecker2.containsComposite(4);
+        boolean streamRes2 = streamChecker2.containsCompositeStream();
+        assertEquals(consecutiveRes2, threadRes2);
+        assertEquals(consecutiveRes2, streamRes2);
+        assertTrue(consecutiveRes2);
     }
 }

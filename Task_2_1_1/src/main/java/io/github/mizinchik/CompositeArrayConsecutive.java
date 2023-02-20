@@ -1,17 +1,41 @@
 package io.github.mizinchik;
 
+/**
+ * Contains an array of ints.
+ * Can perform consecutive checks whether that array contains
+ * a composite number or not.
+ *
+ * @author MIZINCHIK
+ */
 public class CompositeArrayConsecutive implements CompositeArrayInterface {
     private final int[] array;
 
+    /**
+     * Constructs an instance from a reference
+     * to an array of ints.
+     *
+     * @param array of ints
+     */
     public CompositeArrayConsecutive(int[] array) {
-        this.array = array;
+        this.array = array.clone();
     }
 
-    @Override
-    public int[] getArray() {
+    /**
+     * Returns the array inside an instance.
+     * Package private so that it couldn't be
+     * modified from outside the package.
+     *
+     * @return reference to an array stored in an instance
+     */
+    int[] getArray() {
         return array;
     }
 
+    /**
+     * Checks whether an array contains a composite int.
+     *
+     * @return true if a composite number is present in an array
+     */
     @Override
     public boolean containsComposite() {
         for (int number : array) {
@@ -22,6 +46,12 @@ public class CompositeArrayConsecutive implements CompositeArrayInterface {
         return false;
     }
 
+    /**
+     * Checks whether an int passed is prime.
+     *
+     * @param number to check for primality
+     * @return true if prime
+     */
     public static boolean isPrime(int number) {
         if (number <= 1) {
             return false;
