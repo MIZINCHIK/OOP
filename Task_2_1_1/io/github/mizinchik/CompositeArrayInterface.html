@@ -27,7 +27,7 @@
     catch(err) {
     }
 //-->
-var data = {"i0":6,"i1":6};
+var data = {"i0":6};
 var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],4:["t3","Abstract Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -127,6 +127,10 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 </dl>
 <hr>
 <pre>public interface <span class="typeNameLabel">CompositeArrayInterface</span></pre>
+<div class="block">Interface for the classes storing
+ data structures of numbers with the ability
+ to check whether a composite number
+ is present.</div>
 </li>
 </ul>
 </div>
@@ -150,12 +154,9 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <tr id="i0" class="altColor">
 <td class="colFirst"><code>boolean</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#containsComposite()">containsComposite</a></span>()</code></th>
-<td class="colLast">&nbsp;</td>
-</tr>
-<tr id="i1" class="rowColor">
-<td class="colFirst"><code>int[]</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getArray()">getArray</a></span>()</code></th>
-<td class="colLast">&nbsp;</td>
+<td class="colLast">
+<div class="block">Checks whether an instance contains a composite number.</div>
+</td>
 </tr>
 </table>
 </li>
@@ -177,19 +178,15 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <a id="containsComposite()">
 <!--   -->
 </a>
-<ul class="blockList">
+<ul class="blockListLast">
 <li class="blockList">
 <h4>containsComposite</h4>
 <pre class="methodSignature">boolean&nbsp;containsComposite()</pre>
-</li>
-</ul>
-<a id="getArray()">
-<!--   -->
-</a>
-<ul class="blockListLast">
-<li class="blockList">
-<h4>getArray</h4>
-<pre class="methodSignature">int[]&nbsp;getArray()</pre>
+<div class="block">Checks whether an instance contains a composite number.</div>
+<dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>true if a composite number is present</dd>
+</dl>
 </li>
 </ul>
 </li>
