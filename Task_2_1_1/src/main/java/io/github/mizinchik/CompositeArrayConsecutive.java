@@ -1,8 +1,19 @@
 package io.github.mizinchik;
 
 public class CompositeArrayConsecutive implements CompositeArrayInterface {
+    private final int[] array;
+
+    public CompositeArrayConsecutive(int[] array) {
+        this.array = array;
+    }
+
     @Override
-    public boolean containsComposite(int[] array) {
+    public int[] getArray() {
+        return array;
+    }
+
+    @Override
+    public boolean containsComposite() {
         for (int number : array) {
             if (!isPrime(number)) {
                 return true;
@@ -11,7 +22,7 @@ public class CompositeArrayConsecutive implements CompositeArrayInterface {
         return false;
     }
 
-    private static boolean isPrime(int number) {
+    public static boolean isPrime(int number) {
         if (number <= 1) {
             return false;
         } else {
