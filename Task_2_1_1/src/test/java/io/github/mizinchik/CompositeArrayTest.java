@@ -25,16 +25,16 @@ public class CompositeArrayTest {
      * @param n number of bits in a random number
      * @return random number
      */
-    private static int nBit(int n) {
-        int max = (int)Math.pow(2, n) - 1;
-        int min = (int)Math.pow(2, n - 1) + 1;
+    private static int nthBit(int n) {
+        int max = (int) Math.pow(2, n) - 1;
+        int min = (int) Math.pow(2, n - 1) + 1;
         return ThreadLocalRandom.current().nextInt(min, max + 1);
     }
 
-    private static int nBitRandom(int n) {
-        int result = nBit(n);
+    private static int nthBitRandom(int n) {
+        int result = nthBit(n);
         while (!isPrime(result)) {
-            result = nBit(n);
+            result = nthBit(n);
         }
         return result;
     }
@@ -67,9 +67,9 @@ public class CompositeArrayTest {
     @Test
     @DisplayName("Reference test")
     void testReference() throws InterruptedException {
-        int[] arraySmall = new int[] {6,8,7,13,9,4};
-        int[] arrayLarge = new int[] {6997901, 6997927, 6997937
-                ,6997967, 6998009, 6998029, 6998039, 6998051, 6998053};
+        int[] arraySmall = new int[] {6, 8, 7, 13, 9, 4};
+        int[] arrayLarge = new int[] {6997901, 6997927, 6997937,
+                6997967, 6998009, 6998029, 6998039, 6998051, 6998053};
         var consecutiveSmall = new CompositeArrayConsecutive(arraySmall);
         var consecutiveLarge = new CompositeArrayConsecutive(arrayLarge);
         assertTrue(consecutiveSmall.containsComposite());
@@ -97,10 +97,10 @@ public class CompositeArrayTest {
         int[] arrayNotPrimes = new int[size];
         for (int i = 0; i < size; i++) {
             int bits = 31;
-            int randPrime = nBitRandom(bits);
+            int randPrime = nthBitRandom(bits);
             bits = 15;
-            int randPrime1 = nBitRandom(bits);
-            int randPrime2 = nBitRandom(bits);
+            int randPrime1 = nthBitRandom(bits);
+            int randPrime2 = nthBitRandom(bits);
             arrayPrimes[i] = randPrime;
             arrayNotPrimes[i] = randPrime2 * randPrime1;
         }
