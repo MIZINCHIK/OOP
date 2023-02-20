@@ -69,7 +69,7 @@ public class CompositeArrayTest {
     void testReference() throws InterruptedException {
         int[] arraySmall = new int[] {6, 8, 7, 13, 9, 4};
         int[] arrayLarge = new int[] {6997901, 6997927, 6997937,
-                6997967, 6998009, 6998029, 6998039, 6998051, 6998053};
+            6997967, 6998009, 6998029, 6998039, 6998051, 6998053};
         var consecutiveSmall = new CompositeArrayConsecutive(arraySmall);
         var consecutiveLarge = new CompositeArrayConsecutive(arrayLarge);
         assertTrue(consecutiveSmall.containsComposite());
