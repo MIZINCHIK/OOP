@@ -1,1 +1,1 @@
-typeSearchIndex = [{"l":"All Classes","url":"allclasses-index.html"},{"p":"io.github.mizinchik","l":"CompositeArrayConsecutive"},{"p":"io.github.mizinchik","l":"CompositeArrayInterface"}]
+typeSearchIndex = [{"l":"All Classes","url":"allclasses-index.html"},{"p":"io.github.mizinchik","l":"CompositeArrayConsecutive"},{"p":"io.github.mizinchik","l":"CompositeArrayInterface"},{"p":"io.github.mizinchik","l":"CompositeArrayThread"}]
