@@ -2,9 +2,13 @@ package io.github.mizinchik;
 
 import static io.github.mizinchik.RandomBits.nthBitRandom;
 
-import org.openjdk.jmh.annotations.*;
-
 import java.util.concurrent.TimeUnit;
+import org.openjdk.jmh.annotations.Benchmark;
+import org.openjdk.jmh.annotations.BenchmarkMode;
+import org.openjdk.jmh.annotations.Mode;
+import org.openjdk.jmh.annotations.OutputTimeUnit;
+import org.openjdk.jmh.annotations.Scope;
+import org.openjdk.jmh.annotations.State;
 
 public class BenchConcurrent {
     @State(Scope.Benchmark)
