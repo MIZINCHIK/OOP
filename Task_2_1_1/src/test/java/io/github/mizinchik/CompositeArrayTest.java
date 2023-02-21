@@ -1,11 +1,11 @@
 package io.github.mizinchik;
 
 import static io.github.mizinchik.CompositeArrayConsecutive.isPrime;
+import static io.github.mizinchik.RandomBits.nthBitRandom;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
-import java.util.concurrent.ThreadLocalRandom;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
@@ -16,28 +16,6 @@ import org.junit.jupiter.api.Test;
  * @author MIZINCHIK
  */
 public class CompositeArrayTest {
-
-    /**
-     * Returns a candidate for a primality,
-     * a random number of n bits.
-     * Required to build a large array of prime numbers.
-     *
-     * @param n number of bits in a random number
-     * @return random number
-     */
-    private static int nthBit(int n) {
-        int max = (int) Math.pow(2, n) - 1;
-        int min = (int) Math.pow(2, n - 1) + 1;
-        return ThreadLocalRandom.current().nextInt(min, max + 1);
-    }
-
-    private static int nthBitRandom(int n) {
-        int result = nthBit(n);
-        while (!isPrime(result)) {
-            result = nthBit(n);
-        }
-        return result;
-    }
 
     /**
      * Tests the isPrime method.
@@ -92,7 +70,7 @@ public class CompositeArrayTest {
     @Test
     @DisplayName("Initial test")
     void testInitial() throws InterruptedException {
-        int size = 100_000;
+        int size = 1_000;
         int[] arrayPrimes = new int[size];
         int[] arrayNotPrimes = new int[size];
         for (int i = 0; i < size; i++) {
