@@ -30,7 +30,7 @@ public class BenchConcurrent {
 
     /**
      * Generator of an array of
-     * a 1_000 random int 31bit primes
+     * a 1_000 random int 31bit primes.
      *
      * @return array of a 1_000 random int 31bit primes
      */
