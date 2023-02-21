@@ -11,9 +11,8 @@ import org.openjdk.jmh.annotations.Scope;
 import org.openjdk.jmh.annotations.State;
 
 /**
- * Benchmark class for testing
- * CompositeArrayConsecutive, CompositeArrayThread
- * and CompositeArrayStream classes.
+ * Benchmark class for testing CompositeArrayConsecutive,
+ * CompositeArrayThread and CompositeArrayStream classes.
  *
  * @author MIZINCHIK
  */
