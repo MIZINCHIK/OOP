@@ -1,9 +1,14 @@
 package io.github.mizinchik;
 
-import java.util.concurrent.ThreadLocalRandom;
-
 import static io.github.mizinchik.CompositeArrayConsecutive.isPrime;
 
+import java.util.concurrent.ThreadLocalRandom;
+
+/**
+ * Class for generating random n-bit numbers.
+ *
+ * @author MIZINCHIK
+ */
 public class RandomBits {
     public static int arrayRandom = nthBitRandom(31);
 
