@@ -1,5 +1,7 @@
 package io.github.mizinchik;
 
+import static io.github.mizinchik.CompositeArrayConsecutive.isPrime;
+
 import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -12,7 +14,9 @@ import java.util.stream.Collectors;
  *
  * @author MIZINCHIK
  */
-public class CompositeArrayStream extends CompositeArrayConsecutive {
+public class CompositeArrayStream implements CompositeArrayInterface {
+    private final int[] array;
+
     /**
      * Constructs an instance from a reference
      * to an array of ints.
@@ -20,7 +24,7 @@ public class CompositeArrayStream extends CompositeArrayConsecutive {
      * @param array of ints
      */
     public CompositeArrayStream(int[] array) {
-        super(array);
+        this.array = array.clone();
     }
 
     /**
@@ -29,8 +33,9 @@ public class CompositeArrayStream extends CompositeArrayConsecutive {
      *
      * @return true if a composite number is present in an array
      */
-    boolean containsCompositeStream() {
-        List<Integer> list = Arrays.stream(getArray()).boxed().collect(Collectors.toList());
+    @Override
+    public boolean containsComposite() {
+        List<Integer> list = Arrays.stream(array).boxed().collect(Collectors.toList());
         return list.parallelStream()
                 .filter(number -> !isPrime(number))
                 .findFirst().orElse(null) != null;

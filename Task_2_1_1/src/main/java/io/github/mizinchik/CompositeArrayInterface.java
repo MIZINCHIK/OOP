@@ -14,5 +14,5 @@ public interface CompositeArrayInterface {
      *
      * @return true if a composite number is present
      */
-    boolean containsComposite();
+    boolean containsComposite() throws InterruptedException;
 }

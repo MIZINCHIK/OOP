@@ -21,17 +21,6 @@ public class CompositeArrayConsecutive implements CompositeArrayInterface {
     }
 
     /**
-     * Returns the array inside an instance.
-     * Package private so that it couldn't be
-     * modified from outside the package.
-     *
-     * @return reference to an array stored in an instance
-     */
-    int[] getArray() {
-        return array;
-    }
-
-    /**
      * Checks whether an array contains a composite int.
      *
      * @return true if a composite number is present in an array

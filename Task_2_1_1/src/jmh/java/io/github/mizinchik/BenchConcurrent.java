@@ -153,6 +153,6 @@ public class BenchConcurrent {
     @OutputTimeUnit(TimeUnit.MILLISECONDS)
     public void benchStream(BenchmarkState state) throws InterruptedException {
         var threadChecker = new CompositeArrayStream(state.arrayPrimes);
-        threadChecker.containsCompositeStream();
+        threadChecker.containsComposite();
     }
 }
