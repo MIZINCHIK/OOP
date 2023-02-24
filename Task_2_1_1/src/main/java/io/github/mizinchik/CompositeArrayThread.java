@@ -12,15 +12,18 @@ import static io.github.mizinchik.CompositeArrayConsecutive.isPrime;
  */
 public class CompositeArrayThread implements CompositeArrayInterface {
     private final int[] array;
+    private final int threads;
 
     /**
      * Constructs an instance from a reference
      * to an array of ints.
      *
      * @param array of ints
+     * @param defaultThreads the default quantity of threads to summon
      */
-    public CompositeArrayThread(int[] array) {
+    public CompositeArrayThread(int[] array, int defaultThreads) {
         this.array = array.clone();
+        this.threads = defaultThreads;
     }
 
     /**
@@ -49,14 +52,15 @@ public class CompositeArrayThread implements CompositeArrayInterface {
     /**
      * Checks whether an array contains a composite int via
      * threadsQuantity of parallel PrimeThreads running.
-     * Uses 2 threads by default.
+     * Uses the number of threads specified at the moment
+     * of object instantiation.
      *
      * @return true if a composite number is present in an array
      * @throws InterruptedException if any thread has interrupted the current thread
      */
     @Override
     public boolean containsComposite() throws InterruptedException {
-        return containsComposite(2);
+        return containsComposite(threads);
     }
 
     /**
