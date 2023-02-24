@@ -68,7 +68,7 @@ public class BenchConcurrent {
     @BenchmarkMode(Mode.AverageTime)
     @OutputTimeUnit(TimeUnit.MILLISECONDS)
     public void benchThread1(BenchmarkState state) throws InterruptedException {
-        var threadChecker = new CompositeArrayThread(state.arrayPrimes);
+        var threadChecker = new CompositeArrayThread(state.arrayPrimes, 1);
         threadChecker.containsComposite(1);
     }
 
@@ -82,7 +82,7 @@ public class BenchConcurrent {
     @BenchmarkMode(Mode.AverageTime)
     @OutputTimeUnit(TimeUnit.MILLISECONDS)
     public void benchThread2(BenchmarkState state) throws InterruptedException {
-        var threadChecker = new CompositeArrayThread(state.arrayPrimes);
+        var threadChecker = new CompositeArrayThread(state.arrayPrimes, 1);
         threadChecker.containsComposite(2);
     }
 
@@ -96,7 +96,7 @@ public class BenchConcurrent {
     @BenchmarkMode(Mode.AverageTime)
     @OutputTimeUnit(TimeUnit.MILLISECONDS)
     public void benchThread3(BenchmarkState state) throws InterruptedException {
-        var threadChecker = new CompositeArrayThread(state.arrayPrimes);
+        var threadChecker = new CompositeArrayThread(state.arrayPrimes, 1);
         threadChecker.containsComposite(3);
     }
 
@@ -110,7 +110,7 @@ public class BenchConcurrent {
     @BenchmarkMode(Mode.AverageTime)
     @OutputTimeUnit(TimeUnit.MILLISECONDS)
     public void benchThread4(BenchmarkState state) throws InterruptedException {
-        var threadChecker = new CompositeArrayThread(state.arrayPrimes);
+        var threadChecker = new CompositeArrayThread(state.arrayPrimes, 1);
         threadChecker.containsComposite(4);
     }
 
@@ -124,7 +124,7 @@ public class BenchConcurrent {
     @BenchmarkMode(Mode.AverageTime)
     @OutputTimeUnit(TimeUnit.MILLISECONDS)
     public void benchThread8(BenchmarkState state) throws InterruptedException {
-        var threadChecker = new CompositeArrayThread(state.arrayPrimes);
+        var threadChecker = new CompositeArrayThread(state.arrayPrimes, 1);
         threadChecker.containsComposite(8);
     }
 
@@ -138,7 +138,7 @@ public class BenchConcurrent {
     @BenchmarkMode(Mode.AverageTime)
     @OutputTimeUnit(TimeUnit.MILLISECONDS)
     public void benchThread16(BenchmarkState state) throws InterruptedException {
-        var threadChecker = new CompositeArrayThread(state.arrayPrimes);
+        var threadChecker = new CompositeArrayThread(state.arrayPrimes, 1);
         threadChecker.containsComposite(16);
     }
 
