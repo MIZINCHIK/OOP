@@ -161,7 +161,8 @@ implements <a href="CompositeArrayInterface.html" title="interface in io.github.
 <th class="colLast" scope="col">Description</th>
 </tr>
 <tr class="altColor">
-<th class="colConstructorName" scope="row"><code><span class="memberNameLink"><a href="#%3Cinit%3E(int%5B%5D)">CompositeArrayThread</a></span>&#8203;(int[]&nbsp;array)</code></th>
+<th class="colConstructorName" scope="row"><code><span class="memberNameLink"><a href="#%3Cinit%3E(int%5B%5D,int)">CompositeArrayThread</a></span>&#8203;(int[]&nbsp;array,
+                    int&nbsp;defaultThreads)</code></th>
 <td class="colLast">
 <div class="block">Constructs an instance from a reference
  to an array of ints.</div>
@@ -225,18 +226,20 @@ implements <a href="CompositeArrayInterface.html" title="interface in io.github.
 <!--   -->
 </a>
 <h3>Constructor Detail</h3>
-<a id="&lt;init&gt;(int[])">
+<a id="&lt;init&gt;(int[],int)">
 <!--   -->
 </a>
 <ul class="blockListLast">
 <li class="blockList">
 <h4>CompositeArrayThread</h4>
-<pre>public&nbsp;CompositeArrayThread&#8203;(int[]&nbsp;array)</pre>
+<pre>public&nbsp;CompositeArrayThread&#8203;(int[]&nbsp;array,
+                            int&nbsp;defaultThreads)</pre>
 <div class="block">Constructs an instance from a reference
  to an array of ints.</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>array</code> - of ints</dd>
+<dd><code>defaultThreads</code> - the default quantity of threads to summon</dd>
 </dl>
 </li>
 </ul>
@@ -280,7 +283,8 @@ implements <a href="CompositeArrayInterface.html" title="interface in io.github.
                           throws java.lang.InterruptedException</pre>
 <div class="block">Checks whether an array contains a composite int via
  threadsQuantity of parallel PrimeThreads running.
- Uses 2 threads by default.</div>
+ Uses the number of threads specified at the moment
+ of object instantiation.</div>
 <dl>
 <dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
 <dd><code><a href="CompositeArrayInterface.html#containsComposite()">containsComposite</a></code>&nbsp;in interface&nbsp;<code><a href="CompositeArrayInterface.html" title="interface in io.github.mizinchik">CompositeArrayInterface</a></code></dd>
