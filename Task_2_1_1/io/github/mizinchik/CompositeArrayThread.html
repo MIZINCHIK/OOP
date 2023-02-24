@@ -27,7 +27,7 @@
     catch(err) {
     }
 //-->
-var data = {"i0":10};
+var data = {"i0":10,"i1":10};
 var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -122,12 +122,7 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <li>java.lang.Object</li>
 <li>
 <ul class="inheritance">
-<li><a href="CompositeArrayConsecutive.html" title="class in io.github.mizinchik">io.github.mizinchik.CompositeArrayConsecutive</a></li>
-<li>
-<ul class="inheritance">
 <li>io.github.mizinchik.CompositeArrayThread</li>
-</ul>
-</li>
 </ul>
 </li>
 </ul>
@@ -140,7 +135,8 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 </dl>
 <hr>
 <pre>public class <span class="typeNameLabel">CompositeArrayThread</span>
-extends <a href="CompositeArrayConsecutive.html" title="class in io.github.mizinchik">CompositeArrayConsecutive</a></pre>
+extends java.lang.Object
+implements <a href="CompositeArrayInterface.html" title="interface in io.github.mizinchik">CompositeArrayInterface</a></pre>
 <div class="block">Contains an array of ints.
  Can perform both parallel (via Thread class) and
  consecutive checks whether that array contains
@@ -191,6 +187,14 @@ extends <a href="CompositeArrayConsecutive.html" title="class in io.github.mizin
 </tr>
 <tr id="i0" class="altColor">
 <td class="colFirst"><code>boolean</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#containsComposite()">containsComposite</a></span>()</code></th>
+<td class="colLast">
+<div class="block">Checks whether an array contains a composite int via
+ threadsQuantity of parallel PrimeThreads running.</div>
+</td>
+</tr>
+<tr id="i1" class="rowColor">
+<td class="colFirst"><code>boolean</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#containsComposite(int)">containsComposite</a></span>&#8203;(int&nbsp;threadsQuantity)</code></th>
 <td class="colLast">
 <div class="block">Checks whether an array contains a composite int via
@@ -198,13 +202,6 @@ extends <a href="CompositeArrayConsecutive.html" title="class in io.github.mizin
 </td>
 </tr>
 </table>
-<ul class="blockList">
-<li class="blockList"><a id="methods.inherited.from.class.io.github.mizinchik.CompositeArrayConsecutive">
-<!--   -->
-</a>
-<h3>Methods inherited from class&nbsp;io.github.mizinchik.<a href="CompositeArrayConsecutive.html" title="class in io.github.mizinchik">CompositeArrayConsecutive</a></h3>
-<code><a href="CompositeArrayConsecutive.html#containsComposite()">containsComposite</a>, <a href="CompositeArrayConsecutive.html#isPrime(int)">isPrime</a></code></li>
-</ul>
 <ul class="blockList">
 <li class="blockList"><a id="methods.inherited.from.class.java.lang.Object">
 <!--   -->
@@ -256,7 +253,7 @@ extends <a href="CompositeArrayConsecutive.html" title="class in io.github.mizin
 <a id="containsComposite(int)">
 <!--   -->
 </a>
-<ul class="blockListLast">
+<ul class="blockList">
 <li class="blockList">
 <h4>containsComposite</h4>
 <pre class="methodSignature">public&nbsp;boolean&nbsp;containsComposite&#8203;(int&nbsp;threadsQuantity)
@@ -266,6 +263,27 @@ extends <a href="CompositeArrayConsecutive.html" title="class in io.github.mizin
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>threadsQuantity</code> - how many threads to run in parallel</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>true if a composite number is present in an array</dd>
+<dt><span class="throwsLabel">Throws:</span></dt>
+<dd><code>java.lang.InterruptedException</code> - if any thread has interrupted the current thread</dd>
+</dl>
+</li>
+</ul>
+<a id="containsComposite()">
+<!--   -->
+</a>
+<ul class="blockListLast">
+<li class="blockList">
+<h4>containsComposite</h4>
+<pre class="methodSignature">public&nbsp;boolean&nbsp;containsComposite()
+                          throws java.lang.InterruptedException</pre>
+<div class="block">Checks whether an array contains a composite int via
+ threadsQuantity of parallel PrimeThreads running.
+ Uses 2 threads by default.</div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code><a href="CompositeArrayInterface.html#containsComposite()">containsComposite</a></code>&nbsp;in interface&nbsp;<code><a href="CompositeArrayInterface.html" title="interface in io.github.mizinchik">CompositeArrayInterface</a></code></dd>
 <dt><span class="returnLabel">Returns:</span></dt>
 <dd>true if a composite number is present in an array</dd>
 <dt><span class="throwsLabel">Throws:</span></dt>
