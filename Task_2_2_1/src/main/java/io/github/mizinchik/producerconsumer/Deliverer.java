@@ -1,4 +1,4 @@
-package io.github.mizinchik.ProducerConsumer;
+package io.github.mizinchik.producerconsumer;
 
 /**
  * Delivers products made by Producer.

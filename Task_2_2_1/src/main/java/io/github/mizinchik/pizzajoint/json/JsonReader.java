@@ -1,9 +1,9 @@
-package io.github.mizinchik.PizzaJoint.Json;
+package io.github.mizinchik.pizzajoint.json;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.reflect.TypeToken;
-import io.github.mizinchik.PizzaJoint.Pizza;
+import io.github.mizinchik.pizzajoint.Pizza;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileNotFoundException;

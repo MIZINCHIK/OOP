@@ -1,6 +1,6 @@
-package io.github.mizinchik.PizzaJoint;
+package io.github.mizinchik.pizzajoint;
 
-import io.github.mizinchik.ProducerConsumer.WareHouse;
+import io.github.mizinchik.producerconsumer.WareHouse;
 import java.util.ArrayList;
 import java.util.Deque;
 import java.util.LinkedList;

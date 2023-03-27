@@ -1,4 +1,4 @@
-package io.github.mizinchik.PizzaJoint;
+package io.github.mizinchik.pizzajoint;
 
 /**
  * Writes logs of everything happening in the pizzeria

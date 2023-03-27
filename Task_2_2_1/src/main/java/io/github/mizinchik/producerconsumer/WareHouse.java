@@ -1,6 +1,6 @@
-package io.github.mizinchik.ProducerConsumer;
+package io.github.mizinchik.producerconsumer;
 
-import io.github.mizinchik.PizzaJoint.Locks;
+import io.github.mizinchik.pizzajoint.Locks;
 import java.util.List;
 
 /**

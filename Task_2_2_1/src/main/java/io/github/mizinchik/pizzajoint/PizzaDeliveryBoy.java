@@ -1,6 +1,6 @@
-package io.github.mizinchik.PizzaJoint;
+package io.github.mizinchik.pizzajoint;
 
-import io.github.mizinchik.ProducerConsumer.Deliverer;
+import io.github.mizinchik.producerconsumer.Deliverer;
 import java.util.List;
 
 /**

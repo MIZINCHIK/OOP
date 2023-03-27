@@ -1,6 +1,6 @@
-package io.github.mizinchik.PizzaJoint;
+package io.github.mizinchik.pizzajoint;
 
-import io.github.mizinchik.ProducerConsumer.Order;
+import io.github.mizinchik.producerconsumer.Order;
 
 /**
  * Pizzas that are cooked at the pizzeria.

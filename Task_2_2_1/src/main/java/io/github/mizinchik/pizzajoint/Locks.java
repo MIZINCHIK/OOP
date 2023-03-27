@@ -1,4 +1,4 @@
-package io.github.mizinchik.PizzaJoint;
+package io.github.mizinchik.pizzajoint;
 
 /**
  * Locks for producer-consumer pattern implementation.
