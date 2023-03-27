@@ -6,7 +6,7 @@
 <title>WareHouse (Task_2_2_1 1.0-SNAPSHOT API)</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<meta name="description" content="declaration: package: io.github.mizinchik.ProducerConsumer, interface: WareHouse">
+<meta name="description" content="declaration: package: io.github.mizinchik.producerconsumer, interface: WareHouse">
 <meta name="generator" content="javadoc/ClassWriterImpl">
 <link rel="stylesheet" type="text/css" href="../../../../stylesheet.css" title="Style">
 <link rel="stylesheet" type="text/css" href="../../../../script-dir/jquery-ui.min.css" title="Style">
@@ -70,8 +70,8 @@ loadScripts(document, 'script');</script>
 <main role="main">
 <!-- ======== START OF CLASS DATA ======== -->
 <div class="header">
-<div class="sub-title"><span class="package-label-in-type">Package</span>&nbsp;<a href="package-summary.html">io.github.mizinchik.ProducerConsumer</a></div>
-<h1 title="Interface WareHouse" class="title">Interface WareHouse&lt;T extends <a href="Order.html" title="interface in io.github.mizinchik.ProducerConsumer">Order</a>&gt;</h1>
+<div class="sub-title"><span class="package-label-in-type">Package</span>&nbsp;<a href="package-summary.html">io.github.mizinchik.producerconsumer</a></div>
+<h1 title="Interface WareHouse" class="title">Interface WareHouse&lt;T extends <a href="Order.html" title="interface in io.github.mizinchik.producerconsumer">Order</a>&gt;</h1>
 </div>
 <section class="description">
 <dl class="notes">
@@ -80,10 +80,10 @@ loadScripts(document, 'script');</script>
 </dl>
 <dl class="notes">
 <dt>All Known Implementing Classes:</dt>
-<dd><code><a href="../PizzaJoint/PizzaStorage.html" title="class in io.github.mizinchik.PizzaJoint">PizzaStorage</a></code></dd>
+<dd><code><a href="../pizzajoint/PizzaStorage.html" title="class in io.github.mizinchik.pizzajoint">PizzaStorage</a></code></dd>
 </dl>
 <hr>
-<div class="type-signature"><span class="modifiers">public interface </span><span class="element-name type-name-label">WareHouse&lt;T extends <a href="Order.html" title="interface in io.github.mizinchik.ProducerConsumer">Order</a>&gt;</span></div>
+<div class="type-signature"><span class="modifiers">public interface </span><span class="element-name type-name-label">WareHouse&lt;T extends <a href="Order.html" title="interface in io.github.mizinchik.producerconsumer">Order</a>&gt;</span></div>
 <div class="block">WareHouse where producers put
  and deliverers take ready orders.</div>
 </section>
@@ -125,7 +125,7 @@ loadScripts(document, 'script');</script>
 <div class="col-last even-row-color method-summary-table-tab2 method-summary-table method-summary-table-tab3">
 <div class="block">Check if there are still cooks on duty.</div>
 </div>
-<div class="col-first odd-row-color method-summary-table-tab2 method-summary-table method-summary-table-tab3"><code><a href="../PizzaJoint/Locks.html" title="class in io.github.mizinchik.PizzaJoint">Locks</a></code></div>
+<div class="col-first odd-row-color method-summary-table-tab2 method-summary-table method-summary-table-tab3"><code><a href="../pizzajoint/Locks.html" title="class in io.github.mizinchik.pizzajoint">Locks</a></code></div>
 <div class="col-second odd-row-color method-summary-table-tab2 method-summary-table method-summary-table-tab3"><code><span class="member-name-link"><a href="#locks()">locks</a></span>()</code></div>
 <div class="col-last odd-row-color method-summary-table-tab2 method-summary-table method-summary-table-tab3">
 <div class="block">Get locks for producers and consumers</div>
@@ -146,7 +146,7 @@ loadScripts(document, 'script');</script>
 <ul class="member-list">
 <li>
 <section class="detail" id="addWare(T)">
-<h3 id="addWare(io.github.mizinchik.ProducerConsumer.Order)">addWare</h3>
+<h3 id="addWare(io.github.mizinchik.producerconsumer.Order)">addWare</h3>
 <div class="member-signature"><span class="return-type">void</span>&nbsp;<span class="element-name">addWare</span>&#8203;<span class="parameters">(<a href="WareHouse.html" title="type parameter in WareHouse">T</a>&nbsp;order)</span></div>
 <div class="block">Add an order to the stock.</div>
 <dl class="notes">
@@ -193,7 +193,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="locks()">
 <h3>locks</h3>
-<div class="member-signature"><span class="return-type"><a href="../PizzaJoint/Locks.html" title="class in io.github.mizinchik.PizzaJoint">Locks</a></span>&nbsp;<span class="element-name">locks</span>()</div>
+<div class="member-signature"><span class="return-type"><a href="../pizzajoint/Locks.html" title="class in io.github.mizinchik.pizzajoint">Locks</a></span>&nbsp;<span class="element-name">locks</span>()</div>
 <div class="block">Get locks for producers and consumers</div>
 <dl class="notes">
 <dt>Returns:</dt>
