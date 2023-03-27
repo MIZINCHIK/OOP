@@ -14,7 +14,8 @@ public class Logger {
      * @param cook who's cooking
      */
     public static void cookingOrder(Pizza pizza, PizzaCook cook) {
-        System.out.println("The order number " + pizza.id() + " has started to be cooked by the cook of id "
+        System.out.println("The order number " + pizza.id()
+                + " has started to be cooked by the cook of id "
                 + cook.id());
     }
 
@@ -25,7 +26,8 @@ public class Logger {
      * @param cook who's been cooking
      */
     public static void orderCooked(Pizza pizza, PizzaCook cook) {
-        System.out.println("The order number " + pizza.id() + " has been cooked by the cook of id " + cook.id());
+        System.out.println("The order number " + pizza.id()
+                + " has been cooked by the cook of id " + cook.id());
     }
 
     /**
@@ -35,7 +37,8 @@ public class Logger {
      * @param cook who cooked
      */
     public static void orderPutToStorage(Pizza pizza, PizzaCook cook) {
-        System.out.println("The order number " + pizza.id() + " has been put to storage by the cook of id " + cook.id());
+        System.out.println("The order number " + pizza.id()
+                + " has been put to storage by the cook of id " + cook.id());
     }
 
     /**
@@ -45,7 +48,8 @@ public class Logger {
      * @param boy who's delivering
      */
     public static void deliveringOrder(Pizza pizza, PizzaDeliveryBoy boy) {
-        System.out.println("The order number " + pizza.id() + " has been handed to deliveryboy of id " + boy.id());
+        System.out.println("The order number " + pizza.id()
+                + " has been handed to deliveryboy of id " + boy.id());
     }
 
     /**
@@ -55,7 +59,8 @@ public class Logger {
      * @param boy who's delivering
      */
     public static void orderDelivered(Pizza pizza, PizzaDeliveryBoy boy) {
-        System.out.println("The order number " + pizza.id() + " has been delivered by the deliveryboy of id " + boy.id());
+        System.out.println("The order number " + pizza.id()
+                + " has been delivered by the deliveryboy of id " + boy.id());
     }
 
     /**

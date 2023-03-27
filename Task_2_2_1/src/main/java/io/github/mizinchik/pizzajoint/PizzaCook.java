@@ -62,7 +62,7 @@ public class PizzaCook implements Producer, Runnable {
                 Logger.orderCooked(pizza, this);
             }
             this.order.addAll(order);
-            while(storage.isFull()) {
+            while (storage.isFull()) {
                 try {
                     storage.locks().waitFull();
                 } catch (InterruptedException e) {

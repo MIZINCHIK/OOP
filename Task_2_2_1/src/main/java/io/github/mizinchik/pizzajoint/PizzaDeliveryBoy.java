@@ -36,7 +36,7 @@ public class PizzaDeliveryBoy implements Deliverer, Runnable {
     @Override
     public void deliver() throws RuntimeException {
         Logger.deliveryboyArrived(this);
-        while(storage.isWorking() || !storage.isEmpty()) {
+        while (storage.isWorking() || !storage.isEmpty()) {
             while (storage.isWorking() && storage.isEmpty()) {
                 try {
                     storage.locks().waitEmpty();

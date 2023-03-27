@@ -41,7 +41,8 @@ public class PizzaStorage implements WareHouse<Pizza> {
     public void addWare(Pizza order) throws IllegalArgumentException {
         synchronized (readyOrders) {
             if (vacant == 0) {
-                throw new IllegalArgumentException("The storage can't accommodate that much pizzas");
+                throw new IllegalArgumentException(
+                        "The storage can't accommodate that much pizzas");
             } else {
                 vacant--;
                 readyOrders.add(order);
@@ -110,7 +111,7 @@ public class PizzaStorage implements WareHouse<Pizza> {
     }
 
     /**
-     * Get locks for producers and consumers
+     * Get locks for producers and consumers.
      *
      * @return Lock shared between every entity in the pizzeria.
      */
