@@ -2,7 +2,6 @@ package io.github.mizinchik.PizzaJoint;
 
 import io.github.mizinchik.Json.JsonReader;
 import io.github.mizinchik.ProducerConsumer.Shop;
-
 import java.util.Deque;
 import java.util.LinkedList;
 import java.util.List;

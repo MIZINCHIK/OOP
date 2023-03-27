@@ -1,7 +1,6 @@
 package io.github.mizinchik.PizzaJoint;
 
 import io.github.mizinchik.ProducerConsumer.Deliverer;
-
 import java.util.List;
 
 public class PizzaDeliveryBoy implements Deliverer, Runnable {

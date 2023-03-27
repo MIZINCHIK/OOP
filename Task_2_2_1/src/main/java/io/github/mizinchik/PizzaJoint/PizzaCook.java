@@ -1,7 +1,6 @@
 package io.github.mizinchik.PizzaJoint;
 
 import io.github.mizinchik.ProducerConsumer.Producer;
-
 import java.util.LinkedList;
 import java.util.List;
 
