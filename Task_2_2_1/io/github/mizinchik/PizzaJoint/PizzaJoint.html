@@ -85,6 +85,8 @@ loadScripts(document, 'script');</script>
 <div class="type-signature"><span class="modifiers">public class </span><span class="element-name type-name-label">PizzaJoint</span>
 <span class="extends-implements">extends <a href="https://docs.oracle.com/en/java/javase/16/docs/api/java.base/java/lang/Object.html" title="class or interface in java.lang" class="external-link">Object</a>
 implements <a href="../ProducerConsumer/Shop.html" title="interface in io.github.mizinchik.ProducerConsumer">Shop</a>&lt;<a href="Pizza.html" title="class in io.github.mizinchik.PizzaJoint">Pizza</a>&gt;</span></div>
+<div class="block">Pizzeria. Cooks cook, delivery boys deliver.
+ Concurrent.</div>
 </section>
 <section class="summary">
 <ul class="summary-list">
@@ -97,7 +99,9 @@ implements <a href="../ProducerConsumer/Shop.html" title="interface in io.github
 <div class="table-header col-first">Constructor</div>
 <div class="table-header col-last">Description</div>
 <div class="col-constructor-name even-row-color"><code><span class="member-name-link"><a href="#%3Cinit%3E()">PizzaJoint</a></span>()</code></div>
-<div class="col-last even-row-color">&nbsp;</div>
+<div class="col-last even-row-color">
+<div class="block">Creates a joint.</div>
+</div>
 </div>
 </section>
 </li>
@@ -114,7 +118,10 @@ implements <a href="../ProducerConsumer/Shop.html" title="interface in io.github
 <div class="table-header col-last">Description</div>
 <div class="col-first even-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table"><code><a href="https://docs.oracle.com/en/java/javase/16/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="Pizza.html" title="class in io.github.mizinchik.PizzaJoint">Pizza</a>&gt;</code></div>
 <div class="col-second even-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table"><code><span class="member-name-link"><a href="#nextOrder(int)">nextOrder</a></span>&#8203;(int&nbsp;capacity)</code></div>
-<div class="col-last even-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table">&nbsp;</div>
+<div class="col-last even-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table">
+<div class="block">Gives maximum amount of orders from the inner list
+ in the same form.</div>
+</div>
 </div>
 </div>
 </div>
@@ -137,9 +144,11 @@ implements <a href="../ProducerConsumer/Shop.html" title="interface in io.github
 <h3>PizzaJoint</h3>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="element-name">PizzaJoint</span>()
            throws <span class="exceptions"><a href="https://docs.oracle.com/en/java/javase/16/docs/api/java.base/java/lang/Exception.html" title="class or interface in java.lang" class="external-link">Exception</a></span></div>
+<div class="block">Creates a joint. Takes the orders from the
+ respective json file.</div>
 <dl class="notes">
 <dt>Throws:</dt>
-<dd><code><a href="https://docs.oracle.com/en/java/javase/16/docs/api/java.base/java/lang/Exception.html" title="class or interface in java.lang" class="external-link">Exception</a></code></dd>
+<dd><code><a href="https://docs.oracle.com/en/java/javase/16/docs/api/java.base/java/lang/Exception.html" title="class or interface in java.lang" class="external-link">Exception</a></code> - if deserialization was not successful</dd>
 </dl>
 </section>
 </li>
@@ -155,9 +164,15 @@ implements <a href="../ProducerConsumer/Shop.html" title="interface in io.github
 <section class="detail" id="nextOrder(int)">
 <h3>nextOrder</h3>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/16/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="Pizza.html" title="class in io.github.mizinchik.PizzaJoint">Pizza</a>&gt;</span>&nbsp;<span class="element-name">nextOrder</span>&#8203;<span class="parameters">(int&nbsp;capacity)</span></div>
+<div class="block">Gives maximum amount of orders from the inner list
+ in the same form.</div>
 <dl class="notes">
 <dt>Specified by:</dt>
 <dd><code><a href="../ProducerConsumer/Shop.html#nextOrder(int)">nextOrder</a></code>&nbsp;in interface&nbsp;<code><a href="../ProducerConsumer/Shop.html" title="interface in io.github.mizinchik.ProducerConsumer">Shop</a>&lt;<a href="Pizza.html" title="class in io.github.mizinchik.PizzaJoint">Pizza</a>&gt;</code></dd>
+<dt>Parameters:</dt>
+<dd><code>capacity</code> - maximum amount of orders</dd>
+<dt>Returns:</dt>
+<dd>list of orders</dd>
 </dl>
 </section>
 </li>

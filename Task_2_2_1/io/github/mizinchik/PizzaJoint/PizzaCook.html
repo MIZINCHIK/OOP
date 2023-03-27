@@ -85,6 +85,7 @@ loadScripts(document, 'script');</script>
 <div class="type-signature"><span class="modifiers">public class </span><span class="element-name type-name-label">PizzaCook</span>
 <span class="extends-implements">extends <a href="https://docs.oracle.com/en/java/javase/16/docs/api/java.base/java/lang/Object.html" title="class or interface in java.lang" class="external-link">Object</a>
 implements <a href="../ProducerConsumer/Producer.html" title="interface in io.github.mizinchik.ProducerConsumer">Producer</a>, <a href="https://docs.oracle.com/en/java/javase/16/docs/api/java.base/java/lang/Runnable.html" title="class or interface in java.lang" class="external-link">Runnable</a></span></div>
+<div class="block">Cooks for the pizzeria.</div>
 </section>
 <section class="summary">
 <ul class="summary-list">
@@ -101,7 +102,9 @@ implements <a href="../ProducerConsumer/Producer.html" title="interface in io.gi
  int&nbsp;time,
  int&nbsp;capacity,
  int&nbsp;id)</code></div>
-<div class="col-last even-row-color">&nbsp;</div>
+<div class="col-last even-row-color">
+<div class="block">Constructs the worker.</div>
+</div>
 </div>
 </section>
 </li>
@@ -118,13 +121,21 @@ implements <a href="../ProducerConsumer/Producer.html" title="interface in io.gi
 <div class="table-header col-last">Description</div>
 <div class="col-first even-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table"><code>int</code></div>
 <div class="col-second even-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table"><code><span class="member-name-link"><a href="#id()">id</a></span>()</code></div>
-<div class="col-last even-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table">&nbsp;</div>
+<div class="col-last even-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table">
+<div class="block">Get the id.</div>
+</div>
 <div class="col-first odd-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table"><code>void</code></div>
 <div class="col-second odd-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table"><code><span class="member-name-link"><a href="#produce()">produce</a></span>()</code></div>
-<div class="col-last odd-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table">&nbsp;</div>
+<div class="col-last odd-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table">
+<div class="block">Take as many orders as they can handle,
+ cook them, wait for the storage to leave some unoccupied space,
+ put it there, repeat.</div>
+</div>
 <div class="col-first even-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table"><code>void</code></div>
 <div class="col-second even-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table"><code><span class="member-name-link"><a href="#run()">run</a></span>()</code></div>
-<div class="col-last even-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table">&nbsp;</div>
+<div class="col-last even-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table">
+<div class="block">Run the de-facto thread.</div>
+</div>
 </div>
 </div>
 </div>
@@ -150,6 +161,16 @@ implements <a href="../ProducerConsumer/Producer.html" title="interface in io.gi
  int&nbsp;time,
  int&nbsp;capacity,
  int&nbsp;id)</span></div>
+<div class="block">Constructs the worker. The vacant space changes from 0 to capacity by the
+ logic of this whole package.</div>
+<dl class="notes">
+<dt>Parameters:</dt>
+<dd><code>joint</code> - where they work</dd>
+<dd><code>storage</code> - where they put cooked orders</dd>
+<dd><code>time</code> - to cook one order</dd>
+<dd><code>capacity</code> - of orders, they can cook consequently</dd>
+<dd><code>id</code> - identification of the worker</dd>
+</dl>
 </section>
 </li>
 </ul>
@@ -165,11 +186,15 @@ implements <a href="../ProducerConsumer/Producer.html" title="interface in io.gi
 <h3>produce</h3>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">produce</span>()
              throws <span class="exceptions"><a href="https://docs.oracle.com/en/java/javase/16/docs/api/java.base/java/lang/RuntimeException.html" title="class or interface in java.lang" class="external-link">RuntimeException</a></span></div>
+<div class="block">Take as many orders as they can handle,
+ cook them, wait for the storage to leave some unoccupied space,
+ put it there, repeat. When there are no more orders to cook,
+ they leave.</div>
 <dl class="notes">
 <dt>Specified by:</dt>
 <dd><code><a href="../ProducerConsumer/Producer.html#produce()">produce</a></code>&nbsp;in interface&nbsp;<code><a href="../ProducerConsumer/Producer.html" title="interface in io.github.mizinchik.ProducerConsumer">Producer</a></code></dd>
 <dt>Throws:</dt>
-<dd><code><a href="https://docs.oracle.com/en/java/javase/16/docs/api/java.base/java/lang/RuntimeException.html" title="class or interface in java.lang" class="external-link">RuntimeException</a></code></dd>
+<dd><code><a href="https://docs.oracle.com/en/java/javase/16/docs/api/java.base/java/lang/RuntimeException.html" title="class or interface in java.lang" class="external-link">RuntimeException</a></code> - if sleeping didn't go well</dd>
 </dl>
 </section>
 </li>
@@ -177,9 +202,12 @@ implements <a href="../ProducerConsumer/Producer.html" title="interface in io.gi
 <section class="detail" id="id()">
 <h3>id</h3>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">int</span>&nbsp;<span class="element-name">id</span>()</div>
+<div class="block">Get the id.</div>
 <dl class="notes">
 <dt>Specified by:</dt>
 <dd><code><a href="../ProducerConsumer/Producer.html#id()">id</a></code>&nbsp;in interface&nbsp;<code><a href="../ProducerConsumer/Producer.html" title="interface in io.github.mizinchik.ProducerConsumer">Producer</a></code></dd>
+<dt>Returns:</dt>
+<dd>identification number</dd>
 </dl>
 </section>
 </li>
@@ -187,6 +215,7 @@ implements <a href="../ProducerConsumer/Producer.html" title="interface in io.gi
 <section class="detail" id="run()">
 <h3>run</h3>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">run</span>()</div>
+<div class="block">Run the de-facto thread.</div>
 <dl class="notes">
 <dt>Specified by:</dt>
 <dd><code><a href="https://docs.oracle.com/en/java/javase/16/docs/api/java.base/java/lang/Runnable.html#run()" title="class or interface in java.lang" class="external-link">run</a></code>&nbsp;in interface&nbsp;<code><a href="https://docs.oracle.com/en/java/javase/16/docs/api/java.base/java/lang/Runnable.html" title="class or interface in java.lang" class="external-link">Runnable</a></code></dd>

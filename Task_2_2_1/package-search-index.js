@@ -1,1 +1,1 @@
-packageSearchIndex = [{"l":"All Packages","u":"allpackages-index.html"},{"l":"io.github.mizinchik.Json"},{"l":"io.github.mizinchik.PizzaJoint"},{"l":"io.github.mizinchik.ProducerConsumer"}];updateSearchResults();
+packageSearchIndex = [{"l":"All Packages","u":"allpackages-index.html"},{"l":"io.github.mizinchik.PizzaJoint"},{"l":"io.github.mizinchik.PizzaJoint.Json"},{"l":"io.github.mizinchik.ProducerConsumer"}];updateSearchResults();

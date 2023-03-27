@@ -80,6 +80,11 @@ loadScripts(document, 'script');</script>
 </div>
 <section class="description">
 <dl class="notes">
+<dt>Record Components:</dt>
+<dd><code><span id="param-id">id</span></code> - identifies the order</dd>
+<dd><code><span id="param-time">time</span></code> - needed to deliver the order in milliseconds</dd>
+</dl>
+<dl class="notes">
 <dt>All Implemented Interfaces:</dt>
 <dd><code><a href="../ProducerConsumer/Order.html" title="interface in io.github.mizinchik.ProducerConsumer">Order</a></code></dd>
 </dl>
@@ -87,6 +92,7 @@ loadScripts(document, 'script');</script>
 <div class="type-signature"><span class="modifiers">public record </span><span class="element-name type-name-label">Pizza</span>(int&nbsp;id, int&nbsp;time)
 <span class="extends-implements">extends <a href="https://docs.oracle.com/en/java/javase/16/docs/api/java.base/java/lang/Record.html" title="class or interface in java.lang" class="external-link">Record</a>
 implements <a href="../ProducerConsumer/Order.html" title="interface in io.github.mizinchik.ProducerConsumer">Order</a></span></div>
+<div class="block">Pizzas that are cooked at the pizzeria.</div>
 </section>
 <section class="summary">
 <ul class="summary-list">
@@ -130,12 +136,12 @@ implements <a href="../ProducerConsumer/Order.html" title="interface in io.githu
 <div class="col-first even-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table"><code>int</code></div>
 <div class="col-second even-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table"><code><span class="member-name-link"><a href="#id()">id</a></span>()</code></div>
 <div class="col-last even-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table">
-<div class="block">Returns the value of the <code>id</code> record component.</div>
+<div class="block">Returns the value of the <a href="#param-id"><code>id</code></a> record component.</div>
 </div>
 <div class="col-first odd-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table"><code>int</code></div>
 <div class="col-second odd-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table"><code><span class="member-name-link"><a href="#time()">time</a></span>()</code></div>
 <div class="col-last odd-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table">
-<div class="block">Returns the value of the <code>time</code> record component.</div>
+<div class="block">Returns the value of the <a href="#param-time"><code>time</code></a> record component.</div>
 </div>
 <div class="col-first even-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table"><code><a href="https://docs.oracle.com/en/java/javase/16/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></code></div>
 <div class="col-second even-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table"><code><span class="member-name-link"><a href="#toString()">toString</a></span>()</code></div>
@@ -167,8 +173,8 @@ implements <a href="../ProducerConsumer/Order.html" title="interface in io.githu
 <div class="block">Creates an instance of a <code>Pizza</code> record class.</div>
 <dl class="notes">
 <dt>Parameters:</dt>
-<dd><code>id</code> - the value for the <code>id</code> record component</dd>
-<dd><code>time</code> - the value for the <code>time</code> record component</dd>
+<dd><code>id</code> - the value for the <a href="#param-id"><code>id</code></a> record component</dd>
+<dd><code>time</code> - the value for the <a href="#param-time"><code>time</code></a> record component</dd>
 </dl>
 </section>
 </li>
@@ -225,12 +231,12 @@ implements <a href="../ProducerConsumer/Order.html" title="interface in io.githu
 <section class="detail" id="id()">
 <h3>id</h3>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">int</span>&nbsp;<span class="element-name">id</span>()</div>
-<div class="block">Returns the value of the <code>id</code> record component.</div>
+<div class="block">Returns the value of the <a href="#param-id"><code>id</code></a> record component.</div>
 <dl class="notes">
 <dt>Specified by:</dt>
 <dd><code><a href="../ProducerConsumer/Order.html#id()">id</a></code>&nbsp;in interface&nbsp;<code><a href="../ProducerConsumer/Order.html" title="interface in io.github.mizinchik.ProducerConsumer">Order</a></code></dd>
 <dt>Returns:</dt>
-<dd>the value of the <code>id</code> record component</dd>
+<dd>the value of the <a href="#param-id"><code>id</code></a> record component</dd>
 </dl>
 </section>
 </li>
@@ -238,12 +244,12 @@ implements <a href="../ProducerConsumer/Order.html" title="interface in io.githu
 <section class="detail" id="time()">
 <h3>time</h3>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">int</span>&nbsp;<span class="element-name">time</span>()</div>
-<div class="block">Returns the value of the <code>time</code> record component.</div>
+<div class="block">Returns the value of the <a href="#param-time"><code>time</code></a> record component.</div>
 <dl class="notes">
 <dt>Specified by:</dt>
 <dd><code><a href="../ProducerConsumer/Order.html#time()">time</a></code>&nbsp;in interface&nbsp;<code><a href="../ProducerConsumer/Order.html" title="interface in io.github.mizinchik.ProducerConsumer">Order</a></code></dd>
 <dt>Returns:</dt>
-<dd>the value of the <code>time</code> record component</dd>
+<dd>the value of the <a href="#param-time"><code>time</code></a> record component</dd>
 </dl>
 </section>
 </li>
