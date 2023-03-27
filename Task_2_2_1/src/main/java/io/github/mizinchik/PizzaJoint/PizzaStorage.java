@@ -1,8 +1,11 @@
 package io.github.mizinchik.PizzaJoint;
 
 import io.github.mizinchik.ProducerConsumer.WareHouse;
-
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Deque;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Random;
 
 public class PizzaStorage implements WareHouse<Pizza> {
     private final Deque<Pizza> readyOrders = new LinkedList<>();

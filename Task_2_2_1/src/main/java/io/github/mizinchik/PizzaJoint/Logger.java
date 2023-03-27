@@ -1,9 +1,5 @@
 package io.github.mizinchik.PizzaJoint;
 
-import io.github.mizinchik.PizzaJoint.Pizza;
-import io.github.mizinchik.PizzaJoint.PizzaCook;
-import io.github.mizinchik.PizzaJoint.PizzaDeliveryBoy;
-
 public class Logger {
     public static void cookingOrder(Pizza pizza, PizzaCook cook) {
         System.out.println("The order number " + pizza.id() + " has started to be cooked by the cook of id "

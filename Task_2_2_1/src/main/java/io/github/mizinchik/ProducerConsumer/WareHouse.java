@@ -1,7 +1,6 @@
 package io.github.mizinchik.ProducerConsumer;
 
 import io.github.mizinchik.PizzaJoint.Locks;
-
 import java.util.List;
 
 public interface WareHouse<T extends Order> {
