@@ -3,14 +3,13 @@ package io.github.mizinchik;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
-import io.github.mizinchik.pizzajoint.json.JsonReader;
-import io.github.mizinchik.pizzajoint.json.JsonWriter;
 import io.github.mizinchik.pizzajoint.Pizza;
-import io.github.mizinchik.pizzajoint.PizzaDeliveryBoy;
 import io.github.mizinchik.pizzajoint.PizzaCook;
+import io.github.mizinchik.pizzajoint.PizzaDeliveryBoy;
 import io.github.mizinchik.pizzajoint.PizzaJoint;
 import io.github.mizinchik.pizzajoint.PizzaStorage;
-import java.io.ByteArrayOutputStream;
+import io.github.mizinchik.pizzajoint.json.JsonReader;
+import io.github.mizinchik.pizzajoint.json.JsonWriter;import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
 import java.util.ArrayList;
 import java.util.List;
@@ -74,7 +73,8 @@ public class TestPizza {
         for (int i = 0; i < threads; i++) {
             PizzaCook cook = new PizzaCook(joint, storage, random.nextInt(1000) + 1000,
                     random.nextInt(capacity / 2) + 1, i);
-            PizzaDeliveryBoy boy = new PizzaDeliveryBoy(random.nextInt(capacity / 2) + 1, storage, i);
+            PizzaDeliveryBoy boy = new PizzaDeliveryBoy(
+                    random.nextInt(capacity / 2) + 1, storage, i);
             cooks.add(cook);
             delivery.add(boy);
         }

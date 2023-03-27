@@ -41,7 +41,7 @@ public interface WareHouse<T extends Order> {
     boolean isEmpty();
 
     /**
-     * Get locks for producers and consumers
+     * Get locks for producers and consumers.
      *
      * @return Lock shared between every entity in the pizzeria.
      */
