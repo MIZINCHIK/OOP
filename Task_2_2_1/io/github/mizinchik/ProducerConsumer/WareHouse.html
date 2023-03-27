@@ -75,11 +75,17 @@ loadScripts(document, 'script');</script>
 </div>
 <section class="description">
 <dl class="notes">
+<dt>Type Parameters:</dt>
+<dd><code>T</code> - Product</dd>
+</dl>
+<dl class="notes">
 <dt>All Known Implementing Classes:</dt>
 <dd><code><a href="../PizzaJoint/PizzaStorage.html" title="class in io.github.mizinchik.PizzaJoint">PizzaStorage</a></code></dd>
 </dl>
 <hr>
 <div class="type-signature"><span class="modifiers">public interface </span><span class="element-name type-name-label">WareHouse&lt;T extends <a href="Order.html" title="interface in io.github.mizinchik.ProducerConsumer">Order</a>&gt;</span></div>
+<div class="block">WareHouse where producers put
+ and deliverers take ready orders.</div>
 </section>
 <section class="summary">
 <ul class="summary-list">
@@ -96,22 +102,34 @@ loadScripts(document, 'script');</script>
 <div class="table-header col-last">Description</div>
 <div class="col-first even-row-color method-summary-table-tab2 method-summary-table method-summary-table-tab3"><code>void</code></div>
 <div class="col-second even-row-color method-summary-table-tab2 method-summary-table method-summary-table-tab3"><code><span class="member-name-link"><a href="#addWare(T)">addWare</a></span>&#8203;(<a href="WareHouse.html" title="type parameter in WareHouse">T</a>&nbsp;order)</code></div>
-<div class="col-last even-row-color method-summary-table-tab2 method-summary-table method-summary-table-tab3">&nbsp;</div>
+<div class="col-last even-row-color method-summary-table-tab2 method-summary-table method-summary-table-tab3">
+<div class="block">Add an order to the stock.</div>
+</div>
 <div class="col-first odd-row-color method-summary-table-tab2 method-summary-table method-summary-table-tab3"><code><a href="https://docs.oracle.com/en/java/javase/16/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="WareHouse.html" title="type parameter in WareHouse">T</a>&gt;</code></div>
 <div class="col-second odd-row-color method-summary-table-tab2 method-summary-table method-summary-table-tab3"><code><span class="member-name-link"><a href="#giveOrder(int)">giveOrder</a></span>&#8203;(int&nbsp;capacity)</code></div>
-<div class="col-last odd-row-color method-summary-table-tab2 method-summary-table method-summary-table-tab3">&nbsp;</div>
+<div class="col-last odd-row-color method-summary-table-tab2 method-summary-table method-summary-table-tab3">
+<div class="block">Hand the orders for delivery.</div>
+</div>
 <div class="col-first even-row-color method-summary-table-tab2 method-summary-table method-summary-table-tab3"><code>boolean</code></div>
 <div class="col-second even-row-color method-summary-table-tab2 method-summary-table method-summary-table-tab3"><code><span class="member-name-link"><a href="#isEmpty()">isEmpty</a></span>()</code></div>
-<div class="col-last even-row-color method-summary-table-tab2 method-summary-table method-summary-table-tab3">&nbsp;</div>
+<div class="col-last even-row-color method-summary-table-tab2 method-summary-table method-summary-table-tab3">
+<div class="block">Check if the storage is empty.</div>
+</div>
 <div class="col-first odd-row-color method-summary-table-tab2 method-summary-table method-summary-table-tab3"><code>boolean</code></div>
 <div class="col-second odd-row-color method-summary-table-tab2 method-summary-table method-summary-table-tab3"><code><span class="member-name-link"><a href="#isFull()">isFull</a></span>()</code></div>
-<div class="col-last odd-row-color method-summary-table-tab2 method-summary-table method-summary-table-tab3">&nbsp;</div>
+<div class="col-last odd-row-color method-summary-table-tab2 method-summary-table method-summary-table-tab3">
+<div class="block">Check if the storage is full.</div>
+</div>
 <div class="col-first even-row-color method-summary-table-tab2 method-summary-table method-summary-table-tab3"><code>boolean</code></div>
 <div class="col-second even-row-color method-summary-table-tab2 method-summary-table method-summary-table-tab3"><code><span class="member-name-link"><a href="#isWorking()">isWorking</a></span>()</code></div>
-<div class="col-last even-row-color method-summary-table-tab2 method-summary-table method-summary-table-tab3">&nbsp;</div>
+<div class="col-last even-row-color method-summary-table-tab2 method-summary-table method-summary-table-tab3">
+<div class="block">Check if there are still cooks on duty.</div>
+</div>
 <div class="col-first odd-row-color method-summary-table-tab2 method-summary-table method-summary-table-tab3"><code><a href="../PizzaJoint/Locks.html" title="class in io.github.mizinchik.PizzaJoint">Locks</a></code></div>
 <div class="col-second odd-row-color method-summary-table-tab2 method-summary-table method-summary-table-tab3"><code><span class="member-name-link"><a href="#locks()">locks</a></span>()</code></div>
-<div class="col-last odd-row-color method-summary-table-tab2 method-summary-table method-summary-table-tab3">&nbsp;</div>
+<div class="col-last odd-row-color method-summary-table-tab2 method-summary-table method-summary-table-tab3">
+<div class="block">Get locks for producers and consumers</div>
+</div>
 </div>
 </div>
 </div>
@@ -130,36 +148,68 @@ loadScripts(document, 'script');</script>
 <section class="detail" id="addWare(T)">
 <h3 id="addWare(io.github.mizinchik.ProducerConsumer.Order)">addWare</h3>
 <div class="member-signature"><span class="return-type">void</span>&nbsp;<span class="element-name">addWare</span>&#8203;<span class="parameters">(<a href="WareHouse.html" title="type parameter in WareHouse">T</a>&nbsp;order)</span></div>
+<div class="block">Add an order to the stock.</div>
+<dl class="notes">
+<dt>Parameters:</dt>
+<dd><code>order</code> - that's been produced</dd>
+</dl>
 </section>
 </li>
 <li>
 <section class="detail" id="giveOrder(int)">
 <h3>giveOrder</h3>
 <div class="member-signature"><span class="return-type"><a href="https://docs.oracle.com/en/java/javase/16/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="WareHouse.html" title="type parameter in WareHouse">T</a>&gt;</span>&nbsp;<span class="element-name">giveOrder</span>&#8203;<span class="parameters">(int&nbsp;capacity)</span></div>
+<div class="block">Hand the orders for delivery.</div>
+<dl class="notes">
+<dt>Parameters:</dt>
+<dd><code>capacity</code> - max amount of orders to hand</dd>
+<dt>Returns:</dt>
+<dd>list of orders</dd>
+</dl>
 </section>
 </li>
 <li>
 <section class="detail" id="isFull()">
 <h3>isFull</h3>
 <div class="member-signature"><span class="return-type">boolean</span>&nbsp;<span class="element-name">isFull</span>()</div>
+<div class="block">Check if the storage is full.</div>
+<dl class="notes">
+<dt>Returns:</dt>
+<dd>true if stock is full</dd>
+</dl>
 </section>
 </li>
 <li>
 <section class="detail" id="isEmpty()">
 <h3>isEmpty</h3>
 <div class="member-signature"><span class="return-type">boolean</span>&nbsp;<span class="element-name">isEmpty</span>()</div>
+<div class="block">Check if the storage is empty.</div>
+<dl class="notes">
+<dt>Returns:</dt>
+<dd>true if empty</dd>
+</dl>
 </section>
 </li>
 <li>
 <section class="detail" id="locks()">
 <h3>locks</h3>
 <div class="member-signature"><span class="return-type"><a href="../PizzaJoint/Locks.html" title="class in io.github.mizinchik.PizzaJoint">Locks</a></span>&nbsp;<span class="element-name">locks</span>()</div>
+<div class="block">Get locks for producers and consumers</div>
+<dl class="notes">
+<dt>Returns:</dt>
+<dd>Lock shared between every entity in the pizzeria.</dd>
+</dl>
 </section>
 </li>
 <li>
 <section class="detail" id="isWorking()">
 <h3>isWorking</h3>
 <div class="member-signature"><span class="return-type">boolean</span>&nbsp;<span class="element-name">isWorking</span>()</div>
+<div class="block">Check if there are still cooks on duty.</div>
+<dl class="notes">
+<dt>Returns:</dt>
+<dd>true if the storage can still be filled</dd>
+</dl>
 </section>
 </li>
 </ul>
