@@ -3,8 +3,8 @@ package io.github.mizinchik;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
-import io.github.mizinchik.Json.JsonReader;
-import io.github.mizinchik.Json.JsonWriter;
+import io.github.mizinchik.PizzaJoint.Json.JsonReader;
+import io.github.mizinchik.PizzaJoint.Json.JsonWriter;
 import io.github.mizinchik.PizzaJoint.Pizza;
 import io.github.mizinchik.PizzaJoint.PizzaDeliveryBoy;
 import io.github.mizinchik.PizzaJoint.PizzaCook;
@@ -24,6 +24,11 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
+/**
+ * Tests the pizzeria made with a producer-consumer pattern.
+ *
+ * @author MIZINCHIK
+ */
 public class TestPizza {
     private final ByteArrayOutputStream out = new ByteArrayOutputStream();
     private final PrintStream originalOut = System.out;
@@ -44,6 +49,12 @@ public class TestPizza {
         System.setOut(originalOut);
     }
 
+    /**
+     * Tests the ability of the Pizzeria to correctly spread the orders
+     * and complete all of them and terminate itself.
+     *
+     * @throws Exception if something went wrong with the threads or de/serializing.
+     */
     @Test
     @DisplayName("JSON logs' test")
     void testJson() throws Exception {

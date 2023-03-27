@@ -1,4 +1,4 @@
-package io.github.mizinchik.Json;
+package io.github.mizinchik.PizzaJoint.Json;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -13,9 +13,21 @@ import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Deserialization of Pizza orders from JSON into List of Pizzas.
+ *
+ * @author MIZINCHIK
+ */
 public class JsonReader {
     public static String pizzas = "pizza.json";
 
+    /**
+     * Deserializes orders from the file which name is
+     * defined in the static variable.
+     *
+     * @return list of Pizza orders
+     * @throws Exception if file not found or has incorrect format or if reader throws something
+     */
     public static List<Pizza> readOrders() throws Exception {
         var filePizzas = new File(pizzas);
         if (filePizzas.exists()) {

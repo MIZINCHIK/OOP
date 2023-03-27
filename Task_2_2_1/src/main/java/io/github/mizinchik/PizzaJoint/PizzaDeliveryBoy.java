@@ -3,17 +3,36 @@ package io.github.mizinchik.PizzaJoint;
 import io.github.mizinchik.ProducerConsumer.Deliverer;
 import java.util.List;
 
+/**
+ * Delivers order for the pizzeria.
+ *
+ * @author MIZINCHIK
+ */
 public class PizzaDeliveryBoy implements Deliverer, Runnable {
     private final int capacity;
     private final PizzaStorage storage;
     private final int id;
 
+    /**
+     * Construct a worker.
+     *
+     * @param capacity amount of orders they can handle
+     * @param storage where they take their orders
+     * @param id identifies them
+     */
     public PizzaDeliveryBoy(int capacity, PizzaStorage storage, int id) {
         this.capacity = capacity;
         this.storage = storage;
         this.id = id;
     }
 
+    /**
+     * Wait for the storage to accumulate some orders,
+     * get them and deliver. When all the cooks have ended up
+     * with their shifts do the same.
+     *
+     * @throws RuntimeException if sleeping wasn't successful
+     */
     @Override
     public void deliver() throws RuntimeException {
         Logger.deliveryboyArrived(this);
@@ -42,11 +61,19 @@ public class PizzaDeliveryBoy implements Deliverer, Runnable {
         Logger.deliveryboyLeft(this);
     }
 
+    /**
+     * Get the id.
+     *
+     * @return identification number
+     */
     @Override
     public int id() {
         return id;
     }
 
+    /**
+     * Run the de-facto thread.
+     */
     @Override
     public void run() {
         deliver();
