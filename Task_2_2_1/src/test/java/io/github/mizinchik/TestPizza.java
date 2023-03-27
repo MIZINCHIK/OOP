@@ -72,7 +72,7 @@ public class TestPizza {
             threadPool.submit(boy);
         }
         threadPool.shutdown();
-        threadPool.awaitTermination(1, TimeUnit.DAYS);
+        assertTrue(threadPool.awaitTermination(1, TimeUnit.DAYS));
         for (int i = 0; i < 10 * threads; i++) {
             String string = "The order number " + i + " has been cooked";
             assertTrue(out.toString().contains(string));

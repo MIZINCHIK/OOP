@@ -1,7 +1,6 @@
 package io.github.mizinchik.ProducerConsumer;
 
-import io.github.mizinchik.Locks;
-import io.github.mizinchik.ProducerConsumer.Order;
+import io.github.mizinchik.PizzaJoint.Locks;
 
 import java.util.List;
 

@@ -1,4 +1,4 @@
-package io.github.mizinchik;
+package io.github.mizinchik.PizzaJoint;
 
 import io.github.mizinchik.PizzaJoint.Pizza;
 import io.github.mizinchik.PizzaJoint.PizzaCook;

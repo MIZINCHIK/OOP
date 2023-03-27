@@ -1,4 +1,4 @@
-package io.github.mizinchik;
+package io.github.mizinchik.PizzaJoint;
 
 public class Locks {
     private final Object lockProducers = new Object();

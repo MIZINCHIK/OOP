@@ -1,7 +1,5 @@
 package io.github.mizinchik.PizzaJoint;
 
-import io.github.mizinchik.Locks;
-import io.github.mizinchik.Logger;
 import io.github.mizinchik.ProducerConsumer.WareHouse;
 
 import java.util.*;
@@ -34,7 +32,6 @@ public class PizzaStorage implements WareHouse<Pizza> {
     public void addWares(List<Pizza> order, PizzaCook cook) {
         synchronized (readyOrders) {
             int canPut = Math.min(order.size(), this.vacant);
-            this.vacant -= canPut;
             Random random = new Random();
             for (int i = 0; i < canPut; i++) {
                 Pizza ware = order.remove(random.nextInt(order.size()));

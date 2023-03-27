@@ -1,6 +1,5 @@
 package io.github.mizinchik.PizzaJoint;
 
-import io.github.mizinchik.Logger;
 import io.github.mizinchik.ProducerConsumer.Deliverer;
 
 import java.util.List;
