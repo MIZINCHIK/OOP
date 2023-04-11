@@ -54,14 +54,14 @@ jlinkZip {
     group = 'distribution'
 }
 
-jacocoTestReport {
-    reports {
-        xml.required = true
-    }
-}
-
 java {
     toolchain {
         languageVersion = JavaLanguageVersion.of(16)
+    }
+}
+
+jacocoTestReport {
+    reports {
+        xml.required = true
     }
 }
