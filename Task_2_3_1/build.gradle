@@ -18,9 +18,6 @@ ext {
     junitVersion = '5.9.1'
 }
 
-sourceCompatibility = '16'
-targetCompatibility = '16'
-
 tasks.withType(JavaCompile) {
     options.encoding = 'UTF-8'
 }
@@ -60,5 +57,11 @@ jlinkZip {
 jacocoTestReport {
     reports {
         xml.required = true
+    }
+}
+
+java {
+    toolchain {
+        languageVersion = JavaLanguageVersion.of(16)
     }
 }
