@@ -1,1 +1,1 @@
-typeSearchIndex = [{"l":"All Classes","u":"allclasses-index.html"},{"p":"io.github.mizinchik","l":"SnakeApplication"},{"p":"io.github.mizinchik","l":"SnakeController"}];updateSearchResults();
+typeSearchIndex = [{"l":"All Classes","u":"allclasses-index.html"},{"p":"io.github.mizinchik","l":"Point"},{"p":"io.github.mizinchik","l":"SnakeApplication"},{"p":"io.github.mizinchik","l":"SnakeController"}];updateSearchResults();
