@@ -28,9 +28,8 @@ public class SnakeApplication extends Application {
     private static final int ROWS = 20;
     private static final int COLUMNS = ROWS;
     private static int SQUARE_SIZE;
-    private static final String[] FOODS_IMAGE = new String[]{images + "pizza.png"};
     private Snake userSnake;
-    private Image foodImage;
+    private final Image foodImage = new Image(images + "pizza.png");
     private final Point food = new Point(0, 0);
     private boolean gameOver;
     private int score = 0;
@@ -68,7 +67,6 @@ public class SnakeApplication extends Application {
                     continue start;
                 }
             }
-            foodImage = new Image(FOODS_IMAGE[(int) (Math.random() * FOODS_IMAGE.length)]);
             break;
         }
     }
