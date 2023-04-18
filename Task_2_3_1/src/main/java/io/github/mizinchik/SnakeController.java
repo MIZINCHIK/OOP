@@ -3,25 +3,26 @@ package io.github.mizinchik;
 import javafx.fxml.FXML;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
-import javafx.scene.control.Label;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 
-public class SnakeController {
-    protected static final int RIGHT = 0;
-    protected static final int LEFT = 1;
-    protected static final int UP = 2;
-    protected static final int DOWN = 3;
-    private static int currentDirection;
+import static io.github.mizinchik.SnakeController.Direction.*;
 
+public class SnakeController {
     @FXML
     protected static Canvas canvas;
+    protected enum Direction {
+        RIGHT,
+        LEFT,
+        DOWN,
+        UP
+    }
+    protected static int HEIGHT;
+    protected static int WIDTH;
+    protected static GraphicsContext graphicsContext;
+    private static Direction currentDirection;
 
-    protected static final int HEIGHT = (int) canvas.getHeight();
-    protected static final int WIDTH = (int) canvas.getWidth();
-    protected static final GraphicsContext graphicsContext = canvas.getGraphicsContext2D();
-
-    protected int getCurrentDirection() {
+    protected Direction getCurrentDirection() {
         return currentDirection;
     }
 
