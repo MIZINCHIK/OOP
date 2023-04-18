@@ -12,18 +12,14 @@ public class SnakeController {
     protected static final int LEFT = 1;
     protected static final int UP = 2;
     protected static final int DOWN = 3;
-    private int currentDirection;
+    private static int currentDirection;
 
     @FXML
-    private Canvas canvas;
+    protected static Canvas canvas;
 
-    protected Canvas getCanvas() {
-        return canvas;
-    }
-
-    protected GraphicsContext getGraphicsContext() {
-        return canvas.getGraphicsContext2D();
-    }
+    protected static final int HEIGHT = (int) canvas.getHeight();
+    protected static final int WIDTH = (int) canvas.getWidth();
+    protected static final GraphicsContext graphicsContext = canvas.getGraphicsContext2D();
 
     protected int getCurrentDirection() {
         return currentDirection;
