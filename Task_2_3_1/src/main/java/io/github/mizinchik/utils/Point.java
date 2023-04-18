@@ -1,4 +1,4 @@
-package io.github.mizinchik;
+package io.github.mizinchik.utils;
 
 public class Point {
     private int x;
