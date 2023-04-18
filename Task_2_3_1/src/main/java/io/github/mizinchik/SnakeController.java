@@ -10,17 +10,18 @@ import static io.github.mizinchik.SnakeController.Direction.*;
 
 public class SnakeController {
     @FXML
-    protected static Canvas canvas;
+    private Canvas canvas;
     protected enum Direction {
         RIGHT,
         LEFT,
         DOWN,
         UP
     }
-    protected static int HEIGHT;
-    protected static int WIDTH;
-    protected static GraphicsContext graphicsContext;
-    private static Direction currentDirection;
+    private Direction currentDirection = RIGHT;
+
+    protected Canvas getCanvas() {
+        return canvas;
+    }
 
     protected Direction getCurrentDirection() {
         return currentDirection;
