@@ -93,17 +93,29 @@ loadScripts(document, 'script');</script>
 <div class="table-header col-first">Modifier and Type</div>
 <div class="table-header col-second">Field</div>
 <div class="table-header col-last">Description</div>
-<div class="col-first even-row-color"><code>protected static int</code></div>
-<div class="col-second even-row-color"><code><span class="member-name-link"><a href="#DOWN">DOWN</a></span></code></div>
+<div class="col-first even-row-color"><code>protected static javafx.scene.canvas.Canvas</code></div>
+<div class="col-second even-row-color"><code><span class="member-name-link"><a href="#canvas">canvas</a></span></code></div>
 <div class="col-last even-row-color">&nbsp;</div>
 <div class="col-first odd-row-color"><code>protected static int</code></div>
-<div class="col-second odd-row-color"><code><span class="member-name-link"><a href="#LEFT">LEFT</a></span></code></div>
+<div class="col-second odd-row-color"><code><span class="member-name-link"><a href="#DOWN">DOWN</a></span></code></div>
+<div class="col-last odd-row-color">&nbsp;</div>
+<div class="col-first even-row-color"><code>protected static javafx.scene.canvas.GraphicsContext</code></div>
+<div class="col-second even-row-color"><code><span class="member-name-link"><a href="#graphicsContext">graphicsContext</a></span></code></div>
+<div class="col-last even-row-color">&nbsp;</div>
+<div class="col-first odd-row-color"><code>protected static int</code></div>
+<div class="col-second odd-row-color"><code><span class="member-name-link"><a href="#HEIGHT">HEIGHT</a></span></code></div>
 <div class="col-last odd-row-color">&nbsp;</div>
 <div class="col-first even-row-color"><code>protected static int</code></div>
-<div class="col-second even-row-color"><code><span class="member-name-link"><a href="#RIGHT">RIGHT</a></span></code></div>
+<div class="col-second even-row-color"><code><span class="member-name-link"><a href="#LEFT">LEFT</a></span></code></div>
 <div class="col-last even-row-color">&nbsp;</div>
 <div class="col-first odd-row-color"><code>protected static int</code></div>
-<div class="col-second odd-row-color"><code><span class="member-name-link"><a href="#UP">UP</a></span></code></div>
+<div class="col-second odd-row-color"><code><span class="member-name-link"><a href="#RIGHT">RIGHT</a></span></code></div>
+<div class="col-last odd-row-color">&nbsp;</div>
+<div class="col-first even-row-color"><code>protected static int</code></div>
+<div class="col-second even-row-color"><code><span class="member-name-link"><a href="#UP">UP</a></span></code></div>
+<div class="col-last even-row-color">&nbsp;</div>
+<div class="col-first odd-row-color"><code>protected static int</code></div>
+<div class="col-second odd-row-color"><code><span class="member-name-link"><a href="#WIDTH">WIDTH</a></span></code></div>
 <div class="col-last odd-row-color">&nbsp;</div>
 </div>
 </section>
@@ -135,14 +147,8 @@ loadScripts(document, 'script');</script>
 <div class="col-first even-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table"><code>protected void</code></div>
 <div class="col-second even-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table"><code><span class="member-name-link"><a href="#controlKeys(javafx.scene.input.KeyEvent)">controlKeys</a></span>&#8203;(javafx.scene.input.KeyEvent&nbsp;event)</code></div>
 <div class="col-last even-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table">&nbsp;</div>
-<div class="col-first odd-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table"><code>protected javafx.scene.canvas.Canvas</code></div>
-<div class="col-second odd-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table"><code><span class="member-name-link"><a href="#getCanvas()">getCanvas</a></span>()</code></div>
-<div class="col-last odd-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table">&nbsp;</div>
-<div class="col-first even-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table"><code>protected int</code></div>
-<div class="col-second even-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table"><code><span class="member-name-link"><a href="#getCurrentDirection()">getCurrentDirection</a></span>()</code></div>
-<div class="col-last even-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table">&nbsp;</div>
-<div class="col-first odd-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table"><code>protected javafx.scene.canvas.GraphicsContext</code></div>
-<div class="col-second odd-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table"><code><span class="member-name-link"><a href="#getGraphicsContext()">getGraphicsContext</a></span>()</code></div>
+<div class="col-first odd-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table"><code>protected int</code></div>
+<div class="col-second odd-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table"><code><span class="member-name-link"><a href="#getCurrentDirection()">getCurrentDirection</a></span>()</code></div>
 <div class="col-last odd-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table">&nbsp;</div>
 </div>
 </div>
@@ -201,6 +207,30 @@ loadScripts(document, 'script');</script>
 </dl>
 </section>
 </li>
+<li>
+<section class="detail" id="canvas">
+<h3>canvas</h3>
+<div class="member-signature"><span class="modifiers">protected static</span>&nbsp;<span class="return-type">javafx.scene.canvas.Canvas</span>&nbsp;<span class="element-name">canvas</span></div>
+</section>
+</li>
+<li>
+<section class="detail" id="HEIGHT">
+<h3>HEIGHT</h3>
+<div class="member-signature"><span class="modifiers">protected static final</span>&nbsp;<span class="return-type">int</span>&nbsp;<span class="element-name">HEIGHT</span></div>
+</section>
+</li>
+<li>
+<section class="detail" id="WIDTH">
+<h3>WIDTH</h3>
+<div class="member-signature"><span class="modifiers">protected static final</span>&nbsp;<span class="return-type">int</span>&nbsp;<span class="element-name">WIDTH</span></div>
+</section>
+</li>
+<li>
+<section class="detail" id="graphicsContext">
+<h3>graphicsContext</h3>
+<div class="member-signature"><span class="modifiers">protected static final</span>&nbsp;<span class="return-type">javafx.scene.canvas.GraphicsContext</span>&nbsp;<span class="element-name">graphicsContext</span></div>
+</section>
+</li>
 </ul>
 </section>
 </li>
@@ -223,18 +253,6 @@ loadScripts(document, 'script');</script>
 <section class="method-details" id="method.detail">
 <h2>Method Details</h2>
 <ul class="member-list">
-<li>
-<section class="detail" id="getCanvas()">
-<h3>getCanvas</h3>
-<div class="member-signature"><span class="modifiers">protected</span>&nbsp;<span class="return-type">javafx.scene.canvas.Canvas</span>&nbsp;<span class="element-name">getCanvas</span>()</div>
-</section>
-</li>
-<li>
-<section class="detail" id="getGraphicsContext()">
-<h3>getGraphicsContext</h3>
-<div class="member-signature"><span class="modifiers">protected</span>&nbsp;<span class="return-type">javafx.scene.canvas.GraphicsContext</span>&nbsp;<span class="element-name">getGraphicsContext</span>()</div>
-</section>
-</li>
 <li>
 <section class="detail" id="getCurrentDirection()">
 <h3>getCurrentDirection</h3>
