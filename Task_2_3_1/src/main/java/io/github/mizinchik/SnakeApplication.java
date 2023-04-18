@@ -25,11 +25,14 @@ public class SnakeApplication extends Application {
     private static GraphicsContext graphicsContext;
     private static int HEIGHT;
     private static int WIDTH;
-    private static final int ROWS = 20;
-    private static final int COLUMNS = ROWS;
     private static int SQUARE_SIZE;
+    private static final int ROWS = 8;
+    private static final int COLUMNS = ROWS;
+    private static final String oddColor = "A2D149";
+    private static final String evenColor = "AAD751";
+    private static final String font = "Roboto";
     private Snake userSnake;
-    private final Image foodImage = new Image(images + "pizza.png");
+    private final Image foodImage = new Image(images + "food.png");
     private final Point food = new Point(0, 0);
     private boolean gameOver;
     private int score = 0;
@@ -74,7 +77,7 @@ public class SnakeApplication extends Application {
     private void run() {
         if (gameOver) {
             graphicsContext.setFill(Color.RED);
-            graphicsContext.setFont(new Font("Digital-7", 70));
+            graphicsContext.setFont(Font.font(font, 70));
             graphicsContext.fillText("Game Over", (double) WIDTH / 3.5, (double) HEIGHT / 2);
             return;
         }
@@ -116,7 +119,7 @@ public class SnakeApplication extends Application {
 
     private void drawScore() {
         graphicsContext.setFill(Color.WHITE);
-        graphicsContext.setFont(new Font("Digital-7", 35));
+        graphicsContext.setFont(Font.font(font, 35));
         graphicsContext.fillText("Score: " + score, 10, 35);
     }
 
@@ -124,9 +127,9 @@ public class SnakeApplication extends Application {
         for (int i = 0; i < ROWS; i++) {
             for (int j = 0; j < COLUMNS; j++) {
                 if ((i + j) % 2 == 0) {
-                    graphicsContext.setFill(Color.web("AAD751"));
+                    graphicsContext.setFill(Color.web(evenColor));
                 } else {
-                    graphicsContext.setFill(Color.web("A2D149"));
+                    graphicsContext.setFill(Color.web(oddColor));
                 }
                 graphicsContext.fillRect(i * SQUARE_SIZE, j * SQUARE_SIZE, SQUARE_SIZE, SQUARE_SIZE);
             }
