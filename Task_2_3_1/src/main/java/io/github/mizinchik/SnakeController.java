@@ -17,6 +17,10 @@ public class SnakeController {
     @FXML
     private Canvas canvas;
 
+    protected Canvas getCanvas() {
+        return canvas;
+    }
+
     protected GraphicsContext getGraphicsContext() {
         return canvas.getGraphicsContext2D();
     }

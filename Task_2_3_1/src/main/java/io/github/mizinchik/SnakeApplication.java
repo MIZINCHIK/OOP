@@ -7,6 +7,7 @@ import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.image.Image;
 import javafx.scene.paint.Color;
@@ -24,12 +25,15 @@ import static io.github.mizinchik.SnakeController.UP;
 import static io.github.mizinchik.SnakeController.LEFT;
 
 public class SnakeApplication extends Application {
-    private static final int WIDTH = 800;
-    private static final int HEIGHT = 800;
+    private static final String images = "io/github/mizinchik/img/";
+    private static SnakeController controller;
+    private static Canvas canvas;
+    private static int WIDTH;
+    private static int HEIGHT;
     private static final int ROWS = 20;
     private static final int COLUMNS = ROWS;
     private static final int SQUARE_SIZE = WIDTH / ROWS;
-    private static final String[] FOODS_IMAGE = new String[]{String.valueOf(SnakeApplication.class.getResource("img/pizza.png"))};
+    private static final String[] FOODS_IMAGE = new String[]{images + "pizza.png"};
     private GraphicsContext graphicsContext;
     private final List<Point> snakeBody = new ArrayList<>();
     private Point snakeHead;
@@ -38,13 +42,15 @@ public class SnakeApplication extends Application {
     private int foodY;
     private boolean gameOver;
     private int score = 0;
-    private SnakeController controller;
 
     @Override
     public void start(Stage stage) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(SnakeApplication.class.getResource("snake-view.fxml"));
         Parent root = fxmlLoader.load();
         controller = fxmlLoader.getController();
+        canvas = controller.getCanvas();
+        HEIGHT = (int) canvas.getHeight();
+        WIDTH = (int) canvas.getWidth();
         Scene scene = new Scene(root);
         stage.setTitle("Don't Tread on Me");
         stage.setScene(scene);
