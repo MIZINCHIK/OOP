@@ -1,17 +1,13 @@
 package io.github.mizinchik;
 
 import javafx.fxml.FXML;
-import javafx.scene.canvas.Canvas;
-import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 
 import static io.github.mizinchik.SnakeController.Direction.*;
 
-public class SnakeController {
-    @FXML
-    private Canvas canvas;
-    protected enum Direction {
+public class SnakeController extends Controller {
+    public enum Direction {
         RIGHT,
         LEFT,
         DOWN,
@@ -19,16 +15,12 @@ public class SnakeController {
     }
     private Direction currentDirection = RIGHT;
 
-    protected Canvas getCanvas() {
-        return canvas;
-    }
-
-    protected Direction getCurrentDirection() {
+    public Direction getCurrentDirection() {
         return currentDirection;
     }
 
     @FXML
-    protected void controlKeys(KeyEvent event) {
+    private void controlKeys(KeyEvent event) {
         KeyCode code = event.getCode();
         if (code == KeyCode.RIGHT || code == KeyCode.D) {
             if (currentDirection != LEFT) {

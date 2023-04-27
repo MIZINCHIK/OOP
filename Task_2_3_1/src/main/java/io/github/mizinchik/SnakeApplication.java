@@ -12,6 +12,7 @@ import javafx.scene.Scene;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.stage.Stage;
@@ -23,41 +24,49 @@ public class SnakeApplication extends Application {
     private static final String images = "io/github/mizinchik/img/";
     private static SnakeController controller;
     private static GraphicsContext graphicsContext;
-    private static int HEIGHT;
-    private static int WIDTH;
-    private static int SQUARE_SIZE;
-    private static final int ROWS = 8;
+    private static final int ROWS = 10;
     private static final int COLUMNS = ROWS;
     private static final String oddColor = "A2D149";
     private static final String evenColor = "AAD751";
-    private static final String font = "Roboto";
+    private static final String font = "Comic Sans MS";
     private Snake userSnake;
     private final Image foodImage = new Image(images + "food.png");
     private final Point food = new Point(0, 0);
     private boolean gameOver;
     private int score = 0;
+    private Canvas canvas;
 
 
     @Override
     public void start(Stage stage) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(SnakeApplication.class.getResource("snake-view.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(SnakeApplication.class.getResource("StartWindow.fxml"));
         Parent root = fxmlLoader.load();
-        controller = fxmlLoader.getController();
-        Canvas canvas = controller.getCanvas();
-        HEIGHT = (int) canvas.getHeight();
-        WIDTH = (int) canvas.getWidth();
-        graphicsContext = canvas.getGraphicsContext2D();
-        SQUARE_SIZE = WIDTH / ROWS;
         Scene scene = new Scene(root);
         stage.setTitle("Don't Tread on Me");
         stage.setScene(scene);
         stage.show();
-        userSnake = new Snake(5, ROWS / 2, 3);
-        generateFood();
-        Timeline timeline = new Timeline(new KeyFrame(Duration.millis(130), e -> run()));
-        timeline.setCycleCount(Animation.INDEFINITE);
-        timeline.play();
+//        Timeline timeline = new Timeline(new KeyFrame(Duration.millis(130), e -> run()));
+//        timeline.setCycleCount(Animation.INDEFINITE);
+//        timeline.play();
     }
+
+//    @Override
+//    public void start(Stage stage) throws IOException {
+//        FXMLLoader fxmlLoader = new FXMLLoader(SnakeApplication.class.getResource("SnakeView.fxml"));
+//        Parent root = fxmlLoader.load();
+//        controller = fxmlLoader.getController();
+//        this.canvas = controller.getCanvas();
+//        graphicsContext = canvas.getGraphicsContext2D();
+//        Scene scene = new Scene(root);
+//        stage.setTitle("Don't Tread on Me");
+//        stage.setScene(scene);
+//        stage.show();
+//        userSnake = new Snake(5, ROWS / 2, 3);
+//        generateFood();
+//        Timeline timeline = new Timeline(new KeyFrame(Duration.millis(130), e -> run()));
+//        timeline.setCycleCount(Animation.INDEFINITE);
+//        timeline.play();
+//    }
 
     private void generateFood() {
         start:
@@ -78,12 +87,13 @@ public class SnakeApplication extends Application {
         if (gameOver) {
             graphicsContext.setFill(Color.RED);
             graphicsContext.setFont(Font.font(font, 70));
-            graphicsContext.fillText("Game Over", (double) WIDTH / 3.5, (double) HEIGHT / 2);
+            graphicsContext.fillText("Game Over", canvas.getWidth() / 3.5,
+                    canvas.getHeight() / 2);
             return;
         }
         drawBackground();
         drawFood();
-        userSnake.draw(graphicsContext, SQUARE_SIZE);
+        userSnake.draw(graphicsContext, (int) (canvas.getWidth() / ROWS));
         drawScore();
         userSnake.move();
         switch (controller.getCurrentDirection()) {
@@ -98,9 +108,9 @@ public class SnakeApplication extends Application {
     }
 
     public void gameOver() {
-
-        if (userSnake.getX() < 0 || userSnake.getY() < 0 || userSnake.getX() * SQUARE_SIZE >= WIDTH
-                || userSnake.getY() * SQUARE_SIZE >= HEIGHT) {
+        int squareSize = (int) (canvas.getWidth() / ROWS);
+        if (userSnake.getX() < 0 || userSnake.getY() < 0 || userSnake.getX() * squareSize >= canvas.getWidth()
+                || userSnake.getY() * squareSize >= canvas.getHeight()) {
             gameOver = true;
         }
 
@@ -124,6 +134,7 @@ public class SnakeApplication extends Application {
     }
 
     private void drawBackground() {
+        int squareSize = (int) (canvas.getWidth() / ROWS);
         for (int i = 0; i < ROWS; i++) {
             for (int j = 0; j < COLUMNS; j++) {
                 if ((i + j) % 2 == 0) {
@@ -131,13 +142,15 @@ public class SnakeApplication extends Application {
                 } else {
                     graphicsContext.setFill(Color.web(oddColor));
                 }
-                graphicsContext.fillRect(i * SQUARE_SIZE, j * SQUARE_SIZE, SQUARE_SIZE, SQUARE_SIZE);
+                graphicsContext.fillRect(i * squareSize, j * squareSize, squareSize, squareSize);
             }
         }
     }
 
     private void drawFood() {
-        graphicsContext.drawImage(foodImage, food.getX() * SQUARE_SIZE, food.getY() * SQUARE_SIZE, SQUARE_SIZE, SQUARE_SIZE);
+        int squareSize = (int) (canvas.getWidth() / ROWS);
+        graphicsContext.drawImage(foodImage, food.getX() * squareSize,
+                food.getY() * squareSize, squareSize, squareSize);
     }
 
     public static void main(String[] args) {
