@@ -15,11 +15,14 @@ public class StartController extends Controller {
     @FXML
     private void goGame(ActionEvent event) {
         try {
-            Parent parent = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("SnakeView.fxml")));
-            Scene scene = new Scene(parent);
-            Stage window = (Stage) ((Node)event.getSource()).getScene().getWindow();
-            window.setScene(scene);
-            window.show();
+            FXMLLoader fxmlLoader = new FXMLLoader(SnakeApplication.class.getResource("SnakeView.fxml"));
+            Parent root = fxmlLoader.load();
+            Scene scene = new Scene(root);
+            Stage stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
+            stage.setScene(scene);
+            stage.show();
+            SnakeController snakeController = fxmlLoader.getController();
+            snakeController.takeControl(root, stage, snakeController.getCanvas());
         } catch (IOException e) {
             throw new RuntimeException(e);
         }

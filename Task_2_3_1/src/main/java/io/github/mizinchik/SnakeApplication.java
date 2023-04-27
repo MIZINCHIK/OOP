@@ -2,9 +2,6 @@ package io.github.mizinchik;
 
 import io.github.mizinchik.utils.Point;
 import io.github.mizinchik.utils.Snake;
-import javafx.animation.Animation;
-import javafx.animation.KeyFrame;
-import javafx.animation.Timeline;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -12,13 +9,13 @@ import javafx.scene.Scene;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.stage.Stage;
-import javafx.util.Duration;
 
 import java.io.IOException;
+
+import static io.github.mizinchik.SnakeView.drawFood;
 
 public class SnakeApplication extends Application {
     private static final String images = "io/github/mizinchik/img/";
@@ -39,15 +36,17 @@ public class SnakeApplication extends Application {
 
     @Override
     public void start(Stage stage) throws IOException {
+        stage.getIcons().add(new Image(images + "icon.png"));
         FXMLLoader fxmlLoader = new FXMLLoader(SnakeApplication.class.getResource("StartWindow.fxml"));
         Parent root = fxmlLoader.load();
         Scene scene = new Scene(root);
         stage.setTitle("Don't Tread on Me");
         stage.setScene(scene);
         stage.show();
-//        Timeline timeline = new Timeline(new KeyFrame(Duration.millis(130), e -> run()));
-//        timeline.setCycleCount(Animation.INDEFINITE);
-//        timeline.play();
+    }
+
+    public void drawField() {
+
     }
 
 //    @Override
@@ -92,7 +91,7 @@ public class SnakeApplication extends Application {
             return;
         }
         drawBackground();
-        drawFood();
+        drawFood(food, graphicsContext, (int) (canvas.getWidth() / ROWS));
         userSnake.draw(graphicsContext, (int) (canvas.getWidth() / ROWS));
         drawScore();
         userSnake.move();
@@ -131,26 +130,6 @@ public class SnakeApplication extends Application {
         graphicsContext.setFill(Color.WHITE);
         graphicsContext.setFont(Font.font(font, 35));
         graphicsContext.fillText("Score: " + score, 10, 35);
-    }
-
-    private void drawBackground() {
-        int squareSize = (int) (canvas.getWidth() / ROWS);
-        for (int i = 0; i < ROWS; i++) {
-            for (int j = 0; j < COLUMNS; j++) {
-                if ((i + j) % 2 == 0) {
-                    graphicsContext.setFill(Color.web(evenColor));
-                } else {
-                    graphicsContext.setFill(Color.web(oddColor));
-                }
-                graphicsContext.fillRect(i * squareSize, j * squareSize, squareSize, squareSize);
-            }
-        }
-    }
-
-    private void drawFood() {
-        int squareSize = (int) (canvas.getWidth() / ROWS);
-        graphicsContext.drawImage(foodImage, food.getX() * squareSize,
-                food.getY() * squareSize, squareSize, squareSize);
     }
 
     public static void main(String[] args) {
