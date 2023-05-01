@@ -6,6 +6,8 @@ import javafx.scene.image.Image;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 
+import java.util.List;
+
 public class SnakeView {
     private static final String images = "io/github/mizinchik/img/";
     private static final String oddColor = "A2D149";
@@ -35,5 +37,26 @@ public class SnakeView {
         graphicsContext.setFill(Color.WHITE);
         graphicsContext.setFont(Font.font(font, 35));
         graphicsContext.fillText("Score: " + score, 10, 35);
+    }
+
+    public static void drawGameOver(GraphicsContext graphicsContext, int width, int height) {
+        graphicsContext.setFill(Color.RED);
+        graphicsContext.setFont(Font.font(font, 70));
+        graphicsContext.fillText("Game Over", width / 3.5,
+                height / 2);
+    }
+
+    public static void drawSnakeHead(GraphicsContext graphicsContext, Point head, int size) {
+        graphicsContext.setFill(Color.web("4674E9"));
+        graphicsContext.fillRoundRect(head.getX() * size, head.getY() * size,
+                size - 1, size - 1, 35, 35);
+    }
+
+    public static void drawSnakeBody(GraphicsContext graphicsContext, List<Point> body, int size) {
+        graphicsContext.setFill(Color.web("4674E9"));
+        for (Point snakeBodyPart : body) {
+            graphicsContext.fillRoundRect(snakeBodyPart.getX() * size, snakeBodyPart.getY() * size,
+                    size - 1, size - 1, 20, 20);
+        }
     }
 }
