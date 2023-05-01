@@ -15,12 +15,12 @@ public class SnakeView {
     private static final String font = "Comic Sans MS";
     private static final Image foodImage = new Image(images + "food.png");
 
-    public static void drawFood(Point point, GraphicsContext graphicsContext, int squareSize) {
-        graphicsContext.drawImage(foodImage, point.getX() * squareSize,
-                point.getY() * squareSize, squareSize, squareSize);
+    public static void drawFood(GraphicsContext graphicsContext, Point point, double squareWidth, double squareHeight) {
+        graphicsContext.drawImage(foodImage, point.getX() * squareWidth,
+                point.getY() * squareHeight, squareWidth, squareHeight);
     }
 
-    public static void drawPlayground(GraphicsContext graphicsContext, int squareSize, int rows, int columns) {
+    public static void drawPlayground(GraphicsContext graphicsContext, double squareWidth, double squareHeight, int rows, int columns) {
         for (int i = 0; i < rows; i++) {
             for (int j = 0; j < columns; j++) {
                 if ((i + j) % 2 == 0) {
@@ -28,7 +28,7 @@ public class SnakeView {
                 } else {
                     graphicsContext.setFill(Color.web(oddColor));
                 }
-                graphicsContext.fillRect(i * squareSize, j * squareSize, squareSize, squareSize);
+                graphicsContext.fillRect(j * squareWidth, i * squareHeight, squareWidth, squareHeight);
             }
         }
     }
@@ -39,24 +39,24 @@ public class SnakeView {
         graphicsContext.fillText("Score: " + score, 10, 35);
     }
 
-    public static void drawGameOver(GraphicsContext graphicsContext, int width, int height) {
+    public static void drawGameOver(GraphicsContext graphicsContext, double width, double height) {
         graphicsContext.setFill(Color.RED);
         graphicsContext.setFont(Font.font(font, 70));
         graphicsContext.fillText("Game Over", width / 3.5,
                 height / 2);
     }
 
-    public static void drawSnakeHead(GraphicsContext graphicsContext, Point head, int size) {
-        graphicsContext.setFill(Color.web("4674E9"));
-        graphicsContext.fillRoundRect(head.getX() * size, head.getY() * size,
-                size - 1, size - 1, 35, 35);
+    public static void drawSnakeHead(GraphicsContext graphicsContext, Point head, double squareWidth, double squareHeight) {
+        graphicsContext.setFill(head.getColor());
+        graphicsContext.fillRoundRect(head.getX() * squareWidth, head.getY() * squareHeight,
+                squareWidth - 1, squareHeight - 1, 35, 35);
     }
 
-    public static void drawSnakeBody(GraphicsContext graphicsContext, List<Point> body, int size) {
-        graphicsContext.setFill(Color.web("4674E9"));
+    public static void drawSnakeBody(GraphicsContext graphicsContext, List<Point> body, double squareWidth, double squareHeight) {
         for (Point snakeBodyPart : body) {
-            graphicsContext.fillRoundRect(snakeBodyPart.getX() * size, snakeBodyPart.getY() * size,
-                    size - 1, size - 1, 20, 20);
+            graphicsContext.setFill(snakeBodyPart.getColor());
+            graphicsContext.fillRoundRect(snakeBodyPart.getX() * squareWidth, snakeBodyPart.getY() * squareHeight,
+                    squareWidth - 1, squareHeight - 1, 20, 20);
         }
     }
 }

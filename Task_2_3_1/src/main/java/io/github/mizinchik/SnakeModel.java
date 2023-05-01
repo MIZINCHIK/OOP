@@ -12,22 +12,25 @@ public class SnakeModel {
     private final int columns;
     private final Snake userSnake;
     private final SnakeController controller;
+    private final int speed;
     private final Point food;
     private int score;
     private boolean gameOver = false;
+    private boolean foodEaten = false;
 
-    public SnakeModel(int rows, int columns, SnakeController controller) {
+    public SnakeModel(int rows, int columns, SnakeController controller, int speed) {
         this.rows = rows;
         this.columns = columns;
-        this.userSnake = new Snake(5, rows / 2, 3);
+        this.userSnake = new Snake(5, rows / 2, 3, true);
         this.controller = controller;
+        this.speed = speed;
         this.food = new Point(0, 0);
         this.score = 0;
     }
 
     public void run() {
         generateFood();
-        Timeline timeline = new Timeline(new KeyFrame(Duration.millis(130), e -> cycle()));
+        Timeline timeline = new Timeline(new KeyFrame(Duration.millis(speed), e -> cycle()));
         timeline.setCycleCount(Animation.INDEFINITE);
         timeline.play();
     }
@@ -37,8 +40,9 @@ public class SnakeModel {
             controller.gameOver();
             return;
         }
-        controller.prepareField(food, rows, userSnake, userSnake.getSnakeBody(), score);
-        userSnake.move();
+        controller.prepareField(food, userSnake, userSnake.getSnakeBody(), score);
+        userSnake.move(foodEaten);
+        foodEaten = false;
         switch (controller.getCurrentDirection()) {
             case RIGHT -> userSnake.moveRight();
             case LEFT -> userSnake.moveLeft();
@@ -52,8 +56,8 @@ public class SnakeModel {
 
     private void generateFood() {
         while (true) {
-            food.setX((int) (Math.random() * rows));
-            food.setY((int) (Math.random() * columns));
+            food.setX((int) (Math.random() * columns));
+            food.setY((int) (Math.random() * rows));
             if (userSnake.getX() == food.getX() && userSnake.getY() == food.getY()) {
                 continue;
             }
@@ -75,15 +79,17 @@ public class SnakeModel {
             userSnake.enlarge();
             generateFood();
             score += 5;
+            foodEaten = true;
         }
     }
 
     public void gameOver() {
-        int squareSize = controller.getSquareSize(rows);
+        double squareWidth = controller.getSquareWidth();
+        double squareHeight = controller.getSquareHeight();
         double width = controller.getWidth();
         double height = controller.getHeight();
-        if (userSnake.getX() < 0 || userSnake.getY() < 0 || userSnake.getX() * squareSize >= width
-                || userSnake.getY() * squareSize >= height) {
+        if (userSnake.getX() < 0 || userSnake.getY() < 0 || userSnake.getX() * squareWidth >= width
+                || userSnake.getY() * squareHeight >= height) {
             gameOver = true;
         }
 
