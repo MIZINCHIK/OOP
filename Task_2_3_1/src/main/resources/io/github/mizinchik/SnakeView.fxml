@@ -33,7 +33,7 @@
    <right>
       <Group BorderPane.alignment="CENTER">
          <children>
-            <Canvas fx:id="canvas" focusTraversable="true" height="600.0" onKeyPressed="#controlKeys" width="800.0" />
+            <Canvas fx:id="canvas" focusTraversable="true" height="1000.0" onKeyPressed="#controlKeys" width="1000.0" />
          </children>
       </Group>
    </right>

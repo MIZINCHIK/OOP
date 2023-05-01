@@ -17,10 +17,7 @@ public class StartController extends Controller {
         try {
             FXMLLoader fxmlLoader = new FXMLLoader(SnakeApplication.class.getResource("SnakeView.fxml"));
             Parent root = fxmlLoader.load();
-            Scene scene = new Scene(root);
             Stage stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
-            stage.setScene(scene);
-            stage.show();
             SnakeController snakeController = fxmlLoader.getController();
             snakeController.takeControl(root, stage, snakeController.getCanvas());
         } catch (IOException e) {

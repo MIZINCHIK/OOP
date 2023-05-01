@@ -52,6 +52,7 @@ public class SnakeController extends Controller {
     }
 
     public void takeControl(Parent root, Stage stage, Canvas canvas) {
+        this.canvas = canvas;
         graphicsContext = canvas.getGraphicsContext2D();
         Scene scene = new Scene(root);
         stage.setTitle("Don't Tread on Me");
@@ -67,7 +68,7 @@ public class SnakeController extends Controller {
 
     public void prepareField(Point food, int rows, Point head, List<Point> body, int score) {
         int size = getSquareSize(rows);
-        drawPlayground(graphicsContext, 3, 10, 10);
+        drawPlayground(graphicsContext, size, rows, rows);
         drawFood(food, graphicsContext, size);
         drawSnakeHead(graphicsContext, head, size);
         drawSnakeBody(graphicsContext, body, size);

@@ -54,9 +54,12 @@ public class SnakeModel {
         while (true) {
             food.setX((int) (Math.random() * rows));
             food.setY((int) (Math.random() * columns));
+            if (userSnake.getX() == food.getX() && userSnake.getY() == food.getY()) {
+                continue;
+            }
             boolean eligible = true;
             for (Point snake : userSnake.getSnakeBody()) {
-                if (snake.getX() == food.getX() && snake.getY() == food.getY()) {
+                if (snake.getX() == food.getX() || snake.getY() == food.getY()) {
                     eligible = false;
                     break;
                 }
