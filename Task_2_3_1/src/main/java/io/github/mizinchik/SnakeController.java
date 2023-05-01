@@ -1,6 +1,7 @@
 package io.github.mizinchik;
 
 import io.github.mizinchik.utils.Point;
+import io.github.mizinchik.utils.Snake;
 import javafx.fxml.FXML;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -10,6 +11,7 @@ import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 import java.util.List;
+import java.util.Random;
 
 import static io.github.mizinchik.SnakeController.Direction.*;
 import static io.github.mizinchik.SnakeView.*;
@@ -23,16 +25,20 @@ public class SnakeController extends Controller {
         RIGHT,
         LEFT,
         DOWN,
-        UP
+        UP;
+
+        private static final Random random = new Random();
+
+        public static Direction randomDirection()  {
+            Direction[] directions = values();
+            return directions[random.nextInt(directions.length)];
+        }
     }
     private Direction currentDirection = RIGHT;
     private GraphicsContext graphicsContext;
-
     public Direction getCurrentDirection() {
         return currentDirection;
     }
-    private int rows;
-    private int columns;
 
 
     @FXML
@@ -57,12 +63,7 @@ public class SnakeController extends Controller {
         }
     }
 
-    private void buildFromFile(int levelId) {
-
-    }
-
     public void takeControl(Parent root, Stage stage, int levelId) {
-        int speed = buildFromFile();
         canvas.widthProperty().bind(pane.widthProperty());
         canvas.heightProperty().bind(pane.heightProperty());
         graphicsContext = canvas.getGraphicsContext2D();
@@ -70,7 +71,7 @@ public class SnakeController extends Controller {
         stage.setTitle("Don't Tread on Me");
         stage.setScene(scene);
         stage.show();
-        SnakeModel game = new SnakeModel(rows, columns, this, speed);
+        SnakeModel game = new SnakeModel(this, levelId);
         game.run();
     }
 
@@ -78,21 +79,27 @@ public class SnakeController extends Controller {
         drawGameOver(graphicsContext, (int) canvas.getWidth(), (int) canvas.getHeight());
     }
 
-    public void prepareField(Point food, Point head, List<Point> body, int score) {
-        double squareWidth = getSquareWidth();
-        double squareHeight = getSquareHeight();
+    public void prepareField(Point food, Point head, List<Point> body, int score,
+                             List<Point> walls, List<Snake> competitors, int rows, int columns) {
+        double squareWidth = getSquareWidth(columns);
+        double squareHeight = getSquareHeight(rows);
         drawPlayground(graphicsContext, squareWidth, squareHeight, rows, columns);
         drawFood(graphicsContext, food, squareWidth, squareHeight);
         drawSnakeHead(graphicsContext, head, squareWidth, squareHeight);
         drawSnakeBody(graphicsContext, body, squareWidth, squareHeight);
         drawScore(graphicsContext, score);
+        drawWalls(graphicsContext, walls, squareWidth, squareHeight);
+        for (Snake snake : competitors) {
+            drawSnakeHead(graphicsContext, snake, squareWidth, squareHeight);
+            drawSnakeBody(graphicsContext, snake.getSnakeBody(), squareWidth, squareHeight);
+        }
     }
 
-    public double getSquareWidth() {
+    public double getSquareWidth(int columns) {
         return canvas.getWidth() / columns;
     }
 
-    public double getSquareHeight() {
+    public double getSquareHeight(int rows) {
         return canvas.getHeight() / rows;
     }
 

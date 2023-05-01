@@ -5,11 +5,14 @@ import javafx.scene.paint.Color;
 import java.util.ArrayList;
 import java.util.List;
 
+import static io.github.mizinchik.SnakeController.Direction;
+
+
 public class Snake extends Point {
     private static final Color userHead = new Color(0.146, 0.228, 0.282, 1);
     private static final Color botHead = new Color(0.42, 0.22, 0.1337, 1);
     private final List<Point> snakeBody = new ArrayList<>();
-
+    private int score = 0;
 
     public Snake(int xCoord, int yCoord, int length, boolean isUser) {
         super(xCoord, yCoord, isUser ? userHead : botHead);
@@ -22,9 +25,6 @@ public class Snake extends Point {
         return snakeBody;
     }
 
-    public int getLength() {
-        return snakeBody.size();
-    }
 
     public boolean collideItself() {
         for (Point snakePart : snakeBody) {
@@ -43,5 +43,37 @@ public class Snake extends Point {
     public void move(boolean foodEaten) {
         snakeBody.add(0, new Point(getX(), getY(), foodEaten ? full : empty));
         snakeBody.remove(snakeBody.size() - 1);
+    }
+
+    public int getScore() {
+        return score;
+    }
+
+    public void increaseScore() {
+        score++;
+    }
+
+    public boolean collides(Point point) {
+        if (equals(point)) {
+            return true;
+        }
+        return getSnakeBody().stream().filter(point::equals).
+                findFirst().orElse(null) != null;
+    }
+
+    public boolean collides(Snake snake) {
+        return collides((Point) snake) || snake.
+                getSnakeBody().stream().
+                filter(this::collides).
+                findFirst().orElse(null) != null;
+    }
+
+    public void moveDirectly(Direction direction) {
+        switch (direction) {
+            case RIGHT -> moveRight();
+            case LEFT -> moveLeft();
+            case UP -> moveUp();
+            case DOWN -> moveDown();
+        }
     }
 }

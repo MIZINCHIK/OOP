@@ -12,7 +12,6 @@ import java.io.IOException;
 public class SnakeApplication extends Application {
     private static final String images = "io/github/mizinchik/img/";
 
-
     @Override
     public void start(Stage stage) throws IOException {
         stage.getIcons().add(new Image(images + "icon.png"));

@@ -1,6 +1,7 @@
 module io.github.mizinchik {
     requires javafx.controls;
     requires javafx.fxml;
+    requires com.google.gson;
 
 
     opens io.github.mizinchik to javafx.fxml;

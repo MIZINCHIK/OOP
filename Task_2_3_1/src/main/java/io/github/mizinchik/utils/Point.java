@@ -40,10 +40,6 @@ public class Point {
         return color;
     }
 
-    public void setColor(Color color) {
-        this.color = color;
-    }
-
     public void moveRight() {
         setX(getX() + 1);
     }
@@ -58,5 +54,9 @@ public class Point {
 
     public void moveDown() {
         setY(getY() + 1);
+    }
+
+    public boolean equals(Point point) {
+        return point.getY() == getY() && point.getX() == getX();
     }
 }

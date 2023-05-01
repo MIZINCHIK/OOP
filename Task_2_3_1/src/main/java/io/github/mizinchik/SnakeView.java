@@ -10,8 +10,9 @@ import java.util.List;
 
 public class SnakeView {
     private static final String images = "io/github/mizinchik/img/";
-    private static final String oddColor = "A2D149";
-    private static final String evenColor = "AAD751";
+    private static final Color oddColor = Color.web("A2D149");
+    private static final Color evenColor = Color.web("AAD751");
+    private static final Color wallColor = Color.web("#45a6fc");
     private static final String font = "Comic Sans MS";
     private static final Image foodImage = new Image(images + "food.png");
 
@@ -24,9 +25,9 @@ public class SnakeView {
         for (int i = 0; i < rows; i++) {
             for (int j = 0; j < columns; j++) {
                 if ((i + j) % 2 == 0) {
-                    graphicsContext.setFill(Color.web(evenColor));
+                    graphicsContext.setFill(evenColor);
                 } else {
-                    graphicsContext.setFill(Color.web(oddColor));
+                    graphicsContext.setFill(oddColor);
                 }
                 graphicsContext.fillRect(j * squareWidth, i * squareHeight, squareWidth, squareHeight);
             }
@@ -56,6 +57,14 @@ public class SnakeView {
         for (Point snakeBodyPart : body) {
             graphicsContext.setFill(snakeBodyPart.getColor());
             graphicsContext.fillRoundRect(snakeBodyPart.getX() * squareWidth, snakeBodyPart.getY() * squareHeight,
+                    squareWidth - 1, squareHeight - 1, 20, 20);
+        }
+    }
+
+    public static void drawWalls(GraphicsContext graphicsContext, List<Point> walls, double squareWidth, double squareHeight) {
+        graphicsContext.setFill(wallColor);
+        for (Point wall : walls) {
+            graphicsContext.fillRoundRect(wall.getX() * squareWidth, wall.getY() * squareHeight,
                     squareWidth - 1, squareHeight - 1, 20, 20);
         }
     }
