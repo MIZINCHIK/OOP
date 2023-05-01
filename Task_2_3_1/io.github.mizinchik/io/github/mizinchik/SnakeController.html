@@ -125,8 +125,32 @@ loadScripts(document, 'script');</script>
 <div class="table-header col-first">Modifier and Type</div>
 <div class="table-header col-second">Method</div>
 <div class="table-header col-last">Description</div>
-<div class="col-first even-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table"><code><a href="SnakeController.Direction.html" title="enum class in io.github.mizinchik">SnakeController.Direction</a></code></div>
-<div class="col-second even-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table"><code><span class="member-name-link"><a href="#getCurrentDirection()">getCurrentDirection</a></span>()</code></div>
+<div class="col-first even-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table"><code>void</code></div>
+<div class="col-second even-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table"><code><span class="member-name-link"><a href="#gameOver()">gameOver</a></span>()</code></div>
+<div class="col-last even-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table"><code><a href="SnakeController.Direction.html" title="enum class in io.github.mizinchik">SnakeController.Direction</a></code></div>
+<div class="col-second odd-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table"><code><span class="member-name-link"><a href="#getCurrentDirection()">getCurrentDirection</a></span>()</code></div>
+<div class="col-last odd-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table"><code>double</code></div>
+<div class="col-second even-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table"><code><span class="member-name-link"><a href="#getHeight()">getHeight</a></span>()</code></div>
+<div class="col-last even-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table"><code>int</code></div>
+<div class="col-second odd-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table"><code><span class="member-name-link"><a href="#getSquareSize(int)">getSquareSize</a></span>&#8203;(int&nbsp;rows)</code></div>
+<div class="col-last odd-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table"><code>double</code></div>
+<div class="col-second even-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table"><code><span class="member-name-link"><a href="#getWidth()">getWidth</a></span>()</code></div>
+<div class="col-last even-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table"><code>void</code></div>
+<div class="col-second odd-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table"><code><span class="member-name-link"><a href="#prepareField(io.github.mizinchik.utils.Point,int,io.github.mizinchik.utils.Point,java.util.List,int)">prepareField</a></span>&#8203;(<a href="utils/Point.html" title="class in io.github.mizinchik.utils">Point</a>&nbsp;food,
+ int&nbsp;rows,
+ <a href="utils/Point.html" title="class in io.github.mizinchik.utils">Point</a>&nbsp;head,
+ <a href="https://docs.oracle.com/en/java/javase/16/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="utils/Point.html" title="class in io.github.mizinchik.utils">Point</a>&gt;&nbsp;body,
+ int&nbsp;score)</code></div>
+<div class="col-last odd-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table"><code>void</code></div>
+<div class="col-second even-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table"><code><span class="member-name-link"><a href="#takeControl(javafx.scene.Parent,javafx.stage.Stage,javafx.scene.canvas.Canvas)">takeControl</a></span>&#8203;(javafx.scene.Parent&nbsp;root,
+ javafx.stage.Stage&nbsp;stage,
+ javafx.scene.canvas.Canvas&nbsp;canvas)</code></div>
 <div class="col-last even-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table">&nbsp;</div>
 </div>
 </div>
@@ -166,6 +190,48 @@ loadScripts(document, 'script');</script>
 <section class="detail" id="getCurrentDirection()">
 <h3>getCurrentDirection</h3>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="SnakeController.Direction.html" title="enum class in io.github.mizinchik">SnakeController.Direction</a></span>&nbsp;<span class="element-name">getCurrentDirection</span>()</div>
+</section>
+</li>
+<li>
+<section class="detail" id="takeControl(javafx.scene.Parent,javafx.stage.Stage,javafx.scene.canvas.Canvas)">
+<h3>takeControl</h3>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">takeControl</span>&#8203;<span class="parameters">(javafx.scene.Parent&nbsp;root,
+ javafx.stage.Stage&nbsp;stage,
+ javafx.scene.canvas.Canvas&nbsp;canvas)</span></div>
+</section>
+</li>
+<li>
+<section class="detail" id="gameOver()">
+<h3>gameOver</h3>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">gameOver</span>()</div>
+</section>
+</li>
+<li>
+<section class="detail" id="prepareField(io.github.mizinchik.utils.Point,int,io.github.mizinchik.utils.Point,java.util.List,int)">
+<h3>prepareField</h3>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">prepareField</span>&#8203;<span class="parameters">(<a href="utils/Point.html" title="class in io.github.mizinchik.utils">Point</a>&nbsp;food,
+ int&nbsp;rows,
+ <a href="utils/Point.html" title="class in io.github.mizinchik.utils">Point</a>&nbsp;head,
+ <a href="https://docs.oracle.com/en/java/javase/16/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="utils/Point.html" title="class in io.github.mizinchik.utils">Point</a>&gt;&nbsp;body,
+ int&nbsp;score)</span></div>
+</section>
+</li>
+<li>
+<section class="detail" id="getSquareSize(int)">
+<h3>getSquareSize</h3>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">int</span>&nbsp;<span class="element-name">getSquareSize</span>&#8203;<span class="parameters">(int&nbsp;rows)</span></div>
+</section>
+</li>
+<li>
+<section class="detail" id="getWidth()">
+<h3>getWidth</h3>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">double</span>&nbsp;<span class="element-name">getWidth</span>()</div>
+</section>
+</li>
+<li>
+<section class="detail" id="getHeight()">
+<h3>getHeight</h3>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">double</span>&nbsp;<span class="element-name">getHeight</span>()</div>
 </section>
 </li>
 </ul>
