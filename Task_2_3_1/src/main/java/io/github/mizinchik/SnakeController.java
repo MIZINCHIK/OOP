@@ -58,7 +58,7 @@ public class SnakeController extends Controller {
     private static final Color botHeadColor = Color.CYAN;
     private static final Color botBodyColor = Color.FUCHSIA;
     private static final Color fullBodyColor = Color.DARKOLIVEGREEN;
-    private static final Font font = Font.font("Comic Sans MS");
+    private static final Font font = Font.font("Comic Sans MS", 70);
     private static final Image foodImage = new Image(images + "food.png");
     private static final String gameOverText = "Game Over";
 
@@ -101,14 +101,15 @@ public class SnakeController extends Controller {
     public void drawPlayground(double squareWidth, double squareHeight, int rows, int columns) {
         for (int row = 0; row < rows; row++) {
             for (int column = 0; column < columns; column++) {
-                drawPoint(graphicsContext, column, row, squareWidth, squareHeight,
-                        (row + column) % 2 == 0 ? evenColor : oddColor);
+                drawPoint(graphicsContext, column * squareWidth, row * squareHeight,
+                        squareWidth, squareHeight, (row + column) % 2 == 0 ? evenColor : oddColor);
             }
         }
     }
 
     public void drawFood(Point food, double squareWidth, double squareHeight) {
-        drawImage(graphicsContext, food.getX(), food.getY(), squareWidth, squareHeight, foodImage);
+        drawImage(graphicsContext, food.getX() * squareWidth, food.getY() * squareHeight,
+                squareWidth, squareHeight, foodImage);
     }
 
     public void drawScore(int score) {
@@ -116,15 +117,16 @@ public class SnakeController extends Controller {
     }
     
     public void drawWalls(List<Point> walls, double squareWidth, double squareHeight) {
-        walls.forEach(wall -> drawPoint(graphicsContext, wall.getX(),
-                wall.getY(), squareWidth, squareHeight, wallColor));
+        walls.forEach(wall -> drawRoundPoint(graphicsContext, wall.getX() * squareWidth,
+                wall.getY() * squareHeight, squareWidth, squareHeight, wallColor));
     }
 
     public void drawSnake(Snake snake, double squareWidth, double squareHeight, boolean user) {
-        drawPoint(graphicsContext, snake.getX(), snake.getY(), squareWidth, squareHeight,
-                user ? userHeadColor : botHeadColor);
-        snake.getSnakeBody().forEach(part -> drawPoint(graphicsContext, part.getX(), part.getY(), squareWidth,
-                squareHeight, part.full() ? fullBodyColor : user ? userBodyColor : botBodyColor));
+        drawRoundPoint(graphicsContext, snake.getX() * squareWidth, snake.getY() * squareHeight,
+                squareWidth, squareHeight, user ? userHeadColor : botHeadColor);
+        snake.getSnakeBody().forEach(part -> drawRoundPoint(graphicsContext, part.getX() * squareWidth,
+                part.getY() * squareHeight, squareWidth, squareHeight,
+                part.full() ? fullBodyColor : user ? userBodyColor : botBodyColor));
     }
 
     public double getSquareWidth(int columns) {

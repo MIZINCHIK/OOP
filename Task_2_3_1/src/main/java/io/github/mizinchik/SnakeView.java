@@ -10,8 +10,14 @@ public class SnakeView {
     public static void drawPoint(GraphicsContext graphicsContext, double x, double y,
                                  double squareWidth, double squareHeight, Color color) {
         graphicsContext.setFill(color);
-        graphicsContext.fillRoundRect(x * squareWidth, y * squareHeight,
-                squareWidth - 1, squareHeight - 1, 35, 35);
+        graphicsContext.fillRect(x, y, squareWidth, squareHeight);
+    }
+
+    public static void drawRoundPoint(GraphicsContext graphicsContext, double x, double y,
+                                 double squareWidth, double squareHeight, Color color) {
+        graphicsContext.setFill(color);
+        graphicsContext.fillRoundRect(x, y, squareWidth - 1, squareHeight - 1,
+                35, 35);
     }
 
     public static void drawString(GraphicsContext graphicsContext, String text,
@@ -23,7 +29,7 @@ public class SnakeView {
 
     public static void drawImage(GraphicsContext graphicsContext, double x, double y,
                                  double squareWidth, double squareHeight, Image image) {
-        graphicsContext.drawImage(image, x * squareWidth,
-                y * squareHeight, squareWidth, squareHeight);
+        graphicsContext.drawImage(image, x,
+                y, squareWidth, squareHeight);
     }
 }
