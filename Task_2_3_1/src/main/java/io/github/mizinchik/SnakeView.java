@@ -1,6 +1,7 @@
 package io.github.mizinchik;
 
 import io.github.mizinchik.utils.Point;
+import io.github.mizinchik.utils.Snake;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.image.Image;
 import javafx.scene.paint.Color;
@@ -67,5 +68,10 @@ public class SnakeView {
             graphicsContext.fillRoundRect(wall.getX() * squareWidth, wall.getY() * squareHeight,
                     squareWidth - 1, squareHeight - 1, 20, 20);
         }
+    }
+
+    public static void drawSnake(GraphicsContext graphicsContext, Snake snake, double squareWidth, double squareHeight) {
+        drawSnakeHead(graphicsContext, snake, squareWidth, squareHeight);
+        drawSnakeBody(graphicsContext, snake.getSnakeBody(), squareWidth, squareHeight);
     }
 }

@@ -54,18 +54,11 @@ public class Snake extends Point {
     }
 
     public boolean collides(Point point) {
-        if (equals(point)) {
-            return true;
-        }
-        return getSnakeBody().stream().filter(point::equals).
-                findFirst().orElse(null) != null;
+        return equals(point) || getSnakeBody().stream().anyMatch(point::equals);
     }
 
     public boolean collides(Snake snake) {
-        return collides((Point) snake) || snake.
-                getSnakeBody().stream().
-                filter(this::collides).
-                findFirst().orElse(null) != null;
+        return collides((Point) snake) || snake.getSnakeBody().stream().anyMatch(this::collides);
     }
 
     public void moveDirectly(Direction direction) {

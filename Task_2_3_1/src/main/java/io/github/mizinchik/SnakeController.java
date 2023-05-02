@@ -79,19 +79,16 @@ public class SnakeController extends Controller {
         drawGameOver(graphicsContext, (int) canvas.getWidth(), (int) canvas.getHeight());
     }
 
-    public void prepareField(Point food, Point head, List<Point> body, int score,
-                             List<Point> walls, List<Snake> competitors, int rows, int columns) {
+    public void prepareField(Point food, Snake userSnake, List<Point> walls, List<Snake> competitors, int rows, int columns) {
         double squareWidth = getSquareWidth(columns);
         double squareHeight = getSquareHeight(rows);
         drawPlayground(graphicsContext, squareWidth, squareHeight, rows, columns);
         drawFood(graphicsContext, food, squareWidth, squareHeight);
-        drawSnakeHead(graphicsContext, head, squareWidth, squareHeight);
-        drawSnakeBody(graphicsContext, body, squareWidth, squareHeight);
-        drawScore(graphicsContext, score);
+        drawScore(graphicsContext, userSnake.getScore());
         drawWalls(graphicsContext, walls, squareWidth, squareHeight);
+        drawSnake(graphicsContext, userSnake, squareWidth, squareHeight);
         for (Snake snake : competitors) {
-            drawSnakeHead(graphicsContext, snake, squareWidth, squareHeight);
-            drawSnakeBody(graphicsContext, snake.getSnakeBody(), squareWidth, squareHeight);
+            drawSnake(graphicsContext, snake, squareWidth, squareHeight);
         }
     }
 
