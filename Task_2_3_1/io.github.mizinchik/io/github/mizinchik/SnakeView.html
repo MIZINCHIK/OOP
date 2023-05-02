@@ -131,23 +131,29 @@ loadScripts(document, 'script');</script>
  int&nbsp;score)</code></div>
 <div class="col-last odd-row-color method-summary-table-tab1 method-summary-table-tab4 method-summary-table">&nbsp;</div>
 <div class="col-first even-row-color method-summary-table-tab1 method-summary-table-tab4 method-summary-table"><code>static void</code></div>
-<div class="col-second even-row-color method-summary-table-tab1 method-summary-table-tab4 method-summary-table"><code><span class="member-name-link"><a href="#drawSnakeBody(javafx.scene.canvas.GraphicsContext,java.util.List,double,double)">drawSnakeBody</a></span>&#8203;(javafx.scene.canvas.GraphicsContext&nbsp;graphicsContext,
- <a href="https://docs.oracle.com/en/java/javase/16/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="utils/Point.html" title="class in io.github.mizinchik.utils">Point</a>&gt;&nbsp;body,
+<div class="col-second even-row-color method-summary-table-tab1 method-summary-table-tab4 method-summary-table"><code><span class="member-name-link"><a href="#drawSnake(javafx.scene.canvas.GraphicsContext,io.github.mizinchik.utils.Snake,double,double)">drawSnake</a></span>&#8203;(javafx.scene.canvas.GraphicsContext&nbsp;graphicsContext,
+ <a href="utils/Snake.html" title="class in io.github.mizinchik.utils">Snake</a>&nbsp;snake,
  double&nbsp;squareWidth,
  double&nbsp;squareHeight)</code></div>
 <div class="col-last even-row-color method-summary-table-tab1 method-summary-table-tab4 method-summary-table">&nbsp;</div>
 <div class="col-first odd-row-color method-summary-table-tab1 method-summary-table-tab4 method-summary-table"><code>static void</code></div>
-<div class="col-second odd-row-color method-summary-table-tab1 method-summary-table-tab4 method-summary-table"><code><span class="member-name-link"><a href="#drawSnakeHead(javafx.scene.canvas.GraphicsContext,io.github.mizinchik.utils.Point,double,double)">drawSnakeHead</a></span>&#8203;(javafx.scene.canvas.GraphicsContext&nbsp;graphicsContext,
- <a href="utils/Point.html" title="class in io.github.mizinchik.utils">Point</a>&nbsp;head,
+<div class="col-second odd-row-color method-summary-table-tab1 method-summary-table-tab4 method-summary-table"><code><span class="member-name-link"><a href="#drawSnakeBody(javafx.scene.canvas.GraphicsContext,java.util.List,double,double)">drawSnakeBody</a></span>&#8203;(javafx.scene.canvas.GraphicsContext&nbsp;graphicsContext,
+ <a href="https://docs.oracle.com/en/java/javase/16/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="utils/Point.html" title="class in io.github.mizinchik.utils">Point</a>&gt;&nbsp;body,
  double&nbsp;squareWidth,
  double&nbsp;squareHeight)</code></div>
 <div class="col-last odd-row-color method-summary-table-tab1 method-summary-table-tab4 method-summary-table">&nbsp;</div>
 <div class="col-first even-row-color method-summary-table-tab1 method-summary-table-tab4 method-summary-table"><code>static void</code></div>
-<div class="col-second even-row-color method-summary-table-tab1 method-summary-table-tab4 method-summary-table"><code><span class="member-name-link"><a href="#drawWalls(javafx.scene.canvas.GraphicsContext,java.util.List,double,double)">drawWalls</a></span>&#8203;(javafx.scene.canvas.GraphicsContext&nbsp;graphicsContext,
- <a href="https://docs.oracle.com/en/java/javase/16/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="utils/Point.html" title="class in io.github.mizinchik.utils">Point</a>&gt;&nbsp;walls,
+<div class="col-second even-row-color method-summary-table-tab1 method-summary-table-tab4 method-summary-table"><code><span class="member-name-link"><a href="#drawSnakeHead(javafx.scene.canvas.GraphicsContext,io.github.mizinchik.utils.Point,double,double)">drawSnakeHead</a></span>&#8203;(javafx.scene.canvas.GraphicsContext&nbsp;graphicsContext,
+ <a href="utils/Point.html" title="class in io.github.mizinchik.utils">Point</a>&nbsp;head,
  double&nbsp;squareWidth,
  double&nbsp;squareHeight)</code></div>
 <div class="col-last even-row-color method-summary-table-tab1 method-summary-table-tab4 method-summary-table">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table-tab1 method-summary-table-tab4 method-summary-table"><code>static void</code></div>
+<div class="col-second odd-row-color method-summary-table-tab1 method-summary-table-tab4 method-summary-table"><code><span class="member-name-link"><a href="#drawWalls(javafx.scene.canvas.GraphicsContext,java.util.List,double,double)">drawWalls</a></span>&#8203;(javafx.scene.canvas.GraphicsContext&nbsp;graphicsContext,
+ <a href="https://docs.oracle.com/en/java/javase/16/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="utils/Point.html" title="class in io.github.mizinchik.utils">Point</a>&gt;&nbsp;walls,
+ double&nbsp;squareWidth,
+ double&nbsp;squareHeight)</code></div>
+<div class="col-last odd-row-color method-summary-table-tab1 method-summary-table-tab4 method-summary-table">&nbsp;</div>
 </div>
 </div>
 </div>
@@ -236,6 +242,15 @@ loadScripts(document, 'script');</script>
 <h3>drawWalls</h3>
 <div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">drawWalls</span>&#8203;<span class="parameters">(javafx.scene.canvas.GraphicsContext&nbsp;graphicsContext,
  <a href="https://docs.oracle.com/en/java/javase/16/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="utils/Point.html" title="class in io.github.mizinchik.utils">Point</a>&gt;&nbsp;walls,
+ double&nbsp;squareWidth,
+ double&nbsp;squareHeight)</span></div>
+</section>
+</li>
+<li>
+<section class="detail" id="drawSnake(javafx.scene.canvas.GraphicsContext,io.github.mizinchik.utils.Snake,double,double)">
+<h3>drawSnake</h3>
+<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">drawSnake</span>&#8203;<span class="parameters">(javafx.scene.canvas.GraphicsContext&nbsp;graphicsContext,
+ <a href="utils/Snake.html" title="class in io.github.mizinchik.utils">Snake</a>&nbsp;snake,
  double&nbsp;squareWidth,
  double&nbsp;squareHeight)</span></div>
 </section>
