@@ -6,12 +6,16 @@ import javafx.fxml.FXML;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.canvas.GraphicsContext;
+import javafx.scene.image.Image;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.Pane;
+import javafx.scene.paint.Color;
+import javafx.scene.text.Font;
 import javafx.stage.Stage;
+import java.util.HashMap;
 import java.util.List;
-import java.util.Random;
+import java.util.Map;
 
 import static io.github.mizinchik.SnakeController.Direction.*;
 import static io.github.mizinchik.SnakeView.*;
@@ -26,41 +30,42 @@ public class SnakeController extends Controller {
         LEFT,
         DOWN,
         UP;
-
-        private static final Random random = new Random();
-
-        public static Direction randomDirection()  {
-            Direction[] directions = values();
-            return directions[random.nextInt(directions.length)];
-        }
+    }
+    private static final Map<KeyCode, Direction> directions = new HashMap<>();
+    static {
+        directions.put(KeyCode.RIGHT, RIGHT);
+        directions.put(KeyCode.D, RIGHT);
+        directions.put(KeyCode.LEFT, LEFT);
+        directions.put(KeyCode.A, LEFT);
+        directions.put(KeyCode.UP, UP);
+        directions.put(KeyCode.W, UP);
+        directions.put(KeyCode.DOWN, DOWN);
+        directions.put(KeyCode.S, DOWN);
     }
     private Direction currentDirection = RIGHT;
     private GraphicsContext graphicsContext;
     public Direction getCurrentDirection() {
         return currentDirection;
     }
+    private static final String images = "io/github/mizinchik/img/";
+    private static final Color oddColor = Color.web("A2D149");
+    private static final Color evenColor = Color.web("AAD751");
+    private static final Color wallColor = Color.web("#45a6fc");
+    private static final Color gameOverColor = Color.PALEVIOLETRED;
+    private static final Color scoreColor = Color.LIGHTGOLDENRODYELLOW;
+    private static final Color userHeadColor = Color.BLACK;
+    private static final Color userBodyColor = Color.BLANCHEDALMOND;
+    private static final Color botHeadColor = Color.CYAN;
+    private static final Color botBodyColor = Color.FUCHSIA;
+    private static final Color fullBodyColor = Color.DARKOLIVEGREEN;
+    private static final Font font = Font.font("Comic Sans MS");
+    private static final Image foodImage = new Image(images + "food.png");
+    private static final String gameOverText = "Game Over";
 
 
     @FXML
     private void controlKeys(KeyEvent event) {
-        KeyCode code = event.getCode();
-        if (code == KeyCode.RIGHT || code == KeyCode.D) {
-            if (currentDirection != LEFT) {
-                currentDirection = RIGHT;
-            }
-        } else if (code == KeyCode.LEFT || code == KeyCode.A) {
-            if (currentDirection != RIGHT) {
-                currentDirection = LEFT;
-            }
-        } else if (code == KeyCode.UP || code == KeyCode.W) {
-            if (currentDirection != DOWN) {
-                currentDirection = UP;
-            }
-        } else if (code == KeyCode.DOWN || code == KeyCode.S) {
-            if (currentDirection != UP) {
-                currentDirection = DOWN;
-            }
-        }
+        currentDirection = directions.get(event.getCode());
     }
 
     public void takeControl(Parent root, Stage stage, int levelId) {
@@ -76,20 +81,50 @@ public class SnakeController extends Controller {
     }
 
     public void gameOver() {
-        drawGameOver(graphicsContext, (int) canvas.getWidth(), (int) canvas.getHeight());
+        drawString(graphicsContext, gameOverText,
+                canvas.getWidth() / 3.5, canvas.getHeight() / 2,
+                gameOverColor, font);
     }
 
     public void prepareField(Point food, Snake userSnake, List<Point> walls, List<Snake> competitors, int rows, int columns) {
         double squareWidth = getSquareWidth(columns);
         double squareHeight = getSquareHeight(rows);
-        drawPlayground(graphicsContext, squareWidth, squareHeight, rows, columns);
-        drawFood(graphicsContext, food, squareWidth, squareHeight);
-        drawScore(graphicsContext, userSnake.getScore());
-        drawWalls(graphicsContext, walls, squareWidth, squareHeight);
-        drawSnake(graphicsContext, userSnake, squareWidth, squareHeight);
-        for (Snake snake : competitors) {
-            drawSnake(graphicsContext, snake, squareWidth, squareHeight);
+        drawPlayground(squareWidth, squareHeight, rows, columns);
+        drawFood(food, squareWidth, squareHeight);
+        drawScore(userSnake.getScore());
+        drawWalls(walls, squareWidth, squareHeight);
+        drawSnake(userSnake, squareWidth, squareHeight, true);
+        competitors.forEach(snake -> drawSnake(snake, squareWidth, squareHeight, false));
+
+    }
+
+    public void drawPlayground(double squareWidth, double squareHeight, int rows, int columns) {
+        for (int row = 0; row < rows; row++) {
+            for (int column = 0; column < columns; column++) {
+                drawPoint(graphicsContext, column, row, squareWidth, squareHeight,
+                        (row + column) % 2 == 0 ? evenColor : oddColor);
+            }
         }
+    }
+
+    public void drawFood(Point food, double squareWidth, double squareHeight) {
+        drawImage(graphicsContext, food.getX(), food.getY(), squareWidth, squareHeight, foodImage);
+    }
+
+    public void drawScore(int score) {
+        drawString(graphicsContext, "Score: " + score, 10 , 35, scoreColor, font);
+    }
+    
+    public void drawWalls(List<Point> walls, double squareWidth, double squareHeight) {
+        walls.forEach(wall -> drawPoint(graphicsContext, wall.getX(),
+                wall.getY(), squareWidth, squareHeight, wallColor));
+    }
+
+    public void drawSnake(Snake snake, double squareWidth, double squareHeight, boolean user) {
+        drawPoint(graphicsContext, snake.getX(), snake.getY(), squareWidth, squareHeight,
+                user ? userHeadColor : botHeadColor);
+        snake.getSnakeBody().forEach(part -> drawPoint(graphicsContext, part.getX(), part.getY(), squareWidth,
+                squareHeight, part.full() ? fullBodyColor : user ? userBodyColor : botBodyColor));
     }
 
     public double getSquareWidth(int columns) {

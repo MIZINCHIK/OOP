@@ -39,9 +39,9 @@ public class SnakeModel {
         Random random = new Random();
         System.out.println(settings.competitors());
         for (int i = 0; i < settings.competitors(); i++) {
-            competitors.add(new Snake(random.nextInt(columns), random.nextInt(rows), 3, false));
+            competitors.add(new Snake(random.nextInt(columns), random.nextInt(rows), 3));
         }
-        this.userSnake = new Snake(5, rows / 2, 3, true);
+        this.userSnake = new Snake(5, rows / 2, 3);
         this.controller = controller;
         this.food = new Point(0, 0);
     }
@@ -72,7 +72,7 @@ public class SnakeModel {
         userSnake.move(foodEaten);
         foodEaten = false;
         moveSnakes();
-        userSnake.moveDirectly(controller.getCurrentDirection());
+        userSnake.moveDirectly(controller.getCurrentDirection(), false);
         gameOver();
         eatFood(userSnake);
         for(Snake competitor : competitors){
@@ -82,7 +82,15 @@ public class SnakeModel {
 
     private void moveSnakes() {
         for (Snake competitor : competitors) {
-            competitor.moveDirectly(SnakeController.Direction.randomDirection());
+            if (food.getX() > competitor.getX()) {
+                competitor.moveDirectly(SnakeController.Direction.RIGHT, false);
+            } else if (food.getX() < competitor.getX()) {
+                competitor.moveDirectly(SnakeController.Direction.LEFT, false);
+            } else if (food.getY() < competitor.getY()) {
+                competitor.moveDirectly(SnakeController.Direction.UP, false);
+            } else {
+                competitor.moveDirectly(SnakeController.Direction.DOWN, false);
+            }
         }
     }
 
@@ -110,9 +118,8 @@ public class SnakeModel {
         if (userSnake.getX() < 0 || userSnake.getY() < 0 || userSnake.getX() * squareWidth >= width
                 || userSnake.getY() * squareHeight >= height ||
                 userSnake.collideItself() ||
-                competitors.stream().filter(userSnake::collides).
-                findFirst().orElse(null) != null ||
-        walls.stream().filter(userSnake::equals).findFirst().orElse(null) != null) {
+                competitors.stream().anyMatch(userSnake::collides) ||
+        walls.stream().anyMatch(userSnake::collides)) {
             gameOver = true;
         }
 

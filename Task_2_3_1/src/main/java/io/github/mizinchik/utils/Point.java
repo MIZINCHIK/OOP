@@ -1,24 +1,19 @@
 package io.github.mizinchik.utils;
 
-import javafx.scene.paint.Color;
-
 public class Point {
-    protected final Color empty = Color.web("4674E9");
-    protected final Color full = new Color(0.174, 0.51, 0.199, 1);
+    private boolean full;
     private int x;
     private int y;
-    private Color color;
 
-    public Point(int x, int y, Color color) {
+    public Point(int x, int y, boolean full) {
         this.setX(x);
         this.setY(y);
-        this.color = color;
+        this.full = full;
     }
 
     public Point(int x, int y) {
         this.setX(x);
         this.setY(y);
-        this.color = empty;
     }
 
     public int getX() {
@@ -35,9 +30,6 @@ public class Point {
 
     public void setY(int y) {
         this.y = y;
-    }
-    public Color getColor() {
-        return color;
     }
 
     public void moveRight() {
@@ -58,5 +50,9 @@ public class Point {
 
     public boolean equals(Point point) {
         return point.getY() == getY() && point.getX() == getX();
+    }
+
+    public boolean full() {
+        return full;
     }
 }

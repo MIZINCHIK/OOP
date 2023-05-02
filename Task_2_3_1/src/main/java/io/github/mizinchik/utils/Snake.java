@@ -1,21 +1,18 @@
 package io.github.mizinchik.utils;
 
-import javafx.scene.paint.Color;
-
 import java.util.ArrayList;
 import java.util.List;
 
 import static io.github.mizinchik.SnakeController.Direction;
 
 
-public class Snake extends Point {
-    private static final Color userHead = new Color(0.146, 0.228, 0.282, 1);
-    private static final Color botHead = new Color(0.42, 0.22, 0.1337, 1);
+public class Snake {
     private final List<Point> snakeBody = new ArrayList<>();
     private int score = 0;
+    private final Point head;
 
-    public Snake(int xCoord, int yCoord, int length, boolean isUser) {
-        super(xCoord, yCoord, isUser ? userHead : botHead);
+    public Snake(int xCoord, int yCoord, int length) {
+        head = new Point(xCoord, yCoord);
         for (int i = 0; i < length; i++) {
             snakeBody.add(new Point(xCoord, yCoord));
         }
@@ -28,8 +25,8 @@ public class Snake extends Point {
 
     public boolean collideItself() {
         for (Point snakePart : snakeBody) {
-            if (getX() == snakePart.getX()
-                    && getY() == snakePart.getY()) {
+            if (head.getX() == snakePart.getX()
+                    && head.getY() == snakePart.getY()) {
                 return true;
             }
         }
@@ -41,7 +38,7 @@ public class Snake extends Point {
     }
 
     public void move(boolean foodEaten) {
-        snakeBody.add(0, new Point(getX(), getY(), foodEaten ? full : empty));
+        snakeBody.add(0, new Point(head.getX(), head.getY(), foodEaten));
         snakeBody.remove(snakeBody.size() - 1);
     }
 
@@ -54,19 +51,32 @@ public class Snake extends Point {
     }
 
     public boolean collides(Point point) {
-        return equals(point) || getSnakeBody().stream().anyMatch(point::equals);
+        return head.equals(point) || getSnakeBody().stream().anyMatch(point::equals);
     }
 
     public boolean collides(Snake snake) {
-        return collides((Point) snake) || snake.getSnakeBody().stream().anyMatch(this::collides);
+        return collides(snake.head) || snake.getSnakeBody().stream().anyMatch(this::collides);
     }
 
-    public void moveDirectly(Direction direction) {
+    public int getX() {
+        return head.getX();
+    }
+
+    public int getY() {
+        return head.getY();
+    }
+
+    public Point getHead() {
+        return head;
+    }
+
+    public void moveDirectly(Direction direction, boolean foodEaten) {
         switch (direction) {
-            case RIGHT -> moveRight();
-            case LEFT -> moveLeft();
-            case UP -> moveUp();
-            case DOWN -> moveDown();
+            case RIGHT -> head.moveRight();
+            case LEFT -> head.moveLeft();
+            case UP -> head.moveUp();
+            case DOWN -> head.moveDown();
         }
+        move(foodEaten);
     }
 }
