@@ -7,14 +7,15 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Snake {
-    private final List<Point> snakeBody = new ArrayList<>();
-    private int score = 0;
+    private final List<Point> snakeBody;
     private final Point head;
+    private int score = 0;
 
     public Snake(int xCoord, int yCoord, int length) {
         head = new Point(xCoord, yCoord);
-        for (int i = 0; i < length; i++) {
-            snakeBody.add(new Point(xCoord, yCoord));
+        snakeBody = new ArrayList<>();
+        for (int i = 1; i <= length; i++) {
+            snakeBody.add(new Point(xCoord - i, yCoord));
         }
     }
 
@@ -71,12 +72,12 @@ public class Snake {
     }
 
     public void moveDirectly(Direction direction, boolean foodEaten) {
+        move(foodEaten);
         switch (direction) {
             case RIGHT -> head.moveRight();
             case LEFT -> head.moveLeft();
             case UP -> head.moveUp();
             case DOWN -> head.moveDown();
         }
-        move(foodEaten);
     }
 }
