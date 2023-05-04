@@ -5,7 +5,6 @@ import io.github.mizinchik.utils.Point;
 import io.github.mizinchik.utils.Settings;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Random;
 
 public class SnakeModel {
     private final int rows;
@@ -20,22 +19,20 @@ public class SnakeModel {
     private boolean foodEaten = false;
 
     public SnakeModel(SnakeController controller, Settings settings) {
-        this.rows = settings.rows();
-        this.columns = settings.columns();
+        rows = settings.rows();
+        columns = settings.columns();
         speed = settings.speed();
         walls = new ArrayList<>();
         for (int[] wall : settings.walls()) {
             walls.add(new Point(wall[0], wall[1]));
         }
         competitors = new ArrayList<>();
-        Random random = new Random();
-        System.out.println(settings.competitors());
         for (int i = 0; i < settings.competitors(); i++) {
-            competitors.add(new Snake(random.nextInt(columns), random.nextInt(rows), 3));
+            competitors.add(new Snake((int) (Math.random() * columns), (int) (Math.random() * rows), 3));
         }
-        this.userSnake = new Snake(5, rows / 2, 3);
+        userSnake = new Snake(5, rows / 2, 3);
         this.controller = controller;
-        this.food = new Point(0, 0);
+        food = new Point(0, 0);
     }
 
     public void makeMove(Direction direction) {
