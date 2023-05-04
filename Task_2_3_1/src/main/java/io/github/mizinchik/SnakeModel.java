@@ -1,18 +1,11 @@
 package io.github.mizinchik;
 
+import io.github.mizinchik.utils.Direction;
 import io.github.mizinchik.utils.Point;
 import io.github.mizinchik.utils.Settings;
-import io.github.mizinchik.utils.Snake;
-import javafx.animation.Animation;
-import javafx.animation.KeyFrame;
-import javafx.animation.Timeline;
-import javafx.util.Duration;
-import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
-
-import static io.github.mizinchik.utils.JsonReader.readLevel;
 
 public class SnakeModel {
     private final int rows;
@@ -26,8 +19,7 @@ public class SnakeModel {
     private boolean gameOver = false;
     private boolean foodEaten = false;
 
-    public SnakeModel(SnakeController controller, int levelId) {
-        Settings settings = buildFromFile(levelId);
+    public SnakeModel(SnakeController controller, Settings settings) {
         this.rows = settings.rows();
         this.columns = settings.columns();
         speed = settings.speed();
@@ -46,50 +38,56 @@ public class SnakeModel {
         this.food = new Point(0, 0);
     }
 
-    private Settings buildFromFile(int levelId) {
-        Settings settings;
-        try {
-            settings = readLevel(levelId);
-        } catch (FileNotFoundException e) {
-            settings = new Settings(15, 15, 1, 10, 135, new int[0][0]);
-        }
-        return settings;
-    }
-
-    public void run() {
-        generateFood();
-        Timeline timeline = new Timeline(new KeyFrame(Duration.millis(speed), e -> cycle()));
-        timeline.setCycleCount(Animation.INDEFINITE);
-        timeline.play();
-    }
-
-    private void cycle() {
-        if (gameOver) {
-            controller.gameOver();
-            return;
-        }
-        controller.prepareField(food, userSnake, walls, competitors, rows, columns);
+    public void makeMove(Direction direction) {
         userSnake.move(foodEaten);
         foodEaten = false;
         moveSnakes();
-        userSnake.moveDirectly(controller.getCurrentDirection(), false);
-        gameOver();
+        userSnake.moveDirectly(direction, false);
+        updateGameOver();
         eatFood(userSnake);
         for(Snake competitor : competitors){
             eatFood(competitor);
         }
     }
 
+    public int getSpeed() {
+        return speed;
+    }
+
+    public Point getFood() {
+        return food;
+    }
+
+    public Snake getUserSnake() {
+        return userSnake;
+    }
+
+    public List<Point> getWalls() {
+        return walls;
+    }
+
+    public List<Snake> getCompetitors() {
+        return competitors;
+    }
+
+    public int getRows() {
+        return rows;
+    }
+
+    public int getColumns() {
+        return columns;
+    }
+
     private void moveSnakes() {
         for (Snake competitor : competitors) {
             if (food.getX() > competitor.getX()) {
-                competitor.moveDirectly(SnakeController.Direction.RIGHT, false);
+                competitor.moveDirectly(Direction.RIGHT, false);
             } else if (food.getX() < competitor.getX()) {
-                competitor.moveDirectly(SnakeController.Direction.LEFT, false);
+                competitor.moveDirectly(Direction.LEFT, false);
             } else if (food.getY() < competitor.getY()) {
-                competitor.moveDirectly(SnakeController.Direction.UP, false);
+                competitor.moveDirectly(Direction.UP, false);
             } else {
-                competitor.moveDirectly(SnakeController.Direction.DOWN, false);
+                competitor.moveDirectly(Direction.DOWN, false);
             }
         }
     }
@@ -110,7 +108,7 @@ public class SnakeModel {
         }
     }
 
-    public void gameOver() {
+    public void updateGameOver() {
         double squareWidth = controller.getSquareWidth(columns);
         double squareHeight = controller.getSquareHeight(rows);
         double width = controller.getWidth();
@@ -122,6 +120,9 @@ public class SnakeModel {
         walls.stream().anyMatch(userSnake::collides)) {
             gameOver = true;
         }
+    }
 
+    public boolean isGameOver() {
+        return gameOver;
     }
 }

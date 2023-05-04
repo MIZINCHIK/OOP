@@ -1,7 +1,11 @@
 package io.github.mizinchik;
 
+import io.github.mizinchik.utils.Direction;
 import io.github.mizinchik.utils.Point;
-import io.github.mizinchik.utils.Snake;
+import io.github.mizinchik.utils.Settings;
+import javafx.animation.Animation;
+import javafx.animation.KeyFrame;
+import javafx.animation.Timeline;
 import javafx.fxml.FXML;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -13,24 +17,28 @@ import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.stage.Stage;
+import javafx.util.Duration;
+
+import java.io.FileNotFoundException;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import static io.github.mizinchik.SnakeController.Direction.*;
-import static io.github.mizinchik.SnakeView.*;
+import static io.github.mizinchik.SnakeView.drawImage;
+import static io.github.mizinchik.SnakeView.drawPoint;
+import static io.github.mizinchik.SnakeView.drawString;
+import static io.github.mizinchik.SnakeView.drawRoundPoint;
+import static io.github.mizinchik.utils.Direction.DOWN;
+import static io.github.mizinchik.utils.Direction.LEFT;
+import static io.github.mizinchik.utils.Direction.RIGHT;
+import static io.github.mizinchik.utils.Direction.UP;
+import static io.github.mizinchik.utils.JsonReader.readLevel;
 
 public class SnakeController extends Controller {
     @FXML
     ResizableCanvas canvas;
     @FXML
     Pane pane;
-    public enum Direction {
-        RIGHT,
-        LEFT,
-        DOWN,
-        UP;
-    }
     private static final Map<KeyCode, Direction> directions = new HashMap<>();
     static {
         directions.put(KeyCode.RIGHT, RIGHT);
@@ -61,6 +69,10 @@ public class SnakeController extends Controller {
     private static final Font font = Font.font("Comic Sans MS", 70);
     private static final Image foodImage = new Image(images + "food.png");
     private static final String gameOverText = "Game Over";
+    private int speed;
+    private int rows;
+    private int columns;
+    private SnakeModel game;
 
 
     @FXML
@@ -76,8 +88,37 @@ public class SnakeController extends Controller {
         stage.setTitle("Don't Tread on Me");
         stage.setScene(scene);
         stage.show();
-        SnakeModel game = new SnakeModel(this, levelId);
-        game.run();
+        Settings settings = buildFromFile(levelId);
+        game = new SnakeModel(this, settings);
+        speed = game.getSpeed();
+        rows = game.getRows();
+        columns = game.getColumns();
+        run();
+    }
+
+    public Settings buildFromFile(int levelId) {
+        Settings settings;
+        try {
+            settings = readLevel(levelId);
+        } catch (FileNotFoundException e) {
+            settings = new Settings(15, 15, 1, 10, 135, new int[0][0]);
+        }
+        return settings;
+    }
+
+    public void run() {
+        Timeline timeline = new Timeline(new KeyFrame(Duration.millis(speed), e -> cycle()));
+        timeline.setCycleCount(Animation.INDEFINITE);
+        timeline.play();
+    }
+
+    public void cycle() {
+        if (game.isGameOver()) {
+            gameOver();
+        } else {
+            prepareField(game.getFood(), game.getUserSnake(), game.getWalls(), game.getCompetitors(), rows, columns);
+            game.makeMove(getCurrentDirection());
+        }
     }
 
     public void gameOver() {

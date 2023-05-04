@@ -1,10 +1,10 @@
-package io.github.mizinchik.utils;
+package io.github.mizinchik;
+
+import io.github.mizinchik.utils.Direction;
+import io.github.mizinchik.utils.Point;
 
 import java.util.ArrayList;
 import java.util.List;
-
-import static io.github.mizinchik.SnakeController.Direction;
-
 
 public class Snake {
     private final List<Point> snakeBody = new ArrayList<>();
