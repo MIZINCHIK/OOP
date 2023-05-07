@@ -1,6 +1,5 @@
 package io.github.mizinchik;
 
-import io.github.mizinchik.utils.Direction;
 import io.github.mizinchik.utils.Point;
 
 import java.util.ArrayList;
@@ -69,15 +68,5 @@ public class Snake {
 
     public Point getHead() {
         return head;
-    }
-
-    public void moveDirectly(Direction direction, boolean foodEaten) {
-        move(foodEaten);
-        switch (direction) {
-            case RIGHT -> head.moveRight();
-            case LEFT -> head.moveLeft();
-            case UP -> head.moveUp();
-            case DOWN -> head.moveDown();
-        }
     }
 }

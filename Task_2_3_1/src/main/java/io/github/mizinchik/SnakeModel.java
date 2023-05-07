@@ -39,7 +39,7 @@ public class SnakeModel {
         userSnake.move(foodEaten);
         foodEaten = false;
         moveSnakes();
-        userSnake.moveDirectly(direction, false);
+        moveSnake(userSnake, direction, false);
         updateGameOver();
         eatFood(userSnake);
         for(Snake competitor : competitors){
@@ -78,13 +78,13 @@ public class SnakeModel {
     private void moveSnakes() {
         for (Snake competitor : competitors) {
             if (food.getX() > competitor.getX()) {
-                competitor.moveDirectly(Direction.RIGHT, false);
+                moveSnake(competitor, Direction.RIGHT, false);
             } else if (food.getX() < competitor.getX()) {
-                competitor.moveDirectly(Direction.LEFT, false);
+                moveSnake(competitor, Direction.LEFT, false);
             } else if (food.getY() < competitor.getY()) {
-                competitor.moveDirectly(Direction.UP, false);
+                moveSnake(competitor, Direction.UP, false);
             } else {
-                competitor.moveDirectly(Direction.DOWN, false);
+                moveSnake(competitor, Direction.DOWN, false);
             }
         }
     }
@@ -121,5 +121,16 @@ public class SnakeModel {
 
     public boolean isGameOver() {
         return gameOver;
+    }
+
+    public void moveSnake(Snake snake, Direction direction, boolean foodEaten) {
+        snake.move(foodEaten);
+        Point head = snake.getHead();
+        switch (direction) {
+            case RIGHT -> head.moveRight();
+            case LEFT -> head.moveLeft();
+            case UP -> head.moveUp();
+            case DOWN -> head.moveDown();
+        }
     }
 }
