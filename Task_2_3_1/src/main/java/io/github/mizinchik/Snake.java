@@ -9,6 +9,7 @@ public class Snake {
     private final List<Point> snakeBody;
     private final Point head;
     private int score = 0;
+    private boolean foodEaten = false;
 
     public Snake(int xCoord, int yCoord, int length) {
         head = new Point(xCoord, yCoord);
@@ -37,8 +38,9 @@ public class Snake {
         snakeBody.add(new Point(-1, -1));
     }
 
-    public void move(boolean foodEaten) {
+    public void move() {
         snakeBody.add(0, new Point(head.getX(), head.getY(), foodEaten));
+        foodEaten = false;
         snakeBody.remove(snakeBody.size() - 1);
     }
 
@@ -68,5 +70,13 @@ public class Snake {
 
     public Point getHead() {
         return head;
+    }
+
+    public boolean isFoodEaten() {
+        return foodEaten;
+    }
+
+    public void setFoodEaten(boolean value) {
+        foodEaten = value;
     }
 }

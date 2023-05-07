@@ -16,7 +16,6 @@ public class SnakeModel {
     private final SnakeController controller;
     private final Point food;
     private boolean gameOver = false;
-    private boolean foodEaten = false;
 
     public SnakeModel(SnakeController controller, Settings settings) {
         rows = settings.rows();
@@ -36,10 +35,9 @@ public class SnakeModel {
     }
 
     public void makeMove(Direction direction) {
-        userSnake.move(foodEaten);
-        foodEaten = false;
         moveSnakes();
-        moveSnake(userSnake, direction, false);
+        moveSnake(userSnake, direction);
+        userSnake.setFoodEaten(false);
         updateGameOver();
         eatFood(userSnake);
         for(Snake competitor : competitors){
@@ -78,13 +76,13 @@ public class SnakeModel {
     private void moveSnakes() {
         for (Snake competitor : competitors) {
             if (food.getX() > competitor.getX()) {
-                moveSnake(competitor, Direction.RIGHT, false);
+                moveSnake(competitor, Direction.RIGHT);
             } else if (food.getX() < competitor.getX()) {
-                moveSnake(competitor, Direction.LEFT, false);
+                moveSnake(competitor, Direction.LEFT);
             } else if (food.getY() < competitor.getY()) {
-                moveSnake(competitor, Direction.UP, false);
+                moveSnake(competitor, Direction.UP);
             } else {
-                moveSnake(competitor, Direction.DOWN, false);
+                moveSnake(competitor, Direction.DOWN);
             }
         }
     }
@@ -101,7 +99,7 @@ public class SnakeModel {
             snake.enlarge();
             generateFood();
             snake.increaseScore();
-            foodEaten = true;
+            snake.setFoodEaten(true);
         }
     }
 
@@ -123,8 +121,8 @@ public class SnakeModel {
         return gameOver;
     }
 
-    public void moveSnake(Snake snake, Direction direction, boolean foodEaten) {
-        snake.move(foodEaten);
+    public void moveSnake(Snake snake, Direction direction) {
+        snake.move();
         Point head = snake.getHead();
         switch (direction) {
             case RIGHT -> head.moveRight();
