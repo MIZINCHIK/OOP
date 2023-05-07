@@ -53,7 +53,7 @@ public class Snake {
     }
 
     public boolean collides(Point point) {
-        return head.equals(point) || getSnakeBody().stream().anyMatch(point::equals);
+        return head.equals(point);
     }
 
     public boolean collides(Snake snake) {
@@ -70,10 +70,6 @@ public class Snake {
 
     public Point getHead() {
         return head;
-    }
-
-    public boolean isFoodEaten() {
-        return foodEaten;
     }
 
     public void setFoodEaten(boolean value) {

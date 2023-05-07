@@ -113,10 +113,10 @@ public class SnakeController extends Controller {
     }
 
     public void cycle() {
+        prepareField(game.getFood(), game.getUserSnake(), game.getWalls(), game.getCompetitors(), rows, columns);
         if (game.isGameOver()) {
             gameOver();
         } else {
-            prepareField(game.getFood(), game.getUserSnake(), game.getWalls(), game.getCompetitors(), rows, columns);
             game.makeMove(getCurrentDirection());
         }
     }
