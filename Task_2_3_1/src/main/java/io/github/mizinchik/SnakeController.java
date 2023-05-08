@@ -76,11 +76,15 @@ public class SnakeController extends Controller {
     private int columns;
     private SnakeModel game;
     private Timeline timeline;
+    private Boolean onPause = false;
 
 
     @FXML
     private void controlKeys(KeyEvent event) {
-        currentDirection = directions.get(event.getCode());
+        currentDirection = directions.containsKey(event.getCode()) ? directions.get(event.getCode()) : currentDirection;
+        if (event.getCode() == KeyCode.P) {
+            pauseGame();
+        }
     }
 
     public void takeControl(Parent root, Stage stage, int levelId) {
@@ -191,7 +195,12 @@ public class SnakeController extends Controller {
 
     @FXML
     public void pauseGame() {
-
+        if (!onPause) {
+            timeline.stop();
+        } else {
+            timeline.play();
+        }
+        onPause = !onPause;
     }
 
     @FXML
