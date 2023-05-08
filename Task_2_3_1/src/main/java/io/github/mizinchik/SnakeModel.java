@@ -7,6 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class SnakeModel {
+    private final int goal;
     private final int rows;
     private final int columns;
     private final List<Point> walls;
@@ -26,6 +27,7 @@ public class SnakeModel {
         columns = settings.columns();
         speed = settings.speed();
         walls = new ArrayList<>();
+        goal = settings.goal();
         for (int[] wall : settings.walls()) {
             walls.add(new Point(wall[0], wall[1]));
         }
@@ -165,7 +167,7 @@ public class SnakeModel {
     }
 
     public void updateGameOver() {
-        if (outOfBounds(userSnake)) {
+        if (outOfBounds(userSnake) || competitors.stream().anyMatch(competitor -> competitor.getScore() >= goal)) {
             gameOver = true;
         }
     }
