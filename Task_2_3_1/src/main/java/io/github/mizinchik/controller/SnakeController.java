@@ -268,8 +268,8 @@ public class SnakeController extends Controller {
         drawRoundPoint(graphicsContext, snake.getX() * squareWidth, snake.getY() * squareHeight,
                 squareWidth, squareHeight,
                 user ? userHeadColor : botHeadColor);
-        snake.getSnakeBody().
-                forEach(part -> drawRoundPoint(graphicsContext, part.getXcoord() * squareWidth,
+        snake.getSnakeBody()
+                .forEach(part -> drawRoundPoint(graphicsContext, part.getXcoord() * squareWidth,
                 part.getYcoord() * squareHeight, squareWidth, squareHeight,
                 part.full() ? fullBodyColor : user ? userBodyColor : botBodyColor));
     }
