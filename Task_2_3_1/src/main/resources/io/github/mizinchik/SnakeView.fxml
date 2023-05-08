@@ -12,7 +12,7 @@
    <top>
       <VBox BorderPane.alignment="CENTER">
          <children>
-            <MenuBar prefHeight="14.0" prefWidth="600.0">
+            <MenuBar fx:id="menuBar" prefHeight="14.0" prefWidth="600.0">
               <menus>
                 <Menu mnemonicParsing="false" text="Game">
                   <items>
