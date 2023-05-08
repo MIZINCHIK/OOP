@@ -5,10 +5,10 @@ import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import java.io.IOException;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.stage.Stage;
-import java.io.IOException;
 
 /**
  * Controls events happening on the start screen.
@@ -24,9 +24,10 @@ public class StartController extends Controller {
      * @throws IOException if smth gone wrong with opening fxml or smth
      */
     private void goGame(ActionEvent event, int levelId) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(SnakeApplication.class.getResource("SnakeView.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(SnakeApplication
+                .class.getResource("SnakeView.fxml"));
         Parent root = fxmlLoader.load();
-        Stage stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
+        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         SnakeController snakeController = fxmlLoader.getController();
         snakeController.takeControl(root, stage, levelId);
     }

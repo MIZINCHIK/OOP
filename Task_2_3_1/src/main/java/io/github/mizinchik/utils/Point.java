@@ -7,31 +7,31 @@ package io.github.mizinchik.utils;
  */
 public class Point {
     private boolean full;
-    private int xCoordinate;
-    private int yCoordinate;
+    private int xcoord;
+    private int ycoord;
 
     /**
      * Creates a point.
      *
-     * @param xCoordinate virtual coordinate on the field
-     * @param yCoordinate virtual coordinate on the field
+     * @param xcoord virtual coordinate on the field
+     * @param ycoord virtual coordinate on the field
      * @param full if it's full (i.e. contains food)
      */
-    public Point(int xCoordinate, int yCoordinate, boolean full) {
-        this.setxCoordinate(xCoordinate);
-        this.setyCoordinate(yCoordinate);
+    public Point(int xcoord, int ycoord, boolean full) {
+        this.setXcoord(xcoord);
+        this.setYcoord(ycoord);
         this.full = full;
     }
 
     /**
      * Creates a point.
      *
-     * @param xCoordinate virtual coordinate on the field
-     * @param yCoordinate virtual coordinate on the field
+     * @param xcoord virtual coordinate on the field
+     * @param ycoord virtual coordinate on the field
      */
-    public Point(int xCoordinate, int yCoordinate) {
-        this.setxCoordinate(xCoordinate);
-        this.setyCoordinate(yCoordinate);
+    public Point(int xcoord, int ycoord) {
+        this.setXcoord(xcoord);
+        this.setYcoord(ycoord);
     }
 
     /**
@@ -39,17 +39,17 @@ public class Point {
      *
      * @return x coordinate
      */
-    public int getxCoordinate() {
-        return xCoordinate;
+    public int getXcoord() {
+        return xcoord;
     }
 
     /**
      * Sets x coordinate.
      *
-     * @param xCoordinate x coordinate
+     * @param xcoord x coordinate
      */
-    public void setxCoordinate(int xCoordinate) {
-        this.xCoordinate = xCoordinate;
+    public void setXcoord(int xcoord) {
+        this.xcoord = xcoord;
     }
 
     /**
@@ -57,45 +57,45 @@ public class Point {
      *
      * @return y coordinate
      */
-    public int getyCoordinate() {
-        return yCoordinate;
+    public int getYcoord() {
+        return ycoord;
     }
 
     /**
      * Sets y coordinate.
      *
-     * @param yCoordinate y coordinate
+     * @param ycoord y coordinate
      */
-    public void setyCoordinate(int yCoordinate) {
-        this.yCoordinate = yCoordinate;
+    public void setYcoord(int ycoord) {
+        this.ycoord = ycoord;
     }
 
     /**
      * Moves the point right on the field.
      */
     public void moveRight() {
-        setxCoordinate(getxCoordinate() + 1);
+        setXcoord(getXcoord() + 1);
     }
 
     /**
      * Moves the point left on the field.
      */
     public void moveLeft() {
-        setxCoordinate(getxCoordinate() - 1);
+        setXcoord(getXcoord() - 1);
     }
 
     /**
      * Moves the point up on the field.
      */
     public void moveUp() {
-        setyCoordinate(getyCoordinate() - 1);
+        setYcoord(getYcoord() - 1);
     }
 
     /**
      * Moves the point down on the field.
      */
     public void moveDown() {
-        setyCoordinate(getyCoordinate() + 1);
+        setYcoord(getYcoord() + 1);
     }
 
     /**
@@ -105,7 +105,8 @@ public class Point {
      * @return true if are equal
      */
     public boolean equals(Point point) {
-        return point.getyCoordinate() == getyCoordinate() && point.getxCoordinate() == getxCoordinate();
+        return point.getYcoord() == getYcoord()
+                && point.getXcoord() == getXcoord();
     }
 
     /**

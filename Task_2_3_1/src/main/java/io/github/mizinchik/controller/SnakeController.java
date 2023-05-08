@@ -1,12 +1,12 @@
 package io.github.mizinchik.controller;
 
 import io.github.mizinchik.SnakeApplication;
-import io.github.mizinchik.view.ResizableCanvas;
 import io.github.mizinchik.model.Snake;
 import io.github.mizinchik.model.SnakeModel;
 import io.github.mizinchik.utils.Direction;
 import io.github.mizinchik.utils.Point;
 import io.github.mizinchik.utils.Settings;
+import io.github.mizinchik.view.ResizableCanvas;
 import javafx.animation.Animation;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
@@ -22,9 +22,8 @@ import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.stage.Stage;
-import javafx.util.Duration;
-
 import java.io.FileNotFoundException;
+import javafx.util.Duration;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.List;
@@ -220,7 +219,7 @@ public class SnakeController extends Controller {
      * @param squareHeight of the square on the field
      */
     public void drawFood(Point food, double squareWidth, double squareHeight) {
-        drawImage(graphicsContext, food.getxCoordinate() * squareWidth, food.getyCoordinate() * squareHeight,
+        drawImage(graphicsContext, food.getXcoord() * squareWidth, food.getYcoord() * squareHeight,
                 squareWidth, squareHeight, foodImage);
     }
 
@@ -241,8 +240,8 @@ public class SnakeController extends Controller {
      * @param squareHeight of the square on the field
      */
     public void drawWalls(List<Point> walls, double squareWidth, double squareHeight) {
-        walls.forEach(wall -> drawRoundPoint(graphicsContext, wall.getxCoordinate() * squareWidth,
-                wall.getyCoordinate() * squareHeight, squareWidth, squareHeight, wallColor));
+        walls.forEach(wall -> drawRoundPoint(graphicsContext, wall.getXcoord() * squareWidth,
+                wall.getYcoord() * squareHeight, squareWidth, squareHeight, wallColor));
     }
 
     /**
@@ -256,8 +255,8 @@ public class SnakeController extends Controller {
     public void drawSnake(Snake snake, double squareWidth, double squareHeight, boolean user) {
         drawRoundPoint(graphicsContext, snake.getX() * squareWidth, snake.getY() * squareHeight,
                 squareWidth, squareHeight, user ? userHeadColor : botHeadColor);
-        snake.getSnakeBody().forEach(part -> drawRoundPoint(graphicsContext, part.getxCoordinate() * squareWidth,
-                part.getyCoordinate() * squareHeight, squareWidth, squareHeight,
+        snake.getSnakeBody().forEach(part -> drawRoundPoint(graphicsContext, part.getXcoord() * squareWidth,
+                part.getYcoord() * squareHeight, squareWidth, squareHeight,
                 part.full() ? fullBodyColor : user ? userBodyColor : botBodyColor));
     }
 

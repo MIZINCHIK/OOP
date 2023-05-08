@@ -140,20 +140,20 @@ public class SnakeModel {
      */
     private void moveSnakes() {
         for (Snake competitor : competitors) {
-            if (food.getxCoordinate() > competitor.getX()) {
+            if (food.getXcoord() > competitor.getX()) {
                 if (checkMoveDirection(competitor, Direction.RIGHT)) {
                     continue;
                 }
-            } else if (food.getxCoordinate() < competitor.getX()) {
+            } else if (food.getXcoord() < competitor.getX()) {
                 if (checkMoveDirection(competitor, Direction.LEFT)) {
                     continue;
                 }
             }
-            if (food.getyCoordinate() < competitor.getY()) {
+            if (food.getYcoord() < competitor.getY()) {
                 if (checkMoveDirection(competitor, Direction.UP)) {
                     continue;
                 }
-            } else if (food.getyCoordinate() > competitor.getY()) {
+            } else if (food.getYcoord() > competitor.getY()) {
                 if (checkMoveDirection(competitor, Direction.DOWN)) {
                     continue;
                 }
@@ -199,8 +199,8 @@ public class SnakeModel {
      */
     private void generateFood() {
         do {
-            food.setxCoordinate((int) (Math.random() * columns));
-            food.setyCoordinate((int) (Math.random() * rows));
+            food.setXcoord((int) (Math.random() * columns));
+            food.setYcoord((int) (Math.random() * rows));
         } while (userSnake.collides(food));
     }
 
@@ -210,7 +210,7 @@ public class SnakeModel {
      * @param snake that consumes food
      */
     private void eatFood(Snake snake) {
-        if (snake.getX() == food.getxCoordinate() && snake.getY() == food.getyCoordinate()) {
+        if (snake.getX() == food.getXcoord() && snake.getY() == food.getYcoord()) {
             snake.enlarge();
             generateFood();
             snake.increaseScore();
@@ -222,8 +222,8 @@ public class SnakeModel {
      * Checks if the game is over for the player.
      */
     public void updateGameOver() {
-        if (outOfBounds(userSnake) || competitors.stream().
-                anyMatch(competitor -> competitor.getScore() >= goal)) {
+        if (outOfBounds(userSnake) || competitors.stream()
+                .anyMatch(competitor -> competitor.getScore() >= goal)) {
             gameOver = true;
         }
     }
@@ -245,8 +245,8 @@ public class SnakeModel {
     public boolean outOfBounds(Snake snake) {
         return snake.getX() < 0 || snake.getY() < 0 || snake.getX() >= rows
                 || snake.getY() >= columns || snake.collideItself()
-                || competitors.stream().
-                anyMatch(competitor -> snake.collides(competitor) && !snake.equals(competitor))
+                || competitors.stream()
+                .anyMatch(competitor -> snake.collides(competitor) && !snake.equals(competitor))
                 || walls.stream().anyMatch(snake::collides);
     }
 

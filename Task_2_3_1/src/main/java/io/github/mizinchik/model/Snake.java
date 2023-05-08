@@ -1,7 +1,6 @@
 package io.github.mizinchik.model;
 
 import io.github.mizinchik.utils.Point;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -19,15 +18,15 @@ public class Snake {
     /**
      * Creates a snake.
      *
-     * @param xCoord on the virtual field
-     * @param yCoord on the virtual field
+     * @param xcoord on the virtual field
+     * @param ycoord on the virtual field
      * @param length of the body, head excluded
      */
-    public Snake(int xCoord, int yCoord, int length) {
-        head = new Point(xCoord, yCoord);
+    public Snake(int xcoord, int ycoord, int length) {
+        head = new Point(xcoord, ycoord);
         snakeBody = new ArrayList<>();
         for (int i = 1; i <= length; i++) {
-            snakeBody.add(new Point(xCoord - i, yCoord));
+            snakeBody.add(new Point(xcoord - i, ycoord));
         }
     }
 
@@ -47,8 +46,8 @@ public class Snake {
      */
     public boolean collideItself() {
         for (Point snakePart : snakeBody) {
-            if (head.getxCoordinate() == snakePart.getxCoordinate()
-                    && head.getyCoordinate() == snakePart.getyCoordinate()) {
+            if (head.getXcoord() == snakePart.getXcoord()
+                    && head.getYcoord() == snakePart.getYcoord()) {
                 return true;
             }
         }
@@ -66,7 +65,7 @@ public class Snake {
      * Moves the body in the direction of the head.
      */
     public void move() {
-        snakeBody.add(0, new Point(head.getxCoordinate(), head.getyCoordinate(), foodEaten));
+        snakeBody.add(0, new Point(head.getXcoord(), head.getYcoord(), foodEaten));
         foodEaten = false;
         snakeBody.remove(snakeBody.size() - 1);
     }
@@ -113,7 +112,7 @@ public class Snake {
      * @return x virtual field coordinate
      */
     public int getX() {
-        return head.getxCoordinate();
+        return head.getXcoord();
     }
 
     /**
@@ -122,7 +121,7 @@ public class Snake {
      * @return y virtual field coordinate
      */
     public int getY() {
-        return head.getyCoordinate();
+        return head.getYcoord();
     }
 
     /**
