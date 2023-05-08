@@ -16,6 +16,7 @@ public class SnakeModel {
     private final SnakeController controller;
     private final Point food;
     private boolean gameOver = false;
+    private Direction lastDirection = Direction.RIGHT;
 
     public SnakeModel(SnakeController controller, Settings settings) {
         rows = settings.rows();
@@ -35,8 +36,9 @@ public class SnakeModel {
     }
 
     public void makeMove(Direction direction) {
+        lastDirection = correctDirection(direction);
         moveSnakes();
-        moveSnake(userSnake, direction);
+        moveSnake(userSnake, lastDirection);
         userSnake.setFoodEaten(false);
         updateGameOver();
         eatFood(userSnake);
@@ -130,5 +132,18 @@ public class SnakeModel {
             case UP -> head.moveUp();
             case DOWN -> head.moveDown();
         }
+    }
+
+    public Direction correctDirection(Direction direction) {
+        return oppositeDirection(direction) ? lastDirection : direction;
+    }
+
+    public boolean oppositeDirection(Direction direction) {
+        return switch (lastDirection) {
+            case DOWN -> direction == Direction.UP;
+            case LEFT -> direction == Direction.RIGHT;
+            case UP -> direction == Direction.DOWN;
+            case RIGHT -> direction == Direction.LEFT;
+        };
     }
 }

@@ -23,6 +23,9 @@ public class Snake {
         return snakeBody;
     }
 
+    public Point getNeck() {
+        return snakeBody.size() == 0 ? null : snakeBody.get(0);
+    }
 
     public boolean collideItself() {
         for (Point snakePart : snakeBody) {
