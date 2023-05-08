@@ -1,5 +1,15 @@
 package io.github.mizinchik.controller;
 
+import static io.github.mizinchik.view.SnakeView.drawImage;
+import static io.github.mizinchik.view.SnakeView.drawPoint;
+import static io.github.mizinchik.view.SnakeView.drawString;
+import static io.github.mizinchik.view.SnakeView.drawRoundPoint;
+import static io.github.mizinchik.utils.Direction.DOWN;
+import static io.github.mizinchik.utils.Direction.LEFT;
+import static io.github.mizinchik.utils.Direction.RIGHT;
+import static io.github.mizinchik.utils.Direction.UP;
+import static io.github.mizinchik.utils.JsonReader.readLevel;
+
 import io.github.mizinchik.SnakeApplication;
 import io.github.mizinchik.model.Snake;
 import io.github.mizinchik.model.SnakeModel;
@@ -28,17 +38,6 @@ import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.stage.Stage;
 import javafx.util.Duration;
-
-
-import static io.github.mizinchik.view.SnakeView.drawImage;
-import static io.github.mizinchik.view.SnakeView.drawPoint;
-import static io.github.mizinchik.view.SnakeView.drawString;
-import static io.github.mizinchik.view.SnakeView.drawRoundPoint;
-import static io.github.mizinchik.utils.Direction.DOWN;
-import static io.github.mizinchik.utils.Direction.LEFT;
-import static io.github.mizinchik.utils.Direction.RIGHT;
-import static io.github.mizinchik.utils.Direction.UP;
-import static io.github.mizinchik.utils.JsonReader.readLevel;
 
 /**
  * Controller for my snake game.
