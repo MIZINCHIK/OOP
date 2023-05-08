@@ -5,10 +5,10 @@
 <?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.VBox?>
-<?import io.github.mizinchik.ResizableCanvas?>
+<?import io.github.mizinchik.view.ResizableCanvas?>
 
 <?import javafx.scene.layout.Pane?>
-<BorderPane xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="io.github.mizinchik.SnakeController">
+<BorderPane xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="io.github.mizinchik.controller.SnakeController">
    <top>
       <VBox BorderPane.alignment="CENTER">
          <children>

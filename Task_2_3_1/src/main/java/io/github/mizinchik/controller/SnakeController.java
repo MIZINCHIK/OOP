@@ -1,5 +1,9 @@
-package io.github.mizinchik;
+package io.github.mizinchik.controller;
 
+import io.github.mizinchik.SnakeApplication;
+import io.github.mizinchik.view.ResizableCanvas;
+import io.github.mizinchik.model.Snake;
+import io.github.mizinchik.model.SnakeModel;
 import io.github.mizinchik.utils.Direction;
 import io.github.mizinchik.utils.Point;
 import io.github.mizinchik.utils.Settings;
@@ -26,10 +30,10 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import static io.github.mizinchik.SnakeView.drawImage;
-import static io.github.mizinchik.SnakeView.drawPoint;
-import static io.github.mizinchik.SnakeView.drawString;
-import static io.github.mizinchik.SnakeView.drawRoundPoint;
+import static io.github.mizinchik.view.SnakeView.drawImage;
+import static io.github.mizinchik.view.SnakeView.drawPoint;
+import static io.github.mizinchik.view.SnakeView.drawString;
+import static io.github.mizinchik.view.SnakeView.drawRoundPoint;
 import static io.github.mizinchik.utils.Direction.DOWN;
 import static io.github.mizinchik.utils.Direction.LEFT;
 import static io.github.mizinchik.utils.Direction.RIGHT;
@@ -206,7 +210,7 @@ public class SnakeController extends Controller {
     @FXML
     public void stopGame() throws IOException {
         timeline.stop();
-        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("StartWindow.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(SnakeApplication.class.getResource("StartWindow.fxml"));
         Parent root = fxmlLoader.load();
         Stage stage = (Stage) menuBar.getScene().getWindow();
         stage.getIcons().add(new Image(images + "icon.png"));

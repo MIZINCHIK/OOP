@@ -1,5 +1,6 @@
-package io.github.mizinchik;
+package io.github.mizinchik.controller;
 
+import io.github.mizinchik.SnakeApplication;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -11,7 +12,7 @@ import java.io.IOException;
 
 public class StartController extends Controller {
     private void goGame(ActionEvent event, int levelId) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("SnakeView.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(SnakeApplication.class.getResource("SnakeView.fxml"));
         Parent root = fxmlLoader.load();
         Stage stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
         SnakeController snakeController = fxmlLoader.getController();

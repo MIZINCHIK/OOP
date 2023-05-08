@@ -1,4 +1,4 @@
-package io.github.mizinchik;
+package io.github.mizinchik.model;
 
 import io.github.mizinchik.utils.Direction;
 import io.github.mizinchik.utils.Point;
@@ -86,20 +86,20 @@ public class SnakeModel {
     private void moveSnakes() {
         for (Snake competitor : competitors) {
             if (food.getX() > competitor.getX()) {
-                if (checkMoveRight(competitor)) {
+                if (checkMoveDirection(competitor, Direction.RIGHT)) {
                     continue;
                 }
             } else if (food.getX() < competitor.getX()) {
-                if (checkMoveLeft(competitor)) {
+                if (checkMoveDirection(competitor, Direction.LEFT)) {
                     continue;
                 }
             }
             if (food.getY() < competitor.getY()) {
-                if (checkMoveUp(competitor)) {
+                if (checkMoveDirection(competitor, Direction.UP)) {
                     continue;
                 }
             } else if (food.getY() > competitor.getY()) {
-                if (checkMoveDown(competitor)) {
+                if (checkMoveDirection(competitor, Direction.DOWN)) {
                     continue;
                 }
             }
@@ -108,43 +108,20 @@ public class SnakeModel {
     }
 
     public void moveWhereFree(Snake snake) {
-        boolean done = checkMoveRight(snake) || checkMoveLeft(snake) || checkMoveUp(snake) || checkMoveDown(snake);
+        boolean done = checkMoveDirection(snake, Direction.RIGHT) ||
+                checkMoveDirection(snake, Direction.LEFT) ||
+                checkMoveDirection(snake, Direction.UP) ||
+                checkMoveDirection(snake, Direction.DOWN);
         if (!done) {
             moveSnake(snake, Direction.RIGHT);
         }
     }
 
-    public boolean checkMoveRight(Snake snake) {
-        Snake newSnake = new Snake(snake.getX() + 1, snake.getY(), 1);
+    public boolean checkMoveDirection(Snake snake, Direction direction) {
+        Snake newSnake = new Snake(snake.getX(), snake.getY(), 1);
+        moveSnake(newSnake, direction);
         if (!outOfBounds(newSnake) && !newSnake.collides(userSnake)) {
-            moveSnake(snake, Direction.RIGHT);
-            return true;
-        }
-        return false;
-    }
-
-    public boolean checkMoveLeft(Snake snake) {
-        Snake newSnake = new Snake(snake.getX() - 1, snake.getY(), 1);
-        if (!outOfBounds(newSnake) && !newSnake.collides(userSnake)) {
-            moveSnake(snake, Direction.LEFT);
-            return true;
-        }
-        return false;
-    }
-
-    public boolean checkMoveDown(Snake snake) {
-        Snake newSnake = new Snake(snake.getX(), snake.getY() + 1, 1);
-        if (!outOfBounds(newSnake) && !newSnake.collides(userSnake)) {
-            moveSnake(snake, Direction.DOWN);
-            return true;
-        }
-        return false;
-    }
-
-    public boolean checkMoveUp(Snake snake) {
-        Snake newSnake = new Snake(snake.getX(), snake.getY() - 1, 1);
-        if (!outOfBounds(newSnake) && !newSnake.collides(userSnake)) {
-            moveSnake(snake, Direction.UP);
+            moveSnake(snake, direction);
             return true;
         }
         return false;

@@ -1,4 +1,4 @@
-package io.github.mizinchik;
+package io.github.mizinchik.model;
 
 import io.github.mizinchik.utils.Point;
 

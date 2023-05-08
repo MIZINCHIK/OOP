@@ -1,4 +1,4 @@
-package io.github.mizinchik;
+package io.github.mizinchik.view;
 
 import javafx.scene.canvas.Canvas;
 
