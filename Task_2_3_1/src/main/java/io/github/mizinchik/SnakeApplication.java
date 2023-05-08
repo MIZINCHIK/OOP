@@ -1,5 +1,6 @@
 package io.github.mizinchik;
 
+import java.io.IOException;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -9,8 +10,6 @@ import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
-
-import java.io.IOException;
 
 /**
  * Runs my snake game.
@@ -35,7 +34,8 @@ public class SnakeApplication extends Application {
         this.stage = stage;
         Thread.setDefaultUncaughtExceptionHandler(new ExceptionHandler());
         stage.getIcons().add(new Image(images + "icon.png"));
-        FXMLLoader fxmlLoader = new FXMLLoader(SnakeApplication.class.getResource("StartWindow.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(SnakeApplication
+                .class.getResource("StartWindow.fxml"));
         Parent root = fxmlLoader.load();
         Scene scene = new Scene(root);
         stage.setTitle("Don't Tread on Me");

@@ -53,7 +53,7 @@ public class SnakeController extends Controller {
     private Direction currentDirection = RIGHT;
 
     private GraphicsContext graphicsContext;
-    
+
     static {
         directions.put(KeyCode.RIGHT, RIGHT);
         directions.put(KeyCode.D, RIGHT);
@@ -64,6 +64,7 @@ public class SnakeController extends Controller {
         directions.put(KeyCode.DOWN, DOWN);
         directions.put(KeyCode.S, DOWN);
     }
+
     private static final String images = "io/github/mizinchik/img/";
     private static final Color oddColor = Color.web("A2D149");
     private static final Color evenColor = Color.web("AAD751");
@@ -101,7 +102,8 @@ public class SnakeController extends Controller {
      */
     @FXML
     private void controlKeys(KeyEvent event) {
-        currentDirection = directions.containsKey(event.getCode()) ? directions.get(event.getCode()) : currentDirection;
+        currentDirection = directions.containsKey(event.getCode())
+                ? directions.get(event.getCode()) : currentDirection;
         if (event.getCode() == KeyCode.P) {
             pauseGame();
         }
@@ -162,7 +164,8 @@ public class SnakeController extends Controller {
      * makes a move in the model otherwise.
      */
     public void cycle() {
-        prepareField(game.getFood(), game.getUserSnake(), game.getWalls(), game.getCompetitors(), rows, columns);
+        prepareField(game.getFood(), game.getUserSnake(),
+                game.getWalls(), game.getCompetitors(), rows, columns);
         if (game.isGameOver()) {
             gameOver();
         } else {
@@ -189,7 +192,9 @@ public class SnakeController extends Controller {
      * @param rows on the field
      * @param columns on the field
      */
-    public void prepareField(Point food, Snake userSnake, List<Point> walls, List<Snake> competitors, int rows, int columns) {
+    public void prepareField(Point food, Snake userSnake,
+                             List<Point> walls, List<Snake> competitors,
+                             int rows, int columns) {
         double squareWidth = getSquareWidth();
         double squareHeight = getSquareHeight();
         drawPlayground(squareWidth, squareHeight, rows, columns);
@@ -236,7 +241,7 @@ public class SnakeController extends Controller {
      * @param score game score of the player
      */
     public void drawScore(int score) {
-        drawString(graphicsContext, "Score: " + score, 10 , 35, scoreColor, font);
+        drawString(graphicsContext, "Score: " + score, 10, 35, scoreColor, font);
     }
 
     /**
@@ -261,7 +266,8 @@ public class SnakeController extends Controller {
      */
     public void drawSnake(Snake snake, double squareWidth, double squareHeight, boolean user) {
         drawRoundPoint(graphicsContext, snake.getX() * squareWidth, snake.getY() * squareHeight,
-                squareWidth, squareHeight, user ? userHeadColor : botHeadColor);
+                squareWidth, squareHeight,
+                user ? userHeadColor : botHeadColor);
         snake.getSnakeBody().forEach(part -> drawRoundPoint(graphicsContext, part.getXcoord() * squareWidth,
                 part.getYcoord() * squareHeight, squareWidth, squareHeight,
                 part.full() ? fullBodyColor : user ? userBodyColor : botBodyColor));
@@ -306,7 +312,8 @@ public class SnakeController extends Controller {
     @FXML
     public void stopGame() throws IOException {
         timeline.stop();
-        FXMLLoader fxmlLoader = new FXMLLoader(SnakeApplication.class.getResource("StartWindow.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(SnakeApplication
+                .class.getResource("StartWindow.fxml"));
         Parent root = fxmlLoader.load();
         Stage stage = (Stage) menuBar.getScene().getWindow();
         stage.getIcons().add(new Image(images + "icon.png"));

@@ -26,9 +26,9 @@ public abstract class Controller {
         dialog.initModality(Modality.APPLICATION_MODAL);
         dialog.initOwner(menuBar.getScene().getWindow());
         VBox dialogVbox = new VBox(20);
-        dialogVbox.getChildren().add(new Text("WASD/←↑↓→ to move" + System.lineSeparator() +
-                "P to pause" + System.lineSeparator() +
-                "please close this game it's crap"));
+        dialogVbox.getChildren().add(new Text("WASD/←↑↓→ to move" + System.lineSeparator()
+                + "P to pause" + System.lineSeparator()
+                + "please close this game it's crap"));
         Scene dialogScene = new Scene(dialogVbox, 300, 200);
         dialog.setScene(dialogScene);
         dialog.show();
