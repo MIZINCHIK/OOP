@@ -81,6 +81,7 @@ loadScripts(document, 'script');</script>
 <hr>
 <div class="type-signature"><span class="modifiers">public class </span><span class="element-name type-name-label">JsonReader</span>
 <span class="extends-implements">extends <a href="https://docs.oracle.com/en/java/javase/16/docs/api/java.base/java/lang/Object.html" title="class or interface in java.lang" class="external-link">Object</a></span></div>
+<div class="block">Reads from a JSON file.</div>
 </section>
 <section class="summary">
 <ul class="summary-list">
@@ -110,7 +111,9 @@ loadScripts(document, 'script');</script>
 <div class="table-header col-last">Description</div>
 <div class="col-first even-row-color method-summary-table-tab1 method-summary-table-tab4 method-summary-table"><code>static <a href="Settings.html" title="class in io.github.mizinchik.utils">Settings</a></code></div>
 <div class="col-second even-row-color method-summary-table-tab1 method-summary-table-tab4 method-summary-table"><code><span class="member-name-link"><a href="#readLevel(int)">readLevel</a></span>&#8203;(int&nbsp;levelId)</code></div>
-<div class="col-last even-row-color method-summary-table-tab1 method-summary-table-tab4 method-summary-table">&nbsp;</div>
+<div class="col-last even-row-color method-summary-table-tab1 method-summary-table-tab4 method-summary-table">
+<div class="block">Reads level settings from the file.</div>
+</div>
 </div>
 </div>
 </div>
@@ -147,9 +150,14 @@ loadScripts(document, 'script');</script>
 <h3>readLevel</h3>
 <div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type"><a href="Settings.html" title="class in io.github.mizinchik.utils">Settings</a></span>&nbsp;<span class="element-name">readLevel</span>&#8203;<span class="parameters">(int&nbsp;levelId)</span>
                           throws <span class="exceptions"><a href="https://docs.oracle.com/en/java/javase/16/docs/api/java.base/java/io/IOException.html" title="class or interface in java.io" class="external-link">IOException</a></span></div>
+<div class="block">Reads level settings from the file.</div>
 <dl class="notes">
+<dt>Parameters:</dt>
+<dd><code>levelId</code> - in a list in the file</dd>
+<dt>Returns:</dt>
+<dd>level config</dd>
 <dt>Throws:</dt>
-<dd><code><a href="https://docs.oracle.com/en/java/javase/16/docs/api/java.base/java/io/IOException.html" title="class or interface in java.io" class="external-link">IOException</a></code></dd>
+<dd><code><a href="https://docs.oracle.com/en/java/javase/16/docs/api/java.base/java/io/IOException.html" title="class or interface in java.io" class="external-link">IOException</a></code> - in case of problems with the file</dd>
 </dl>
 </section>
 </li>

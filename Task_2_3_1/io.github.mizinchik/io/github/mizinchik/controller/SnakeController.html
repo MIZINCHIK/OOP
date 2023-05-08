@@ -83,6 +83,7 @@ loadScripts(document, 'script');</script>
 <hr>
 <div class="type-signature"><span class="modifiers">public class </span><span class="element-name type-name-label">SnakeController</span>
 <span class="extends-implements">extends <a href="Controller.html" title="class in io.github.mizinchik.controller">Controller</a></span></div>
+<div class="block">Controller for my snake game.</div>
 </section>
 <section class="summary">
 <ul class="summary-list">
@@ -121,56 +122,73 @@ loadScripts(document, 'script');</script>
 <div class="table-header col-last">Description</div>
 <div class="col-first even-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table"><code><a href="../utils/Settings.html" title="class in io.github.mizinchik.utils">Settings</a></code></div>
 <div class="col-second even-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table"><code><span class="member-name-link"><a href="#buildFromFile(int)">buildFromFile</a></span>&#8203;(int&nbsp;levelId)</code></div>
-<div class="col-last even-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table">&nbsp;</div>
+<div class="col-last even-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table">
+<div class="block">Parses the settings from JSON into the corresponding object.</div>
+</div>
 <div class="col-first odd-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table"><code>void</code></div>
 <div class="col-second odd-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table"><code><span class="member-name-link"><a href="#cycle()">cycle</a></span>()</code></div>
-<div class="col-last odd-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table">&nbsp;</div>
+<div class="col-last odd-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table">
+<div class="block">Draws the field and game over if the game is over or
+ makes a move in the model otherwise.</div>
+</div>
 <div class="col-first even-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table"><code>void</code></div>
 <div class="col-second even-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table"><code><span class="member-name-link"><a href="#drawFood(io.github.mizinchik.utils.Point,double,double)">drawFood</a></span>&#8203;(<a href="../utils/Point.html" title="class in io.github.mizinchik.utils">Point</a>&nbsp;food,
  double&nbsp;squareWidth,
  double&nbsp;squareHeight)</code></div>
-<div class="col-last even-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table">&nbsp;</div>
+<div class="col-last even-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table">
+<div class="block">Draws the food on the field.</div>
+</div>
 <div class="col-first odd-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table"><code>void</code></div>
 <div class="col-second odd-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table"><code><span class="member-name-link"><a href="#drawPlayground(double,double,int,int)">drawPlayground</a></span>&#8203;(double&nbsp;squareWidth,
  double&nbsp;squareHeight,
  int&nbsp;rows,
  int&nbsp;columns)</code></div>
-<div class="col-last odd-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table">&nbsp;</div>
+<div class="col-last odd-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table">
+<div class="block">Draws the background.</div>
+</div>
 <div class="col-first even-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table"><code>void</code></div>
 <div class="col-second even-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table"><code><span class="member-name-link"><a href="#drawScore(int)">drawScore</a></span>&#8203;(int&nbsp;score)</code></div>
-<div class="col-last even-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table">&nbsp;</div>
+<div class="col-last even-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table">
+<div class="block">Draws the player's game score.</div>
+</div>
 <div class="col-first odd-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table"><code>void</code></div>
 <div class="col-second odd-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table"><code><span class="member-name-link"><a href="#drawSnake(io.github.mizinchik.model.Snake,double,double,boolean)">drawSnake</a></span>&#8203;(<a href="../model/Snake.html" title="class in io.github.mizinchik.model">Snake</a>&nbsp;snake,
  double&nbsp;squareWidth,
  double&nbsp;squareHeight,
  boolean&nbsp;user)</code></div>
-<div class="col-last odd-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table">&nbsp;</div>
+<div class="col-last odd-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table">
+<div class="block">Draws the snake.</div>
+</div>
 <div class="col-first even-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table"><code>void</code></div>
 <div class="col-second even-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table"><code><span class="member-name-link"><a href="#drawWalls(java.util.List,double,double)">drawWalls</a></span>&#8203;(<a href="https://docs.oracle.com/en/java/javase/16/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="../utils/Point.html" title="class in io.github.mizinchik.utils">Point</a>&gt;&nbsp;walls,
  double&nbsp;squareWidth,
  double&nbsp;squareHeight)</code></div>
-<div class="col-last even-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table">&nbsp;</div>
+<div class="col-last even-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table">
+<div class="block">Draws the obstacles on the field.</div>
+</div>
 <div class="col-first odd-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table"><code>void</code></div>
 <div class="col-second odd-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table"><code><span class="member-name-link"><a href="#gameOver()">gameOver</a></span>()</code></div>
-<div class="col-last odd-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table">&nbsp;</div>
+<div class="col-last odd-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table">
+<div class="block">Draws game over.</div>
+</div>
 <div class="col-first even-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table"><code><a href="../utils/Direction.html" title="enum class in io.github.mizinchik.utils">Direction</a></code></div>
 <div class="col-second even-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table"><code><span class="member-name-link"><a href="#getCurrentDirection()">getCurrentDirection</a></span>()</code></div>
 <div class="col-last even-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table">&nbsp;</div>
 <div class="col-first odd-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table"><code>double</code></div>
-<div class="col-second odd-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table"><code><span class="member-name-link"><a href="#getHeight()">getHeight</a></span>()</code></div>
-<div class="col-last odd-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table">&nbsp;</div>
+<div class="col-second odd-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table"><code><span class="member-name-link"><a href="#getSquareHeight()">getSquareHeight</a></span>()</code></div>
+<div class="col-last odd-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table">
+<div class="block">Returns height of a point on the field.</div>
+</div>
 <div class="col-first even-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table"><code>double</code></div>
-<div class="col-second even-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table"><code><span class="member-name-link"><a href="#getSquareHeight()">getSquareHeight</a></span>()</code></div>
-<div class="col-last even-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table">&nbsp;</div>
-<div class="col-first odd-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table"><code>double</code></div>
-<div class="col-second odd-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table"><code><span class="member-name-link"><a href="#getSquareWidth()">getSquareWidth</a></span>()</code></div>
-<div class="col-last odd-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table">&nbsp;</div>
-<div class="col-first even-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table"><code>double</code></div>
-<div class="col-second even-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table"><code><span class="member-name-link"><a href="#getWidth()">getWidth</a></span>()</code></div>
-<div class="col-last even-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table">&nbsp;</div>
+<div class="col-second even-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table"><code><span class="member-name-link"><a href="#getSquareWidth()">getSquareWidth</a></span>()</code></div>
+<div class="col-last even-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table">
+<div class="block">Returns width of a point on the field.</div>
+</div>
 <div class="col-first odd-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table"><code>void</code></div>
 <div class="col-second odd-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table"><code><span class="member-name-link"><a href="#pauseGame()">pauseGame</a></span>()</code></div>
-<div class="col-last odd-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table">&nbsp;</div>
+<div class="col-last odd-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table">
+<div class="block">Stops and resumes the game cycle.</div>
+</div>
 <div class="col-first even-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table"><code>void</code></div>
 <div class="col-second even-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table"><code><span class="member-name-link"><a href="#prepareField(io.github.mizinchik.utils.Point,io.github.mizinchik.model.Snake,java.util.List,java.util.List,int,int)">prepareField</a></span>&#8203;(<a href="../utils/Point.html" title="class in io.github.mizinchik.utils">Point</a>&nbsp;food,
  <a href="../model/Snake.html" title="class in io.github.mizinchik.model">Snake</a>&nbsp;userSnake,
@@ -178,18 +196,26 @@ loadScripts(document, 'script');</script>
  <a href="https://docs.oracle.com/en/java/javase/16/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="../model/Snake.html" title="class in io.github.mizinchik.model">Snake</a>&gt;&nbsp;competitors,
  int&nbsp;rows,
  int&nbsp;columns)</code></div>
-<div class="col-last even-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table">&nbsp;</div>
+<div class="col-last even-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table">
+<div class="block">Draws the game field.</div>
+</div>
 <div class="col-first odd-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table"><code>void</code></div>
 <div class="col-second odd-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table"><code><span class="member-name-link"><a href="#run()">run</a></span>()</code></div>
-<div class="col-last odd-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table">&nbsp;</div>
+<div class="col-last odd-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table">
+<div class="block">Runs the game (bonds the timeline with the game cycle).</div>
+</div>
 <div class="col-first even-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table"><code>void</code></div>
 <div class="col-second even-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table"><code><span class="member-name-link"><a href="#stopGame()">stopGame</a></span>()</code></div>
-<div class="col-last even-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table">&nbsp;</div>
+<div class="col-last even-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table">
+<div class="block">Returns to the start menu.</div>
+</div>
 <div class="col-first odd-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table"><code>void</code></div>
 <div class="col-second odd-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table"><code><span class="member-name-link"><a href="#takeControl(javafx.scene.Parent,javafx.stage.Stage,int)">takeControl</a></span>&#8203;(javafx.scene.Parent&nbsp;root,
  javafx.stage.Stage&nbsp;stage,
  int&nbsp;levelId)</code></div>
-<div class="col-last odd-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table">&nbsp;</div>
+<div class="col-last odd-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table">
+<div class="block">Starts the actual game, creates the model for it and draws the window.</div>
+</div>
 </div>
 </div>
 </div>
@@ -234,9 +260,14 @@ loadScripts(document, 'script');</script>
  javafx.stage.Stage&nbsp;stage,
  int&nbsp;levelId)</span>
                  throws <span class="exceptions"><a href="https://docs.oracle.com/en/java/javase/16/docs/api/java.base/java/io/IOException.html" title="class or interface in java.io" class="external-link">IOException</a></span></div>
+<div class="block">Starts the actual game, creates the model for it and draws the window.</div>
 <dl class="notes">
+<dt>Parameters:</dt>
+<dd><code>root</code> - app parameter</dd>
+<dd><code>stage</code> - app parameter</dd>
+<dd><code>levelId</code> - level to start</dd>
 <dt>Throws:</dt>
-<dd><code><a href="https://docs.oracle.com/en/java/javase/16/docs/api/java.base/java/io/IOException.html" title="class or interface in java.io" class="external-link">IOException</a></code></dd>
+<dd><code><a href="https://docs.oracle.com/en/java/javase/16/docs/api/java.base/java/io/IOException.html" title="class or interface in java.io" class="external-link">IOException</a></code> - if smth gone wrong with opening fxml or smth</dd>
 </dl>
 </section>
 </li>
@@ -245,9 +276,14 @@ loadScripts(document, 'script');</script>
 <h3>buildFromFile</h3>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="../utils/Settings.html" title="class in io.github.mizinchik.utils">Settings</a></span>&nbsp;<span class="element-name">buildFromFile</span>&#8203;<span class="parameters">(int&nbsp;levelId)</span>
                        throws <span class="exceptions"><a href="https://docs.oracle.com/en/java/javase/16/docs/api/java.base/java/io/IOException.html" title="class or interface in java.io" class="external-link">IOException</a></span></div>
+<div class="block">Parses the settings from JSON into the corresponding object.</div>
 <dl class="notes">
+<dt>Parameters:</dt>
+<dd><code>levelId</code> - to extract from JSON</dd>
+<dt>Returns:</dt>
+<dd>level config</dd>
 <dt>Throws:</dt>
-<dd><code><a href="https://docs.oracle.com/en/java/javase/16/docs/api/java.base/java/io/IOException.html" title="class or interface in java.io" class="external-link">IOException</a></code></dd>
+<dd><code><a href="https://docs.oracle.com/en/java/javase/16/docs/api/java.base/java/io/IOException.html" title="class or interface in java.io" class="external-link">IOException</a></code> - if smth gone wrong</dd>
 </dl>
 </section>
 </li>
@@ -255,18 +291,22 @@ loadScripts(document, 'script');</script>
 <section class="detail" id="run()">
 <h3>run</h3>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">run</span>()</div>
+<div class="block">Runs the game (bonds the timeline with the game cycle).</div>
 </section>
 </li>
 <li>
 <section class="detail" id="cycle()">
 <h3>cycle</h3>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">cycle</span>()</div>
+<div class="block">Draws the field and game over if the game is over or
+ makes a move in the model otherwise.</div>
 </section>
 </li>
 <li>
 <section class="detail" id="gameOver()">
 <h3>gameOver</h3>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">gameOver</span>()</div>
+<div class="block">Draws game over.</div>
 </section>
 </li>
 <li>
@@ -278,6 +318,16 @@ loadScripts(document, 'script');</script>
  <a href="https://docs.oracle.com/en/java/javase/16/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="../model/Snake.html" title="class in io.github.mizinchik.model">Snake</a>&gt;&nbsp;competitors,
  int&nbsp;rows,
  int&nbsp;columns)</span></div>
+<div class="block">Draws the game field.</div>
+<dl class="notes">
+<dt>Parameters:</dt>
+<dd><code>food</code> - point where it's located</dd>
+<dd><code>userSnake</code> - player's snake</dd>
+<dd><code>walls</code> - list of obstacle points</dd>
+<dd><code>competitors</code> - list of AI snakes</dd>
+<dd><code>rows</code> - on the field</dd>
+<dd><code>columns</code> - on the field</dd>
+</dl>
 </section>
 </li>
 <li>
@@ -287,6 +337,14 @@ loadScripts(document, 'script');</script>
  double&nbsp;squareHeight,
  int&nbsp;rows,
  int&nbsp;columns)</span></div>
+<div class="block">Draws the background.</div>
+<dl class="notes">
+<dt>Parameters:</dt>
+<dd><code>squareWidth</code> - of the square on the field</dd>
+<dd><code>squareHeight</code> - of the square on the field</dd>
+<dd><code>rows</code> - of the field</dd>
+<dd><code>columns</code> - of the field</dd>
+</dl>
 </section>
 </li>
 <li>
@@ -295,12 +353,24 @@ loadScripts(document, 'script');</script>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">drawFood</span>&#8203;<span class="parameters">(<a href="../utils/Point.html" title="class in io.github.mizinchik.utils">Point</a>&nbsp;food,
  double&nbsp;squareWidth,
  double&nbsp;squareHeight)</span></div>
+<div class="block">Draws the food on the field.</div>
+<dl class="notes">
+<dt>Parameters:</dt>
+<dd><code>food</code> - point where it's located</dd>
+<dd><code>squareWidth</code> - of the square on the field</dd>
+<dd><code>squareHeight</code> - of the square on the field</dd>
+</dl>
 </section>
 </li>
 <li>
 <section class="detail" id="drawScore(int)">
 <h3>drawScore</h3>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">drawScore</span>&#8203;<span class="parameters">(int&nbsp;score)</span></div>
+<div class="block">Draws the player's game score.</div>
+<dl class="notes">
+<dt>Parameters:</dt>
+<dd><code>score</code> - game score of the player</dd>
+</dl>
 </section>
 </li>
 <li>
@@ -309,6 +379,13 @@ loadScripts(document, 'script');</script>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">drawWalls</span>&#8203;<span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/16/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="../utils/Point.html" title="class in io.github.mizinchik.utils">Point</a>&gt;&nbsp;walls,
  double&nbsp;squareWidth,
  double&nbsp;squareHeight)</span></div>
+<div class="block">Draws the obstacles on the field.</div>
+<dl class="notes">
+<dt>Parameters:</dt>
+<dd><code>walls</code> - list of points of obstacles</dd>
+<dd><code>squareWidth</code> - of the square on the field</dd>
+<dd><code>squareHeight</code> - of the square on the field</dd>
+</dl>
 </section>
 </li>
 <li>
@@ -318,36 +395,43 @@ loadScripts(document, 'script');</script>
  double&nbsp;squareWidth,
  double&nbsp;squareHeight,
  boolean&nbsp;user)</span></div>
+<div class="block">Draws the snake.</div>
+<dl class="notes">
+<dt>Parameters:</dt>
+<dd><code>snake</code> - to draw</dd>
+<dd><code>squareWidth</code> - of the square on the field</dd>
+<dd><code>squareHeight</code> - of the square on the field</dd>
+<dd><code>user</code> - true if the snake is user's</dd>
+</dl>
 </section>
 </li>
 <li>
 <section class="detail" id="getSquareWidth()">
 <h3>getSquareWidth</h3>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">double</span>&nbsp;<span class="element-name">getSquareWidth</span>()</div>
+<div class="block">Returns width of a point on the field.</div>
+<dl class="notes">
+<dt>Returns:</dt>
+<dd>width of a point on the field</dd>
+</dl>
 </section>
 </li>
 <li>
 <section class="detail" id="getSquareHeight()">
 <h3>getSquareHeight</h3>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">double</span>&nbsp;<span class="element-name">getSquareHeight</span>()</div>
-</section>
-</li>
-<li>
-<section class="detail" id="getWidth()">
-<h3>getWidth</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">double</span>&nbsp;<span class="element-name">getWidth</span>()</div>
-</section>
-</li>
-<li>
-<section class="detail" id="getHeight()">
-<h3>getHeight</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">double</span>&nbsp;<span class="element-name">getHeight</span>()</div>
+<div class="block">Returns height of a point on the field.</div>
+<dl class="notes">
+<dt>Returns:</dt>
+<dd>height of a point on the field</dd>
+</dl>
 </section>
 </li>
 <li>
 <section class="detail" id="pauseGame()">
 <h3>pauseGame</h3>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">pauseGame</span>()</div>
+<div class="block">Stops and resumes the game cycle.</div>
 </section>
 </li>
 <li>
@@ -355,9 +439,10 @@ loadScripts(document, 'script');</script>
 <h3>stopGame</h3>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">stopGame</span>()
               throws <span class="exceptions"><a href="https://docs.oracle.com/en/java/javase/16/docs/api/java.base/java/io/IOException.html" title="class or interface in java.io" class="external-link">IOException</a></span></div>
+<div class="block">Returns to the start menu.</div>
 <dl class="notes">
 <dt>Throws:</dt>
-<dd><code><a href="https://docs.oracle.com/en/java/javase/16/docs/api/java.base/java/io/IOException.html" title="class or interface in java.io" class="external-link">IOException</a></code></dd>
+<dd><code><a href="https://docs.oracle.com/en/java/javase/16/docs/api/java.base/java/io/IOException.html" title="class or interface in java.io" class="external-link">IOException</a></code> - if smth gone wrong</dd>
 </dl>
 </section>
 </li>

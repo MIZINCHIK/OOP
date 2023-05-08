@@ -81,6 +81,7 @@ loadScripts(document, 'script');</script>
 <hr>
 <div class="type-signature"><span class="modifiers">public class </span><span class="element-name type-name-label">Snake</span>
 <span class="extends-implements">extends <a href="https://docs.oracle.com/en/java/javase/16/docs/api/java.base/java/lang/Object.html" title="class or interface in java.lang" class="external-link">Object</a></span></div>
+<div class="block">Snake. Eats food, grows, dies.</div>
 </section>
 <section class="summary">
 <ul class="summary-list">
@@ -95,7 +96,9 @@ loadScripts(document, 'script');</script>
 <div class="col-constructor-name even-row-color"><code><span class="member-name-link"><a href="#%3Cinit%3E(int,int,int)">Snake</a></span>&#8203;(int&nbsp;xCoord,
  int&nbsp;yCoord,
  int&nbsp;length)</code></div>
-<div class="col-last even-row-color">&nbsp;</div>
+<div class="col-last even-row-color">
+<div class="block">Creates a snake.</div>
+</div>
 </div>
 </section>
 </li>
@@ -112,40 +115,64 @@ loadScripts(document, 'script');</script>
 <div class="table-header col-last">Description</div>
 <div class="col-first even-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table"><code>boolean</code></div>
 <div class="col-second even-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table"><code><span class="member-name-link"><a href="#collideItself()">collideItself</a></span>()</code></div>
-<div class="col-last even-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table">&nbsp;</div>
+<div class="col-last even-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table">
+<div class="block">Checks if the snake collides with itslef.</div>
+</div>
 <div class="col-first odd-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table"><code>boolean</code></div>
 <div class="col-second odd-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table"><code><span class="member-name-link"><a href="#collides(io.github.mizinchik.model.Snake)">collides</a></span>&#8203;(<a href="Snake.html" title="class in io.github.mizinchik.model">Snake</a>&nbsp;snake)</code></div>
-<div class="col-last odd-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table">&nbsp;</div>
+<div class="col-last odd-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table">
+<div class="block">Checks if the snake collides with the snake given.</div>
+</div>
 <div class="col-first even-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table"><code>boolean</code></div>
 <div class="col-second even-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table"><code><span class="member-name-link"><a href="#collides(io.github.mizinchik.utils.Point)">collides</a></span>&#8203;(<a href="../utils/Point.html" title="class in io.github.mizinchik.utils">Point</a>&nbsp;point)</code></div>
-<div class="col-last even-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table">&nbsp;</div>
+<div class="col-last even-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table">
+<div class="block">Checks if the snake collides with the point given.</div>
+</div>
 <div class="col-first odd-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table"><code>void</code></div>
 <div class="col-second odd-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table"><code><span class="member-name-link"><a href="#enlarge()">enlarge</a></span>()</code></div>
-<div class="col-last odd-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table">&nbsp;</div>
+<div class="col-last odd-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table">
+<div class="block">Adds a point to the body.</div>
+</div>
 <div class="col-first even-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table"><code><a href="../utils/Point.html" title="class in io.github.mizinchik.utils">Point</a></code></div>
 <div class="col-second even-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table"><code><span class="member-name-link"><a href="#getHead()">getHead</a></span>()</code></div>
-<div class="col-last even-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table">&nbsp;</div>
+<div class="col-last even-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table">
+<div class="block">Returns the head.</div>
+</div>
 <div class="col-first odd-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table"><code>int</code></div>
 <div class="col-second odd-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table"><code><span class="member-name-link"><a href="#getScore()">getScore</a></span>()</code></div>
-<div class="col-last odd-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table">&nbsp;</div>
+<div class="col-last odd-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table">
+<div class="block">Returns score.</div>
+</div>
 <div class="col-first even-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table"><code><a href="https://docs.oracle.com/en/java/javase/16/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="../utils/Point.html" title="class in io.github.mizinchik.utils">Point</a>&gt;</code></div>
 <div class="col-second even-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table"><code><span class="member-name-link"><a href="#getSnakeBody()">getSnakeBody</a></span>()</code></div>
-<div class="col-last even-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table">&nbsp;</div>
+<div class="col-last even-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table">
+<div class="block">Returns the body of the snake.</div>
+</div>
 <div class="col-first odd-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table"><code>int</code></div>
 <div class="col-second odd-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table"><code><span class="member-name-link"><a href="#getX()">getX</a></span>()</code></div>
-<div class="col-last odd-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table">&nbsp;</div>
+<div class="col-last odd-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table">
+<div class="block">Returns x coordinate of the head.</div>
+</div>
 <div class="col-first even-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table"><code>int</code></div>
 <div class="col-second even-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table"><code><span class="member-name-link"><a href="#getY()">getY</a></span>()</code></div>
-<div class="col-last even-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table">&nbsp;</div>
+<div class="col-last even-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table">
+<div class="block">Returns y coordinate of the head.</div>
+</div>
 <div class="col-first odd-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table"><code>void</code></div>
 <div class="col-second odd-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table"><code><span class="member-name-link"><a href="#increaseScore()">increaseScore</a></span>()</code></div>
-<div class="col-last odd-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table">&nbsp;</div>
+<div class="col-last odd-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table">
+<div class="block">Increases score.</div>
+</div>
 <div class="col-first even-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table"><code>void</code></div>
 <div class="col-second even-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table"><code><span class="member-name-link"><a href="#move()">move</a></span>()</code></div>
-<div class="col-last even-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table">&nbsp;</div>
+<div class="col-last even-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table">
+<div class="block">Moves the body in the direction of the head.</div>
+</div>
 <div class="col-first odd-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table"><code>void</code></div>
 <div class="col-second odd-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table"><code><span class="member-name-link"><a href="#setFoodEaten(boolean)">setFoodEaten</a></span>&#8203;(boolean&nbsp;value)</code></div>
-<div class="col-last odd-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table">&nbsp;</div>
+<div class="col-last odd-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table">
+<div class="block">Tells if the snake has eaten the food.</div>
+</div>
 </div>
 </div>
 </div>
@@ -169,6 +196,13 @@ loadScripts(document, 'script');</script>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="element-name">Snake</span>&#8203;<span class="parameters">(int&nbsp;xCoord,
  int&nbsp;yCoord,
  int&nbsp;length)</span></div>
+<div class="block">Creates a snake.</div>
+<dl class="notes">
+<dt>Parameters:</dt>
+<dd><code>xCoord</code> - on the virtual field</dd>
+<dd><code>yCoord</code> - on the virtual field</dd>
+<dd><code>length</code> - of the body, head excluded</dd>
+</dl>
 </section>
 </li>
 </ul>
@@ -183,72 +217,124 @@ loadScripts(document, 'script');</script>
 <section class="detail" id="getSnakeBody()">
 <h3>getSnakeBody</h3>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/16/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="../utils/Point.html" title="class in io.github.mizinchik.utils">Point</a>&gt;</span>&nbsp;<span class="element-name">getSnakeBody</span>()</div>
+<div class="block">Returns the body of the snake.</div>
+<dl class="notes">
+<dt>Returns:</dt>
+<dd>list of points where the body is</dd>
+</dl>
 </section>
 </li>
 <li>
 <section class="detail" id="collideItself()">
 <h3>collideItself</h3>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name">collideItself</span>()</div>
+<div class="block">Checks if the snake collides with itslef.</div>
+<dl class="notes">
+<dt>Returns:</dt>
+<dd>true if the snake collides with itself</dd>
+</dl>
 </section>
 </li>
 <li>
 <section class="detail" id="enlarge()">
 <h3>enlarge</h3>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">enlarge</span>()</div>
+<div class="block">Adds a point to the body.</div>
 </section>
 </li>
 <li>
 <section class="detail" id="move()">
 <h3>move</h3>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">move</span>()</div>
+<div class="block">Moves the body in the direction of the head.</div>
 </section>
 </li>
 <li>
 <section class="detail" id="getScore()">
 <h3>getScore</h3>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">int</span>&nbsp;<span class="element-name">getScore</span>()</div>
+<div class="block">Returns score.</div>
+<dl class="notes">
+<dt>Returns:</dt>
+<dd>score</dd>
+</dl>
 </section>
 </li>
 <li>
 <section class="detail" id="increaseScore()">
 <h3>increaseScore</h3>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">increaseScore</span>()</div>
+<div class="block">Increases score.</div>
 </section>
 </li>
 <li>
 <section class="detail" id="collides(io.github.mizinchik.utils.Point)">
 <h3>collides</h3>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name">collides</span>&#8203;<span class="parameters">(<a href="../utils/Point.html" title="class in io.github.mizinchik.utils">Point</a>&nbsp;point)</span></div>
+<div class="block">Checks if the snake collides with the point given.</div>
+<dl class="notes">
+<dt>Parameters:</dt>
+<dd><code>point</code> - to check for collision</dd>
+<dt>Returns:</dt>
+<dd>true if the snake collides with the point</dd>
+</dl>
 </section>
 </li>
 <li>
 <section class="detail" id="collides(io.github.mizinchik.model.Snake)">
 <h3>collides</h3>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name">collides</span>&#8203;<span class="parameters">(<a href="Snake.html" title="class in io.github.mizinchik.model">Snake</a>&nbsp;snake)</span></div>
+<div class="block">Checks if the snake collides with the snake given.</div>
+<dl class="notes">
+<dt>Parameters:</dt>
+<dd><code>snake</code> - to check for collision</dd>
+<dt>Returns:</dt>
+<dd>true if the snake collides with the snake</dd>
+</dl>
 </section>
 </li>
 <li>
 <section class="detail" id="getX()">
 <h3>getX</h3>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">int</span>&nbsp;<span class="element-name">getX</span>()</div>
+<div class="block">Returns x coordinate of the head.</div>
+<dl class="notes">
+<dt>Returns:</dt>
+<dd>x virtual field coordinate</dd>
+</dl>
 </section>
 </li>
 <li>
 <section class="detail" id="getY()">
 <h3>getY</h3>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">int</span>&nbsp;<span class="element-name">getY</span>()</div>
+<div class="block">Returns y coordinate of the head.</div>
+<dl class="notes">
+<dt>Returns:</dt>
+<dd>y virtual field coordinate</dd>
+</dl>
 </section>
 </li>
 <li>
 <section class="detail" id="getHead()">
 <h3>getHead</h3>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="../utils/Point.html" title="class in io.github.mizinchik.utils">Point</a></span>&nbsp;<span class="element-name">getHead</span>()</div>
+<div class="block">Returns the head.</div>
+<dl class="notes">
+<dt>Returns:</dt>
+<dd>head</dd>
+</dl>
 </section>
 </li>
 <li>
 <section class="detail" id="setFoodEaten(boolean)">
 <h3>setFoodEaten</h3>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">setFoodEaten</span>&#8203;<span class="parameters">(boolean&nbsp;value)</span></div>
+<div class="block">Tells if the snake has eaten the food.</div>
+<dl class="notes">
+<dt>Parameters:</dt>
+<dd><code>value</code> - whether the snake eat the food.</dd>
+</dl>
 </section>
 </li>
 </ul>

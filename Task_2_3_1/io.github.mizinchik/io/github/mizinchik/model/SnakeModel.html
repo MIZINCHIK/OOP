@@ -81,6 +81,7 @@ loadScripts(document, 'script');</script>
 <hr>
 <div class="type-signature"><span class="modifiers">public class </span><span class="element-name type-name-label">SnakeModel</span>
 <span class="extends-implements">extends <a href="https://docs.oracle.com/en/java/javase/16/docs/api/java.base/java/lang/Object.html" title="class or interface in java.lang" class="external-link">Object</a></span></div>
+<div class="block">Model of the snake game. Responsible for making a single move.</div>
 </section>
 <section class="summary">
 <ul class="summary-list">
@@ -93,7 +94,9 @@ loadScripts(document, 'script');</script>
 <div class="table-header col-first">Constructor</div>
 <div class="table-header col-last">Description</div>
 <div class="col-constructor-name even-row-color"><code><span class="member-name-link"><a href="#%3Cinit%3E(io.github.mizinchik.utils.Settings)">SnakeModel</a></span>&#8203;(<a href="../utils/Settings.html" title="class in io.github.mizinchik.utils">Settings</a>&nbsp;settings)</code></div>
-<div class="col-last even-row-color">&nbsp;</div>
+<div class="col-last even-row-color">
+<div class="block">Creates an instance of the model (the game itself).</div>
+</div>
 </div>
 </section>
 </li>
@@ -111,60 +114,91 @@ loadScripts(document, 'script');</script>
 <div class="col-first even-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table"><code>boolean</code></div>
 <div class="col-second even-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table"><code><span class="member-name-link"><a href="#checkMoveDirection(io.github.mizinchik.model.Snake,io.github.mizinchik.utils.Direction)">checkMoveDirection</a></span>&#8203;(<a href="Snake.html" title="class in io.github.mizinchik.model">Snake</a>&nbsp;snake,
  <a href="../utils/Direction.html" title="enum class in io.github.mizinchik.utils">Direction</a>&nbsp;direction)</code></div>
-<div class="col-last even-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table">&nbsp;</div>
+<div class="col-last even-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table">
+<div class="block">Checks if there are no obstacles in the direction.</div>
+</div>
 <div class="col-first odd-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table"><code><a href="../utils/Direction.html" title="enum class in io.github.mizinchik.utils">Direction</a></code></div>
 <div class="col-second odd-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table"><code><span class="member-name-link"><a href="#correctDirection(io.github.mizinchik.utils.Direction)">correctDirection</a></span>&#8203;(<a href="../utils/Direction.html" title="enum class in io.github.mizinchik.utils">Direction</a>&nbsp;direction)</code></div>
-<div class="col-last odd-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table">&nbsp;</div>
+<div class="col-last odd-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table">
+<div class="block">Returns an appropriate direction for user's snake.</div>
+</div>
 <div class="col-first even-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table"><code>int</code></div>
 <div class="col-second even-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table"><code><span class="member-name-link"><a href="#getColumns()">getColumns</a></span>()</code></div>
-<div class="col-last even-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table">&nbsp;</div>
+<div class="col-last even-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table">
+<div class="block">Returns columns.</div>
+</div>
 <div class="col-first odd-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table"><code><a href="https://docs.oracle.com/en/java/javase/16/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="Snake.html" title="class in io.github.mizinchik.model">Snake</a>&gt;</code></div>
 <div class="col-second odd-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table"><code><span class="member-name-link"><a href="#getCompetitors()">getCompetitors</a></span>()</code></div>
-<div class="col-last odd-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table">&nbsp;</div>
+<div class="col-last odd-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table">
+<div class="block">Returns competitors.</div>
+</div>
 <div class="col-first even-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table"><code><a href="../utils/Point.html" title="class in io.github.mizinchik.utils">Point</a></code></div>
 <div class="col-second even-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table"><code><span class="member-name-link"><a href="#getFood()">getFood</a></span>()</code></div>
-<div class="col-last even-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table">&nbsp;</div>
+<div class="col-last even-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table">
+<div class="block">Returns food.</div>
+</div>
 <div class="col-first odd-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table"><code>int</code></div>
 <div class="col-second odd-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table"><code><span class="member-name-link"><a href="#getRows()">getRows</a></span>()</code></div>
-<div class="col-last odd-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table">&nbsp;</div>
+<div class="col-last odd-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table">
+<div class="block">Returns rows.</div>
+</div>
 <div class="col-first even-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table"><code>int</code></div>
-<div class="col-second even-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table"><code><span class="member-name-link"><a href="#getSpeed()">getSpeed</a></span>()</code></div>
-<div class="col-last even-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table">&nbsp;</div>
+<div class="col-second even-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table"><code><span class="member-name-link"><a href="#getTime()">getTime</a></span>()</code></div>
+<div class="col-last even-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table">
+<div class="block">Returns time between frames.</div>
+</div>
 <div class="col-first odd-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table"><code><a href="Snake.html" title="class in io.github.mizinchik.model">Snake</a></code></div>
 <div class="col-second odd-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table"><code><span class="member-name-link"><a href="#getUserSnake()">getUserSnake</a></span>()</code></div>
-<div class="col-last odd-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table">&nbsp;</div>
+<div class="col-last odd-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table">
+<div class="block">Return the snake of the player.</div>
+</div>
 <div class="col-first even-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table"><code><a href="https://docs.oracle.com/en/java/javase/16/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="../utils/Point.html" title="class in io.github.mizinchik.utils">Point</a>&gt;</code></div>
 <div class="col-second even-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table"><code><span class="member-name-link"><a href="#getWalls()">getWalls</a></span>()</code></div>
-<div class="col-last even-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table">&nbsp;</div>
+<div class="col-last even-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table">
+<div class="block">Returns walls, where no snake can move.</div>
+</div>
 <div class="col-first odd-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table"><code>boolean</code></div>
 <div class="col-second odd-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table"><code><span class="member-name-link"><a href="#isGameOver()">isGameOver</a></span>()</code></div>
-<div class="col-last odd-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table">&nbsp;</div>
+<div class="col-last odd-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table">
+<div class="block">Returns true if game is over.</div>
+</div>
 <div class="col-first even-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table"><code>void</code></div>
-<div class="col-second even-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table"><code><span class="member-name-link"><a href="#makeMove(io.github.mizinchik.utils.Direction,double,double,double,double)">makeMove</a></span>&#8203;(<a href="../utils/Direction.html" title="enum class in io.github.mizinchik.utils">Direction</a>&nbsp;direction,
- double&nbsp;width,
- double&nbsp;height,
- double&nbsp;squareWidth,
- double&nbsp;squareHeight)</code></div>
-<div class="col-last even-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table">&nbsp;</div>
+<div class="col-second even-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table"><code><span class="member-name-link"><a href="#makeMove(io.github.mizinchik.utils.Direction)">makeMove</a></span>&#8203;(<a href="../utils/Direction.html" title="enum class in io.github.mizinchik.utils">Direction</a>&nbsp;direction)</code></div>
+<div class="col-last even-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table">
+<div class="block">Makes a single move in the game.</div>
+</div>
 <div class="col-first odd-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table"><code>void</code></div>
 <div class="col-second odd-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table"><code><span class="member-name-link"><a href="#moveSnake(io.github.mizinchik.model.Snake,io.github.mizinchik.utils.Direction)">moveSnake</a></span>&#8203;(<a href="Snake.html" title="class in io.github.mizinchik.model">Snake</a>&nbsp;snake,
  <a href="../utils/Direction.html" title="enum class in io.github.mizinchik.utils">Direction</a>&nbsp;direction)</code></div>
-<div class="col-last odd-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table">&nbsp;</div>
+<div class="col-last odd-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table">
+<div class="block">Moves snake in a direction.</div>
+</div>
 <div class="col-first even-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table"><code>void</code></div>
 <div class="col-second even-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table"><code><span class="member-name-link"><a href="#moveWhereFree(io.github.mizinchik.model.Snake)">moveWhereFree</a></span>&#8203;(<a href="Snake.html" title="class in io.github.mizinchik.model">Snake</a>&nbsp;snake)</code></div>
-<div class="col-last even-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table">&nbsp;</div>
+<div class="col-last even-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table">
+<div class="block">Moves snake in some free spot if possible.</div>
+</div>
 <div class="col-first odd-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table"><code>boolean</code></div>
 <div class="col-second odd-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table"><code><span class="member-name-link"><a href="#oppositeDirection(io.github.mizinchik.utils.Direction)">oppositeDirection</a></span>&#8203;(<a href="../utils/Direction.html" title="enum class in io.github.mizinchik.utils">Direction</a>&nbsp;direction)</code></div>
-<div class="col-last odd-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table">&nbsp;</div>
+<div class="col-last odd-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table">
+<div class="block">Checks if the direction given is opposite to
+ the current direction of the user.</div>
+</div>
 <div class="col-first even-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table"><code>boolean</code></div>
 <div class="col-second even-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table"><code><span class="member-name-link"><a href="#outOfBounds(io.github.mizinchik.model.Snake)">outOfBounds</a></span>&#8203;(<a href="Snake.html" title="class in io.github.mizinchik.model">Snake</a>&nbsp;snake)</code></div>
-<div class="col-last even-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table">&nbsp;</div>
+<div class="col-last even-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table">
+<div class="block">Checks if snake has collided with anything.</div>
+</div>
 <div class="col-first odd-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table"><code>void</code></div>
 <div class="col-second odd-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table"><code><span class="member-name-link"><a href="#updateGameOver()">updateGameOver</a></span>()</code></div>
-<div class="col-last odd-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table">&nbsp;</div>
+<div class="col-last odd-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table">
+<div class="block">Checks if the game is over for the player.</div>
+</div>
 <div class="col-first even-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table"><code>void</code></div>
 <div class="col-second even-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table"><code><span class="member-name-link"><a href="#updateSnakes()">updateSnakes</a></span>()</code></div>
-<div class="col-last even-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table">&nbsp;</div>
+<div class="col-last even-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table">
+<div class="block">Check what snakes have died.</div>
+</div>
 </div>
 </div>
 </div>
@@ -186,6 +220,11 @@ loadScripts(document, 'script');</script>
 <section class="detail" id="&lt;init&gt;(io.github.mizinchik.utils.Settings)">
 <h3>SnakeModel</h3>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="element-name">SnakeModel</span>&#8203;<span class="parameters">(<a href="../utils/Settings.html" title="class in io.github.mizinchik.utils">Settings</a>&nbsp;settings)</span></div>
+<div class="block">Creates an instance of the model (the game itself).</div>
+<dl class="notes">
+<dt>Parameters:</dt>
+<dd><code>settings</code> - level config</dd>
+</dl>
 </section>
 </li>
 </ul>
@@ -197,61 +236,113 @@ loadScripts(document, 'script');</script>
 <h2>Method Details</h2>
 <ul class="member-list">
 <li>
-<section class="detail" id="getSpeed()">
-<h3>getSpeed</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">int</span>&nbsp;<span class="element-name">getSpeed</span>()</div>
+<section class="detail" id="getTime()">
+<h3>getTime</h3>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">int</span>&nbsp;<span class="element-name">getTime</span>()</div>
+<div class="block">Returns time between frames.</div>
+<dl class="notes">
+<dt>Returns:</dt>
+<dd>time between frames</dd>
+</dl>
 </section>
 </li>
 <li>
 <section class="detail" id="getFood()">
 <h3>getFood</h3>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="../utils/Point.html" title="class in io.github.mizinchik.utils">Point</a></span>&nbsp;<span class="element-name">getFood</span>()</div>
+<div class="block">Returns food.</div>
+<dl class="notes">
+<dt>Returns:</dt>
+<dd>food (respective point)</dd>
+</dl>
 </section>
 </li>
 <li>
 <section class="detail" id="getUserSnake()">
 <h3>getUserSnake</h3>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="Snake.html" title="class in io.github.mizinchik.model">Snake</a></span>&nbsp;<span class="element-name">getUserSnake</span>()</div>
+<div class="block">Return the snake of the player.</div>
+<dl class="notes">
+<dt>Returns:</dt>
+<dd>user's snake</dd>
+</dl>
 </section>
 </li>
 <li>
 <section class="detail" id="getWalls()">
 <h3>getWalls</h3>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/16/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="../utils/Point.html" title="class in io.github.mizinchik.utils">Point</a>&gt;</span>&nbsp;<span class="element-name">getWalls</span>()</div>
+<div class="block">Returns walls, where no snake can move.</div>
+<dl class="notes">
+<dt>Returns:</dt>
+<dd>list of points where walls are</dd>
+</dl>
 </section>
 </li>
 <li>
 <section class="detail" id="getCompetitors()">
 <h3>getCompetitors</h3>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/16/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="Snake.html" title="class in io.github.mizinchik.model">Snake</a>&gt;</span>&nbsp;<span class="element-name">getCompetitors</span>()</div>
+<div class="block">Returns competitors.</div>
+<dl class="notes">
+<dt>Returns:</dt>
+<dd>list of AI snakes</dd>
+</dl>
 </section>
 </li>
 <li>
 <section class="detail" id="getRows()">
 <h3>getRows</h3>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">int</span>&nbsp;<span class="element-name">getRows</span>()</div>
+<div class="block">Returns rows.</div>
+<dl class="notes">
+<dt>Returns:</dt>
+<dd>number of rows on the field</dd>
+</dl>
 </section>
 </li>
 <li>
 <section class="detail" id="getColumns()">
 <h3>getColumns</h3>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">int</span>&nbsp;<span class="element-name">getColumns</span>()</div>
+<div class="block">Returns columns.</div>
+<dl class="notes">
+<dt>Returns:</dt>
+<dd>number of columns on the field</dd>
+</dl>
 </section>
 </li>
 <li>
-<section class="detail" id="makeMove(io.github.mizinchik.utils.Direction,double,double,double,double)">
+<section class="detail" id="isGameOver()">
+<h3>isGameOver</h3>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name">isGameOver</span>()</div>
+<div class="block">Returns true if game is over.</div>
+<dl class="notes">
+<dt>Returns:</dt>
+<dd>true if game is over</dd>
+</dl>
+</section>
+</li>
+<li>
+<section class="detail" id="makeMove(io.github.mizinchik.utils.Direction)">
 <h3>makeMove</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">makeMove</span>&#8203;<span class="parameters">(<a href="../utils/Direction.html" title="enum class in io.github.mizinchik.utils">Direction</a>&nbsp;direction,
- double&nbsp;width,
- double&nbsp;height,
- double&nbsp;squareWidth,
- double&nbsp;squareHeight)</span></div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">makeMove</span>&#8203;<span class="parameters">(<a href="../utils/Direction.html" title="enum class in io.github.mizinchik.utils">Direction</a>&nbsp;direction)</span></div>
+<div class="block">Makes a single move in the game.</div>
+<dl class="notes">
+<dt>Parameters:</dt>
+<dd><code>direction</code> - where user wants to move the snake</dd>
+</dl>
 </section>
 </li>
 <li>
 <section class="detail" id="moveWhereFree(io.github.mizinchik.model.Snake)">
 <h3>moveWhereFree</h3>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">moveWhereFree</span>&#8203;<span class="parameters">(<a href="Snake.html" title="class in io.github.mizinchik.model">Snake</a>&nbsp;snake)</span></div>
+<div class="block">Moves snake in some free spot if possible.</div>
+<dl class="notes">
+<dt>Parameters:</dt>
+<dd><code>snake</code> - to move</dd>
+</dl>
 </section>
 </li>
 <li>
@@ -259,30 +350,41 @@ loadScripts(document, 'script');</script>
 <h3>checkMoveDirection</h3>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name">checkMoveDirection</span>&#8203;<span class="parameters">(<a href="Snake.html" title="class in io.github.mizinchik.model">Snake</a>&nbsp;snake,
  <a href="../utils/Direction.html" title="enum class in io.github.mizinchik.utils">Direction</a>&nbsp;direction)</span></div>
+<div class="block">Checks if there are no obstacles in the direction.</div>
+<dl class="notes">
+<dt>Parameters:</dt>
+<dd><code>snake</code> - to move</dd>
+<dd><code>direction</code> - where to move</dd>
+<dt>Returns:</dt>
+<dd>true if it can be moved without collision</dd>
+</dl>
 </section>
 </li>
 <li>
 <section class="detail" id="updateGameOver()">
 <h3>updateGameOver</h3>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">updateGameOver</span>()</div>
+<div class="block">Checks if the game is over for the player.</div>
 </section>
 </li>
 <li>
 <section class="detail" id="updateSnakes()">
 <h3>updateSnakes</h3>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">updateSnakes</span>()</div>
+<div class="block">Check what snakes have died.</div>
 </section>
 </li>
 <li>
 <section class="detail" id="outOfBounds(io.github.mizinchik.model.Snake)">
 <h3>outOfBounds</h3>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name">outOfBounds</span>&#8203;<span class="parameters">(<a href="Snake.html" title="class in io.github.mizinchik.model">Snake</a>&nbsp;snake)</span></div>
-</section>
-</li>
-<li>
-<section class="detail" id="isGameOver()">
-<h3>isGameOver</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name">isGameOver</span>()</div>
+<div class="block">Checks if snake has collided with anything.</div>
+<dl class="notes">
+<dt>Parameters:</dt>
+<dd><code>snake</code> - to check</dd>
+<dt>Returns:</dt>
+<dd>true if snake is dead</dd>
+</dl>
 </section>
 </li>
 <li>
@@ -290,18 +392,39 @@ loadScripts(document, 'script');</script>
 <h3>moveSnake</h3>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">moveSnake</span>&#8203;<span class="parameters">(<a href="Snake.html" title="class in io.github.mizinchik.model">Snake</a>&nbsp;snake,
  <a href="../utils/Direction.html" title="enum class in io.github.mizinchik.utils">Direction</a>&nbsp;direction)</span></div>
+<div class="block">Moves snake in a direction.</div>
+<dl class="notes">
+<dt>Parameters:</dt>
+<dd><code>snake</code> - to move</dd>
+<dd><code>direction</code> - where to move</dd>
+</dl>
 </section>
 </li>
 <li>
 <section class="detail" id="correctDirection(io.github.mizinchik.utils.Direction)">
 <h3>correctDirection</h3>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="../utils/Direction.html" title="enum class in io.github.mizinchik.utils">Direction</a></span>&nbsp;<span class="element-name">correctDirection</span>&#8203;<span class="parameters">(<a href="../utils/Direction.html" title="enum class in io.github.mizinchik.utils">Direction</a>&nbsp;direction)</span></div>
+<div class="block">Returns an appropriate direction for user's snake.</div>
+<dl class="notes">
+<dt>Parameters:</dt>
+<dd><code>direction</code> - where user wants to move the snake</dd>
+<dt>Returns:</dt>
+<dd>direction that the snake may move in</dd>
+</dl>
 </section>
 </li>
 <li>
 <section class="detail" id="oppositeDirection(io.github.mizinchik.utils.Direction)">
 <h3>oppositeDirection</h3>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name">oppositeDirection</span>&#8203;<span class="parameters">(<a href="../utils/Direction.html" title="enum class in io.github.mizinchik.utils">Direction</a>&nbsp;direction)</span></div>
+<div class="block">Checks if the direction given is opposite to
+ the current direction of the user.</div>
+<dl class="notes">
+<dt>Parameters:</dt>
+<dd><code>direction</code> - to check</dd>
+<dt>Returns:</dt>
+<dd>true if the direction given is opposite to current</dd>
+</dl>
 </section>
 </li>
 </ul>
