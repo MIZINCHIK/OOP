@@ -6,8 +6,21 @@ import com.google.gson.reflect.TypeToken;
 import java.io.*;
 import java.lang.reflect.Type;
 
+/**
+ * Reads from a JSON file.
+ *
+ * @author MIZINCHIK
+ */
 public class JsonReader {
     private static final String levels = "src/main/resources/io/github/mizinchik/levels/levels.json";
+
+    /**
+     * Reads level settings from the file.
+     *
+     * @param levelId in a list in the file
+     * @return level config
+     * @throws IOException in case of problems with the file
+     */
     public static Settings readLevel(int levelId) throws IOException {
         File fileSettings = new File(levels);
         if (fileSettings.exists()) {

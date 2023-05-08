@@ -8,10 +8,18 @@ import javafx.scene.text.Text;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 
+/**
+ * Controller handling the basic help visualisation.
+ *
+ * @author MIZINCHIK
+ */
 public abstract class Controller {
     @FXML
     protected MenuBar menuBar;
 
+    /**
+     * Shows help window.
+     */
     @FXML
     private void showHelp() {
         final Stage dialog = new Stage();

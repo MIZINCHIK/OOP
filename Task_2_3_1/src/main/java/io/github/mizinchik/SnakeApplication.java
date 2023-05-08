@@ -12,10 +12,24 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 
+/**
+ * Runs my snake game.
+ *
+ * @author MIZINCHIK
+ */
 public class SnakeApplication extends Application {
     private static final String images = "io/github/mizinchik/img/";
     private Stage stage;
 
+    /**
+     * Starts the game.
+     *
+     * @param stage the primary stage for this application, onto which
+     *              the application scene can be set.
+     *              Applications may create other stages, if needed, but they will not be
+     *              primary stages.
+     * @throws IOException if file corrupted or smth idk
+     */
     @Override
     public void start(Stage stage) throws IOException {
         this.stage = stage;
@@ -29,7 +43,16 @@ public class SnakeApplication extends Application {
         stage.show();
     }
 
+    /**
+     * Handles all the uncaught exceptions (prints the message into a small window).
+     */
     private class ExceptionHandler implements Thread.UncaughtExceptionHandler {
+        /**
+         * Creates the window with the output message.
+         *
+         * @param t the thread
+         * @param e the exception
+         */
         @Override
         public void uncaughtException(Thread t, Throwable e) {
             final Stage dialog = new Stage();
@@ -43,6 +66,11 @@ public class SnakeApplication extends Application {
         }
     }
 
+    /**
+     * Launches the game from cmd.
+     *
+     * @param args of command line
+     */
     public static void main(String[] args) {
         launch(args);
     }
