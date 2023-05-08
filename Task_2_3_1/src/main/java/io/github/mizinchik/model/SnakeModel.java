@@ -111,7 +111,8 @@ public class SnakeModel {
         }
         competitors = new ArrayList<>();
         for (int i = 0; i < settings.competitors(); i++) {
-            competitors.add(new Snake((int) (Math.random() * columns), (int) (Math.random() * rows), 3));
+            competitors.add(new Snake((int) (Math.random() * columns),
+                    (int) (Math.random() * rows), 3));
         }
         userSnake = new Snake(5, rows / 2, 3);
         food = new Point(0, 0);
@@ -129,7 +130,7 @@ public class SnakeModel {
         updateSnakes();
         updateGameOver();
         eatFood(userSnake);
-        for(Snake competitor : competitors){
+        for (Snake competitor : competitors) {
             eatFood(competitor);
         }
     }
@@ -139,20 +140,20 @@ public class SnakeModel {
      */
     private void moveSnakes() {
         for (Snake competitor : competitors) {
-            if (food.getX() > competitor.getX()) {
+            if (food.getxCoordinate() > competitor.getX()) {
                 if (checkMoveDirection(competitor, Direction.RIGHT)) {
                     continue;
                 }
-            } else if (food.getX() < competitor.getX()) {
+            } else if (food.getxCoordinate() < competitor.getX()) {
                 if (checkMoveDirection(competitor, Direction.LEFT)) {
                     continue;
                 }
             }
-            if (food.getY() < competitor.getY()) {
+            if (food.getyCoordinate() < competitor.getY()) {
                 if (checkMoveDirection(competitor, Direction.UP)) {
                     continue;
                 }
-            } else if (food.getY() > competitor.getY()) {
+            } else if (food.getyCoordinate() > competitor.getY()) {
                 if (checkMoveDirection(competitor, Direction.DOWN)) {
                     continue;
                 }
@@ -167,10 +168,10 @@ public class SnakeModel {
      * @param snake to move
      */
     public void moveWhereFree(Snake snake) {
-        boolean done = checkMoveDirection(snake, Direction.RIGHT) ||
-                checkMoveDirection(snake, Direction.LEFT) ||
-                checkMoveDirection(snake, Direction.UP) ||
-                checkMoveDirection(snake, Direction.DOWN);
+        boolean done = checkMoveDirection(snake, Direction.RIGHT)
+                || checkMoveDirection(snake, Direction.LEFT)
+                || checkMoveDirection(snake, Direction.UP)
+                || checkMoveDirection(snake, Direction.DOWN);
         if (!done) {
             moveSnake(snake, Direction.RIGHT);
         }
@@ -198,8 +199,8 @@ public class SnakeModel {
      */
     private void generateFood() {
         do {
-            food.setX((int) (Math.random() * columns));
-            food.setY((int) (Math.random() * rows));
+            food.setxCoordinate((int) (Math.random() * columns));
+            food.setyCoordinate((int) (Math.random() * rows));
         } while (userSnake.collides(food));
     }
 
@@ -209,7 +210,7 @@ public class SnakeModel {
      * @param snake that consumes food
      */
     private void eatFood(Snake snake) {
-        if (snake.getX() == food.getX() && snake.getY() == food.getY()) {
+        if (snake.getX() == food.getxCoordinate() && snake.getY() == food.getyCoordinate()) {
             snake.enlarge();
             generateFood();
             snake.increaseScore();
@@ -221,7 +222,8 @@ public class SnakeModel {
      * Checks if the game is over for the player.
      */
     public void updateGameOver() {
-        if (outOfBounds(userSnake) || competitors.stream().anyMatch(competitor -> competitor.getScore() >= goal)) {
+        if (outOfBounds(userSnake) || competitors.stream().
+                anyMatch(competitor -> competitor.getScore() >= goal)) {
             gameOver = true;
         }
     }
@@ -230,7 +232,8 @@ public class SnakeModel {
      * Check what snakes have died.
      */
     public void updateSnakes() {
-        competitors.removeIf(competitor -> outOfBounds(competitor) || competitor.collides(userSnake));
+        competitors.removeIf(competitor -> outOfBounds(competitor)
+                || competitor.collides(userSnake));
     }
 
     /**
@@ -241,9 +244,10 @@ public class SnakeModel {
      */
     public boolean outOfBounds(Snake snake) {
         return snake.getX() < 0 || snake.getY() < 0 || snake.getX() >= rows
-                || snake.getY() >= columns || snake.collideItself() ||
-                competitors.stream().anyMatch(competitor -> snake.collides(competitor) && !snake.equals(competitor)) ||
-                walls.stream().anyMatch(snake::collides);
+                || snake.getY() >= columns || snake.collideItself()
+                || competitors.stream().
+                anyMatch(competitor -> snake.collides(competitor) && !snake.equals(competitor))
+                || walls.stream().anyMatch(snake::collides);
     }
 
     /**
@@ -256,10 +260,10 @@ public class SnakeModel {
         snake.move();
         Point head = snake.getHead();
         switch (direction) {
-            case RIGHT -> head.moveRight();
             case LEFT -> head.moveLeft();
             case UP -> head.moveUp();
             case DOWN -> head.moveDown();
+            default -> head.moveRight();
         }
     }
 

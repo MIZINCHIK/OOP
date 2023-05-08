@@ -3,7 +3,11 @@ package io.github.mizinchik.utils;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.reflect.TypeToken;
-import java.io.*;
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
 import java.lang.reflect.Type;
 
 /**
@@ -12,7 +16,8 @@ import java.lang.reflect.Type;
  * @author MIZINCHIK
  */
 public class JsonReader {
-    private static final String levels = "src/main/resources/io/github/mizinchik/levels/levels.json";
+    private static final String levels =
+            "src/main/resources/io/github/mizinchik/levels/levels.json";
 
     /**
      * Reads level settings from the file.

@@ -56,7 +56,7 @@ public class SnakeView {
      * @param font of the text
      */
     public static void drawString(GraphicsContext graphicsContext, String text,
-                                  double x, double y, Color color, Font font){
+                                  double x, double y, Color color, Font font) {
         graphicsContext.setFill(color);
         graphicsContext.setFont(font);
         graphicsContext.fillText(text, x, y);

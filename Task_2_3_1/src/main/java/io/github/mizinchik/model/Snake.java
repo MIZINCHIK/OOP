@@ -47,8 +47,8 @@ public class Snake {
      */
     public boolean collideItself() {
         for (Point snakePart : snakeBody) {
-            if (head.getX() == snakePart.getX()
-                    && head.getY() == snakePart.getY()) {
+            if (head.getxCoordinate() == snakePart.getxCoordinate()
+                    && head.getyCoordinate() == snakePart.getyCoordinate()) {
                 return true;
             }
         }
@@ -66,7 +66,7 @@ public class Snake {
      * Moves the body in the direction of the head.
      */
     public void move() {
-        snakeBody.add(0, new Point(head.getX(), head.getY(), foodEaten));
+        snakeBody.add(0, new Point(head.getxCoordinate(), head.getyCoordinate(), foodEaten));
         foodEaten = false;
         snakeBody.remove(snakeBody.size() - 1);
     }
@@ -113,7 +113,7 @@ public class Snake {
      * @return x virtual field coordinate
      */
     public int getX() {
-        return head.getX();
+        return head.getxCoordinate();
     }
 
     /**
@@ -122,7 +122,7 @@ public class Snake {
      * @return y virtual field coordinate
      */
     public int getY() {
-        return head.getY();
+        return head.getyCoordinate();
     }
 
     /**

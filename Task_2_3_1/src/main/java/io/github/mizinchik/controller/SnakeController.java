@@ -220,7 +220,7 @@ public class SnakeController extends Controller {
      * @param squareHeight of the square on the field
      */
     public void drawFood(Point food, double squareWidth, double squareHeight) {
-        drawImage(graphicsContext, food.getX() * squareWidth, food.getY() * squareHeight,
+        drawImage(graphicsContext, food.getxCoordinate() * squareWidth, food.getyCoordinate() * squareHeight,
                 squareWidth, squareHeight, foodImage);
     }
 
@@ -241,8 +241,8 @@ public class SnakeController extends Controller {
      * @param squareHeight of the square on the field
      */
     public void drawWalls(List<Point> walls, double squareWidth, double squareHeight) {
-        walls.forEach(wall -> drawRoundPoint(graphicsContext, wall.getX() * squareWidth,
-                wall.getY() * squareHeight, squareWidth, squareHeight, wallColor));
+        walls.forEach(wall -> drawRoundPoint(graphicsContext, wall.getxCoordinate() * squareWidth,
+                wall.getyCoordinate() * squareHeight, squareWidth, squareHeight, wallColor));
     }
 
     /**
@@ -256,8 +256,8 @@ public class SnakeController extends Controller {
     public void drawSnake(Snake snake, double squareWidth, double squareHeight, boolean user) {
         drawRoundPoint(graphicsContext, snake.getX() * squareWidth, snake.getY() * squareHeight,
                 squareWidth, squareHeight, user ? userHeadColor : botHeadColor);
-        snake.getSnakeBody().forEach(part -> drawRoundPoint(graphicsContext, part.getX() * squareWidth,
-                part.getY() * squareHeight, squareWidth, squareHeight,
+        snake.getSnakeBody().forEach(part -> drawRoundPoint(graphicsContext, part.getxCoordinate() * squareWidth,
+                part.getyCoordinate() * squareHeight, squareWidth, squareHeight,
                 part.full() ? fullBodyColor : user ? userBodyColor : botBodyColor));
     }
 
