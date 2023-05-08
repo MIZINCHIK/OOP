@@ -84,15 +84,68 @@ public class SnakeModel {
     private void moveSnakes() {
         for (Snake competitor : competitors) {
             if (food.getX() > competitor.getX()) {
-                moveSnake(competitor, Direction.RIGHT);
+                if (checkMoveRight(competitor)) {
+                    continue;
+                }
             } else if (food.getX() < competitor.getX()) {
-                moveSnake(competitor, Direction.LEFT);
-            } else if (food.getY() < competitor.getY()) {
-                moveSnake(competitor, Direction.UP);
-            } else {
-                moveSnake(competitor, Direction.DOWN);
+                if (checkMoveLeft(competitor)) {
+                    continue;
+                }
             }
+            if (food.getY() < competitor.getY()) {
+                if (checkMoveUp(competitor)) {
+                    continue;
+                }
+            } else if (food.getY() > competitor.getY()) {
+                if (checkMoveDown(competitor)) {
+                    continue;
+                }
+            }
+            moveWhereFree(competitor);
         }
+    }
+
+    public void moveWhereFree(Snake snake) {
+        boolean done = checkMoveRight(snake) || checkMoveLeft(snake) || checkMoveUp(snake) || checkMoveDown(snake);
+        if (!done) {
+            moveSnake(snake, Direction.RIGHT);
+        }
+    }
+
+    public boolean checkMoveRight(Snake snake) {
+        Snake newSnake = new Snake(snake.getX() + 1, snake.getY(), 1);
+        if (!outOfBounds(newSnake)) {
+            moveSnake(snake, Direction.RIGHT);
+            return true;
+        }
+        return false;
+    }
+
+    public boolean checkMoveLeft(Snake snake) {
+        Snake newSnake = new Snake(snake.getX() - 1, snake.getY(), 1);
+        if (!outOfBounds(newSnake)) {
+            moveSnake(snake, Direction.LEFT);
+            return true;
+        }
+        return false;
+    }
+
+    public boolean checkMoveDown(Snake snake) {
+        Snake newSnake = new Snake(snake.getX(), snake.getY() + 1, 1);
+        if (!outOfBounds(newSnake)) {
+            moveSnake(snake, Direction.DOWN);
+            return true;
+        }
+        return false;
+    }
+
+    public boolean checkMoveUp(Snake snake) {
+        Snake newSnake = new Snake(snake.getX(), snake.getY() - 1, 1);
+        if (!outOfBounds(newSnake)) {
+            moveSnake(snake, Direction.UP);
+            return true;
+        }
+        return false;
     }
 
     private void generateFood() {
@@ -118,7 +171,7 @@ public class SnakeModel {
     }
 
     public void updateSnakes() {
-        competitors.removeIf(this::outOfBounds);
+        competitors.removeIf(competitor -> outOfBounds(competitor) || competitor.collides(userSnake));
     }
 
     public boolean outOfBounds(Snake snake) {
