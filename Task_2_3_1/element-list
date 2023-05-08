@@ -1,3 +1,6 @@
 module:io.github.mizinchik
 io.github.mizinchik
+io.github.mizinchik.controller
+io.github.mizinchik.model
 io.github.mizinchik.utils
+io.github.mizinchik.view
