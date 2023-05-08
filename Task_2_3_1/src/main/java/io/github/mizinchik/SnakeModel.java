@@ -123,7 +123,7 @@ public class SnakeModel {
 
     public boolean outOfBounds(Snake snake) {
         return snake.getX() < 0 || snake.getY() < 0 || snake.getX() * squareWidth >= width
-                || snake.getY() * squareHeight >= height || /*snake.collideItself() ||*/
+                || snake.getY() * squareHeight >= height || snake.collideItself() ||
                 competitors.stream().anyMatch(competitor -> snake.collides(competitor) && !snake.equals(competitor)) ||
                 walls.stream().anyMatch(snake::collides);
     }
