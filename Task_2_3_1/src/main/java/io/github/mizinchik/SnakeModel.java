@@ -45,8 +45,8 @@ public class SnakeModel {
         this.squareWidth = squareWidth;
         this.squareHeight = squareHeight;
         lastDirection = correctDirection(direction);
-        moveSnakes();
         moveSnake(userSnake, lastDirection);
+        moveSnakes();
         updateSnakes();
         updateGameOver();
         eatFood(userSnake);
@@ -116,7 +116,7 @@ public class SnakeModel {
 
     public boolean checkMoveRight(Snake snake) {
         Snake newSnake = new Snake(snake.getX() + 1, snake.getY(), 1);
-        if (!outOfBounds(newSnake)) {
+        if (!outOfBounds(newSnake) && !newSnake.collides(userSnake)) {
             moveSnake(snake, Direction.RIGHT);
             return true;
         }
@@ -125,7 +125,7 @@ public class SnakeModel {
 
     public boolean checkMoveLeft(Snake snake) {
         Snake newSnake = new Snake(snake.getX() - 1, snake.getY(), 1);
-        if (!outOfBounds(newSnake)) {
+        if (!outOfBounds(newSnake) && !newSnake.collides(userSnake)) {
             moveSnake(snake, Direction.LEFT);
             return true;
         }
@@ -134,7 +134,7 @@ public class SnakeModel {
 
     public boolean checkMoveDown(Snake snake) {
         Snake newSnake = new Snake(snake.getX(), snake.getY() + 1, 1);
-        if (!outOfBounds(newSnake)) {
+        if (!outOfBounds(newSnake) && !newSnake.collides(userSnake)) {
             moveSnake(snake, Direction.DOWN);
             return true;
         }
@@ -143,7 +143,7 @@ public class SnakeModel {
 
     public boolean checkMoveUp(Snake snake) {
         Snake newSnake = new Snake(snake.getX(), snake.getY() - 1, 1);
-        if (!outOfBounds(newSnake)) {
+        if (!outOfBounds(newSnake) && !newSnake.collides(userSnake)) {
             moveSnake(snake, Direction.UP);
             return true;
         }

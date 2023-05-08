@@ -1,5 +1,6 @@
 package io.github.mizinchik;
 
+import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -35,5 +36,10 @@ public class StartController extends Controller {
     @FXML
     private void level3(ActionEvent event) {
         goGame(event, 3);
+    }
+
+    @FXML
+    public void closeGame(ActionEvent event) {
+        Platform.exit();
     }
 }

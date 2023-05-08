@@ -185,4 +185,14 @@ public class SnakeController extends Controller {
     public double getHeight() {
         return canvas.getHeight();
     }
+
+    @FXML
+    public void pauseGame() {
+
+    }
+
+    @FXML
+    public void stopGame() {
+
+    }
 }
