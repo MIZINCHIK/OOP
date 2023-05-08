@@ -1,14 +1,14 @@
 package io.github.mizinchik.controller;
 
-import static io.github.mizinchik.view.SnakeView.drawImage;
-import static io.github.mizinchik.view.SnakeView.drawPoint;
-import static io.github.mizinchik.view.SnakeView.drawString;
-import static io.github.mizinchik.view.SnakeView.drawRoundPoint;
 import static io.github.mizinchik.utils.Direction.DOWN;
 import static io.github.mizinchik.utils.Direction.LEFT;
 import static io.github.mizinchik.utils.Direction.RIGHT;
 import static io.github.mizinchik.utils.Direction.UP;
 import static io.github.mizinchik.utils.JsonReader.readLevel;
+import static io.github.mizinchik.view.SnakeView.drawImage;
+import static io.github.mizinchik.view.SnakeView.drawPoint;
+import static io.github.mizinchik.view.SnakeView.drawRoundPoint;
+import static io.github.mizinchik.view.SnakeView.drawString;
 
 import io.github.mizinchik.SnakeApplication;
 import io.github.mizinchik.model.Snake;
@@ -50,6 +50,10 @@ public class SnakeController extends Controller {
     @FXML
     Pane pane;
     private static final Map<KeyCode, Direction> directions = new HashMap<>();
+    private Direction currentDirection = RIGHT;
+
+    private GraphicsContext graphicsContext;
+    
     static {
         directions.put(KeyCode.RIGHT, RIGHT);
         directions.put(KeyCode.D, RIGHT);
@@ -59,11 +63,6 @@ public class SnakeController extends Controller {
         directions.put(KeyCode.W, UP);
         directions.put(KeyCode.DOWN, DOWN);
         directions.put(KeyCode.S, DOWN);
-    }
-    private Direction currentDirection = RIGHT;
-    private GraphicsContext graphicsContext;
-    public Direction getCurrentDirection() {
-        return currentDirection;
     }
     private static final String images = "io/github/mizinchik/img/";
     private static final Color oddColor = Color.web("A2D149");
@@ -86,6 +85,14 @@ public class SnakeController extends Controller {
     private Timeline timeline;
     private Boolean onPause = false;
 
+    /**
+     * Returns current direction of the user snake.
+     *
+     * @return current direction of the user snake
+     */
+    public Direction getCurrentDirection() {
+        return currentDirection;
+    }
 
     /**
      * Reports the last key pressed by the user.
