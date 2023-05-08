@@ -22,6 +22,34 @@ public class SnakeModel {
     double squareWidth;
     double squareHeight;
 
+    public int getSpeed() {
+        return speed;
+    }
+
+    public Point getFood() {
+        return food;
+    }
+
+    public Snake getUserSnake() {
+        return userSnake;
+    }
+
+    public List<Point> getWalls() {
+        return walls;
+    }
+
+    public List<Snake> getCompetitors() {
+        return competitors;
+    }
+
+    public int getRows() {
+        return rows;
+    }
+
+    public int getColumns() {
+        return columns;
+    }
+
     public SnakeModel(Settings settings) {
         rows = settings.rows();
         columns = settings.columns();
@@ -53,34 +81,6 @@ public class SnakeModel {
         for(Snake competitor : competitors){
             eatFood(competitor);
         }
-    }
-
-    public int getSpeed() {
-        return speed;
-    }
-
-    public Point getFood() {
-        return food;
-    }
-
-    public Snake getUserSnake() {
-        return userSnake;
-    }
-
-    public List<Point> getWalls() {
-        return walls;
-    }
-
-    public List<Snake> getCompetitors() {
-        return competitors;
-    }
-
-    public int getRows() {
-        return rows;
-    }
-
-    public int getColumns() {
-        return columns;
     }
 
     private void moveSnakes() {
