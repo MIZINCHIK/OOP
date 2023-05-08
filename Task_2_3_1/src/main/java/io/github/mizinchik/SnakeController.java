@@ -87,7 +87,7 @@ public class SnakeController extends Controller {
         }
     }
 
-    public void takeControl(Parent root, Stage stage, int levelId) {
+    public void takeControl(Parent root, Stage stage, int levelId) throws IOException {
         canvas.widthProperty().bind(pane.widthProperty());
         canvas.heightProperty().bind(pane.heightProperty());
         graphicsContext = canvas.getGraphicsContext2D();
@@ -103,7 +103,7 @@ public class SnakeController extends Controller {
         run();
     }
 
-    public Settings buildFromFile(int levelId) {
+    public Settings buildFromFile(int levelId) throws IOException {
         Settings settings;
         try {
             settings = readLevel(levelId);
@@ -204,19 +204,15 @@ public class SnakeController extends Controller {
     }
 
     @FXML
-    public void stopGame() {
-        try {
-            timeline.stop();
-            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("StartWindow.fxml"));
-            Parent root = fxmlLoader.load();
-            Stage stage = (Stage) menuBar.getScene().getWindow();
-            stage.getIcons().add(new Image(images + "icon.png"));
-            Scene scene = new Scene(root);
-            stage.setTitle("Don't Tread on Me");
-            stage.setScene(scene);
-            stage.show();
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
+    public void stopGame() throws IOException {
+        timeline.stop();
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("StartWindow.fxml"));
+        Parent root = fxmlLoader.load();
+        Stage stage = (Stage) menuBar.getScene().getWindow();
+        stage.getIcons().add(new Image(images + "icon.png"));
+        Scene scene = new Scene(root);
+        stage.setTitle("Don't Tread on Me");
+        stage.setScene(scene);
+        stage.show();
     }
 }

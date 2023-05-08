@@ -14,7 +14,7 @@ public abstract class Controller {
     protected MenuBar menuBar;
 
     @FXML
-    private void showHelp(ActionEvent event) {
+    private void showHelp() {
         final Stage dialog = new Stage();
         dialog.initModality(Modality.APPLICATION_MODAL);
         dialog.initOwner(menuBar.getScene().getWindow());
