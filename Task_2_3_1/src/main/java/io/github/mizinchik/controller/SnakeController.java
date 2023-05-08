@@ -7,6 +7,11 @@ import io.github.mizinchik.utils.Direction;
 import io.github.mizinchik.utils.Point;
 import io.github.mizinchik.utils.Settings;
 import io.github.mizinchik.view.ResizableCanvas;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 import javafx.animation.Animation;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
@@ -22,12 +27,8 @@ import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.stage.Stage;
-import java.io.FileNotFoundException;
 import javafx.util.Duration;
-import java.io.IOException;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+
 
 import static io.github.mizinchik.view.SnakeView.drawImage;
 import static io.github.mizinchik.view.SnakeView.drawPoint;

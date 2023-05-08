@@ -1,11 +1,11 @@
 package io.github.mizinchik.controller;
 
 import io.github.mizinchik.SnakeApplication;
+import java.io.IOException;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import java.io.IOException;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.stage.Stage;
