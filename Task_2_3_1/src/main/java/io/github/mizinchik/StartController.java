@@ -39,7 +39,7 @@ public class StartController extends Controller {
     }
 
     @FXML
-    public void closeGame(ActionEvent event) {
+    public void closeGame() {
         Platform.exit();
     }
 }
