@@ -13,12 +13,15 @@ public class SnakeModel {
     private final List<Snake> competitors;
     private final int speed;
     private final Snake userSnake;
-    private final SnakeController controller;
     private final Point food;
     private boolean gameOver = false;
     private Direction lastDirection = Direction.RIGHT;
+    double width;
+    double height;
+    double squareWidth;
+    double squareHeight;
 
-    public SnakeModel(SnakeController controller, Settings settings) {
+    public SnakeModel(Settings settings) {
         rows = settings.rows();
         columns = settings.columns();
         speed = settings.speed();
@@ -31,15 +34,18 @@ public class SnakeModel {
             competitors.add(new Snake((int) (Math.random() * columns), (int) (Math.random() * rows), 3));
         }
         userSnake = new Snake(5, rows / 2, 3);
-        this.controller = controller;
         food = new Point(0, 0);
     }
 
-    public void makeMove(Direction direction) {
+    public void makeMove(Direction direction, double width, double height, double squareWidth, double squareHeight) {
+        this.width = width;
+        this.height = height;
+        this.squareWidth = squareWidth;
+        this.squareHeight = squareHeight;
         lastDirection = correctDirection(direction);
         moveSnakes();
         moveSnake(userSnake, lastDirection);
-        userSnake.setFoodEaten(false);
+        updateSnakes();
         updateGameOver();
         eatFood(userSnake);
         for(Snake competitor : competitors){
@@ -106,17 +112,20 @@ public class SnakeModel {
     }
 
     public void updateGameOver() {
-        double squareWidth = controller.getSquareWidth(columns);
-        double squareHeight = controller.getSquareHeight(rows);
-        double width = controller.getWidth();
-        double height = controller.getHeight();
-        if (userSnake.getX() < 0 || userSnake.getY() < 0 || userSnake.getX() * squareWidth >= width
-                || userSnake.getY() * squareHeight >= height ||
-                userSnake.collideItself() ||
-                competitors.stream().anyMatch(userSnake::collides) ||
-        walls.stream().anyMatch(userSnake::collides)) {
+        if (outOfBounds(userSnake)) {
             gameOver = true;
         }
+    }
+
+    public void updateSnakes() {
+        competitors.removeIf(this::outOfBounds);
+    }
+
+    public boolean outOfBounds(Snake snake) {
+        return snake.getX() < 0 || snake.getY() < 0 || snake.getX() * squareWidth >= width
+                || snake.getY() * squareHeight >= height || /*snake.collideItself() ||*/
+                competitors.stream().anyMatch(competitor -> snake.collides(competitor) && !snake.equals(competitor)) ||
+                walls.stream().anyMatch(snake::collides);
     }
 
     public boolean isGameOver() {

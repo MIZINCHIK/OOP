@@ -89,7 +89,7 @@ public class SnakeController extends Controller {
         stage.setScene(scene);
         stage.show();
         Settings settings = buildFromFile(levelId);
-        game = new SnakeModel(this, settings);
+        game = new SnakeModel(settings);
         speed = game.getSpeed();
         rows = game.getRows();
         columns = game.getColumns();
@@ -117,7 +117,7 @@ public class SnakeController extends Controller {
         if (game.isGameOver()) {
             gameOver();
         } else {
-            game.makeMove(getCurrentDirection());
+            game.makeMove(getCurrentDirection(), getWidth(), getHeight(), getSquareWidth(), getSquareHeight());
         }
     }
 
@@ -128,8 +128,8 @@ public class SnakeController extends Controller {
     }
 
     public void prepareField(Point food, Snake userSnake, List<Point> walls, List<Snake> competitors, int rows, int columns) {
-        double squareWidth = getSquareWidth(columns);
-        double squareHeight = getSquareHeight(rows);
+        double squareWidth = getSquareWidth();
+        double squareHeight = getSquareHeight();
         drawPlayground(squareWidth, squareHeight, rows, columns);
         drawFood(food, squareWidth, squareHeight);
         drawScore(userSnake.getScore());
@@ -170,11 +170,11 @@ public class SnakeController extends Controller {
                 part.full() ? fullBodyColor : user ? userBodyColor : botBodyColor));
     }
 
-    public double getSquareWidth(int columns) {
+    public double getSquareWidth() {
         return canvas.getWidth() / columns;
     }
 
-    public double getSquareHeight(int rows) {
+    public double getSquareHeight() {
         return canvas.getHeight() / rows;
     }
 
