@@ -7,6 +7,7 @@ import javafx.animation.Animation;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.canvas.GraphicsContext;
@@ -20,6 +21,7 @@ import javafx.stage.Stage;
 import javafx.util.Duration;
 
 import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -73,6 +75,7 @@ public class SnakeController extends Controller {
     private int rows;
     private int columns;
     private SnakeModel game;
+    private Timeline timeline;
 
 
     @FXML
@@ -107,7 +110,7 @@ public class SnakeController extends Controller {
     }
 
     public void run() {
-        Timeline timeline = new Timeline(new KeyFrame(Duration.millis(speed), e -> cycle()));
+        timeline = new Timeline(new KeyFrame(Duration.millis(speed), e -> cycle()));
         timeline.setCycleCount(Animation.INDEFINITE);
         timeline.play();
     }
@@ -193,6 +196,18 @@ public class SnakeController extends Controller {
 
     @FXML
     public void stopGame() {
-
+        try {
+            timeline.stop();
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("StartWindow.fxml"));
+            Parent root = fxmlLoader.load();
+            Stage stage = (Stage) menuBar.getScene().getWindow();
+            stage.getIcons().add(new Image(images + "icon.png"));
+            Scene scene = new Scene(root);
+            stage.setTitle("Don't Tread on Me");
+            stage.setScene(scene);
+            stage.show();
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
     }
 }

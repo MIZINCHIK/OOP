@@ -11,7 +11,7 @@ import javafx.stage.Stage;
 
 public abstract class Controller {
     @FXML
-    private MenuBar menuBar;
+    protected MenuBar menuBar;
 
     @FXML
     private void showHelp(ActionEvent event) {

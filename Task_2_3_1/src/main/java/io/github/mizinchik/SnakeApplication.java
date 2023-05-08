@@ -15,7 +15,7 @@ public class SnakeApplication extends Application {
     @Override
     public void start(Stage stage) throws IOException {
         stage.getIcons().add(new Image(images + "icon.png"));
-        FXMLLoader fxmlLoader = new FXMLLoader(SnakeApplication.class.getResource("StartWindow.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("StartWindow.fxml"));
         Parent root = fxmlLoader.load();
         Scene scene = new Scene(root);
         stage.setTitle("Don't Tread on Me");

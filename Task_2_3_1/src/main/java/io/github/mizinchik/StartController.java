@@ -13,7 +13,7 @@ import java.io.IOException;
 public class StartController extends Controller {
     private void goGame(ActionEvent event, int levelId) {
         try {
-            FXMLLoader fxmlLoader = new FXMLLoader(SnakeApplication.class.getResource("SnakeView.fxml"));
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("SnakeView.fxml"));
             Parent root = fxmlLoader.load();
             Stage stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
             SnakeController snakeController = fxmlLoader.getController();
