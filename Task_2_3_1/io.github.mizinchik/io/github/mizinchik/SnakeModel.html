@@ -92,8 +92,7 @@ loadScripts(document, 'script');</script>
 <div class="summary-table two-column-summary">
 <div class="table-header col-first">Constructor</div>
 <div class="table-header col-last">Description</div>
-<div class="col-constructor-name even-row-color"><code><span class="member-name-link"><a href="#%3Cinit%3E(io.github.mizinchik.SnakeController,io.github.mizinchik.utils.Settings)">SnakeModel</a></span>&#8203;(<a href="SnakeController.html" title="class in io.github.mizinchik">SnakeController</a>&nbsp;controller,
- <a href="utils/Settings.html" title="class in io.github.mizinchik.utils">Settings</a>&nbsp;settings)</code></div>
+<div class="col-constructor-name even-row-color"><code><span class="member-name-link"><a href="#%3Cinit%3E(io.github.mizinchik.utils.Settings)">SnakeModel</a></span>&#8203;(<a href="utils/Settings.html" title="class in io.github.mizinchik.utils">Settings</a>&nbsp;settings)</code></div>
 <div class="col-last even-row-color">&nbsp;</div>
 </div>
 </section>
@@ -137,7 +136,11 @@ loadScripts(document, 'script');</script>
 <div class="col-second even-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table"><code><span class="member-name-link"><a href="#isGameOver()">isGameOver</a></span>()</code></div>
 <div class="col-last even-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table">&nbsp;</div>
 <div class="col-first odd-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table"><code>void</code></div>
-<div class="col-second odd-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table"><code><span class="member-name-link"><a href="#makeMove(io.github.mizinchik.utils.Direction)">makeMove</a></span>&#8203;(<a href="utils/Direction.html" title="enum class in io.github.mizinchik.utils">Direction</a>&nbsp;direction)</code></div>
+<div class="col-second odd-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table"><code><span class="member-name-link"><a href="#makeMove(io.github.mizinchik.utils.Direction,double,double,double,double)">makeMove</a></span>&#8203;(<a href="utils/Direction.html" title="enum class in io.github.mizinchik.utils">Direction</a>&nbsp;direction,
+ double&nbsp;width,
+ double&nbsp;height,
+ double&nbsp;squareWidth,
+ double&nbsp;squareHeight)</code></div>
 <div class="col-last odd-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table">&nbsp;</div>
 <div class="col-first even-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table"><code>void</code></div>
 <div class="col-second even-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table"><code><span class="member-name-link"><a href="#moveSnake(io.github.mizinchik.Snake,io.github.mizinchik.utils.Direction)">moveSnake</a></span>&#8203;(<a href="Snake.html" title="class in io.github.mizinchik">Snake</a>&nbsp;snake,
@@ -146,8 +149,14 @@ loadScripts(document, 'script');</script>
 <div class="col-first odd-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table"><code>boolean</code></div>
 <div class="col-second odd-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table"><code><span class="member-name-link"><a href="#oppositeDirection(io.github.mizinchik.utils.Direction)">oppositeDirection</a></span>&#8203;(<a href="utils/Direction.html" title="enum class in io.github.mizinchik.utils">Direction</a>&nbsp;direction)</code></div>
 <div class="col-last odd-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table"><code>boolean</code></div>
+<div class="col-second even-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table"><code><span class="member-name-link"><a href="#outOfBounds(io.github.mizinchik.Snake)">outOfBounds</a></span>&#8203;(<a href="Snake.html" title="class in io.github.mizinchik">Snake</a>&nbsp;snake)</code></div>
+<div class="col-last even-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table"><code>void</code></div>
+<div class="col-second odd-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table"><code><span class="member-name-link"><a href="#updateGameOver()">updateGameOver</a></span>()</code></div>
+<div class="col-last odd-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table">&nbsp;</div>
 <div class="col-first even-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table"><code>void</code></div>
-<div class="col-second even-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table"><code><span class="member-name-link"><a href="#updateGameOver()">updateGameOver</a></span>()</code></div>
+<div class="col-second even-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table"><code><span class="member-name-link"><a href="#updateSnakes()">updateSnakes</a></span>()</code></div>
 <div class="col-last even-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table">&nbsp;</div>
 </div>
 </div>
@@ -167,10 +176,9 @@ loadScripts(document, 'script');</script>
 <h2>Constructor Details</h2>
 <ul class="member-list">
 <li>
-<section class="detail" id="&lt;init&gt;(io.github.mizinchik.SnakeController,io.github.mizinchik.utils.Settings)">
+<section class="detail" id="&lt;init&gt;(io.github.mizinchik.utils.Settings)">
 <h3>SnakeModel</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="element-name">SnakeModel</span>&#8203;<span class="parameters">(<a href="SnakeController.html" title="class in io.github.mizinchik">SnakeController</a>&nbsp;controller,
- <a href="utils/Settings.html" title="class in io.github.mizinchik.utils">Settings</a>&nbsp;settings)</span></div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="element-name">SnakeModel</span>&#8203;<span class="parameters">(<a href="utils/Settings.html" title="class in io.github.mizinchik.utils">Settings</a>&nbsp;settings)</span></div>
 </section>
 </li>
 </ul>
@@ -182,9 +190,13 @@ loadScripts(document, 'script');</script>
 <h2>Method Details</h2>
 <ul class="member-list">
 <li>
-<section class="detail" id="makeMove(io.github.mizinchik.utils.Direction)">
+<section class="detail" id="makeMove(io.github.mizinchik.utils.Direction,double,double,double,double)">
 <h3>makeMove</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">makeMove</span>&#8203;<span class="parameters">(<a href="utils/Direction.html" title="enum class in io.github.mizinchik.utils">Direction</a>&nbsp;direction)</span></div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">makeMove</span>&#8203;<span class="parameters">(<a href="utils/Direction.html" title="enum class in io.github.mizinchik.utils">Direction</a>&nbsp;direction,
+ double&nbsp;width,
+ double&nbsp;height,
+ double&nbsp;squareWidth,
+ double&nbsp;squareHeight)</span></div>
 </section>
 </li>
 <li>
@@ -233,6 +245,18 @@ loadScripts(document, 'script');</script>
 <section class="detail" id="updateGameOver()">
 <h3>updateGameOver</h3>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">updateGameOver</span>()</div>
+</section>
+</li>
+<li>
+<section class="detail" id="updateSnakes()">
+<h3>updateSnakes</h3>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">updateSnakes</span>()</div>
+</section>
+</li>
+<li>
+<section class="detail" id="outOfBounds(io.github.mizinchik.Snake)">
+<h3>outOfBounds</h3>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name">outOfBounds</span>&#8203;<span class="parameters">(<a href="Snake.html" title="class in io.github.mizinchik">Snake</a>&nbsp;snake)</span></div>
 </section>
 </li>
 <li>
