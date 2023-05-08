@@ -22,11 +22,7 @@ public class Snake {
     public List<Point> getSnakeBody() {
         return snakeBody;
     }
-
-    public Point getNeck() {
-        return snakeBody.size() == 0 ? null : snakeBody.get(0);
-    }
-
+    
     public boolean collideItself() {
         for (Point snakePart : snakeBody) {
             if (head.getX() == snakePart.getX()
