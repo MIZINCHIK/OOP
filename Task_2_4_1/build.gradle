@@ -1,6 +1,21 @@
 plugins {
     id 'java'
     id 'jacoco'
+    id 'groovy'
+}
+
+sourceSets {
+    main {
+        java {
+            srcDir 'src/main/java'
+        }
+        groovy {
+            srcDir 'src/main/groovy'
+        }
+        resources {
+            srcDir 'src/main/rescources'
+        }
+    }
 }
 
 group 'io.github.mizinchik'
@@ -13,6 +28,7 @@ repositories {
 dependencies {
     testImplementation 'org.junit.jupiter:junit-jupiter-api:5.8.1'
     testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.8.1'
+    implementation 'org.codehaus.groovy:groovy-all:3.0.9'
 }
 
 test {
