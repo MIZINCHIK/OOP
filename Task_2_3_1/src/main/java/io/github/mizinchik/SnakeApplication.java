@@ -59,7 +59,7 @@ public class SnakeApplication extends Application {
             dialog.initModality(Modality.APPLICATION_MODAL);
             dialog.initOwner(stage);
             VBox dialogVbox = new VBox(20);
-            dialogVbox.getChildren().add(new Text(e.getMessage()));
+            dialogVbox.getChildren().add(new Text(e.getCause().getCause().getMessage()));
             Scene dialogScene = new Scene(dialogVbox, 300, 200);
             dialog.setScene(dialogScene);
             dialog.show();

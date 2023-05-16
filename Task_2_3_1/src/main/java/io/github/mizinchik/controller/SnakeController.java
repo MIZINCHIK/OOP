@@ -19,6 +19,7 @@ import io.github.mizinchik.utils.Settings;
 import io.github.mizinchik.view.ResizableCanvas;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.net.URL;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -77,7 +78,7 @@ public class SnakeController extends Controller {
     private static final Color botBodyColor = Color.FUCHSIA;
     private static final Color fullBodyColor = Color.DARKOLIVEGREEN;
     private static final Font font = Font.font("Comic Sans MS", 70);
-    private static final Image foodImage = new Image(images + "food.png");
+    private static Image foodImage;
     private static final String gameOverText = "Game Over";
     private int speed;
     private int rows;
@@ -118,6 +119,11 @@ public class SnakeController extends Controller {
      * @throws IOException if smth gone wrong with opening fxml or smth
      */
     public void takeControl(Parent root, Stage stage, int levelId) throws IOException {
+        URL foodImageUrl = SnakeApplication.class.getResource("img/food.png");
+        if (foodImageUrl == null) {
+            throw new IOException("Couldn't load the food image");
+        }
+        foodImage = new Image(String.valueOf(foodImageUrl));
         canvas.widthProperty().bind(pane.widthProperty());
         canvas.heightProperty().bind(pane.heightProperty());
         graphicsContext = canvas.getGraphicsContext2D();
