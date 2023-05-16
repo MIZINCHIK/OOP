@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="7ceed848-23d2-422d-a50a-62e75a27fdc2" name="Changes" comment="" />
+    <list default="true" id="7ceed848-23d2-422d-a50a-62e75a27fdc2" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/../Task_2_4_1/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Task_2_4_1/.idea/gradle.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Task_2_4_1/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/../Task_2_4_1/build.gradle" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -20,6 +23,7 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
+    "last_opened_file_path": "C:/Users/mizin/Documents/GitHub/OOP/Task_2_4_1",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
@@ -32,7 +36,11 @@
       <option name="presentableId" value="Default" />
       <updated>1683813245118</updated>
       <workItem from="1683813247007" duration="158000" />
+      <workItem from="1684222978276" duration="17000" />
     </task>
     <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
   </component>
 </project>
