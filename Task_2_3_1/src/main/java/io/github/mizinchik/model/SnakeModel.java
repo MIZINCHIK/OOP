@@ -114,7 +114,7 @@ public class SnakeModel {
             competitors.add(new Snake((int) (Math.random() * columns),
                     (int) (Math.random() * rows), 3));
         }
-        userSnake = new Snake(5, rows / 2, 3);
+        userSnake = new Snake((int) (Math.random() *columns), (int) (Math.random() * rows), 3);
         food = new Point(0, 0);
     }
 
@@ -243,8 +243,8 @@ public class SnakeModel {
      * @return true if snake is dead
      */
     public boolean outOfBounds(Snake snake) {
-        return snake.getX() < 0 || snake.getY() < 0 || snake.getX() >= rows
-                || snake.getY() >= columns || snake.collideItself()
+        return snake.getX() < 0 || snake.getY() < 0 || snake.getX() >= columns
+                || snake.getY() >= rows || snake.collideItself()
                 || competitors.stream()
                 .anyMatch(competitor -> snake.collides(competitor) && !snake.equals(competitor))
                 || walls.stream().anyMatch(snake::collides);
