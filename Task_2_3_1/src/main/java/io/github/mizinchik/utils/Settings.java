@@ -10,5 +10,5 @@ package io.github.mizinchik.utils;
  * @param time between two frames
  * @param walls on the field
  */
-public record Settings(int rows, int columns, int competitors, int goal, int time, int[][] walls) {
+public record Settings(int rows, int columns, int competitors, int goal, int time, int[][] walls, int food) {
 }

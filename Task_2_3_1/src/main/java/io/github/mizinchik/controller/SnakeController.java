@@ -151,7 +151,7 @@ public class SnakeController extends Controller {
         try {
             settings = readLevel(levelId);
         } catch (FileNotFoundException e) {
-            settings = new Settings(15, 15, 1, 10, 135, new int[0][0]);
+            settings = new Settings(15, 15, 1, 10, 135, new int[0][0], 1);
         }
         return settings;
     }
@@ -198,13 +198,15 @@ public class SnakeController extends Controller {
      * @param rows on the field
      * @param columns on the field
      */
-    public void prepareField(Point food, Snake userSnake,
+    public void prepareField(List<Point> food, Snake userSnake,
                              List<Point> walls, List<Snake> competitors,
                              int rows, int columns) {
         double squareWidth = getSquareWidth();
         double squareHeight = getSquareHeight();
         drawPlayground(squareWidth, squareHeight, rows, columns);
-        drawFood(food, squareWidth, squareHeight);
+        for (Point meal : food) {
+            drawFood(meal, squareWidth, squareHeight);
+        }
         drawScore(userSnake.getScore());
         drawWalls(walls, squareWidth, squareHeight);
         drawSnake(userSnake, squareWidth, squareHeight, true);

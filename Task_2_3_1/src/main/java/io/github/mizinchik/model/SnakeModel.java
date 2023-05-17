@@ -19,7 +19,7 @@ public class SnakeModel {
     private final List<Snake> competitors;
     private final int time;
     private final Snake userSnake;
-    private final Point food;
+    private final List<Point> food;
     private boolean gameOver = false;
     private Direction lastDirection = Direction.RIGHT;
 
@@ -37,7 +37,7 @@ public class SnakeModel {
      *
      * @return food (respective point)
      */
-    public Point getFood() {
+    public List<Point> getFood() {
         return food;
     }
 
@@ -106,16 +106,23 @@ public class SnakeModel {
         time = settings.time();
         walls = new ArrayList<>();
         goal = settings.goal();
+        int foodAmount = settings.food();
         for (int[] wall : settings.walls()) {
             walls.add(new Point(wall[0], wall[1]));
         }
         competitors = new ArrayList<>();
         for (int i = 0; i < settings.competitors(); i++) {
             competitors.add(new Snake((int) (Math.random() * columns),
-                    (int) (Math.random() * rows), 3));
+                    (int) (Math.random() * rows), 0));
         }
-        userSnake = new Snake((int) (Math.random() *columns), (int) (Math.random() * rows), 3);
-        food = new Point(0, 0);
+        userSnake = new Snake((int) (Math.random() *columns), (int) (Math.random() * rows), 0);
+        food = new ArrayList<>(foodAmount);
+        for (int i = 0; i < foodAmount; i++) {
+            food.add(new Point(0, 0));
+        }
+        for (Point meal : food) {
+            generateFood(meal);
+        }
     }
 
     /**
@@ -140,6 +147,7 @@ public class SnakeModel {
      */
     private void moveSnakes() {
         for (Snake competitor : competitors) {
+            Point food = this.food.get((int) (Math.random() * this.food.size()));
             if (food.getXcoord() > competitor.getX()) {
                 if (checkMoveDirection(competitor, Direction.RIGHT)) {
                     continue;
@@ -197,11 +205,9 @@ public class SnakeModel {
     /**
      * Puts food in a random spot.
      */
-    private void generateFood() {
-        do {
-            food.setXcoord((int) (Math.random() * columns));
-            food.setYcoord((int) (Math.random() * rows));
-        } while (userSnake.collides(food));
+    private void generateFood(Point food) {
+        food.setXcoord((int) (Math.random() * columns));
+        food.setYcoord((int) (Math.random() * rows));
     }
 
     /**
@@ -210,11 +216,13 @@ public class SnakeModel {
      * @param snake that consumes food
      */
     private void eatFood(Snake snake) {
-        if (snake.getX() == food.getXcoord() && snake.getY() == food.getYcoord()) {
-            snake.enlarge();
-            generateFood();
-            snake.increaseScore();
-            snake.setFoodEaten(true);
+        for (Point food : this.food) {
+            if (snake.getX() == food.getXcoord() && snake.getY() == food.getYcoord()) {
+                snake.enlarge();
+                generateFood(food);
+                snake.increaseScore();
+                snake.setFoodEaten(true);
+            }
         }
     }
 
