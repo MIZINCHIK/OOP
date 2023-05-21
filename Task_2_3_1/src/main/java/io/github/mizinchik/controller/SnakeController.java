@@ -71,6 +71,7 @@ public class SnakeController extends Controller {
     private static final Color evenColor = Color.web("AAD751");
     private static final Color wallColor = Color.web("#45a6fc");
     private static final Color gameOverColor = Color.PALEVIOLETRED;
+    private static final Color gameWonColor = Color.HOTPINK;
     private static final Color scoreColor = Color.LIGHTGOLDENRODYELLOW;
     private static final Color userHeadColor = Color.BLACK;
     private static final Color userBodyColor = Color.BLANCHEDALMOND;
@@ -80,6 +81,7 @@ public class SnakeController extends Controller {
     private static final Font font = Font.font("Comic Sans MS", 70);
     private static Image foodImage;
     private static final String gameOverText = "Game Over";
+    private static final String gameWonText = "Chicken Dinner";
     private int speed;
     private int rows;
     private int columns;
@@ -174,6 +176,8 @@ public class SnakeController extends Controller {
                 game.getWalls(), game.getCompetitors(), rows, columns);
         if (game.isGameOver()) {
             gameOver();
+        } else if (game.isGameWon()) {
+            gameWon();
         } else {
             game.makeMove(getCurrentDirection());
         }
@@ -186,6 +190,12 @@ public class SnakeController extends Controller {
         drawString(graphicsContext, gameOverText,
                 canvas.getWidth() / 3.5, canvas.getHeight() / 2,
                 gameOverColor, font);
+    }
+
+    public void gameWon() {
+        drawString(graphicsContext, gameWonText,
+                canvas.getWidth() / 3.5, canvas.getHeight() / 2,
+                gameWonColor, font);
     }
 
     /**

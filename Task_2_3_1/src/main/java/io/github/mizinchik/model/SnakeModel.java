@@ -23,6 +23,7 @@ public class SnakeModel {
     private final Snake userSnake;
     private final List<Point> food;
     private boolean gameOver = false;
+    private boolean gameWon = false;
     private Direction lastDirection = Direction.RIGHT;
     private final Map<Snake, Integer> competitorsFood;
 
@@ -98,6 +99,10 @@ public class SnakeModel {
         return gameOver;
     }
 
+    public boolean isGameWon() {
+        return gameWon;
+    }
+
     /**
      * Creates an instance of the model (the game itself).
      *
@@ -143,6 +148,7 @@ public class SnakeModel {
         moveSnakes();
         updateSnakes();
         updateGameOver();
+        updateGameWon();
         eatFood(userSnake);
         for (Snake competitor : competitors) {
             eatFood(competitor);
@@ -241,6 +247,10 @@ public class SnakeModel {
                 .anyMatch(competitor -> competitor.getScore() >= goal)) {
             gameOver = true;
         }
+    }
+
+    public void updateGameWon() {
+        gameWon = userSnake.getScore() >= goal;
     }
 
     /**
