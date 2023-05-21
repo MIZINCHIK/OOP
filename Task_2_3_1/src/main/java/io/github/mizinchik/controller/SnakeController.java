@@ -73,6 +73,7 @@ public class SnakeController extends Controller {
     private static final Color gameOverColor = Color.PALEVIOLETRED;
     private static final Color gameWonColor = Color.HOTPINK;
     private static final Color scoreColor = Color.LIGHTGOLDENRODYELLOW;
+    private static final Color goalColor = Color.SADDLEBROWN;
     private static final Color userHeadColor = Color.BLACK;
     private static final Color userBodyColor = Color.BLANCHEDALMOND;
     private static final Color botHeadColor = Color.CYAN;
@@ -176,7 +177,7 @@ public class SnakeController extends Controller {
                 game.getWalls(), game.getCompetitors(), rows, columns);
         if (game.isGameOver()) {
             gameOver();
-        } else if (game.isGameWon()) {
+        } else if (game.getUserSnake().getScore() >= game.getGoal()) {
             gameWon();
         } else {
             game.makeMove(getCurrentDirection());
@@ -218,6 +219,7 @@ public class SnakeController extends Controller {
             drawFood(meal, squareWidth, squareHeight);
         }
         drawScore(userSnake.getScore());
+        drawGoal(game.getGoal());
         drawWalls(walls, squareWidth, squareHeight);
         drawSnake(userSnake, squareWidth, squareHeight, true);
         competitors.forEach(snake -> drawSnake(snake, squareWidth, squareHeight, false));
@@ -260,6 +262,10 @@ public class SnakeController extends Controller {
      */
     public void drawScore(int score) {
         drawString(graphicsContext, "Score: " + score, 10, 35, scoreColor, font);
+    }
+
+    public void drawGoal(int goal) {
+        drawString(graphicsContext, "Goal: " + goal, 10, 75, goalColor, font);
     }
 
     /**

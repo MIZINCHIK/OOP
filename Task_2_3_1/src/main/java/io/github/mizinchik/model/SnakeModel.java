@@ -23,7 +23,6 @@ public class SnakeModel {
     private final Snake userSnake;
     private final List<Point> food;
     private boolean gameOver = false;
-    private boolean gameWon = false;
     private Direction lastDirection = Direction.RIGHT;
     private final Map<Snake, Integer> competitorsFood;
 
@@ -90,6 +89,10 @@ public class SnakeModel {
         return columns;
     }
 
+    public int getGoal() {
+        return goal;
+    }
+
     /**
      * Returns true if game is over.
      *
@@ -97,10 +100,6 @@ public class SnakeModel {
      */
     public boolean isGameOver() {
         return gameOver;
-    }
-
-    public boolean isGameWon() {
-        return gameWon;
     }
 
     /**
@@ -148,7 +147,6 @@ public class SnakeModel {
         moveSnakes();
         updateSnakes();
         updateGameOver();
-        updateGameWon();
         eatFood(userSnake);
         for (Snake competitor : competitors) {
             eatFood(competitor);
@@ -219,8 +217,10 @@ public class SnakeModel {
      * Puts food in a random spot.
      */
     private void generateFood(Point food) {
-        food.setXcoord((int) (Math.random() * columns));
-        food.setYcoord((int) (Math.random() * rows));
+        do {
+            food.setXcoord((int) (Math.random() * columns));
+            food.setYcoord((int) (Math.random() * rows));
+        } while (walls.stream().anyMatch(food::equals));
     }
 
     /**
@@ -244,13 +244,9 @@ public class SnakeModel {
      */
     public void updateGameOver() {
         if (outOfBounds(userSnake) || competitors.stream()
-                .anyMatch(competitor -> competitor.getScore() >= goal)) {
+                .anyMatch(competitor -> competitor.getScore() >= getGoal())) {
             gameOver = true;
         }
-    }
-
-    public void updateGameWon() {
-        gameWon = userSnake.getScore() >= goal;
     }
 
     /**
