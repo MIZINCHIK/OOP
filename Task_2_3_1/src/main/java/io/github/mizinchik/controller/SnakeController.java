@@ -193,6 +193,9 @@ public class SnakeController extends Controller {
                 gameOverColor, font);
     }
 
+    /**
+     * Draws game won.
+     */
     public void gameWon() {
         drawString(graphicsContext, gameWonText,
                 canvas.getWidth() / 3.5, canvas.getHeight() / 2,

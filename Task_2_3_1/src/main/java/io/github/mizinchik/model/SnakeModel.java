@@ -113,7 +113,6 @@ public class SnakeModel {
         time = settings.time();
         walls = new ArrayList<>();
         goal = settings.goal();
-        int foodAmount = settings.food();
         for (int[] wall : settings.walls()) {
             walls.add(new Point(wall[0], wall[1]));
         }
@@ -122,7 +121,8 @@ public class SnakeModel {
             competitors.add(new Snake((int) (Math.random() * columns),
                     (int) (Math.random() * rows), 0));
         }
-        userSnake = new Snake((int) (Math.random() *columns), (int) (Math.random() * rows), 0);
+        userSnake = new Snake((int) (Math.random() * columns), (int) (Math.random() * rows), 0);
+        int foodAmount = settings.food();
         food = new ArrayList<>(foodAmount);
         for (int i = 0; i < foodAmount; i++) {
             food.add(new Point(0, 0));
