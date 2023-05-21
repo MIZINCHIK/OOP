@@ -4,7 +4,9 @@ import io.github.mizinchik.utils.Direction;
 import io.github.mizinchik.utils.Point;
 import io.github.mizinchik.utils.Settings;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 /**
  * Model of the snake game. Responsible for making a single move.
@@ -22,6 +24,7 @@ public class SnakeModel {
     private final List<Point> food;
     private boolean gameOver = false;
     private Direction lastDirection = Direction.RIGHT;
+    private final Map<Snake, Integer> competitorsFood;
 
     /**
      * Returns time between frames.
@@ -120,6 +123,10 @@ public class SnakeModel {
         for (int i = 0; i < foodAmount; i++) {
             food.add(new Point(0, 0));
         }
+        competitorsFood = new HashMap<>();
+        for (Snake competitor : competitors) {
+            competitorsFood.put(competitor, (int) (Math.random() * foodAmount));
+        }
         for (Point meal : food) {
             generateFood(meal);
         }
@@ -147,7 +154,7 @@ public class SnakeModel {
      */
     private void moveSnakes() {
         for (Snake competitor : competitors) {
-            Point food = this.food.get((int) (Math.random() * this.food.size()));
+            Point food = this.food.get(competitorsFood.get(competitor));
             if (food.getXcoord() > competitor.getX()) {
                 if (checkMoveDirection(competitor, Direction.RIGHT)) {
                     continue;
