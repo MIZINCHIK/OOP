@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.VBox?>
+<?import io.github.mizinchik.view.ResizableCanvas?>
+
+<?import javafx.scene.layout.Pane?>
+<BorderPane xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="io.github.mizinchik.controller.SnakeController">
+   <top>
+      <VBox BorderPane.alignment="CENTER">
+         <children>
+            <MenuBar fx:id="menuBar" prefHeight="14.0" prefWidth="600.0">
+              <menus>
+                <Menu mnemonicParsing="false" text="Game">
+                  <items>
+                    <MenuItem mnemonicParsing="false" onAction="#stopGame" text="Stop" />
+                        <MenuItem mnemonicParsing="false" onAction="#pauseGame" text="Pause" />
+                  </items>
+                </Menu>
+                <Menu mnemonicParsing="false" text="Help">
+                  <items>
+                    <MenuItem mnemonicParsing="false" onAction="#showHelp" text="About" />
+                  </items>
+                </Menu>
+              </menus>
+            </MenuBar>
+         </children>
+      </VBox>
+   </top>
+   <center>
+      <Pane fx:id="pane" prefHeight="600" prefWidth="600">
+         <children>
+            <ResizableCanvas fx:id="canvas" focusTraversable="true" height="200.0" onKeyPressed="#controlKeys" width="200.0" />
+         </children>
+      </Pane>
+   </center>
+</BorderPane>
