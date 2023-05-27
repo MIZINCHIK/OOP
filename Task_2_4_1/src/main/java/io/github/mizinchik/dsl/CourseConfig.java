@@ -9,6 +9,8 @@ import java.util.List;
 @Data
 public class CourseConfig extends Config {
     Group group;
-    CourseSettings systemSettings;
-    List<Student> students;
+    List<TaskInfo> tasks;
+    List<TaskAssignment> assignments;
+    List<ClassHour> classes;
+    CourseSettings settings;
 }

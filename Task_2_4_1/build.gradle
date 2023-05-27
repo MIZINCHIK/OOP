@@ -4,20 +4,6 @@ plugins {
     id 'groovy'
 }
 
-sourceSets {
-    main {
-        java {
-            srcDir 'src/main/java'
-        }
-        groovy {
-            srcDir 'src/main/groovy'
-        }
-        resources {
-            srcDir 'src/main/rescources'
-        }
-    }
-}
-
 group 'io.github.mizinchik'
 version '1.0-SNAPSHOT'
 
