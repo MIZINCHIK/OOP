@@ -2,9 +2,9 @@ import java.time.LocalDate
 
 allStudents = [
         {
-            moniker = "CHEL"
-            name = "Chel C"
-            repo = new URL("https://github.com/")
+            moniker = "MIZINCHIK"
+            name = "Maxim C"
+            repo = "https://github.com/MIZINCHIK/OOP/"
         },
         {
             moniker = "CHEL2"
