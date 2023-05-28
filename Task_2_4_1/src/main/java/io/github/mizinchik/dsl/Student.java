@@ -10,5 +10,5 @@ import java.net.URL;
 public class Student extends Config {
     String moniker;
     String name;
-    URL repo;
+    String repo;
 }
