@@ -10,9 +10,11 @@ import java.lang.reflect.Constructor;
 import java.lang.reflect.ParameterizedType;
 import java.net.URI;
 import java.util.Collection;
+import java.util.List;
 
 public class Config extends GroovyObjectSupport {
     protected URI scriptPath;
+    protected List<String> essentials = List.of(new String[]{"allStudents", "tasks"});
 
     @SneakyThrows
     public void runFrom(URI uri) {
@@ -40,7 +42,6 @@ public class Config extends GroovyObjectSupport {
             closure.setResolveStrategy(Closure.DELEGATE_FIRST);
             closure.call();
             setProperty(name, value);
-            this.postProcess();
         } else {
             throw new IllegalArgumentException("No such field: " + name);
         }
@@ -48,8 +49,18 @@ public class Config extends GroovyObjectSupport {
 
     @SneakyThrows
     public void postProcess() {
+        postProcessSpecific(true);
+        postProcessSpecific(false);
+    }
+
+    @SneakyThrows
+    public void postProcessSpecific(boolean essential) {
         for (MetaProperty metaProperty : getMetaClass().getProperties()) {
-            Object value = getProperty(metaProperty.getName());
+            String propName = metaProperty.getName();
+            if (essential && !essentials.contains(propName)) {
+                continue;
+            }
+            Object value = getProperty(propName);
             if (Collection.class.isAssignableFrom(metaProperty.getType()) &&
                     value instanceof Collection) {
                 ParameterizedType collectionType = (ParameterizedType) getClass().

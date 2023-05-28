@@ -8,7 +8,8 @@ import java.util.List;
 @EqualsAndHashCode(callSuper = true)
 @Data
 public class CourseConfig extends Config {
-    Group group;
+    List<Student> allStudents;
+    List<Group> groups;
     List<TaskInfo> tasks;
     List<TaskAssignment> assignments;
     List<ClassHour> classes;

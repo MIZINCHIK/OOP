@@ -12,7 +12,6 @@ public class Test {
         URI configPath = Objects.requireNonNull(Test.class.getClassLoader().getResource("config.groovy")).toURI();
         config.runFrom(configPath);
         config.postProcess();
-//        config.getGroup().getStudents().forEach(System.out::println);
         System.out.println(config);
     }
 }
