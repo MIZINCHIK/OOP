@@ -1,14 +1,24 @@
 import java.time.LocalDate
 
-group {
-    name = "number"
-}
-
-students = [
+allStudents = [
         {
             moniker = "CHEL"
             name = "Chel C"
             repo = new URL("https://github.com/")
+        },
+        {
+            moniker = "CHEL2"
+            name = null
+            repo = null
+        }
+]
+
+groups = [
+        {
+            name = "number"
+            students = [
+                    allStudents[0]
+            ]
         }
 ]
 
@@ -27,13 +37,13 @@ tasks = [
 
 assignments = [
     {
-        assignee = students[0]
+        assignee = allStudents[0]
         info = tasks[0]
         softDeadline = LocalDate.of(2022, 9, 13)
         hardDeadline = LocalDate.of(2022, 9, 19)
     },
     {
-        assignee = null
+        assignee = allStudents[0]
         info = tasks[1]
         softDeadline = LocalDate.of(2022, 9, 26)
         hardDeadline = LocalDate.of(2022, 10, 10)
