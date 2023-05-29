@@ -2,7 +2,6 @@ package io.github.mizinchik;
 
 import java.io.File;
 import java.net.URI;
-import java.net.URISyntaxException;
 import java.util.Objects;
 import io.github.mizinchik.dsl.CourseConfig;
 import io.github.mizinchik.dsl.Group;
@@ -65,7 +64,7 @@ public class App {
                             testResDir + xmlFile, labDir +
                             student.getMoniker() + "/" +
                             assignment.getInfo().getId() + "/" + documentationDir);
-                    assignment.setDocs(analyze.isDocumentationExists());
+                    assignment.setDocs(analyze.getDocumentationExists());
                     assignment.setTestsPassed(analyze.getPassedTests());
                     assignment.setTestsTotal(analyze.getTotalTests());
                 }
