@@ -14,13 +14,21 @@ import io.github.mizinchik.util.Run;
 import io.github.mizinchik.util.TableChartBuilder;
 import lombok.SneakyThrows;
 
+/**
+ * Console app for running tests on labs specified in the config.
+ */
 public class App {
     private static final String testResDir = "/build/test-results/test/";
     private static final String documentationDir = "/build/docs/javadoc/";
     private static final String labDir = "src/main/resources/labs/";
 
+    /**
+     * Runs the main program.
+     *
+     * @param args from the console
+     */
     @SneakyThrows
-    public static void main(String[] args) throws URISyntaxException {
+    public static void main(String[] args) {
         CourseConfig config = new CourseConfig();
         URI configPath = Objects.requireNonNull(App.class.getClassLoader().getResource("config.groovy")).toURI();
         config.runFrom(configPath);
@@ -70,6 +78,13 @@ public class App {
         }
     }
 
+    /**
+     * Cleans the directory from all its files and
+     * subdirectories.
+     *
+     * @param dir to clean
+     * @return true if successful
+     */
     private static boolean purgeDirectory(File dir) {
         for (File file: Objects.requireNonNull(dir.listFiles())) {
             if (file.isDirectory()) {

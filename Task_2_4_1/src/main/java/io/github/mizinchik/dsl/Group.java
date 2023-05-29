@@ -5,6 +5,9 @@ import lombok.EqualsAndHashCode;
 
 import java.util.List;
 
+/**
+ * Represents a group in terms of NSU.
+ */
 @EqualsAndHashCode(callSuper = true)
 @Data
 public class Group extends Config {

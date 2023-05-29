@@ -5,6 +5,9 @@ import lombok.EqualsAndHashCode;
 
 import java.util.List;
 
+/**
+ * Config for the labs to test.
+ */
 @EqualsAndHashCode(callSuper = true)
 @Data
 public class CourseConfig extends Config {

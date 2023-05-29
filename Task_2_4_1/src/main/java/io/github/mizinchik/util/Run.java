@@ -1,14 +1,20 @@
 package io.github.mizinchik.util;
 
-import io.github.mizinchik.dsl.TaskAssignment;
+import java.io.File;
 import org.gradle.tooling.BuildException;
 import org.gradle.tooling.GradleConnector;
 import org.gradle.tooling.ProjectConnection;
-import org.gradle.tooling.UnsupportedVersionException;
 
-import java.io.File;
-
+/**
+ * Running tools.
+ */
 public class Run {
+    /**
+     * Runs tests and doc documentation for the project.
+     *
+     * @param labDir what to run
+     * @return true if successful
+     */
     public static boolean run(String labDir) {
         GradleConnector connector = GradleConnector.newConnector();
         connector.forProjectDirectory(new File(labDir));
