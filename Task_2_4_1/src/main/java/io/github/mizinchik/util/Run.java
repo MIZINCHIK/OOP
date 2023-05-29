@@ -1,4 +1,4 @@
-package io.github.mizinchik.git;
+package io.github.mizinchik.util;
 
 import org.gradle.tooling.GradleConnector;
 import org.gradle.tooling.ProjectConnection;
@@ -11,7 +11,7 @@ public class Run {
         connector.forProjectDirectory(new File(labDir));
         ProjectConnection connection = connector.connect();
         connection.newBuild()
-                .forTasks("test")
+                .forTasks("test", "javadoc")
                 .run();
         connection.close();
     }
