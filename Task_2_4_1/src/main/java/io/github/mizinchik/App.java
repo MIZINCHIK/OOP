@@ -29,7 +29,8 @@ public class App {
     @SneakyThrows
     public static void main(String[] args) {
         CourseConfig config = new CourseConfig();
-        URI configPath = Objects.requireNonNull(App.class.getClassLoader().getResource("config.groovy")).toURI();
+        URI configPath = Objects.requireNonNull(App.class.getClassLoader()
+                .getResource("config.groovy")).toURI();
         config.runFrom(configPath);
         config.postProcess();
         for (Group group : config.getGroups()) {
@@ -40,9 +41,9 @@ public class App {
                 for (TaskAssignment assignment : student.getAssignments()) {
                     tasks++;
                     if (downloaded) {
-                        if (!Run.run(labDir +
-                                student.getMoniker() +
-                                "/" + assignment.getInfo().getId())) {
+                        if (!Run.run(labDir
+                                + student.getMoniker()
+                                + "/" + assignment.getInfo().getId())) {
                             assignment.setBuild("Failed to build");
                             continue;
                         } else {
@@ -53,17 +54,17 @@ public class App {
                         continue;
                     }
                     Analyze analyze = new Analyze();
-                    File testResFolder = new File(labDir + student.getMoniker() +
-                            "/" + assignment.getInfo().getId() + "/" + testResDir);
+                    File testResFolder = new File(labDir + student.getMoniker()
+                            + "/" + assignment.getInfo().getId() + "/" + testResDir);
                     String xmlFile = Objects.requireNonNull(
                             testResFolder.listFiles((dir, name) ->
                                     name.toLowerCase().endsWith(".xml")))[0].getName();
-                    analyze.analyze(labDir +
-                            student.getMoniker() + "/" +
-                            assignment.getInfo().getId() +
-                            testResDir + xmlFile, labDir +
-                            student.getMoniker() + "/" +
-                            assignment.getInfo().getId() + "/" + documentationDir);
+                    analyze.analyze(labDir
+                            + student.getMoniker() + "/"
+                            + assignment.getInfo().getId()
+                            + testResDir + xmlFile, labDir
+                            + student.getMoniker() + "/"
+                            + assignment.getInfo().getId() + "/" + documentationDir);
                     assignment.setDocs(analyze.getDocumentationExists());
                     assignment.setTestsPassed(analyze.getPassedTests());
                     assignment.setTestsTotal(analyze.getTotalTests());
@@ -85,7 +86,7 @@ public class App {
      * @return true if successful
      */
     private static boolean purgeDirectory(File dir) {
-        for (File file: Objects.requireNonNull(dir.listFiles())) {
+        for (File file : Objects.requireNonNull(dir.listFiles())) {
             if (file.isDirectory()) {
                 purgeDirectory(file);
             }

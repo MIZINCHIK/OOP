@@ -3,14 +3,14 @@ package io.github.mizinchik.util;
 import freemarker.template.Configuration;
 import freemarker.template.Template;
 import io.github.mizinchik.dsl.Group;
-import lombok.Cleanup;
-import lombok.SneakyThrows;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.Writer;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import lombok.Cleanup;
+import lombok.SneakyThrows;
 
 /**
  * Table chart builder.

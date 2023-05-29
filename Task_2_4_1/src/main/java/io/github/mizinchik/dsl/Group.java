@@ -1,9 +1,8 @@
 package io.github.mizinchik.dsl;
 
+import java.util.List;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
-
-import java.util.List;
 
 /**
  * Represents a group in terms of NSU.
