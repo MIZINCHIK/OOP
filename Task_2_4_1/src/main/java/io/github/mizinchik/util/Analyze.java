@@ -18,7 +18,7 @@ import java.nio.file.Paths;
 public class Analyze {
     private int passedTests;
     private int totalTests;
-    private boolean documentationExists;
+    private String documentationExists;
 
     /**
      * Analyzes project documentation and test report.
@@ -37,6 +37,6 @@ public class Analyze {
         int failedTests = Integer.parseInt(junitTestSuite.getAttribute("failures"));
         passedTests = totalTests - failedTests;
         Path documentationPath = Paths.get(documentationDir);
-        documentationExists = Files.exists(documentationPath);
+        documentationExists = Files.exists(documentationPath) ? "Generated" : "Missing";
     }
 }

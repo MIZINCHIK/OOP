@@ -15,7 +15,7 @@ public class TaskAssignment extends Config {
     LocalDate softDeadline;
     LocalDate hardDeadline;
     String build;
-    boolean docs;
+    String docs;
     int testsTotal;
     int testsPassed;
 }

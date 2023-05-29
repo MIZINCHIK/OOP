@@ -9,6 +9,7 @@
         <th>Name</th>
         <th>Task</th>
         <th>Build</th>
+        <th>Documentation</th>
         <th>Tests total</th>
         <th>Tests passed</th>
     </tr>
@@ -26,20 +27,21 @@
                         </#if>
                         <td>${assignment.info.id}</td>
                         <td>${assignment.build}</td>
+                        <td>${assignment.docs}</td>
                         <td>${assignment.testsTotal}</td>
                         <td>${assignment.testsPassed}</td>
                         </tr>
                     </#list>
                 <#else>
                         <td>${student.name}</td>
-                        <td colspan="4">Student isn't assigned any tasks</td>
+                        <td colspan="5">Student isn't assigned any tasks</td>
                     </tr>
                 </#if>
             </#list>
         <#else>
             <tr>
                 <td>${group.name}</td>
-                <td colspan="5">The group is empty</td>
+                <td colspan="6">The group is empty</td>
             </tr>
         </#if>
     </#list>
