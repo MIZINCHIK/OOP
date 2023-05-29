@@ -1,4 +1,4 @@
-<html>
+<html lang="en">
 <head>
     <title>Students Table Chart</title>
 </head>

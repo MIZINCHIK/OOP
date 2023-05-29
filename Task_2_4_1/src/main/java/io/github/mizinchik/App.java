@@ -12,12 +12,14 @@ import io.github.mizinchik.util.Analyze;
 import io.github.mizinchik.util.Download;
 import io.github.mizinchik.util.Run;
 import io.github.mizinchik.util.TableChartBuilder;
+import lombok.SneakyThrows;
 
 public class App {
     private static final String testResDir = "/build/test-results/test/";
     private static final String documentationDir = "/build/docs/javadoc/";
     private static final String labDir = "src/main/resources/labs/";
 
+    @SneakyThrows
     public static void main(String[] args) throws URISyntaxException {
         CourseConfig config = new CourseConfig();
         URI configPath = Objects.requireNonNull(App.class.getClassLoader().getResource("config.groovy")).toURI();
@@ -30,7 +32,7 @@ public class App {
                         config.getSettings().getBranch());
                 for (TaskAssignment assignment : student.getAssignments()) {
                     tasks++;
-                    if (!downloaded) {
+                    if (downloaded) {
                         if (!Run.run(labDir +
                                 student.getMoniker() +
                                 "/" + assignment.getInfo().getId())) {
@@ -63,5 +65,20 @@ public class App {
             group.setTasks(tasks);
         }
         TableChartBuilder.generateHTMLTableChart(config.getGroups());
+        if (!purgeDirectory(new File(labDir))) {
+            System.out.println("Delete the repos yourself!");
+        }
+    }
+
+    private static boolean purgeDirectory(File dir) {
+        for (File file: Objects.requireNonNull(dir.listFiles())) {
+            if (file.isDirectory()) {
+                purgeDirectory(file);
+            }
+            if (!file.delete()) {
+                return false;
+            }
+        }
+        return true;
     }
 }
