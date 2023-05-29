@@ -90,6 +90,9 @@ loadScripts(document, 'script');</script>
 <hr>
 <div class="type-signature"><span class="modifiers">public class </span><span class="element-name type-name-label">Config</span>
 <span class="extends-implements">extends groovy.lang.GroovyObjectSupport</span></div>
+<div class="block">Extending this class makes your class be applicable
+ to the DSL for this lab.
+ Handles all the required parsing.</div>
 </section>
 <section class="summary">
 <ul class="summary-list">
@@ -138,20 +141,32 @@ loadScripts(document, 'script');</script>
 <div class="col-first even-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table"><code>void</code></div>
 <div class="col-second even-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table"><code><span class="member-name-link"><a href="#methodMissing(java.lang.String,java.lang.Object)">methodMissing</a></span>&#8203;(<a href="https://docs.oracle.com/en/java/javase/16/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;name,
  <a href="https://docs.oracle.com/en/java/javase/16/docs/api/java.base/java/lang/Object.html" title="class or interface in java.lang" class="external-link">Object</a>&nbsp;args)</code></div>
-<div class="col-last even-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table">&nbsp;</div>
+<div class="col-last even-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table">
+<div class="block">This method is called when groovy failed to
+ find an appropriate one to execute a closure
+ given for one of the object attributes in a script.</div>
+</div>
 <div class="col-first odd-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table"><code>void</code></div>
 <div class="col-second odd-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table"><code><span class="member-name-link"><a href="#postProcess()">postProcess</a></span>()</code></div>
-<div class="col-last odd-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table">&nbsp;</div>
+<div class="col-last odd-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table">
+<div class="block">Treats lists respectively.</div>
+</div>
 <div class="col-first even-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table"><code>void</code></div>
 <div class="col-second even-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table"><code><span class="member-name-link"><a href="#postProcessSpecific(java.lang.String)">postProcessSpecific</a></span>&#8203;(<a href="https://docs.oracle.com/en/java/javase/16/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;propName)</code></div>
-<div class="col-last even-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table">&nbsp;</div>
+<div class="col-last even-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table">
+<div class="block">Processes a specific metaproperty.</div>
+</div>
 <div class="col-first odd-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table"><code>void</code></div>
 <div class="col-second odd-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table"><code><span class="member-name-link"><a href="#postProcessSpecific(java.lang.String,groovy.lang.MetaProperty)">postProcessSpecific</a></span>&#8203;(<a href="https://docs.oracle.com/en/java/javase/16/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;propName,
  groovy.lang.MetaProperty&nbsp;metaProperty)</code></div>
-<div class="col-last odd-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table">&nbsp;</div>
+<div class="col-last odd-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table">
+<div class="block">Processes a specific metaproperty.</div>
+</div>
 <div class="col-first even-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table"><code>void</code></div>
 <div class="col-second even-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table"><code><span class="member-name-link"><a href="#runFrom(java.net.URI)">runFrom</a></span>&#8203;(<a href="https://docs.oracle.com/en/java/javase/16/docs/api/java.base/java/net/URI.html" title="class or interface in java.net" class="external-link">URI</a>&nbsp;uri)</code></div>
-<div class="col-last even-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table">&nbsp;</div>
+<div class="col-last even-row-color method-summary-table-tab2 method-summary-table-tab4 method-summary-table">
+<div class="block">Runs the groovy script.</div>
+</div>
 </div>
 </div>
 </div>
@@ -213,6 +228,11 @@ loadScripts(document, 'script');</script>
 <section class="detail" id="runFrom(java.net.URI)">
 <h3>runFrom</h3>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">runFrom</span>&#8203;<span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/16/docs/api/java.base/java/net/URI.html" title="class or interface in java.net" class="external-link">URI</a>&nbsp;uri)</span></div>
+<div class="block">Runs the groovy script.</div>
+<dl class="notes">
+<dt>Parameters:</dt>
+<dd><code>uri</code> - location of groovy script</dd>
+</dl>
 </section>
 </li>
 <li>
@@ -220,18 +240,35 @@ loadScripts(document, 'script');</script>
 <h3>methodMissing</h3>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">methodMissing</span>&#8203;<span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/16/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;name,
  <a href="https://docs.oracle.com/en/java/javase/16/docs/api/java.base/java/lang/Object.html" title="class or interface in java.lang" class="external-link">Object</a>&nbsp;args)</span></div>
+<div class="block">This method is called when groovy failed to
+ find an appropriate one to execute a closure
+ given for one of the object attributes in a script.
+ Processes closures in an appropriate way,
+ handles lists.</div>
+<dl class="notes">
+<dt>Parameters:</dt>
+<dd><code>name</code> - of the method</dd>
+<dd><code>args</code> - provided</dd>
+</dl>
 </section>
 </li>
 <li>
 <section class="detail" id="postProcess()">
 <h3>postProcess</h3>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">postProcess</span>()</div>
+<div class="block">Treats lists respectively.
+ Essentials go first in a natural order of the list.</div>
 </section>
 </li>
 <li>
 <section class="detail" id="postProcessSpecific(java.lang.String)">
 <h3>postProcessSpecific</h3>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">postProcessSpecific</span>&#8203;<span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/16/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;propName)</span></div>
+<div class="block">Processes a specific metaproperty.</div>
+<dl class="notes">
+<dt>Parameters:</dt>
+<dd><code>propName</code> - metaproperty name</dd>
+</dl>
 </section>
 </li>
 <li>
@@ -239,6 +276,12 @@ loadScripts(document, 'script');</script>
 <h3>postProcessSpecific</h3>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">postProcessSpecific</span>&#8203;<span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/16/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;propName,
  groovy.lang.MetaProperty&nbsp;metaProperty)</span></div>
+<div class="block">Processes a specific metaproperty.</div>
+<dl class="notes">
+<dt>Parameters:</dt>
+<dd><code>propName</code> - metaproperty name</dd>
+<dd><code>metaProperty</code> - metaproperty</dd>
+</dl>
 </section>
 </li>
 </ul>
