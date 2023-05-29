@@ -72,7 +72,7 @@ public class App {
             }
             group.setTasks(tasks);
         }
-        TableChartBuilder.generateHTMLTableChart(config.getGroups());
+        TableChartBuilder.generateHtmlTableChart(config.getGroups());
         if (!purgeDirectory(new File(labDir))) {
             System.out.println("Delete the repos yourself!");
         }
