@@ -14,7 +14,7 @@ import java.util.List;
 
 public class Config extends GroovyObjectSupport {
     protected URI scriptPath;
-    protected List<String> essentials = List.of(new String[]{"allStudents", "tasks"});
+    protected List<String> essentials = List.of(new String[]{"tasks", "allStudents"});
 
     @SneakyThrows
     public void runFrom(URI uri) {
@@ -47,44 +47,49 @@ public class Config extends GroovyObjectSupport {
         }
     }
 
-    @SneakyThrows
     public void postProcess() {
-        postProcessSpecific(true);
-        postProcessSpecific(false);
+        for (String propName : essentials) {
+            postProcessSpecific(propName);
+        }
+        for (MetaProperty metaProperty : getMetaClass().getProperties()) {
+            postProcessSpecific(metaProperty.getName(), metaProperty);
+        }
+    }
+
+    public void postProcessSpecific(String propName) {
+        MetaProperty metaProperty = getMetaClass().getMetaProperty(propName);
+        if (metaProperty == null) {
+            return;
+        }
+        postProcessSpecific(propName, metaProperty);
     }
 
     @SneakyThrows
-    public void postProcessSpecific(boolean essential) {
-        for (MetaProperty metaProperty : getMetaClass().getProperties()) {
-            String propName = metaProperty.getName();
-            if (essential && !essentials.contains(propName)) {
-                continue;
-            }
-            Object value = getProperty(propName);
-            if (Collection.class.isAssignableFrom(metaProperty.getType()) &&
-                    value instanceof Collection) {
-                ParameterizedType collectionType = (ParameterizedType) getClass().
-                        getDeclaredField(metaProperty.getName()).getGenericType();
-                Class<?> itemClass = (Class<?>)collectionType.getActualTypeArguments()[0];
-                if (Config.class.isAssignableFrom(itemClass)) {
-                    Collection<?> collection = (Collection<?>) value;
-                    @SuppressWarnings("unchecked") Collection<Object> newValue = collection.
-                            getClass().getDeclaredConstructor().newInstance();
-                    for (Object o : collection) {
-                        if (o instanceof Closure<?>) {
-                            Object item = itemClass.getDeclaredConstructor().newInstance();
-                            ((Config) item).setProperty("scriptPath", scriptPath);
-                            ((Closure<?>) o).setDelegate(item);
-                            ((Closure<?>) o).setResolveStrategy(Closure.DELEGATE_FIRST);
-                            ((Closure<?>) o).call();
-                            ((Config) item).postProcess();
-                            newValue.add(item);
-                        } else {
-                            newValue.add(o);
-                        }
+    public void postProcessSpecific(String propName, MetaProperty metaProperty) {
+        Object value = getProperty(propName);
+        if (Collection.class.isAssignableFrom(metaProperty.getType()) &&
+                value instanceof Collection) {
+            ParameterizedType collectionType = (ParameterizedType) getClass().
+                    getDeclaredField(metaProperty.getName()).getGenericType();
+            Class<?> itemClass = (Class<?>)collectionType.getActualTypeArguments()[0];
+            if (Config.class.isAssignableFrom(itemClass)) {
+                Collection<?> collection = (Collection<?>) value;
+                @SuppressWarnings("unchecked") Collection<Object> newValue = collection.
+                        getClass().getDeclaredConstructor().newInstance();
+                for (Object o : collection) {
+                    if (o instanceof Closure<?>) {
+                        Object item = itemClass.getDeclaredConstructor().newInstance();
+                        ((Config) item).setProperty("scriptPath", scriptPath);
+                        ((Closure<?>) o).setDelegate(item);
+                        ((Closure<?>) o).setResolveStrategy(Closure.DELEGATE_FIRST);
+                        ((Closure<?>) o).call();
+                        ((Config) item).postProcess();
+                        newValue.add(item);
+                    } else {
+                        newValue.add(o);
                     }
-                    setProperty(metaProperty.getName(), newValue);
                 }
+                setProperty(metaProperty.getName(), newValue);
             }
         }
     }
