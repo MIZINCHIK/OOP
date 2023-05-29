@@ -5,6 +5,9 @@ import lombok.EqualsAndHashCode;
 
 import java.time.LocalDate;
 
+/**
+ * Represents an assigned task to some student of the OOP course.
+ */
 @EqualsAndHashCode(callSuper = true)
 @Data
 public class TaskAssignment extends Config {

@@ -11,12 +11,21 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 
+/**
+ * Analyzes project documentation and test report.
+ */
 @Data
 public class Analyze {
     private int passedTests;
     private int totalTests;
     private boolean documentationExists;
 
+    /**
+     * Analyzes project documentation and test report.
+     *
+     * @param testResPath where the test results are located
+     * @param documentationDir where the documentation should be
+     */
     @SneakyThrows
     public void analyze(String testResPath, String documentationDir) {
         DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();

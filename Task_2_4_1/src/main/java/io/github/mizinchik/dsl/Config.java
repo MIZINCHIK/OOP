@@ -12,10 +12,20 @@ import java.net.URI;
 import java.util.Collection;
 import java.util.List;
 
+/**
+ * Extending this class makes your class be applicable
+ * to the DSL for this lab.
+ * Handles all the required parsing.
+ */
 public class Config extends GroovyObjectSupport {
     protected URI scriptPath;
     protected List<String> essentials = List.of(new String[]{"tasks", "allStudents"});
 
+    /**
+     * Runs the groovy script.
+     *
+     * @param uri location of groovy script
+     */
     @SneakyThrows
     public void runFrom(URI uri) {
         this.scriptPath = uri;
@@ -27,6 +37,16 @@ public class Config extends GroovyObjectSupport {
         script.run();
     }
 
+    /**
+     * This method is called when groovy failed to
+     * find an appropriate one to execute a closure
+     * given for one of the object attributes in a script.
+     * Processes closures in an appropriate way,
+     * handles lists.
+     *
+     * @param name of the method
+     * @param args provided
+     */
     @SneakyThrows
     @SuppressWarnings("unused")
     public void methodMissing(String name, Object args) {
@@ -47,6 +67,10 @@ public class Config extends GroovyObjectSupport {
         }
     }
 
+    /**
+     * Treats lists respectively.
+     * Essentials go first in a natural order of the list.
+     */
     public void postProcess() {
         for (String propName : essentials) {
             postProcessSpecific(propName);
@@ -56,6 +80,11 @@ public class Config extends GroovyObjectSupport {
         }
     }
 
+    /**
+     * Processes a specific metaproperty.
+     *
+     * @param propName metaproperty name
+     */
     public void postProcessSpecific(String propName) {
         MetaProperty metaProperty = getMetaClass().getMetaProperty(propName);
         if (metaProperty == null) {
@@ -64,6 +93,12 @@ public class Config extends GroovyObjectSupport {
         postProcessSpecific(propName, metaProperty);
     }
 
+    /**
+     * Processes a specific metaproperty.
+     *
+     * @param propName metaproperty name
+     * @param metaProperty metaproperty
+     */
     @SneakyThrows
     public void postProcessSpecific(String propName, MetaProperty metaProperty) {
         Object value = getProperty(propName);

@@ -5,6 +5,9 @@ import lombok.EqualsAndHashCode;
 
 import java.util.List;
 
+/**
+ * Represents an OOP course students.
+ */
 @EqualsAndHashCode(callSuper = true)
 @Data
 public class Student extends Config {

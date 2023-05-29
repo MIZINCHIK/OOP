@@ -115,5 +115,5 @@ classes = [
 
 settings {
     branch = "master"
-    disableLongTests = true
+    disableLongTests = false
 }
