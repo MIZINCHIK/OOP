@@ -3,11 +3,12 @@ package io.github.mizinchik.util;
 import java.io.IOException;
 
 public class Download {
-    public static boolean download(String repo, String folder) {
+    public static boolean download(String repo, String folder, String branch) {
         String labs = "src/main/resources/labs/";
 
         try {
-            ProcessBuilder processBuilder = new ProcessBuilder("git", "clone", repo, labs + folder);
+            ProcessBuilder processBuilder = new ProcessBuilder("git",
+                    "clone", "-b", branch, repo, labs + folder);
             Process process = processBuilder.start();
             int exitCode = process.waitFor();
             return exitCode == 0;

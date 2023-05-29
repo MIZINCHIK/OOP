@@ -9,6 +9,6 @@ import java.util.List;
 @Data
 public class Group extends Config {
     String name;
-
     List<Student> students;
+    Integer tasks;
 }

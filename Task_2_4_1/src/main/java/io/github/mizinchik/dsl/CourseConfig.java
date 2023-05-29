@@ -11,7 +11,6 @@ public class CourseConfig extends Config {
     List<Student> allStudents;
     List<Group> groups;
     List<TaskInfo> tasks;
-    List<TaskAssignment> assignments;
     List<ClassHour> classes;
     CourseSettings settings;
 }

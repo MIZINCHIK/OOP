@@ -8,8 +8,11 @@ import java.time.LocalDate;
 @EqualsAndHashCode(callSuper = true)
 @Data
 public class TaskAssignment extends Config {
-    Student assignee;
     TaskInfo info;
     LocalDate softDeadline;
     LocalDate hardDeadline;
+    String build;
+    boolean docs;
+    int testsTotal;
+    int testsPassed;
 }
