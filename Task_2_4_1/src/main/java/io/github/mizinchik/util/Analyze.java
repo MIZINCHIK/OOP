@@ -1,15 +1,15 @@
 package io.github.mizinchik.util;
 
-import lombok.Data;
-import lombok.SneakyThrows;
-import org.w3c.dom.Document;
-import org.w3c.dom.Element;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import java.io.File;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import lombok.Data;
+import lombok.SneakyThrows;
+import org.w3c.dom.Document;
+import org.w3c.dom.Element;
 
 /**
  * Analyzes project documentation and test report.
