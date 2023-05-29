@@ -1,8 +1,5 @@
 package io.github.mizinchik;
 
-import java.io.File;
-import java.net.URI;
-import java.util.Objects;
 import io.github.mizinchik.dsl.CourseConfig;
 import io.github.mizinchik.dsl.Group;
 import io.github.mizinchik.dsl.Student;
@@ -11,6 +8,9 @@ import io.github.mizinchik.util.Analyze;
 import io.github.mizinchik.util.Download;
 import io.github.mizinchik.util.Run;
 import io.github.mizinchik.util.TableChartBuilder;
+import java.io.File;
+import java.net.URI;
+import java.util.Objects;
 import lombok.SneakyThrows;
 
 /**

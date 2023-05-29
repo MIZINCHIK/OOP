@@ -1,16 +1,19 @@
 package io.github.mizinchik.dsl;
 
-import groovy.lang.*;
+import groovy.lang.Binding;
+import groovy.lang.Closure;
+import groovy.lang.GroovyObjectSupport;
+import groovy.lang.GroovyShell;
+import groovy.lang.MetaProperty;
 import groovy.util.DelegatingScript;
-import lombok.SneakyThrows;
-import org.apache.groovy.groovysh.Main;
-import org.codehaus.groovy.control.CompilerConfiguration;
-
 import java.lang.reflect.Constructor;
 import java.lang.reflect.ParameterizedType;
 import java.net.URI;
 import java.util.Collection;
 import java.util.List;
+import lombok.SneakyThrows;
+import org.apache.groovy.groovysh.Main;
+import org.codehaus.groovy.control.CompilerConfiguration;
 
 /**
  * Extending this class makes your class be applicable
@@ -32,7 +35,7 @@ public class Config extends GroovyObjectSupport {
         CompilerConfiguration cc = new CompilerConfiguration();
         cc.setScriptBaseClass(DelegatingScript.class.getName());
         GroovyShell sh = new GroovyShell(Main.class.getClassLoader(), new Binding(), cc);
-        DelegatingScript script = (DelegatingScript)sh.parse(uri);
+        DelegatingScript script = (DelegatingScript) sh.parse(uri);
         script.setDelegate(this);
         script.run();
     }
@@ -55,8 +58,8 @@ public class Config extends GroovyObjectSupport {
             Closure<?> closure = (Closure<?>) ((Object[]) args)[0];
             Class<?> type = metaProperty.getType();
             Constructor<?> constructor = type.getConstructor();
-            Object value = getProperty(name) == null ?
-                    constructor.newInstance() :
+            Object value = getProperty(name) == null
+                    ? constructor.newInstance() :
                     getProperty(name);
             closure.setDelegate(value);
             closure.setResolveStrategy(Closure.DELEGATE_FIRST);
@@ -102,15 +105,15 @@ public class Config extends GroovyObjectSupport {
     @SneakyThrows
     public void postProcessSpecific(String propName, MetaProperty metaProperty) {
         Object value = getProperty(propName);
-        if (Collection.class.isAssignableFrom(metaProperty.getType()) &&
-                value instanceof Collection) {
-            ParameterizedType collectionType = (ParameterizedType) getClass().
-                    getDeclaredField(metaProperty.getName()).getGenericType();
-            Class<?> itemClass = (Class<?>)collectionType.getActualTypeArguments()[0];
+        if (Collection.class.isAssignableFrom(metaProperty.getType())
+                && value instanceof Collection) {
+            ParameterizedType collectionType = (ParameterizedType) getClass()
+                    .getDeclaredField(metaProperty.getName()).getGenericType();
+            Class<?> itemClass = (Class<?>) collectionType.getActualTypeArguments()[0];
             if (Config.class.isAssignableFrom(itemClass)) {
                 Collection<?> collection = (Collection<?>) value;
-                @SuppressWarnings("unchecked") Collection<Object> newValue = collection.
-                        getClass().getDeclaredConstructor().newInstance();
+                @SuppressWarnings("unchecked") Collection<Object> newValue = collection
+                        .getClass().getDeclaredConstructor().newInstance();
                 for (Object o : collection) {
                     if (o instanceof Closure<?>) {
                         Object item = itemClass.getDeclaredConstructor().newInstance();

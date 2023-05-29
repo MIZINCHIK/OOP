@@ -1,9 +1,8 @@
 package io.github.mizinchik.dsl;
 
+import java.time.LocalDate;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
-
-import java.time.LocalDate;
 
 /**
  * Contains a date of a class that took place
