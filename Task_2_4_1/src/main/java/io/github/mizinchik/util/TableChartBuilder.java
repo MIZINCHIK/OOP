@@ -27,8 +27,9 @@ public class TableChartBuilder {
      * @param groups to include
      */
     @SneakyThrows
-    public static void generateHTMLTableChart(List<Group> groups) {
-        Configuration configuration = new Configuration(Configuration.DEFAULT_INCOMPATIBLE_IMPROVEMENTS);
+    public static void generateHtmlTableChart(List<Group> groups) {
+        Configuration configuration =
+                new Configuration(Configuration.DEFAULT_INCOMPATIBLE_IMPROVEMENTS);
         configuration.setClassForTemplateLoading(TableChartBuilder.class, "/");
         configuration.setDefaultEncoding("UTF-8");
         File out = new File(resultDir, "output.html");
