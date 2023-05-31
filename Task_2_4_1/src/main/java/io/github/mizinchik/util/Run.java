@@ -24,8 +24,6 @@ public class Run {
                     .run();
             return true;
         } catch (BuildException e) {
-            return true;
-        } catch (Exception e) {
             return false;
         }
     }

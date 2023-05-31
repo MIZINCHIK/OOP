@@ -13,8 +13,8 @@ public class TaskAssignment extends Config {
     TaskInfo info;
     LocalDate softDeadline;
     LocalDate hardDeadline;
-    String build;
-    String docs;
+    String build = "";
+    String docs = "";
     int testsTotal;
     int testsPassed;
 }
